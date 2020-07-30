@@ -1,0 +1,40 @@
+{
+  "name": "@zestlabs-io/zest-js-sdk",
+  "version": "0.1.0",
+  "description": "Zest Cloud API SDK",
+  "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zestlabs-io/zest-js-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zestlabs-io/zest-js-sdk/issues"
+  },
+  "homepage": "https://github.com/zestlabs-io/zest-js-sdk#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.7",
+    "jest": "^26.2.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.4",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/crypto-js": "^3.1.47",
+    "crypto-js": "^4.0.0",
+    "got": "^11.5.1"
+  }
+}

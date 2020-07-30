@@ -1,0 +1,32 @@
+import { API } from '../API';
+import CryptoJS from 'crypto-js';
+import got from 'got';
+
+import getSignHeaders, { DefaultValidity } from '../../src/sign/getSignHeaders';
+
+export interface UserCreateResponse {
+  userID: string
+}
+
+export class AuthAPI extends API {
+
+  createUser = async (firstName: string, lastName: string, email: string): Promise<UserCreateResponse> => {
+    const user = {
+      email: email,
+      firstName: firstName,
+      lastName: lastName
+    }
+    const payload = JSON.stringify({ user: user });
+
+    const url = `${this._baseURL}/api/auth/v1/user`;
+    const resp = await got.post(url, this.getOpts(url, payload));
+
+    return JSON.parse(resp.body) as UserCreateResponse;
+  }
+
+  deleteUser = async (userID: string): Promise<any> => {
+    const url = `${this._baseURL}/api/auth/v1/user/${userID}`;
+    const resp = await got.delete(url, this.getOpts(url));
+    return resp;
+  }
+}
