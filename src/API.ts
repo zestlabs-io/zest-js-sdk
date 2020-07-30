@@ -14,7 +14,7 @@ export class API {
   }
 
   protected getOpts = (url: string, payload?: string) => {
-    const fullUrl = `${this._baseURL}${url}`;
+    const fullUrl = `${url}`;
     const md5Checksum = CryptoJS.MD5(payload || '').toString();
     const validity = Math.round(((new Date()).getTime() + DefaultValidity) / 1000);
     const contentType = 'application/json';

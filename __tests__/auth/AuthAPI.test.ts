@@ -8,6 +8,7 @@ test('Create and Delete user', async () => {
 
   const api = new AuthAPI(baseUrl, cloudKey, cloudSecret);
   const userCreateResponse = await api.createUser('Test', 'User', 'contact@zestlabs.io');
+  console.log('user created', userCreateResponse.userID);
   const resDel = await api.deleteUser(userCreateResponse.userID);
   expect(resDel.statusCode).toBe(200);
 });
