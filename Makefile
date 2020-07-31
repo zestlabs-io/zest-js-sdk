@@ -15,3 +15,7 @@ tag:
 .PHONY: new-patch
 new-patch:
 	npm version patch
+
+.PHONY: release
+release: new-patch build publish
+	echo "Released version $(cat package.json | jq -r .version)"
