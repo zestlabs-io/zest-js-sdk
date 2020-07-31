@@ -15,7 +15,7 @@ const initAPIs = () => {
 
 
 test('Create and Delete user', async () => {
-  const userCreateResponse = await authAPI.createUser('Test', 'User', 'contact@zestlabs.io');
+  const userCreateResponse = await authAPI.createUser('Test', 'User', 'test@zestlabs.io');
   console.log('user created', userCreateResponse.userID);
   const accessKeyCreateReq = await authAPI.createAccessKey(userCreateResponse.userID);
   console.log('created access key', accessKeyCreateReq.accessKeyID, accessKeyCreateReq.accessSecret);
