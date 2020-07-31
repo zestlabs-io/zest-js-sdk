@@ -1,8 +1,5 @@
 import { API } from '../API';
-import CryptoJS from 'crypto-js';
 import got from 'got';
-
-import getSignHeaders, { DefaultValidity } from '../../src/sign/getSignHeaders';
 
 export class DistrAPI extends API {
 
