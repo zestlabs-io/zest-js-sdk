@@ -18,7 +18,7 @@ export class AuthAPI extends API {
       firstName: firstName,
       lastName: lastName
     }
-    const payload = JSON.stringify({ user: user });
+    const payload = JSON.stringify( user );
 
     const url = `${this._baseURL}/api/auth/v1/user`;
     const resp = await got.post(url, this.getOpts(url, payload));
