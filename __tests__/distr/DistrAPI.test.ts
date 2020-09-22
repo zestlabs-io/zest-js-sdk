@@ -19,7 +19,7 @@ test('Create and Pool user', async () => {
 
   const poolCreateResp = await distrAPI.createPool(poolId, 'GLOBAL', '$.pk', '$.locality', '', '');
   expect(poolCreateResp.statusCode).toBe(200);
-  console.log('pool created', poolId);
+  // console.log('pool created', poolId);
   const resDel = await distrAPI.deletePool(poolId);
   expect(resDel.statusCode).toBe(200);
 });

@@ -15,7 +15,7 @@ export ZEST_KEY=HereComesYourKey ZEST_SECRET=HereCoresYourSecret
 ### Creating user
 
 ```ts
-import { AuthAPI } from '../../src/auth/AuthAPI';
+import { AuthAPI } from '@zestlabs-io/zest-js-sdk';
 // Fetch the key and secret from env
 const cloudKey = process.env.ZEST_KEY || '';
 const cloudSecret = process.env.ZEST_SECRET || '';
@@ -31,8 +31,7 @@ const userCreateResponse = await api.createUser('Test', 'User', 'contact@zestlab
 ### Creating data pool and putting some customer data
 
 ```ts
-import { DistrAPI } from '../../src/distr/DistrAPI';
-import { DataAPI } from '../../src/data/DataAPI';
+import { DistrAPI, DataAPI } from '@zestlabs-io/zest-js-sdk';
 
 // Fetch the key and secret from env
 const cloudKey = process.env.ZEST_KEY || '';

@@ -20,7 +20,7 @@ export class API {
     const contentType = 'application/json';
 
     const zestHeaders = getSignHeaders(fullUrl, contentType, md5Checksum, validity, this._key, this._secret);
-    if (payload !== undefined)
+    if (payload !== undefined && payload != '')
       return { body: payload, headers: zestHeaders };
     else
       return { headers: zestHeaders };
