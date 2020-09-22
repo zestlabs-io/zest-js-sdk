@@ -36,4 +36,10 @@ export class DataAPI extends API {
     const resp = await got.get(url, this.getOpts(url, payload));
     return resp;
   }
+
+  list = async (poolId: string, limit: number = 10, skip: number = 0): Promise<any> => {
+    const url = `${this._baseURL}/api/data/_r/${poolId}?limit=${limit}&skip=${skip}`;
+    const resp = await got.get(url, this.getOpts(url, ''));
+    return resp;
+  }
 }

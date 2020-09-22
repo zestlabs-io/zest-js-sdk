@@ -45,5 +45,8 @@ test('Create/Update few records', async () => {
     { pk: 'customer3', locality: 'loc1' }]);
   expect(updateResp.statusCode).toBe(200);
 
-
+  const listResp = await dataAPI.list(poolId);
+  expect(updateResp.statusCode).toBe(200);
+  const list = JSON.parse(listResp.body);
+  expect(list.rows.length).toBe(3);
 });
