@@ -25,7 +25,7 @@ export class DataAPI extends API {
     const payload = JSON.stringify(ids);
 
     const url = `${this._baseURL}/api/data/_r/${poolId}`;
-    const resp = await got.put(url, this.getOpts(url, payload));
+    const resp = await got.delete(url, this.getOpts(url, payload));
     return resp;
   }
 

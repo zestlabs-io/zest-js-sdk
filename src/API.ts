@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-import getSignHeaders, { DefaultValidity } from '../src/sign/getSignHeaders';
+import getSignHeaders, { DefaultValidity } from './sign/getSignHeaders';
 
 export class API {
 
