@@ -18,6 +18,10 @@ test('Create and Delete user', async () => {
   const userCreateResponse = await authAPI.createUser('Test', 'User', 'test@zestlabs.io');
   // console.log('user created', userCreateResponse.userID);
   const accessKeyCreateReq = await authAPI.createAccessKey(userCreateResponse.userID);
+
+  const user = await authAPI.getUserByEmail('test@zestlabs.io')
+  expect(user.userID).toBe(userCreateResponse.userID)
+
   // console.log('created access key', accessKeyCreateReq.accessKeyID, accessKeyCreateReq.accessSecret);
   const resDel = await authAPI.deleteUser(userCreateResponse.userID);
   expect(resDel.statusCode).toBe(200);

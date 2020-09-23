@@ -10,6 +10,10 @@ export interface CreateAceessKeyResponse {
   accessSecret: string
 }
 
+export interface User {
+  userID: string
+}
+
 export class AuthAPI extends API {
 
   createUser = async (firstName: string, lastName: string, email: string): Promise<UserCreateResponse> => {
@@ -42,5 +46,11 @@ export class AuthAPI extends API {
     const resp = await got.post(url, this.getOpts(url, payload));
 
     return JSON.parse(resp.body) as CreateAceessKeyResponse;
+  }
+
+  getUserByEmail = async (email: string): Promise<User> => {
+    const url = `${this._baseURL}/api/auth/v1/user-id-by-email/${email}`;
+    const resp = await got.get(url, this.getOpts(url, ''));
+    return JSON.parse(resp.body) as User;
   }
 }
