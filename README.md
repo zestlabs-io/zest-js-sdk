@@ -15,7 +15,7 @@ export ZEST_KEY=HereComesYourKey ZEST_SECRET=HereCoresYourSecret
 ### Creating user
 
 ```ts
-import { AuthAPI } from '@zestlabs-io/zest-js-sdk';
+import { AuthServiceApiHMAC } from '@zestlabs-io/zest-js-sdk';
 // Fetch the key and secret from env
 const cloudKey = process.env.ZEST_KEY || '';
 const cloudSecret = process.env.ZEST_SECRET || '';
@@ -23,9 +23,9 @@ const cloudSecret = process.env.ZEST_SECRET || '';
 const baseUrl = 'https://dev.zestlabs.cloud';
 
 // Create the API you need with baseURL, key and secret
-const api = new AuthAPI(baseUrl, cloudKey, cloudSecret);
+const api = new AuthServiceApiHMAC(baseUrl, cloudKey, cloudSecret);
 // Call the API
-const userCreateResponse = await api.createUser('Test', 'User', 'contact@zestlabs.io');
+const userCreateResponse = await api.createUser({ firstName: 'Test', lastName: 'User', email: 'test@zestlabs.io' });
 ```
 
 ### Creating data pool and putting some customer data
