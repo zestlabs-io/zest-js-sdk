@@ -1,6 +1,6 @@
 {
   "name": "@zestlabs-io/zest-js-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Zest Cloud API SDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
