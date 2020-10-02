@@ -1,0 +1,367 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Mobile Data",
+    "version": "1.0",
+    "contact": {
+      "name": "Mobile data service",
+      "url": "https://gitlab.com/zestlabs-io/data-distribution/-/tree/master/data",
+      "email": "contact@zestlabs.io"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/data/_r/{poolId}": {
+      "get": {
+        "summary": "List mobile data records",
+        "operationId": "PoolDataService_List",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "description": "The max number of records to fetch."
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "description": "The records to skip from the beggining"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataListResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided or correct",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "delete": {
+        "summary": "Bulk delete records from mobile data pool",
+        "operationId": "PoolDataService_BulkDelete",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dataBulkDeleteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataBulkDeleteResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "put": {
+        "summary": "Bulk update records in mobile data pool",
+        "operationId": "PoolDataService_BulkUpdate",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dataBulkUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataBulkUpdateResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "post": {
+        "summary": "Bulk create mobile data records in a pool",
+        "operationId": "PoolDataService_BulkCreate",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dataBulkCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataBulkCreateResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      }
+    },
+    "/api/data/_r/{poolId}/{id}": {
+      "get": {
+        "summary": "Get single mobile data record",
+        "operationId": "PoolDataService_Get",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID (Primary Key) of the record"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataGetResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "404": {
+            "description": "Returned when the document does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      }
+    }
+  },
+  "parameters": {},
+  "definitions": {
+    "dataGetResponse": {
+      "$ref": "#/definitions/dataDocument"
+    },
+    "dataBulkDeleteRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataDocument"
+      }
+    },
+    "dataBulkDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "Successful deletion",
+          "items": {
+            "$ref": "#/definitions/dataPersistResponse"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "description": "List of errors if any occur",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataBulkCreateRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataDocument"
+      }
+    },
+    "dataBulkCreateResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "Successful creation",
+          "items": {
+            "$ref": "#/definitions/dataPersistResponse"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "description": "List of errors if any occur",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataBulkUpdateRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataDocument"
+      }
+    },
+    "dataBulkUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "Successful creation",
+          "items": {
+            "$ref": "#/definitions/dataPersistResponse"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "description": "List of errors if any occur",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataPersistResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "rev": {
+          "type": "string"
+        }
+      }
+    },
+    "dataListResponse": {
+      "type": "object",
+      "properties": {
+        "total_rows": {
+          "type": "number",
+          "description": "The number of rows in the database"
+        },
+        "offset": {
+          "type": "number",
+          "description": "Current offset"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dataDocument"
+          }
+        }
+      }
+    },
+    "dataDocument": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_rev": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "description": "Optional field for USER and FILTERED pools.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "...": {
+          "type": "string",
+          "description": "Any other fields that are part of the structure"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Zest API",
+    "version": "1.0",
+    "contact": {
+      "name": "Zest",
+      "url": "https://zestlabs.io",
+      "email": "contact@zestlabs.io"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/auth/v1/accesskey": {
+      "post": {
+        "summary": "User Access Keys API",
+        "operationId": "AuthService_CreateAccessKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateAccessKeyResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateAccessKeyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/accesskey/{accessKeyID}": {
+      "delete": {
+        "operationId": "AuthService_DeleteAccessKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteAccessKeyResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accessKeyID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/account": {
+      "get": {
+        "operationId": "AuthService_GetOwnAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "post": {
+        "summary": "Account API",
+        "operationId": "AuthService_CreateAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/account/{account.accountID}": {
+      "put": {
+        "operationId": "AuthService_UpdateAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account.accountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/account/{accountID}": {
+      "get": {
+        "operationId": "AuthService_GetAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "delete": {
+        "operationId": "AuthService_DeleteAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/check-hmac": {
+      "post": {
+        "summary": "Auth API",
+        "operationId": "AuthService_CheckHMACAuth",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckHMACAuthResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckHMACAuthRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/default-policies": {
+      "get": {
+        "operationId": "AuthService_GetDefaultPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetDefaultPoliciesResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/password-policy": {
+      "get": {
+        "operationId": "AuthService_GetPasswordPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetPasswordPolicyResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/policies": {
+      "get": {
+        "operationId": "AuthService_GetPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetPoliciesResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/policy": {
+      "post": {
+        "operationId": "AuthService_CreatePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreatePolicyResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreatePolicyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "put": {
+        "operationId": "AuthService_UpdatePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdatePolicyResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdatePolicyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/policy/{policyID}": {
+      "get": {
+        "summary": "RBAC API",
+        "operationId": "AuthService_GetPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetPolicyResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "policyID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "delete": {
+        "operationId": "AuthService_DeletePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeletePolicyResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "policyID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/reset-password": {
+      "post": {
+        "operationId": "AuthService_ResetPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ResetPasswordResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ResetPasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role": {
+      "post": {
+        "operationId": "AuthService_CreateRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "put": {
+        "operationId": "AuthService_UpdateRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/users/add": {
+      "post": {
+        "operationId": "AuthService_AddUsersToRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddUsersToRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddUsersToRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/users/remove": {
+      "post": {
+        "operationId": "AuthService_RemoveUsersFromRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RemoveUsersFromRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RemoveUsersFromRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/users/{roleID}": {
+      "get": {
+        "operationId": "AuthService_GetUsersForRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUsersForRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "roleID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/{roleID}": {
+      "get": {
+        "operationId": "AuthService_GetRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "roleID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "delete": {
+        "operationId": "AuthService_DeleteRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "roleID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/roles": {
+      "get": {
+        "operationId": "AuthService_GetRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetRolesResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/set-password": {
+      "post": {
+        "summary": "Password API",
+        "operationId": "AuthService_SetPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SetPasswordResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SetPasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user": {
+      "post": {
+        "operationId": "AuthService_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user-id-by-email/{email}": {
+      "get": {
+        "operationId": "AuthService_GetUserIDByEmail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserIDByEmailResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user/accesskeys/{userID}": {
+      "get": {
+        "operationId": "AuthService_GetUserAccessKeys",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserAccessKeysResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user/{user.userID}": {
+      "put": {
+        "operationId": "AuthService_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user.userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user/{userID}": {
+      "get": {
+        "operationId": "AuthService_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "delete": {
+        "operationId": "AuthService_DeleteUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/userinfo": {
+      "get": {
+        "summary": "User API",
+        "operationId": "AuthService_GetUserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserInfoResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/users": {
+      "get": {
+        "operationId": "AuthService_GetUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUsersResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/func/v1/call-sync/{id}": {
+      "post": {
+        "summary": "Call a function synchroniously",
+        "operationId": "FunctionsService_CallSyncFunction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsCallFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      }
+    },
+    "/api/func/v1/call-test/{id}": {
+      "post": {
+        "summary": "Test a function call",
+        "operationId": "FunctionsService_CallTestFunction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsCallFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      }
+    },
+    "/api/func/v1/function": {
+      "post": {
+        "summary": "Create function",
+        "operationId": "FunctionsService_CreateFunction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsCreateFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/functionsCreateFunctionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      },
+      "put": {
+        "summary": "Update function",
+        "operationId": "FunctionsService_UpdateFunction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsUpdateFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/functionsFunction"
+            }
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      }
+    },
+    "/api/func/v1/function/{function.id}": {
+      "patch": {
+        "summary": "Update function",
+        "operationId": "FunctionsService_UpdateFunction2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsUpdateFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "function.id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/functionsFunction"
+            }
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      }
+    },
+    "/api/func/v1/function/{id}": {
+      "get": {
+        "summary": "Get function",
+        "operationId": "FunctionsService_GetFunction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsGetFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      },
+      "delete": {
+        "summary": "Delete function",
+        "operationId": "FunctionsService_DeleteFunction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsDeleteFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      }
+    },
+    "/api/func/v1/functions": {
+      "get": {
+        "summary": "Fetch all functions",
+        "operationId": "FunctionsService_GetFunctions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsGetFunctionsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "FunctionsService"
+        ]
+      }
+    },
+    "/api/func/v1/post-call/{reason}/{call.id}": {
+      "post": {
+        "summary": "Post function for execution in async way",
+        "operationId": "FunctionsService_CallAsyncFunction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/functionsCallAsyncFunctionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "reason",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "call.id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "FunctionsService"
+        ]
+      }
+    },
+    "/api/distribution/v1/activate-pool": {
+      "post": {
+        "summary": "ActivatePool data pool task",
+        "operationId": "DistrConfigService_ActivatePool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigActivatePoolResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigActivatePoolRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/app": {
+      "post": {
+        "summary": "Create mobile application",
+        "operationId": "DistrConfigService_CreateApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigCreateAppResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigMobileApp"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/app/{id}": {
+      "delete": {
+        "summary": "Delete mobile application",
+        "operationId": "DistrConfigService_DeleteApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigDeleteAppResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/apps": {
+      "get": {
+        "summary": "Get all mobile applications",
+        "operationId": "DistrConfigService_GetApps",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigGetAppsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/assign-app-pools": {
+      "post": {
+        "summary": "Assign data pools to mobile application",
+        "operationId": "DistrConfigService_AssignAppPools",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignAppPoolsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignAppPoolsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/assign-app-users": {
+      "post": {
+        "summary": "Assign mobile application to users",
+        "operationId": "DistrConfigService_AssignAppUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignAppUsersResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignAppUsersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/assign-tag-to-user": {
+      "post": {
+        "summary": "Assign filtering tag to user",
+        "operationId": "DistrConfigService_AssignTagToUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignTagToUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignTagToUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/get-pool-distribution/{id}": {
+      "get": {
+        "summary": "ActivatePool data pool task",
+        "operationId": "DistrConfigService_GetPoolDistribution",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigGetPoolDistributionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/pool": {
+      "post": {
+        "summary": "CreatePool new data pool task",
+        "operationId": "DistrConfigService_CreatePool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigCreatePoolResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigDataPool"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      },
+      "put": {
+        "summary": "UpdatePool data pool task",
+        "operationId": "DistrConfigService_UpdatePool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUpdatePoolResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigDataPool"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/pool/{dataPool.id}": {
+      "patch": {
+        "summary": "UpdatePool data pool task",
+        "operationId": "DistrConfigService_UpdatePool2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUpdatePoolResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "dataPool.id",
+            "description": "Primary key together with accountId - should be unique by client - used also as name of the pool",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigDataPool"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/pool/{id}": {
+      "get": {
+        "summary": "Get data pool task",
+        "operationId": "DistrConfigService_GetPool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigGetPoolResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      },
+      "delete": {
+        "summary": "DeletePool data pool task",
+        "operationId": "DistrConfigService_DeletePool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigDeletePoolResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/pools": {
+      "get": {
+        "summary": "Get all data pool tasks",
+        "operationId": "DistrConfigService_GetPools",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigGetPoolsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "DistrConfigService"
+        ]
+      },
+      "post": {
+        "summary": "CreatePool new data pool task",
+        "operationId": "DistrConfigService_CreatePools",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigCreatePoolsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigCreatePoolsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/set-app-bundle": {
+      "post": {
+        "summary": "Set the mobile application bundle",
+        "operationId": "DistrConfigService_SetAppBundle",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigSetAppBundleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigSetAppBundleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/unassign-app-pools": {
+      "post": {
+        "summary": "Unassign data pool from mobile application",
+        "operationId": "DistrConfigService_UnassignAppPools",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignAppPoolsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignAppPoolsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/unassign-app-users": {
+      "post": {
+        "summary": "Unassign mobile application from users",
+        "operationId": "DistrConfigService_UnassignAppUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignAppUsersResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignAppUsersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/unassign-tag-from-user": {
+      "post": {
+        "summary": "Unassign filtering tag from user",
+        "operationId": "DistrConfigService_UnassignTagFromUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignTagFromUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignTagFromUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/user": {
+      "post": {
+        "summary": "Registers user in distribution database",
+        "operationId": "DistrConfigService_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigCreateUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigCreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/user/{id}": {
+      "delete": {
+        "summary": "Deletes user from distribution db",
+        "operationId": "DistrConfigService_DeleteUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigDeleteUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/users": {
+      "get": {
+        "summary": "Fetch all users in account distribution db",
+        "operationId": "DistrConfigService_GetUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigGetUsersResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/validate-pool-data": {
+      "post": {
+        "summary": "Validate pool data against pool specification",
+        "operationId": "DistrConfigService_ValidatePoolData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigValidatePoolDataResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigValidatePoolDataRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/data/_r/{poolId}": {
+      "get": {
+        "summary": "List mobile data records",
+        "operationId": "PoolDataService_List",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "description": "The max number of records to fetch."
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "description": "The records to skip from the beggining"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataListResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided or correct",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "delete": {
+        "summary": "Bulk delete records from mobile data pool",
+        "operationId": "PoolDataService_BulkDelete",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dataBulkDeleteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataBulkDeleteResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "put": {
+        "summary": "Bulk update records in mobile data pool",
+        "operationId": "PoolDataService_BulkUpdate",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dataBulkUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataBulkUpdateResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "post": {
+        "summary": "Bulk create mobile data records in a pool",
+        "operationId": "PoolDataService_BulkCreate",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dataBulkCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataBulkCreateResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      }
+    },
+    "/api/data/_r/{poolId}/{id}": {
+      "get": {
+        "summary": "Get single mobile data record",
+        "operationId": "PoolDataService_Get",
+        "parameters": [
+          {
+            "name": "poolId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Pool ID (e.g. orders)"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID (Primary Key) of the record"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataGetResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "404": {
+            "description": "Returned when the document does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AccountAccountStatus": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "ACTIVE",
+        "DISABLED",
+        "DELETED"
+      ],
+      "default": "PENDING"
+    },
+    "PaymentDetailsPaymentType": {
+      "type": "string",
+      "enum": [
+        "CreditCard",
+        "Paypal",
+        "DirectDebig",
+        "Invoice"
+      ],
+      "default": "CreditCard"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string",
+          "description": "A URL/resource name whose content describes the type of the\nserialized protocol buffer message.\n\nFor URLs which use the scheme `http`, `https`, or no scheme, the\nfollowing restrictions and interpretations apply:\n\n* If no scheme is provided, `https` is assumed.\n* The last segment of the URL's path must represent the fully\n  qualified name of the type (as in `path/google.protobuf.Duration`).\n  The name should be in a canonical form (e.g., leading \".\" is\n  not accepted).\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        },
+        "value": {
+          "type": "string",
+          "format": "byte",
+          "description": "Must be a valid serialized protocol buffer of the above specified type."
+        }
+      },
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := ptypes.MarshalAny(foo)\n     ...\n     foo := &pb.Foo{}\n     if err := ptypes.UnmarshalAny(any, foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1AccessKey": {
+      "type": "object",
+      "properties": {
+        "accessKeyID": {
+          "type": "string"
+        },
+        "lastUsedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1Account": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/AccountAccountStatus"
+        },
+        "paymentDetails": {
+          "$ref": "#/definitions/v1PaymentDetails"
+        },
+        "contactDetails": {
+          "$ref": "#/definitions/v1ContactDetails"
+        }
+      }
+    },
+    "v1Action": {
+      "type": "object",
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "call": {
+          "type": "string"
+        }
+      }
+    },
+    "v1AddUsersToRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "userIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1AddUsersToRoleResponse": {
+      "type": "object",
+      "properties": {
+        "failedUserIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1CheckHMACAuthRequest": {
+      "type": "object",
+      "properties": {
+        "httpMethod": {
+          "type": "string"
+        },
+        "requestPath": {
+          "type": "string"
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "authKey": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "md5Body": {
+          "type": "string"
+        },
+        "validity": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CheckHMACAuthResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "format": "byte"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ContactDetails": {
+      "type": "object",
+      "properties": {
+        "main": {
+          "type": "string"
+        },
+        "finance": {
+          "type": "string"
+        },
+        "technical": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateAccessKeyRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateAccessKeyResponse": {
+      "type": "object",
+      "properties": {
+        "accessKeyID": {
+          "type": "string"
+        },
+        "accessSecret": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateAccountRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateAccountResponse": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CreatePolicyRequest": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/v1Policy"
+        }
+      }
+    },
+    "v1CreatePolicyResponse": {
+      "type": "object",
+      "properties": {
+        "policyID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateRoleRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateRoleResponse": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateUserRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateUserResponse": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeleteAccessKeyResponse": {
+      "type": "object"
+    },
+    "v1DeleteAccountResponse": {
+      "type": "object"
+    },
+    "v1DeletePolicyResponse": {
+      "type": "object"
+    },
+    "v1DeleteRoleResponse": {
+      "type": "object"
+    },
+    "v1DeleteUserResponse": {
+      "type": "object"
+    },
+    "v1GetAccountResponse": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/v1Account"
+        }
+      }
+    },
+    "v1GetDefaultPoliciesResponse": {
+      "type": "object",
+      "properties": {
+        "policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Policy"
+          }
+        }
+      }
+    },
+    "v1GetPasswordPolicyResponse": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/v1PasswordPolicy"
+        }
+      }
+    },
+    "v1GetPoliciesResponse": {
+      "type": "object",
+      "properties": {
+        "policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Policy"
+          }
+        }
+      }
+    },
+    "v1GetPolicyResponse": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/v1Policy"
+        }
+      }
+    },
+    "v1GetRoleResponse": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "$ref": "#/definitions/v1Role"
+        }
+      }
+    },
+    "v1GetRolesResponse": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Role"
+          }
+        }
+      }
+    },
+    "v1GetUserAccessKeysResponse": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1AccessKey"
+          }
+        }
+      }
+    },
+    "v1GetUserIDByEmailResponse": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetUserInfoResponse": {
+      "type": "object",
+      "properties": {
+        "userInfo": {
+          "$ref": "#/definitions/v1UserInfo"
+        }
+      }
+    },
+    "v1GetUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        }
+      }
+    },
+    "v1GetUsersForRoleResponse": {
+      "type": "object",
+      "properties": {
+        "userIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1GetUsersResponse": {
+      "type": "object",
+      "properties": {
+        "totalRows": {
+          "type": "string",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "int64"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1User"
+          },
+          "title": "string offsetID = 4"
+        }
+      }
+    },
+    "v1PasswordPolicy": {
+      "type": "object",
+      "properties": {
+        "minLength": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useLowerLetters": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "useUpperLetters": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "useNumbers": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "useSpecialCharecters": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "v1PaymentDetails": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/PaymentDetailsPaymentType"
+        },
+        "info": {
+          "type": "string"
+        }
+      }
+    },
+    "v1Permission": {
+      "type": "object",
+      "properties": {
+        "effect": {
+          "type": "string"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Action"
+          }
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1Policy": {
+      "type": "object",
+      "properties": {
+        "policyID": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Permission"
+          }
+        }
+      }
+    },
+    "v1RemoveUsersFromRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "userIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1RemoveUsersFromRoleResponse": {
+      "type": "object",
+      "properties": {
+        "failedUserIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1ResetPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ResetPasswordResponse": {
+      "type": "object"
+    },
+    "v1Role": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1SetPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "userPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SetPasswordResponse": {
+      "type": "object"
+    },
+    "v1UpdateAccountRequest": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/v1Account"
+        }
+      }
+    },
+    "v1UpdateAccountResponse": {
+      "type": "object"
+    },
+    "v1UpdatePolicyRequest": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/v1Policy"
+        }
+      }
+    },
+    "v1UpdatePolicyResponse": {
+      "type": "object"
+    },
+    "v1UpdateRoleRequest": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "$ref": "#/definitions/v1Role"
+        }
+      }
+    },
+    "v1UpdateRoleResponse": {
+      "type": "object"
+    },
+    "v1UpdateUserRequest": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        }
+      }
+    },
+    "v1UpdateUserResponse": {
+      "type": "object"
+    },
+    "v1User": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "lastLogin": {
+          "type": "string",
+          "format": "int64"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "roleIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1UserInfo": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Policy"
+          }
+        }
+      }
+    },
+    "functionsCallAsyncFunctionRequest": {
+      "type": "object",
+      "properties": {
+        "call": {
+          "$ref": "#/definitions/functionsCallFunctionRequest"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "functionsCallAsyncFunctionResponse": {
+      "type": "object"
+    },
+    "functionsCallFunctionRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "payloadJSON": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "functionsCallFunctionResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "err": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object"
+        }
+      }
+    },
+    "functionsCaller": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "policies": {
+          "type": "string"
+        }
+      }
+    },
+    "functionsCreateFunctionRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "funcType": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "functionsCreateFunctionResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "functionsDeleteFunctionResponse": {
+      "type": "object"
+    },
+    "functionsFunction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "funcType": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "functionsGetFunctionResponse": {
+      "type": "object",
+      "properties": {
+        "function": {
+          "$ref": "#/definitions/functionsFunction"
+        }
+      }
+    },
+    "functionsGetFunctionsResponse": {
+      "type": "object",
+      "properties": {
+        "functions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/functionsFunction"
+          }
+        }
+      }
+    },
+    "functionsUpdateFunctionResponse": {
+      "type": "object"
+    },
+    "protobufNullValue": {
+      "type": "string",
+      "enum": [
+        "NULL_VALUE"
+      ],
+      "default": "NULL_VALUE",
+      "description": "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value."
+    },
+    "distrconfigActivatePoolRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "distrconfigActivatePoolResponse": {
+      "type": "object"
+    },
+    "distrconfigAssignAppPoolsRequest": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "poolIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distrconfigAssignAppPoolsResponse": {
+      "type": "object"
+    },
+    "distrconfigAssignAppUsersRequest": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distrconfigAssignAppUsersResponse": {
+      "type": "object"
+    },
+    "distrconfigAssignTagToUserRequest": {
+      "type": "object",
+      "properties": {
+        "poolId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "tagValue": {
+          "type": "string"
+        }
+      }
+    },
+    "distrconfigAssignTagToUserResponse": {
+      "type": "object"
+    },
+    "distrconfigCreateAppResponse": {
+      "type": "object"
+    },
+    "distrconfigCreatePoolResponse": {
+      "type": "object",
+      "title": "Contains data of createPoold data pool task"
+    },
+    "distrconfigCreatePoolsRequest": {
+      "type": "object",
+      "properties": {
+        "dataPools": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/distrconfigDataPool"
+          }
+        }
+      }
+    },
+    "distrconfigCreatePoolsResponse": {
+      "type": "object",
+      "title": "Contains data of createPoold data pool task"
+    },
+    "distrconfigCreateUserRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "distrconfigCreateUserResponse": {
+      "type": "object"
+    },
+    "distrconfigDataPool": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Primary key together with accountId - should be unique by client - used also as name of the pool"
+        },
+        "poolType": {
+          "$ref": "#/definitions/distrconfigPoolType",
+          "title": "The type of the pool - User, Filtered(with tags), Global (for the app)"
+        },
+        "pkExtractExpression": {
+          "type": "string",
+          "title": "http://goessner.net/articles/JsonPath/ expression to extract the primary key"
+        },
+        "tagExtractExpression": {
+          "type": "string",
+          "title": "http://goessner.net/articles/JsonPath/ expression to extract tags from the documents. For user type pools this is the user id"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "When activated it locks the record and cannot be changed"
+        },
+        "schema": {
+          "type": "string",
+          "format": "byte",
+          "title": "If set - should contain http://json-schema.org/ schema, that will validate every document"
+        },
+        "onUploadFunction": {
+          "type": "string",
+          "title": "Function to be called onUpload"
+        }
+      }
+    },
+    "distrconfigDeleteAppResponse": {
+      "type": "object"
+    },
+    "distrconfigDeletePoolResponse": {
+      "type": "object"
+    },
+    "distrconfigDeleteUserResponse": {
+      "type": "object"
+    },
+    "distrconfigDistributionUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "activeAppId": {
+          "type": "string"
+        },
+        "tagAssignments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/distrconfigUserTagAssignment"
+          }
+        }
+      }
+    },
+    "distrconfigGetAppsResponse": {
+      "type": "object",
+      "properties": {
+        "apps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/distrconfigMobileAppWithPools"
+          }
+        }
+      }
+    },
+    "distrconfigGetPoolDistributionResponse": {
+      "type": "object",
+      "properties": {
+        "dbUrl": {
+          "type": "string"
+        },
+        "poolType": {
+          "$ref": "#/definitions/distrconfigPoolType",
+          "title": "The type of the pool - User, Filtered(with tags), Global (for the app)"
+        },
+        "tagPrefix": {
+          "type": "string",
+          "title": "Tag prefix used for determining if user assignments match the record"
+        }
+      }
+    },
+    "distrconfigGetPoolResponse": {
+      "type": "object",
+      "properties": {
+        "dataPool": {
+          "$ref": "#/definitions/distrconfigDataPool"
+        }
+      },
+      "title": "Contains data pool task data specified in by ID request"
+    },
+    "distrconfigGetPoolsResponse": {
+      "type": "object",
+      "properties": {
+        "dataPool": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/distrconfigDataPool"
+          },
+          "title": "List of all data pool tasks"
+        },
+        "poolSizes": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/distrconfigPoolSize"
+          }
+        }
+      },
+      "title": "Contains list of all data pool tasks"
+    },
+    "distrconfigGetUsersResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/distrconfigDistributionUser"
+          }
+        }
+      }
+    },
+    "distrconfigMobileApp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Primary key - unique by account"
+        },
+        "bundleUrl": {
+          "type": "string",
+          "title": "Bundle URL for downloading the react bundle"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "distrconfigMobileAppWithPools": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "bundleUrl": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "assignedPools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distrconfigPoolSize": {
+      "type": "object",
+      "properties": {
+        "poolId": {
+          "type": "string"
+        },
+        "globalDataSizeBytes": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userDataSizeBytes": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "distrconfigPoolType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "GLOBAL",
+        "FILTERED",
+        "USER"
+      ],
+      "default": "UNKNOWN"
+    },
+    "distrconfigSetAppBundleRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "bundleUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "distrconfigSetAppBundleResponse": {
+      "type": "object"
+    },
+    "distrconfigUnassignAppPoolsRequest": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "poolIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distrconfigUnassignAppPoolsResponse": {
+      "type": "object"
+    },
+    "distrconfigUnassignAppUsersRequest": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distrconfigUnassignAppUsersResponse": {
+      "type": "object"
+    },
+    "distrconfigUnassignTagFromUserRequest": {
+      "type": "object",
+      "properties": {
+        "poolId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "tagValue": {
+          "type": "string"
+        }
+      }
+    },
+    "distrconfigUnassignTagFromUserResponse": {
+      "type": "object"
+    },
+    "distrconfigUpdatePoolResponse": {
+      "type": "object",
+      "title": "Contains status of UpdatePool operation"
+    },
+    "distrconfigUserTagAssignment": {
+      "type": "object",
+      "properties": {
+        "poolId": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "distrconfigValidatePoolDataRequest": {
+      "type": "object",
+      "properties": {
+        "poolType": {
+          "$ref": "#/definitions/distrconfigPoolType",
+          "title": "The type of the pool - User, Filtered(with tags), Global (for the app)"
+        },
+        "pkExtractExpression": {
+          "type": "string",
+          "title": "http://goessner.net/articles/JsonPath/ expression to extract the primary key"
+        },
+        "tagExtractExpression": {
+          "type": "string",
+          "title": "http://goessner.net/articles/JsonPath/ expression to extract tags from the documents. For user type pools this is the user id"
+        },
+        "schema": {
+          "type": "string",
+          "format": "byte",
+          "title": "If set - should contain http://json-schema.org/ schema, that will validate every document"
+        },
+        "data": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "distrconfigValidatePoolDataResponse": {
+      "type": "object",
+      "properties": {
+        "derivedPk": {
+          "type": "string"
+        },
+        "derivedTag": {
+          "type": "string"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataGetResponse": {
+      "$ref": "#/definitions/dataDocument"
+    },
+    "dataBulkDeleteRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataDocument"
+      }
+    },
+    "dataBulkDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "Successful deletion",
+          "items": {
+            "$ref": "#/definitions/dataPersistResponse"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "description": "List of errors if any occur",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataBulkCreateRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataDocument"
+      }
+    },
+    "dataBulkCreateResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "Successful creation",
+          "items": {
+            "$ref": "#/definitions/dataPersistResponse"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "description": "List of errors if any occur",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataBulkUpdateRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataDocument"
+      }
+    },
+    "dataBulkUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "Successful creation",
+          "items": {
+            "$ref": "#/definitions/dataPersistResponse"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "description": "List of errors if any occur",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataPersistResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "rev": {
+          "type": "string"
+        }
+      }
+    },
+    "dataListResponse": {
+      "type": "object",
+      "properties": {
+        "total_rows": {
+          "type": "number",
+          "description": "The number of rows in the database"
+        },
+        "offset": {
+          "type": "number",
+          "description": "Current offset"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dataDocument"
+          }
+        }
+      }
+    },
+    "dataDocument": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_rev": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "description": "Optional field for USER and FILTERED pools.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "...": {
+          "type": "string",
+          "description": "Any other fields that are part of the structure"
+        }
+      }
+    }
+  }
+}

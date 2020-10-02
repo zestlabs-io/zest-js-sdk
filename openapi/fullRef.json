@@ -1,0 +1,33 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Zest API",
+    "version": "1.0",
+    "contact": {
+      "name": "Zest",
+      "url": "https://zestlabs.io",
+      "email": "contact@zestlabs.io"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "$ref#auth": "./service.swagger.json#/paths",
+    "$ref#func": "./functions.swagger.json#/paths",
+    "$ref#distr": "./distr-config.swagger.json#/paths",
+    "$ref#data": "./data.swagger.json#/paths"
+  },
+  "definitions": {
+    "$ref#auth": "./service.swagger.json#/definitions",
+    "$ref#func": "./functions.swagger.json#/definitions",
+    "$ref#distr": "./distr-config.swagger.json#/definitions",
+    "$ref#data": "./data.swagger.json#/definitions"
+  }
+}
