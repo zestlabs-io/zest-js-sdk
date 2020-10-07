@@ -890,6 +890,20 @@ export interface FunctionsGetFunctionsResponse {
  * @export
  * @enum {string}
  */
+export enum LogEntrySeverity {
+    TRACE = 'TRACE',
+    INFO = 'INFO',
+    WARNING = 'WARNING',
+    ERROR = 'ERROR',
+    AUDIT = 'AUDIT',
+    ALL = 'ALL'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
 export enum PaymentDetailsPaymentType {
     CreditCard = 'CreditCard',
     Paypal = 'Paypal',
@@ -1357,6 +1371,94 @@ export interface V1GetDefaultPoliciesResponse {
 /**
  * 
  * @export
+ * @interface V1GetLogLabelsResponse
+ */
+export interface V1GetLogLabelsResponse {
+    /**
+     * 
+     * @type {Array<V1LogLabelValues>}
+     * @memberof V1GetLogLabelsResponse
+     */
+    loglabels?: Array<V1LogLabelValues>;
+}
+/**
+ * 
+ * @export
+ * @interface V1GetLogsRequest
+ */
+export interface V1GetLogsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof V1GetLogsRequest
+     */
+    time_from?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1GetLogsRequest
+     */
+    time_till?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1GetLogsRequest
+     */
+    limit?: number;
+    /**
+     * 
+     * @type {Array<V1LogLabelQuery>}
+     * @memberof V1GetLogsRequest
+     */
+    labels?: Array<V1LogLabelQuery>;
+    /**
+     * 
+     * @type {LogEntrySeverity}
+     * @memberof V1GetLogsRequest
+     */
+    severity?: LogEntrySeverity;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1GetLogsRequest
+     */
+    match?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1GetLogsRequest
+     */
+    not_match?: string;
+}
+/**
+ * 
+ * @export
+ * @interface V1GetLogsResponse
+ */
+export interface V1GetLogsResponse {
+    /**
+     * 
+     * @type {Array<V1LogEntry>}
+     * @memberof V1GetLogsResponse
+     */
+    logs?: Array<V1LogEntry>;
+}
+/**
+ * 
+ * @export
+ * @interface V1GetMetricsResponse
+ */
+export interface V1GetMetricsResponse {
+    /**
+     * 
+     * @type {Array<V1Metric>}
+     * @memberof V1GetMetricsResponse
+     */
+    metrics?: Array<V1Metric>;
+}
+/**
+ * 
+ * @export
  * @interface V1GetPasswordPolicyResponse
  */
 export interface V1GetPasswordPolicyResponse {
@@ -1514,6 +1616,143 @@ export interface V1GetUsersResponse {
      * @memberof V1GetUsersResponse
      */
     users?: Array<V1User>;
+}
+/**
+ * 
+ * @export
+ * @interface V1LogEntry
+ */
+export interface V1LogEntry {
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogEntry
+     */
+    logId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogEntry
+     */
+    time?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogEntry
+     */
+    message?: string;
+    /**
+     * 
+     * @type {LogEntrySeverity}
+     * @memberof V1LogEntry
+     */
+    severity?: LogEntrySeverity;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogEntry
+     */
+    source?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogEntry
+     */
+    action?: string;
+    /**
+     * 
+     * @type {Array<V1LogEntryField>}
+     * @memberof V1LogEntry
+     */
+    fields?: Array<V1LogEntryField>;
+}
+/**
+ * 
+ * @export
+ * @interface V1LogEntryField
+ */
+export interface V1LogEntryField {
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogEntryField
+     */
+    name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogEntryField
+     */
+    value?: string;
+}
+/**
+ * 
+ * @export
+ * @interface V1LogLabelQuery
+ */
+export interface V1LogLabelQuery {
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogLabelQuery
+     */
+    name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogLabelQuery
+     */
+    value?: string;
+}
+/**
+ * 
+ * @export
+ * @interface V1LogLabelValues
+ */
+export interface V1LogLabelValues {
+    /**
+     * 
+     * @type {string}
+     * @memberof V1LogLabelValues
+     */
+    name?: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof V1LogLabelValues
+     */
+    values?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface V1Metric
+ */
+export interface V1Metric {
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Metric
+     */
+    name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Metric
+     */
+    value?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Metric
+     */
+    time_from?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Metric
+     */
+    time_to?: string;
 }
 /**
  * 
@@ -1872,6 +2111,256 @@ export interface V1UserInfo {
      */
     policies?: Array<V1Policy>;
 }
+
+/**
+ * AppscapeServiceApi - axios parameter creator
+ * @export
+ */
+export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLogLabels: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/appscape/v1/log-labels`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {V1GetLogsRequest} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLogs: async (body: V1GetLogsRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling getLogs.');
+            }
+            const localVarPath = `/api/appscape/v1/logs`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} [timeFrom] 
+         * @param {string} [timeTo] 
+         * @param {Array<string>} [metrics] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetrics: async (timeFrom?: string, timeTo?: string, metrics?: Array<string>, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/appscape/v1/metrics`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (timeFrom !== undefined) {
+                localVarQueryParameter['time_from'] = timeFrom;
+            }
+
+            if (timeTo !== undefined) {
+                localVarQueryParameter['time_to'] = timeTo;
+            }
+
+            if (metrics) {
+                localVarQueryParameter['metrics'] = metrics;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AppscapeServiceApi - functional programming interface
+ * @export
+ */
+export const AppscapeServiceApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLogLabels(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogLabelsResponse>> {
+            const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getLogLabels(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @param {V1GetLogsRequest} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLogs(body: V1GetLogsRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogsResponse>> {
+            const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getLogs(body, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @param {string} [timeFrom] 
+         * @param {string} [timeTo] 
+         * @param {Array<string>} [metrics] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMetrics(timeFrom?: string, timeTo?: string, metrics?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetMetricsResponse>> {
+            const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getMetrics(timeFrom, timeTo, metrics, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * AppscapeServiceApi - factory interface
+ * @export
+ */
+export const AppscapeServiceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLogLabels(options?: any): AxiosPromise<V1GetLogLabelsResponse> {
+            return AppscapeServiceApiFp(configuration).getLogLabels(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {V1GetLogsRequest} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLogs(body: V1GetLogsRequest, options?: any): AxiosPromise<V1GetLogsResponse> {
+            return AppscapeServiceApiFp(configuration).getLogs(body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} [timeFrom] 
+         * @param {string} [timeTo] 
+         * @param {Array<string>} [metrics] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetrics(timeFrom?: string, timeTo?: string, metrics?: Array<string>, options?: any): AxiosPromise<V1GetMetricsResponse> {
+            return AppscapeServiceApiFp(configuration).getMetrics(timeFrom, timeTo, metrics, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * AppscapeServiceApi - object-oriented interface
+ * @export
+ * @class AppscapeServiceApi
+ * @extends {BaseAPI}
+ */
+export class AppscapeServiceApi extends BaseAPI {
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AppscapeServiceApi
+     */
+    public getLogLabels(options?: any) {
+        return AppscapeServiceApiFp(this.configuration).getLogLabels(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {V1GetLogsRequest} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AppscapeServiceApi
+     */
+    public getLogs(body: V1GetLogsRequest, options?: any) {
+        return AppscapeServiceApiFp(this.configuration).getLogs(body, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} [timeFrom] 
+     * @param {string} [timeTo] 
+     * @param {Array<string>} [metrics] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AppscapeServiceApi
+     */
+    public getMetrics(timeFrom?: string, timeTo?: string, metrics?: Array<string>, options?: any) {
+        return AppscapeServiceApiFp(this.configuration).getMetrics(timeFrom, timeTo, metrics, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
 
 /**
  * AuthServiceApi - axios parameter creator

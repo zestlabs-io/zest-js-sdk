@@ -4,13 +4,13 @@
     "title": "auth",
     "version": "1.0",
     "contact": {
-      "name": "zest labs cloud",
-      "url": "https://gitlab.com/zestlabs-io/auth",
+      "name": "Zest Labs GmbH",
+      "url": "https://zestlabs.io",
       "email": "contact@zestlabs.io"
     }
   },
   "schemes": [
-    "http"
+    "https"
   ],
   "consumes": [
     "application/json"

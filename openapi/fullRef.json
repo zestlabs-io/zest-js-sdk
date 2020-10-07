@@ -19,12 +19,14 @@
     "application/json"
   ],
   "paths": {
+    "$ref#appsc": "./appscape.swagger.json#/paths",
     "$ref#auth": "./service.swagger.json#/paths",
     "$ref#func": "./functions.swagger.json#/paths",
     "$ref#distr": "./distr-config.swagger.json#/paths",
     "$ref#data": "./data.swagger.json#/paths"
   },
   "definitions": {
+    "$ref#appsc": "./appscape.swagger.json#/definitions",
     "$ref#auth": "./service.swagger.json#/definitions",
     "$ref#func": "./functions.swagger.json#/definitions",
     "$ref#distr": "./distr-config.swagger.json#/definitions",

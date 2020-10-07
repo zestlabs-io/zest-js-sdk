@@ -1,7 +1,14 @@
 version=$(shell cat package.json | jq -r .version)
 
+.PHONY: generate
+generate:
+	@./openapi/generate.sh nocopy
+
+prettier:
+	@npm run prettier
+
 .PHONY: build
-build:
+build: generate prettier
 	npm run build
 
 .PHONY: publish

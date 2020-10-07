@@ -19,6 +19,129 @@
     "application/json"
   ],
   "paths": {
+    "/api/appscape/v1/log-labels": {
+      "get": {
+        "operationId": "AppscapeService_GetLogLabels",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetLogLabelsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AppscapeService"
+        ]
+      }
+    },
+    "/api/appscape/v1/logs": {
+      "post": {
+        "operationId": "AppscapeService_GetLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetLogsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GetLogsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AppscapeService"
+        ]
+      }
+    },
+    "/api/appscape/v1/metrics": {
+      "get": {
+        "operationId": "AppscapeService_GetMetrics",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetMetricsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "time_from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "time_to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "metrics",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "AppscapeService"
+        ]
+      }
+    },
     "/api/auth/v1/accesskey": {
       "post": {
         "summary": "User Access Keys API",
@@ -2736,25 +2859,17 @@
     }
   },
   "definitions": {
-    "AccountAccountStatus": {
+    "LogEntrySeverity": {
       "type": "string",
       "enum": [
-        "PENDING",
-        "ACTIVE",
-        "DISABLED",
-        "DELETED"
+        "TRACE",
+        "INFO",
+        "WARNING",
+        "ERROR",
+        "AUDIT",
+        "ALL"
       ],
-      "default": "PENDING"
-    },
-    "PaymentDetailsPaymentType": {
-      "type": "string",
-      "enum": [
-        "CreditCard",
-        "Paypal",
-        "DirectDebig",
-        "Invoice"
-      ],
-      "default": "CreditCard"
+      "default": "TRACE"
     },
     "protobufAny": {
       "type": "object",
@@ -2791,6 +2906,177 @@
           }
         }
       }
+    },
+    "v1GetLogLabelsResponse": {
+      "type": "object",
+      "properties": {
+        "loglabels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1LogLabelValues"
+          }
+        }
+      }
+    },
+    "v1GetLogsRequest": {
+      "type": "object",
+      "properties": {
+        "time_from": {
+          "type": "string",
+          "format": "int64"
+        },
+        "time_till": {
+          "type": "string",
+          "format": "int64"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1LogLabelQuery"
+          }
+        },
+        "severity": {
+          "$ref": "#/definitions/LogEntrySeverity"
+        },
+        "match": {
+          "type": "string"
+        },
+        "not_match": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetLogsResponse": {
+      "type": "object",
+      "properties": {
+        "logs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1LogEntry"
+          }
+        }
+      }
+    },
+    "v1GetMetricsResponse": {
+      "type": "object",
+      "properties": {
+        "metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Metric"
+          }
+        }
+      }
+    },
+    "v1LogEntry": {
+      "type": "object",
+      "properties": {
+        "logId": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/definitions/LogEntrySeverity"
+        },
+        "source": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1LogEntryField"
+          }
+        }
+      }
+    },
+    "v1LogEntryField": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "v1LogLabelQuery": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "v1LogLabelValues": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1Metric": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "int64"
+        },
+        "time_from": {
+          "type": "string",
+          "format": "int64"
+        },
+        "time_to": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "AccountAccountStatus": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "ACTIVE",
+        "DISABLED",
+        "DELETED"
+      ],
+      "default": "PENDING"
+    },
+    "PaymentDetailsPaymentType": {
+      "type": "string",
+      "enum": [
+        "CreditCard",
+        "Paypal",
+        "DirectDebig",
+        "Invoice"
+      ],
+      "default": "CreditCard"
     },
     "v1AccessKey": {
       "type": "object",
