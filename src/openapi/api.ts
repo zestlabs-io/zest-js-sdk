@@ -11,7 +11,6 @@
  * Do not edit the class manually.
  */
 
-
 import * as globalImportUrl from 'url';
 import { Configuration } from './configuration';
 import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
@@ -20,895 +19,895 @@ import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
 
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
 export enum AccountAccountStatus {
-    PENDING = 'PENDING',
-    ACTIVE = 'ACTIVE',
-    DISABLED = 'DISABLED',
-    DELETED = 'DELETED'
+  PENDING = 'PENDING',
+  ACTIVE = 'ACTIVE',
+  DISABLED = 'DISABLED',
+  DELETED = 'DELETED',
 }
 
 /**
- * 
+ *
  * @export
  * @interface DataBulkCreateResponse
  */
 export interface DataBulkCreateResponse {
-    /**
-     * Successful creation
-     * @type {Array<DataPersistResponse>}
-     * @memberof DataBulkCreateResponse
-     */
-    result?: Array<DataPersistResponse>;
-    /**
-     * List of errors if any occur
-     * @type {Array<string>}
-     * @memberof DataBulkCreateResponse
-     */
-    errors?: Array<string>;
+  /**
+   * Successful creation
+   * @type {Array<DataPersistResponse>}
+   * @memberof DataBulkCreateResponse
+   */
+  result?: Array<DataPersistResponse>;
+  /**
+   * List of errors if any occur
+   * @type {Array<string>}
+   * @memberof DataBulkCreateResponse
+   */
+  errors?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DataBulkDeleteResponse
  */
 export interface DataBulkDeleteResponse {
-    /**
-     * Successful deletion
-     * @type {Array<DataPersistResponse>}
-     * @memberof DataBulkDeleteResponse
-     */
-    result?: Array<DataPersistResponse>;
-    /**
-     * List of errors if any occur
-     * @type {Array<string>}
-     * @memberof DataBulkDeleteResponse
-     */
-    errors?: Array<string>;
+  /**
+   * Successful deletion
+   * @type {Array<DataPersistResponse>}
+   * @memberof DataBulkDeleteResponse
+   */
+  result?: Array<DataPersistResponse>;
+  /**
+   * List of errors if any occur
+   * @type {Array<string>}
+   * @memberof DataBulkDeleteResponse
+   */
+  errors?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DataBulkUpdateResponse
  */
 export interface DataBulkUpdateResponse {
-    /**
-     * Successful creation
-     * @type {Array<DataPersistResponse>}
-     * @memberof DataBulkUpdateResponse
-     */
-    result?: Array<DataPersistResponse>;
-    /**
-     * List of errors if any occur
-     * @type {Array<string>}
-     * @memberof DataBulkUpdateResponse
-     */
-    errors?: Array<string>;
+  /**
+   * Successful creation
+   * @type {Array<DataPersistResponse>}
+   * @memberof DataBulkUpdateResponse
+   */
+  result?: Array<DataPersistResponse>;
+  /**
+   * List of errors if any occur
+   * @type {Array<string>}
+   * @memberof DataBulkUpdateResponse
+   */
+  errors?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DataDocument
  */
 export interface DataDocument {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataDocument
-     */
-    _id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataDocument
-     */
-    _rev?: string;
-    /**
-     * Optional field for USER and FILTERED pools.
-     * @type {Array<string>}
-     * @memberof DataDocument
-     */
-    tags?: Array<string>;
-    /**
-     * Any other fields that are part of the structure
-     * @type {string}
-     * @memberof DataDocument
-     */
-    ___?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DataDocument
+   */
+  _id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DataDocument
+   */
+  _rev?: string;
+  /**
+   * Optional field for USER and FILTERED pools.
+   * @type {Array<string>}
+   * @memberof DataDocument
+   */
+  tags?: Array<string>;
+  /**
+   * Any other fields that are part of the structure
+   * @type {string}
+   * @memberof DataDocument
+   */
+  ___?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DataListResponse
  */
 export interface DataListResponse {
-    /**
-     * The number of rows in the database
-     * @type {number}
-     * @memberof DataListResponse
-     */
-    total_rows?: number;
-    /**
-     * Current offset
-     * @type {number}
-     * @memberof DataListResponse
-     */
-    offset?: number;
-    /**
-     * 
-     * @type {Array<DataDocument>}
-     * @memberof DataListResponse
-     */
-    rows?: Array<DataDocument>;
+  /**
+   * The number of rows in the database
+   * @type {number}
+   * @memberof DataListResponse
+   */
+  total_rows?: number;
+  /**
+   * Current offset
+   * @type {number}
+   * @memberof DataListResponse
+   */
+  offset?: number;
+  /**
+   *
+   * @type {Array<DataDocument>}
+   * @memberof DataListResponse
+   */
+  rows?: Array<DataDocument>;
 }
 /**
- * 
+ *
  * @export
  * @interface DataPersistResponse
  */
 export interface DataPersistResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DataPersistResponse
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DataPersistResponse
-     */
-    rev?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DataPersistResponse
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DataPersistResponse
+   */
+  rev?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigActivatePoolRequest
  */
 export interface DistrconfigActivatePoolRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigActivatePoolRequest
-     */
-    id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigActivatePoolRequest
+   */
+  id?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigAssignAppPoolsRequest
  */
 export interface DistrconfigAssignAppPoolsRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigAssignAppPoolsRequest
-     */
-    appId?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DistrconfigAssignAppPoolsRequest
-     */
-    poolIds?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigAssignAppPoolsRequest
+   */
+  appId?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigAssignAppPoolsRequest
+   */
+  poolIds?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigAssignAppUsersRequest
  */
 export interface DistrconfigAssignAppUsersRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigAssignAppUsersRequest
-     */
-    appId?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DistrconfigAssignAppUsersRequest
-     */
-    userIds?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigAssignAppUsersRequest
+   */
+  appId?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigAssignAppUsersRequest
+   */
+  userIds?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigAssignTagToUserRequest
  */
 export interface DistrconfigAssignTagToUserRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigAssignTagToUserRequest
-     */
-    poolId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigAssignTagToUserRequest
-     */
-    userId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigAssignTagToUserRequest
-     */
-    tagValue?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigAssignTagToUserRequest
+   */
+  poolId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigAssignTagToUserRequest
+   */
+  userId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigAssignTagToUserRequest
+   */
+  tagValue?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigCreatePoolsRequest
  */
 export interface DistrconfigCreatePoolsRequest {
-    /**
-     * 
-     * @type {Array<DistrconfigDataPool>}
-     * @memberof DistrconfigCreatePoolsRequest
-     */
-    dataPools?: Array<DistrconfigDataPool>;
+  /**
+   *
+   * @type {Array<DistrconfigDataPool>}
+   * @memberof DistrconfigCreatePoolsRequest
+   */
+  dataPools?: Array<DistrconfigDataPool>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigCreateUserRequest
  */
 export interface DistrconfigCreateUserRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigCreateUserRequest
-     */
-    id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigCreateUserRequest
+   */
+  id?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigDataPool
  */
 export interface DistrconfigDataPool {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigDataPool
-     */
-    id?: string;
-    /**
-     * 
-     * @type {DistrconfigPoolType}
-     * @memberof DistrconfigDataPool
-     */
-    poolType?: DistrconfigPoolType;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigDataPool
-     */
-    pkExtractExpression?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigDataPool
-     */
-    tagExtractExpression?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DistrconfigDataPool
-     */
-    active?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigDataPool
-     */
-    schema?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigDataPool
-     */
-    onUploadFunction?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDataPool
+   */
+  id?: string;
+  /**
+   *
+   * @type {DistrconfigPoolType}
+   * @memberof DistrconfigDataPool
+   */
+  poolType?: DistrconfigPoolType;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDataPool
+   */
+  pkExtractExpression?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDataPool
+   */
+  tagExtractExpression?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof DistrconfigDataPool
+   */
+  active?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDataPool
+   */
+  schema?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDataPool
+   */
+  onUploadFunction?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigDistributionUser
  */
 export interface DistrconfigDistributionUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigDistributionUser
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigDistributionUser
-     */
-    activeAppId?: string;
-    /**
-     * 
-     * @type {Array<DistrconfigUserTagAssignment>}
-     * @memberof DistrconfigDistributionUser
-     */
-    tagAssignments?: Array<DistrconfigUserTagAssignment>;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDistributionUser
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDistributionUser
+   */
+  activeAppId?: string;
+  /**
+   *
+   * @type {Array<DistrconfigUserTagAssignment>}
+   * @memberof DistrconfigDistributionUser
+   */
+  tagAssignments?: Array<DistrconfigUserTagAssignment>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigGetAppsResponse
  */
 export interface DistrconfigGetAppsResponse {
-    /**
-     * 
-     * @type {Array<DistrconfigMobileAppWithPools>}
-     * @memberof DistrconfigGetAppsResponse
-     */
-    apps?: Array<DistrconfigMobileAppWithPools>;
+  /**
+   *
+   * @type {Array<DistrconfigMobileAppWithPools>}
+   * @memberof DistrconfigGetAppsResponse
+   */
+  apps?: Array<DistrconfigMobileAppWithPools>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigGetPoolDistributionResponse
  */
 export interface DistrconfigGetPoolDistributionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigGetPoolDistributionResponse
-     */
-    dbUrl?: string;
-    /**
-     * 
-     * @type {DistrconfigPoolType}
-     * @memberof DistrconfigGetPoolDistributionResponse
-     */
-    poolType?: DistrconfigPoolType;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigGetPoolDistributionResponse
-     */
-    tagPrefix?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigGetPoolDistributionResponse
+   */
+  dbUrl?: string;
+  /**
+   *
+   * @type {DistrconfigPoolType}
+   * @memberof DistrconfigGetPoolDistributionResponse
+   */
+  poolType?: DistrconfigPoolType;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigGetPoolDistributionResponse
+   */
+  tagPrefix?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigGetPoolResponse
  */
 export interface DistrconfigGetPoolResponse {
-    /**
-     * 
-     * @type {DistrconfigDataPool}
-     * @memberof DistrconfigGetPoolResponse
-     */
-    dataPool?: DistrconfigDataPool;
+  /**
+   *
+   * @type {DistrconfigDataPool}
+   * @memberof DistrconfigGetPoolResponse
+   */
+  dataPool?: DistrconfigDataPool;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigGetPoolsResponse
  */
 export interface DistrconfigGetPoolsResponse {
-    /**
-     * 
-     * @type {Array<DistrconfigDataPool>}
-     * @memberof DistrconfigGetPoolsResponse
-     */
-    dataPool?: Array<DistrconfigDataPool>;
-    /**
-     * 
-     * @type {{ [key: string]: DistrconfigPoolSize; }}
-     * @memberof DistrconfigGetPoolsResponse
-     */
-    poolSizes?: { [key: string]: DistrconfigPoolSize; };
+  /**
+   *
+   * @type {Array<DistrconfigDataPool>}
+   * @memberof DistrconfigGetPoolsResponse
+   */
+  dataPool?: Array<DistrconfigDataPool>;
+  /**
+   *
+   * @type {{ [key: string]: DistrconfigPoolSize; }}
+   * @memberof DistrconfigGetPoolsResponse
+   */
+  poolSizes?: { [key: string]: DistrconfigPoolSize };
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigGetUsersResponse
  */
 export interface DistrconfigGetUsersResponse {
-    /**
-     * 
-     * @type {Array<DistrconfigDistributionUser>}
-     * @memberof DistrconfigGetUsersResponse
-     */
-    users?: Array<DistrconfigDistributionUser>;
+  /**
+   *
+   * @type {Array<DistrconfigDistributionUser>}
+   * @memberof DistrconfigGetUsersResponse
+   */
+  users?: Array<DistrconfigDistributionUser>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigMobileApp
  */
 export interface DistrconfigMobileApp {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigMobileApp
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigMobileApp
-     */
-    bundleUrl?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DistrconfigMobileApp
-     */
-    active?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigMobileApp
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigMobileApp
+   */
+  bundleUrl?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof DistrconfigMobileApp
+   */
+  active?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigMobileAppWithPools
  */
 export interface DistrconfigMobileAppWithPools {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigMobileAppWithPools
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigMobileAppWithPools
-     */
-    bundleUrl?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DistrconfigMobileAppWithPools
-     */
-    active?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DistrconfigMobileAppWithPools
-     */
-    assignedPools?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigMobileAppWithPools
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigMobileAppWithPools
+   */
+  bundleUrl?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof DistrconfigMobileAppWithPools
+   */
+  active?: boolean;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigMobileAppWithPools
+   */
+  assignedPools?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigPoolSize
  */
 export interface DistrconfigPoolSize {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigPoolSize
-     */
-    poolId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigPoolSize
-     */
-    globalDataSizeBytes?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigPoolSize
-     */
-    userDataSizeBytes?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigPoolSize
+   */
+  poolId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigPoolSize
+   */
+  globalDataSizeBytes?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigPoolSize
+   */
+  userDataSizeBytes?: string;
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
 export enum DistrconfigPoolType {
-    UNKNOWN = 'UNKNOWN',
-    GLOBAL = 'GLOBAL',
-    FILTERED = 'FILTERED',
-    USER = 'USER'
+  UNKNOWN = 'UNKNOWN',
+  GLOBAL = 'GLOBAL',
+  FILTERED = 'FILTERED',
+  USER = 'USER',
 }
 
 /**
- * 
+ *
  * @export
  * @interface DistrconfigSetAppBundleRequest
  */
 export interface DistrconfigSetAppBundleRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigSetAppBundleRequest
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigSetAppBundleRequest
-     */
-    bundleUrl?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigSetAppBundleRequest
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigSetAppBundleRequest
+   */
+  bundleUrl?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigUnassignAppPoolsRequest
  */
 export interface DistrconfigUnassignAppPoolsRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigUnassignAppPoolsRequest
-     */
-    appId?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DistrconfigUnassignAppPoolsRequest
-     */
-    poolIds?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUnassignAppPoolsRequest
+   */
+  appId?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigUnassignAppPoolsRequest
+   */
+  poolIds?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigUnassignAppUsersRequest
  */
 export interface DistrconfigUnassignAppUsersRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigUnassignAppUsersRequest
-     */
-    appId?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DistrconfigUnassignAppUsersRequest
-     */
-    userIds?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUnassignAppUsersRequest
+   */
+  appId?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigUnassignAppUsersRequest
+   */
+  userIds?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigUnassignTagFromUserRequest
  */
 export interface DistrconfigUnassignTagFromUserRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigUnassignTagFromUserRequest
-     */
-    poolId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigUnassignTagFromUserRequest
-     */
-    userId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigUnassignTagFromUserRequest
-     */
-    tagValue?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUnassignTagFromUserRequest
+   */
+  poolId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUnassignTagFromUserRequest
+   */
+  userId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUnassignTagFromUserRequest
+   */
+  tagValue?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigUserTagAssignment
  */
 export interface DistrconfigUserTagAssignment {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigUserTagAssignment
-     */
-    poolId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigUserTagAssignment
-     */
-    value?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUserTagAssignment
+   */
+  poolId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUserTagAssignment
+   */
+  value?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigValidatePoolDataRequest
  */
 export interface DistrconfigValidatePoolDataRequest {
-    /**
-     * 
-     * @type {DistrconfigPoolType}
-     * @memberof DistrconfigValidatePoolDataRequest
-     */
-    poolType?: DistrconfigPoolType;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigValidatePoolDataRequest
-     */
-    pkExtractExpression?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigValidatePoolDataRequest
-     */
-    tagExtractExpression?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigValidatePoolDataRequest
-     */
-    schema?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigValidatePoolDataRequest
-     */
-    data?: string;
+  /**
+   *
+   * @type {DistrconfigPoolType}
+   * @memberof DistrconfigValidatePoolDataRequest
+   */
+  poolType?: DistrconfigPoolType;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigValidatePoolDataRequest
+   */
+  pkExtractExpression?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigValidatePoolDataRequest
+   */
+  tagExtractExpression?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigValidatePoolDataRequest
+   */
+  schema?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigValidatePoolDataRequest
+   */
+  data?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DistrconfigValidatePoolDataResponse
  */
 export interface DistrconfigValidatePoolDataResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigValidatePoolDataResponse
-     */
-    derivedPk?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DistrconfigValidatePoolDataResponse
-     */
-    derivedTag?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof DistrconfigValidatePoolDataResponse
-     */
-    validationErrors?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigValidatePoolDataResponse
+   */
+  derivedPk?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigValidatePoolDataResponse
+   */
+  derivedTag?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigValidatePoolDataResponse
+   */
+  validationErrors?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsCallAsyncFunctionRequest
  */
 export interface FunctionsCallAsyncFunctionRequest {
-    /**
-     * 
-     * @type {FunctionsCallFunctionRequest}
-     * @memberof FunctionsCallAsyncFunctionRequest
-     */
-    call?: FunctionsCallFunctionRequest;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCallAsyncFunctionRequest
-     */
-    reason?: string;
+  /**
+   *
+   * @type {FunctionsCallFunctionRequest}
+   * @memberof FunctionsCallAsyncFunctionRequest
+   */
+  call?: FunctionsCallFunctionRequest;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCallAsyncFunctionRequest
+   */
+  reason?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsCallFunctionRequest
  */
 export interface FunctionsCallFunctionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCallFunctionRequest
-     */
-    id?: string;
-    /**
-     * 
-     * @type {object}
-     * @memberof FunctionsCallFunctionRequest
-     */
-    payload?: object;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCallFunctionRequest
-     */
-    payloadJSON?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCallFunctionRequest
+   */
+  id?: string;
+  /**
+   *
+   * @type {object}
+   * @memberof FunctionsCallFunctionRequest
+   */
+  payload?: object;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCallFunctionRequest
+   */
+  payloadJSON?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsCallFunctionResponse
  */
 export interface FunctionsCallFunctionResponse {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FunctionsCallFunctionResponse
-     */
-    success?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCallFunctionResponse
-     */
-    err?: string;
-    /**
-     * 
-     * @type {object}
-     * @memberof FunctionsCallFunctionResponse
-     */
-    body?: object;
+  /**
+   *
+   * @type {boolean}
+   * @memberof FunctionsCallFunctionResponse
+   */
+  success?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCallFunctionResponse
+   */
+  err?: string;
+  /**
+   *
+   * @type {object}
+   * @memberof FunctionsCallFunctionResponse
+   */
+  body?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsCaller
  */
 export interface FunctionsCaller {
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCaller
-     */
-    accountID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCaller
-     */
-    userID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCaller
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCaller
-     */
-    policies?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCaller
+   */
+  accountID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCaller
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCaller
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCaller
+   */
+  policies?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsCreateFunctionRequest
  */
 export interface FunctionsCreateFunctionRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCreateFunctionRequest
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCreateFunctionRequest
-     */
-    funcType?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCreateFunctionRequest
-     */
-    endpoint?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCreateFunctionRequest
-     */
-    region?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCreateFunctionRequest
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCreateFunctionRequest
+   */
+  funcType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCreateFunctionRequest
+   */
+  endpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCreateFunctionRequest
+   */
+  region?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsCreateFunctionResponse
  */
 export interface FunctionsCreateFunctionResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsCreateFunctionResponse
-     */
-    id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCreateFunctionResponse
+   */
+  id?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsFunction
  */
 export interface FunctionsFunction {
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsFunction
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsFunction
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsFunction
-     */
-    funcType?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsFunction
-     */
-    endpoint?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FunctionsFunction
-     */
-    region?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsFunction
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsFunction
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsFunction
+   */
+  funcType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsFunction
+   */
+  endpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsFunction
+   */
+  region?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsGetFunctionResponse
  */
 export interface FunctionsGetFunctionResponse {
-    /**
-     * 
-     * @type {FunctionsFunction}
-     * @memberof FunctionsGetFunctionResponse
-     */
-    _function?: FunctionsFunction;
+  /**
+   *
+   * @type {FunctionsFunction}
+   * @memberof FunctionsGetFunctionResponse
+   */
+  _function?: FunctionsFunction;
 }
 /**
- * 
+ *
  * @export
  * @interface FunctionsGetFunctionsResponse
  */
 export interface FunctionsGetFunctionsResponse {
-    /**
-     * 
-     * @type {Array<FunctionsFunction>}
-     * @memberof FunctionsGetFunctionsResponse
-     */
-    functions?: Array<FunctionsFunction>;
+  /**
+   *
+   * @type {Array<FunctionsFunction>}
+   * @memberof FunctionsGetFunctionsResponse
+   */
+  functions?: Array<FunctionsFunction>;
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
 export enum LogEntrySeverity {
-    TRACE = 'TRACE',
-    INFO = 'INFO',
-    WARNING = 'WARNING',
-    ERROR = 'ERROR',
-    AUDIT = 'AUDIT',
-    ALL = 'ALL'
+  TRACE = 'TRACE',
+  INFO = 'INFO',
+  WARNING = 'WARNING',
+  ERROR = 'ERROR',
+  AUDIT = 'AUDIT',
+  ALL = 'ALL',
 }
 
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
 export enum PaymentDetailsPaymentType {
-    CreditCard = 'CreditCard',
-    Paypal = 'Paypal',
-    DirectDebig = 'DirectDebig',
-    Invoice = 'Invoice'
+  CreditCard = 'CreditCard',
+  Paypal = 'Paypal',
+  DirectDebig = 'DirectDebig',
+  Invoice = 'Invoice',
 }
 
 /**
@@ -917,18 +916,18 @@ export enum PaymentDetailsPaymentType {
  * @interface ProtobufAny
  */
 export interface ProtobufAny {
-    /**
-     * A URL/resource name whose content describes the type of the serialized protocol buffer message.  For URLs which use the scheme `http`, `https`, or no scheme, the following restrictions and interpretations apply:  * If no scheme is provided, `https` is assumed. * The last segment of the URL\'s path must represent the fully   qualified name of the type (as in `path/google.protobuf.Duration`).   The name should be in a canonical form (e.g., leading \".\" is   not accepted). * An HTTP GET on the URL must yield a [google.protobuf.Type][]   value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the   URL, or have them precompiled into a binary to avoid any   lookup. Therefore, binary compatibility needs to be preserved   on changes to types. (Use versioned type names to manage   breaking changes.)  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics.
-     * @type {string}
-     * @memberof ProtobufAny
-     */
-    type_url?: string;
-    /**
-     * Must be a valid serialized protocol buffer of the above specified type.
-     * @type {string}
-     * @memberof ProtobufAny
-     */
-    value?: string;
+  /**
+   * A URL/resource name whose content describes the type of the serialized protocol buffer message.  For URLs which use the scheme `http`, `https`, or no scheme, the following restrictions and interpretations apply:  * If no scheme is provided, `https` is assumed. * The last segment of the URL\'s path must represent the fully   qualified name of the type (as in `path/google.protobuf.Duration`).   The name should be in a canonical form (e.g., leading \".\" is   not accepted). * An HTTP GET on the URL must yield a [google.protobuf.Type][]   value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the   URL, or have them precompiled into a binary to avoid any   lookup. Therefore, binary compatibility needs to be preserved   on changes to types. (Use versioned type names to manage   breaking changes.)  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics.
+   * @type {string}
+   * @memberof ProtobufAny
+   */
+  type_url?: string;
+  /**
+   * Must be a valid serialized protocol buffer of the above specified type.
+   * @type {string}
+   * @memberof ProtobufAny
+   */
+  value?: string;
 }
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the `Value` type union.   The JSON representation for `NullValue` is JSON `null`.   - NULL_VALUE: Null value.
@@ -936,1180 +935,1180 @@ export interface ProtobufAny {
  * @enum {string}
  */
 export enum ProtobufNullValue {
-    NULLVALUE = 'NULL_VALUE'
+  NULLVALUE = 'NULL_VALUE',
 }
 
 /**
- * 
+ *
  * @export
  * @interface RuntimeError
  */
 export interface RuntimeError {
-    /**
-     * 
-     * @type {string}
-     * @memberof RuntimeError
-     */
-    error?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RuntimeError
-     */
-    code?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RuntimeError
-     */
-    message?: string;
-    /**
-     * 
-     * @type {Array<ProtobufAny>}
-     * @memberof RuntimeError
-     */
-    details?: Array<ProtobufAny>;
+  /**
+   *
+   * @type {string}
+   * @memberof RuntimeError
+   */
+  error?: string;
+  /**
+   *
+   * @type {number}
+   * @memberof RuntimeError
+   */
+  code?: number;
+  /**
+   *
+   * @type {string}
+   * @memberof RuntimeError
+   */
+  message?: string;
+  /**
+   *
+   * @type {Array<ProtobufAny>}
+   * @memberof RuntimeError
+   */
+  details?: Array<ProtobufAny>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1AccessKey
  */
 export interface V1AccessKey {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1AccessKey
-     */
-    accessKeyID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1AccessKey
-     */
-    lastUsedAt?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AccessKey
+   */
+  accessKeyID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AccessKey
+   */
+  lastUsedAt?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1Account
  */
 export interface V1Account {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Account
-     */
-    accountID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Account
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Account
-     */
-    description?: string;
-    /**
-     * 
-     * @type {AccountAccountStatus}
-     * @memberof V1Account
-     */
-    status?: AccountAccountStatus;
-    /**
-     * 
-     * @type {V1PaymentDetails}
-     * @memberof V1Account
-     */
-    paymentDetails?: V1PaymentDetails;
-    /**
-     * 
-     * @type {V1ContactDetails}
-     * @memberof V1Account
-     */
-    contactDetails?: V1ContactDetails;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Account
+   */
+  accountID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Account
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Account
+   */
+  description?: string;
+  /**
+   *
+   * @type {AccountAccountStatus}
+   * @memberof V1Account
+   */
+  status?: AccountAccountStatus;
+  /**
+   *
+   * @type {V1PaymentDetails}
+   * @memberof V1Account
+   */
+  paymentDetails?: V1PaymentDetails;
+  /**
+   *
+   * @type {V1ContactDetails}
+   * @memberof V1Account
+   */
+  contactDetails?: V1ContactDetails;
 }
 /**
- * 
+ *
  * @export
  * @interface V1Action
  */
 export interface V1Action {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Action
-     */
-    service?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Action
-     */
-    call?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Action
+   */
+  service?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Action
+   */
+  call?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1AddUsersToRoleRequest
  */
 export interface V1AddUsersToRoleRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1AddUsersToRoleRequest
-     */
-    roleID?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1AddUsersToRoleRequest
-     */
-    userIDs?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddUsersToRoleRequest
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddUsersToRoleRequest
+   */
+  userIDs?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1AddUsersToRoleResponse
  */
 export interface V1AddUsersToRoleResponse {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1AddUsersToRoleResponse
-     */
-    failedUserIDs?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddUsersToRoleResponse
+   */
+  failedUserIDs?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CheckHMACAuthRequest
  */
 export interface V1CheckHMACAuthRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthRequest
-     */
-    httpMethod?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthRequest
-     */
-    requestPath?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthRequest
-     */
-    contentType?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthRequest
-     */
-    authKey?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthRequest
-     */
-    signature?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthRequest
-     */
-    md5Body?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthRequest
-     */
-    validity?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthRequest
+   */
+  httpMethod?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthRequest
+   */
+  requestPath?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthRequest
+   */
+  contentType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthRequest
+   */
+  authKey?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthRequest
+   */
+  signature?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthRequest
+   */
+  md5Body?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthRequest
+   */
+  validity?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CheckHMACAuthResponse
  */
 export interface V1CheckHMACAuthResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthResponse
-     */
-    token?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CheckHMACAuthResponse
-     */
-    error?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthResponse
+   */
+  token?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckHMACAuthResponse
+   */
+  error?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1ContactDetails
  */
 export interface V1ContactDetails {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ContactDetails
-     */
-    main?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ContactDetails
-     */
-    finance?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ContactDetails
-     */
-    technical?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1ContactDetails
+   */
+  main?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1ContactDetails
+   */
+  finance?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1ContactDetails
+   */
+  technical?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateAccessKeyRequest
  */
 export interface V1CreateAccessKeyRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateAccessKeyRequest
-     */
-    userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateAccessKeyRequest
+   */
+  userID?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateAccessKeyResponse
  */
 export interface V1CreateAccessKeyResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateAccessKeyResponse
-     */
-    accessKeyID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateAccessKeyResponse
-     */
-    accessSecret?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateAccessKeyResponse
+   */
+  accessKeyID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateAccessKeyResponse
+   */
+  accessSecret?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateAccountRequest
  */
 export interface V1CreateAccountRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateAccountRequest
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateAccountRequest
-     */
-    description?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateAccountRequest
-     */
-    email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateAccountRequest
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateAccountRequest
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateAccountRequest
+   */
+  email?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateAccountResponse
  */
 export interface V1CreateAccountResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateAccountResponse
-     */
-    accountID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateAccountResponse
+   */
+  accountID?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreatePolicyRequest
  */
 export interface V1CreatePolicyRequest {
-    /**
-     * 
-     * @type {V1Policy}
-     * @memberof V1CreatePolicyRequest
-     */
-    policy?: V1Policy;
+  /**
+   *
+   * @type {V1Policy}
+   * @memberof V1CreatePolicyRequest
+   */
+  policy?: V1Policy;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreatePolicyResponse
  */
 export interface V1CreatePolicyResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreatePolicyResponse
-     */
-    policyID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreatePolicyResponse
+   */
+  policyID?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateRoleRequest
  */
 export interface V1CreateRoleRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateRoleRequest
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateRoleRequest
-     */
-    description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateRoleRequest
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateRoleRequest
+   */
+  description?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateRoleResponse
  */
 export interface V1CreateRoleResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateRoleResponse
-     */
-    roleID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateRoleResponse
+   */
+  roleID?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateUserRequest
  */
 export interface V1CreateUserRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateUserRequest
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateUserRequest
-     */
-    firstName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateUserRequest
-     */
-    lastName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateUserRequest
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateUserRequest
+   */
+  firstName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateUserRequest
+   */
+  lastName?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1CreateUserResponse
  */
 export interface V1CreateUserResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateUserResponse
-     */
-    userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateUserResponse
+   */
+  userID?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetAccountResponse
  */
 export interface V1GetAccountResponse {
-    /**
-     * 
-     * @type {V1Account}
-     * @memberof V1GetAccountResponse
-     */
-    account?: V1Account;
+  /**
+   *
+   * @type {V1Account}
+   * @memberof V1GetAccountResponse
+   */
+  account?: V1Account;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetDefaultPoliciesResponse
  */
 export interface V1GetDefaultPoliciesResponse {
-    /**
-     * 
-     * @type {Array<V1Policy>}
-     * @memberof V1GetDefaultPoliciesResponse
-     */
-    policies?: Array<V1Policy>;
+  /**
+   *
+   * @type {Array<V1Policy>}
+   * @memberof V1GetDefaultPoliciesResponse
+   */
+  policies?: Array<V1Policy>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetLogLabelsResponse
  */
 export interface V1GetLogLabelsResponse {
-    /**
-     * 
-     * @type {Array<V1LogLabelValues>}
-     * @memberof V1GetLogLabelsResponse
-     */
-    loglabels?: Array<V1LogLabelValues>;
+  /**
+   *
+   * @type {Array<V1LogLabelValues>}
+   * @memberof V1GetLogLabelsResponse
+   */
+  loglabels?: Array<V1LogLabelValues>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetLogsRequest
  */
 export interface V1GetLogsRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GetLogsRequest
-     */
-    time_from?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GetLogsRequest
-     */
-    time_till?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1GetLogsRequest
-     */
-    limit?: number;
-    /**
-     * 
-     * @type {Array<V1LogLabelQuery>}
-     * @memberof V1GetLogsRequest
-     */
-    labels?: Array<V1LogLabelQuery>;
-    /**
-     * 
-     * @type {LogEntrySeverity}
-     * @memberof V1GetLogsRequest
-     */
-    severity?: LogEntrySeverity;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GetLogsRequest
-     */
-    match?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GetLogsRequest
-     */
-    not_match?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetLogsRequest
+   */
+  time_from?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetLogsRequest
+   */
+  time_till?: string;
+  /**
+   *
+   * @type {number}
+   * @memberof V1GetLogsRequest
+   */
+  limit?: number;
+  /**
+   *
+   * @type {Array<V1LogLabelQuery>}
+   * @memberof V1GetLogsRequest
+   */
+  labels?: Array<V1LogLabelQuery>;
+  /**
+   *
+   * @type {LogEntrySeverity}
+   * @memberof V1GetLogsRequest
+   */
+  severity?: LogEntrySeverity;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetLogsRequest
+   */
+  match?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetLogsRequest
+   */
+  not_match?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetLogsResponse
  */
 export interface V1GetLogsResponse {
-    /**
-     * 
-     * @type {Array<V1LogEntry>}
-     * @memberof V1GetLogsResponse
-     */
-    logs?: Array<V1LogEntry>;
+  /**
+   *
+   * @type {Array<V1LogEntry>}
+   * @memberof V1GetLogsResponse
+   */
+  logs?: Array<V1LogEntry>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetMetricsResponse
  */
 export interface V1GetMetricsResponse {
-    /**
-     * 
-     * @type {Array<V1Metric>}
-     * @memberof V1GetMetricsResponse
-     */
-    metrics?: Array<V1Metric>;
+  /**
+   *
+   * @type {Array<V1Metric>}
+   * @memberof V1GetMetricsResponse
+   */
+  metrics?: Array<V1Metric>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetPasswordPolicyResponse
  */
 export interface V1GetPasswordPolicyResponse {
-    /**
-     * 
-     * @type {V1PasswordPolicy}
-     * @memberof V1GetPasswordPolicyResponse
-     */
-    policy?: V1PasswordPolicy;
+  /**
+   *
+   * @type {V1PasswordPolicy}
+   * @memberof V1GetPasswordPolicyResponse
+   */
+  policy?: V1PasswordPolicy;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetPoliciesResponse
  */
 export interface V1GetPoliciesResponse {
-    /**
-     * 
-     * @type {Array<V1Policy>}
-     * @memberof V1GetPoliciesResponse
-     */
-    policies?: Array<V1Policy>;
+  /**
+   *
+   * @type {Array<V1Policy>}
+   * @memberof V1GetPoliciesResponse
+   */
+  policies?: Array<V1Policy>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetPolicyResponse
  */
 export interface V1GetPolicyResponse {
-    /**
-     * 
-     * @type {V1Policy}
-     * @memberof V1GetPolicyResponse
-     */
-    policy?: V1Policy;
+  /**
+   *
+   * @type {V1Policy}
+   * @memberof V1GetPolicyResponse
+   */
+  policy?: V1Policy;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetRoleResponse
  */
 export interface V1GetRoleResponse {
-    /**
-     * 
-     * @type {V1Role}
-     * @memberof V1GetRoleResponse
-     */
-    role?: V1Role;
+  /**
+   *
+   * @type {V1Role}
+   * @memberof V1GetRoleResponse
+   */
+  role?: V1Role;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetRolesResponse
  */
 export interface V1GetRolesResponse {
-    /**
-     * 
-     * @type {Array<V1Role>}
-     * @memberof V1GetRolesResponse
-     */
-    roles?: Array<V1Role>;
+  /**
+   *
+   * @type {Array<V1Role>}
+   * @memberof V1GetRolesResponse
+   */
+  roles?: Array<V1Role>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetUserAccessKeysResponse
  */
 export interface V1GetUserAccessKeysResponse {
-    /**
-     * 
-     * @type {Array<V1AccessKey>}
-     * @memberof V1GetUserAccessKeysResponse
-     */
-    keys?: Array<V1AccessKey>;
+  /**
+   *
+   * @type {Array<V1AccessKey>}
+   * @memberof V1GetUserAccessKeysResponse
+   */
+  keys?: Array<V1AccessKey>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetUserIDByEmailResponse
  */
 export interface V1GetUserIDByEmailResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GetUserIDByEmailResponse
-     */
-    userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetUserIDByEmailResponse
+   */
+  userID?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetUserInfoResponse
  */
 export interface V1GetUserInfoResponse {
-    /**
-     * 
-     * @type {V1UserInfo}
-     * @memberof V1GetUserInfoResponse
-     */
-    userInfo?: V1UserInfo;
+  /**
+   *
+   * @type {V1UserInfo}
+   * @memberof V1GetUserInfoResponse
+   */
+  userInfo?: V1UserInfo;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetUserResponse
  */
 export interface V1GetUserResponse {
-    /**
-     * 
-     * @type {V1User}
-     * @memberof V1GetUserResponse
-     */
-    user?: V1User;
+  /**
+   *
+   * @type {V1User}
+   * @memberof V1GetUserResponse
+   */
+  user?: V1User;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetUsersForRoleResponse
  */
 export interface V1GetUsersForRoleResponse {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1GetUsersForRoleResponse
-     */
-    userIDs?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1GetUsersForRoleResponse
+   */
+  userIDs?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1GetUsersResponse
  */
 export interface V1GetUsersResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GetUsersResponse
-     */
-    totalRows?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GetUsersResponse
-     */
-    offset?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1GetUsersResponse
-     */
-    limit?: number;
-    /**
-     * 
-     * @type {Array<V1User>}
-     * @memberof V1GetUsersResponse
-     */
-    users?: Array<V1User>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetUsersResponse
+   */
+  totalRows?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetUsersResponse
+   */
+  offset?: string;
+  /**
+   *
+   * @type {number}
+   * @memberof V1GetUsersResponse
+   */
+  limit?: number;
+  /**
+   *
+   * @type {Array<V1User>}
+   * @memberof V1GetUsersResponse
+   */
+  users?: Array<V1User>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1LogEntry
  */
 export interface V1LogEntry {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogEntry
-     */
-    logId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogEntry
-     */
-    time?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogEntry
-     */
-    message?: string;
-    /**
-     * 
-     * @type {LogEntrySeverity}
-     * @memberof V1LogEntry
-     */
-    severity?: LogEntrySeverity;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogEntry
-     */
-    source?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogEntry
-     */
-    action?: string;
-    /**
-     * 
-     * @type {Array<V1LogEntryField>}
-     * @memberof V1LogEntry
-     */
-    fields?: Array<V1LogEntryField>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogEntry
+   */
+  logId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogEntry
+   */
+  time?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogEntry
+   */
+  message?: string;
+  /**
+   *
+   * @type {LogEntrySeverity}
+   * @memberof V1LogEntry
+   */
+  severity?: LogEntrySeverity;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogEntry
+   */
+  source?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogEntry
+   */
+  action?: string;
+  /**
+   *
+   * @type {Array<V1LogEntryField>}
+   * @memberof V1LogEntry
+   */
+  fields?: Array<V1LogEntryField>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1LogEntryField
  */
 export interface V1LogEntryField {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogEntryField
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogEntryField
-     */
-    value?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogEntryField
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogEntryField
+   */
+  value?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1LogLabelQuery
  */
 export interface V1LogLabelQuery {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogLabelQuery
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogLabelQuery
-     */
-    value?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogLabelQuery
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogLabelQuery
+   */
+  value?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1LogLabelValues
  */
 export interface V1LogLabelValues {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1LogLabelValues
-     */
-    name?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1LogLabelValues
-     */
-    values?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1LogLabelValues
+   */
+  name?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1LogLabelValues
+   */
+  values?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1Metric
  */
 export interface V1Metric {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Metric
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Metric
-     */
-    value?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Metric
-     */
-    time_from?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Metric
-     */
-    time_to?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Metric
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Metric
+   */
+  value?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Metric
+   */
+  time_from?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Metric
+   */
+  time_to?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1PasswordPolicy
  */
 export interface V1PasswordPolicy {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PasswordPolicy
-     */
-    minLength?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1PasswordPolicy
-     */
-    useLowerLetters?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1PasswordPolicy
-     */
-    useUpperLetters?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1PasswordPolicy
-     */
-    useNumbers?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1PasswordPolicy
-     */
-    useSpecialCharecters?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof V1PasswordPolicy
+   */
+  minLength?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1PasswordPolicy
+   */
+  useLowerLetters?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1PasswordPolicy
+   */
+  useUpperLetters?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1PasswordPolicy
+   */
+  useNumbers?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1PasswordPolicy
+   */
+  useSpecialCharecters?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface V1PaymentDetails
  */
 export interface V1PaymentDetails {
-    /**
-     * 
-     * @type {PaymentDetailsPaymentType}
-     * @memberof V1PaymentDetails
-     */
-    type?: PaymentDetailsPaymentType;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PaymentDetails
-     */
-    info?: string;
+  /**
+   *
+   * @type {PaymentDetailsPaymentType}
+   * @memberof V1PaymentDetails
+   */
+  type?: PaymentDetailsPaymentType;
+  /**
+   *
+   * @type {string}
+   * @memberof V1PaymentDetails
+   */
+  info?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1Permission
  */
 export interface V1Permission {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Permission
-     */
-    effect?: string;
-    /**
-     * 
-     * @type {Array<V1Action>}
-     * @memberof V1Permission
-     */
-    actions?: Array<V1Action>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1Permission
-     */
-    scope?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Permission
+   */
+  effect?: string;
+  /**
+   *
+   * @type {Array<V1Action>}
+   * @memberof V1Permission
+   */
+  actions?: Array<V1Action>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1Permission
+   */
+  scope?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1Policy
  */
 export interface V1Policy {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Policy
-     */
-    policyID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Policy
-     */
-    name?: string;
-    /**
-     * 
-     * @type {Array<V1Permission>}
-     * @memberof V1Policy
-     */
-    permissions?: Array<V1Permission>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Policy
+   */
+  policyID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Policy
+   */
+  name?: string;
+  /**
+   *
+   * @type {Array<V1Permission>}
+   * @memberof V1Policy
+   */
+  permissions?: Array<V1Permission>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1RemoveUsersFromRoleRequest
  */
 export interface V1RemoveUsersFromRoleRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1RemoveUsersFromRoleRequest
-     */
-    roleID?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1RemoveUsersFromRoleRequest
-     */
-    userIDs?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1RemoveUsersFromRoleRequest
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemoveUsersFromRoleRequest
+   */
+  userIDs?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1RemoveUsersFromRoleResponse
  */
 export interface V1RemoveUsersFromRoleResponse {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1RemoveUsersFromRoleResponse
-     */
-    failedUserIDs?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemoveUsersFromRoleResponse
+   */
+  failedUserIDs?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1ResetPasswordRequest
  */
 export interface V1ResetPasswordRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ResetPasswordRequest
-     */
-    userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1ResetPasswordRequest
+   */
+  userID?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1Role
  */
 export interface V1Role {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Role
-     */
-    roleID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Role
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Role
-     */
-    description?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1Role
-     */
-    policyIDs?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Role
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Role
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Role
+   */
+  description?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1Role
+   */
+  policyIDs?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1SetPasswordRequest
  */
 export interface V1SetPasswordRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1SetPasswordRequest
-     */
-    userID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1SetPasswordRequest
-     */
-    userPassword?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1SetPasswordRequest
-     */
-    newPassword?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SetPasswordRequest
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SetPasswordRequest
+   */
+  userPassword?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SetPasswordRequest
+   */
+  newPassword?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface V1UpdateAccountRequest
  */
 export interface V1UpdateAccountRequest {
-    /**
-     * 
-     * @type {V1Account}
-     * @memberof V1UpdateAccountRequest
-     */
-    account?: V1Account;
+  /**
+   *
+   * @type {V1Account}
+   * @memberof V1UpdateAccountRequest
+   */
+  account?: V1Account;
 }
 /**
- * 
+ *
  * @export
  * @interface V1UpdatePolicyRequest
  */
 export interface V1UpdatePolicyRequest {
-    /**
-     * 
-     * @type {V1Policy}
-     * @memberof V1UpdatePolicyRequest
-     */
-    policy?: V1Policy;
+  /**
+   *
+   * @type {V1Policy}
+   * @memberof V1UpdatePolicyRequest
+   */
+  policy?: V1Policy;
 }
 /**
- * 
+ *
  * @export
  * @interface V1UpdateRoleRequest
  */
 export interface V1UpdateRoleRequest {
-    /**
-     * 
-     * @type {V1Role}
-     * @memberof V1UpdateRoleRequest
-     */
-    role?: V1Role;
+  /**
+   *
+   * @type {V1Role}
+   * @memberof V1UpdateRoleRequest
+   */
+  role?: V1Role;
 }
 /**
- * 
+ *
  * @export
  * @interface V1UpdateUserRequest
  */
 export interface V1UpdateUserRequest {
-    /**
-     * 
-     * @type {V1User}
-     * @memberof V1UpdateUserRequest
-     */
-    user?: V1User;
+  /**
+   *
+   * @type {V1User}
+   * @memberof V1UpdateUserRequest
+   */
+  user?: V1User;
 }
 /**
- * 
+ *
  * @export
  * @interface V1User
  */
 export interface V1User {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1User
-     */
-    userID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1User
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1User
-     */
-    phoneNumber?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1User
-     */
-    firstName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1User
-     */
-    lastName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1User
-     */
-    language?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1User
-     */
-    lastLogin?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1User
-     */
-    policyIDs?: Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1User
-     */
-    roleIDs?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  firstName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  lastName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  language?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  lastLogin?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1User
+   */
+  policyIDs?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1User
+   */
+  roleIDs?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface V1UserInfo
  */
 export interface V1UserInfo {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UserInfo
-     */
-    accountID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UserInfo
-     */
-    userID?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UserInfo
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UserInfo
-     */
-    name?: string;
-    /**
-     * 
-     * @type {Array<V1Policy>}
-     * @memberof V1UserInfo
-     */
-    policies?: Array<V1Policy>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserInfo
+   */
+  accountID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserInfo
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserInfo
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserInfo
+   */
+  name?: string;
+  /**
+   *
+   * @type {Array<V1Policy>}
+   * @memberof V1UserInfo
+   */
+  policies?: Array<V1Policy>;
 }
 
 /**
@@ -2117,205 +2116,235 @@ export interface V1UserInfo {
  * @export
  */
 export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLogLabels: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/appscape/v1/log-labels`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+  return {
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getLogLabels: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/appscape/v1/log-labels`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1GetLogsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getLogs: async (body: V1GetLogsRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling getLogs.');
+      }
+      const localVarPath = `/api/appscape/v1/logs`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1GetLogsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLogs: async (body: V1GetLogsRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling getLogs.');
-            }
-            const localVarPath = `/api/appscape/v1/logs`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} [timeFrom]
+     * @param {string} [timeTo]
+     * @param {Array<string>} [metrics]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMetrics: async (
+      timeFrom?: string,
+      timeTo?: string,
+      metrics?: Array<string>,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/appscape/v1/metrics`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      if (timeFrom !== undefined) {
+        localVarQueryParameter['time_from'] = timeFrom;
+      }
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} [timeFrom] 
-         * @param {string} [timeTo] 
-         * @param {Array<string>} [metrics] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMetrics: async (timeFrom?: string, timeTo?: string, metrics?: Array<string>, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/appscape/v1/metrics`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      if (timeTo !== undefined) {
+        localVarQueryParameter['time_to'] = timeTo;
+      }
 
-            if (timeFrom !== undefined) {
-                localVarQueryParameter['time_from'] = timeFrom;
-            }
+      if (metrics) {
+        localVarQueryParameter['metrics'] = metrics;
+      }
 
-            if (timeTo !== undefined) {
-                localVarQueryParameter['time_to'] = timeTo;
-            }
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
-            if (metrics) {
-                localVarQueryParameter['metrics'] = metrics;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+  };
 };
 
 /**
  * AppscapeServiceApi - functional programming interface
  * @export
  */
-export const AppscapeServiceApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getLogLabels(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogLabelsResponse>> {
-            const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getLogLabels(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1GetLogsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getLogs(body: V1GetLogsRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogsResponse>> {
-            const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getLogs(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} [timeFrom] 
-         * @param {string} [timeTo] 
-         * @param {Array<string>} [metrics] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getMetrics(timeFrom?: string, timeTo?: string, metrics?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetMetricsResponse>> {
-            const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getMetrics(timeFrom, timeTo, metrics, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
+export const AppscapeServiceApiFp = function (configuration?: Configuration) {
+  return {
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getLogLabels(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogLabelsResponse>> {
+      const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getLogLabels(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1GetLogsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getLogs(
+      body: V1GetLogsRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogsResponse>> {
+      const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getLogs(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} [timeFrom]
+     * @param {string} [timeTo]
+     * @param {Array<string>} [metrics]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getMetrics(
+      timeFrom?: string,
+      timeTo?: string,
+      metrics?: Array<string>,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetMetricsResponse>> {
+      const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getMetrics(
+        timeFrom,
+        timeTo,
+        metrics,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+  };
 };
 
 /**
  * AppscapeServiceApi - factory interface
  * @export
  */
-export const AppscapeServiceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLogLabels(options?: any): AxiosPromise<V1GetLogLabelsResponse> {
-            return AppscapeServiceApiFp(configuration).getLogLabels(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1GetLogsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLogs(body: V1GetLogsRequest, options?: any): AxiosPromise<V1GetLogsResponse> {
-            return AppscapeServiceApiFp(configuration).getLogs(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} [timeFrom] 
-         * @param {string} [timeTo] 
-         * @param {Array<string>} [metrics] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMetrics(timeFrom?: string, timeTo?: string, metrics?: Array<string>, options?: any): AxiosPromise<V1GetMetricsResponse> {
-            return AppscapeServiceApiFp(configuration).getMetrics(timeFrom, timeTo, metrics, options).then((request) => request(axios, basePath));
-        },
-    };
+export const AppscapeServiceApiFactory = function (
+  configuration?: Configuration,
+  basePath?: string,
+  axios?: AxiosInstance,
+) {
+  return {
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getLogLabels(options?: any): AxiosPromise<V1GetLogLabelsResponse> {
+      return AppscapeServiceApiFp(configuration)
+        .getLogLabels(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1GetLogsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getLogs(body: V1GetLogsRequest, options?: any): AxiosPromise<V1GetLogsResponse> {
+      return AppscapeServiceApiFp(configuration)
+        .getLogs(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} [timeFrom]
+     * @param {string} [timeTo]
+     * @param {Array<string>} [metrics]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMetrics(
+      timeFrom?: string,
+      timeTo?: string,
+      metrics?: Array<string>,
+      options?: any,
+    ): AxiosPromise<V1GetMetricsResponse> {
+      return AppscapeServiceApiFp(configuration)
+        .getMetrics(timeFrom, timeTo, metrics, options)
+        .then((request) => request(axios, basePath));
+    },
+  };
 };
 
 /**
@@ -2325,2011 +2354,2219 @@ export const AppscapeServiceApiFactory = function (configuration?: Configuration
  * @extends {BaseAPI}
  */
 export class AppscapeServiceApi extends BaseAPI {
-    /**
-     * 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AppscapeServiceApi
-     */
-    public getLogLabels(options?: any) {
-        return AppscapeServiceApiFp(this.configuration).getLogLabels(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AppscapeServiceApi
+   */
+  public getLogLabels(options?: any) {
+    return AppscapeServiceApiFp(this.configuration)
+      .getLogLabels(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1GetLogsRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AppscapeServiceApi
-     */
-    public getLogs(body: V1GetLogsRequest, options?: any) {
-        return AppscapeServiceApiFp(this.configuration).getLogs(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1GetLogsRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AppscapeServiceApi
+   */
+  public getLogs(body: V1GetLogsRequest, options?: any) {
+    return AppscapeServiceApiFp(this.configuration)
+      .getLogs(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} [timeFrom] 
-     * @param {string} [timeTo] 
-     * @param {Array<string>} [metrics] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AppscapeServiceApi
-     */
-    public getMetrics(timeFrom?: string, timeTo?: string, metrics?: Array<string>, options?: any) {
-        return AppscapeServiceApiFp(this.configuration).getMetrics(timeFrom, timeTo, metrics, options).then((request) => request(this.axios, this.basePath));
-    }
-
+  /**
+   *
+   * @param {string} [timeFrom]
+   * @param {string} [timeTo]
+   * @param {Array<string>} [metrics]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AppscapeServiceApi
+   */
+  public getMetrics(timeFrom?: string, timeTo?: string, metrics?: Array<string>, options?: any) {
+    return AppscapeServiceApiFp(this.configuration)
+      .getMetrics(timeFrom, timeTo, metrics, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 }
-
 
 /**
  * AuthServiceApi - axios parameter creator
  * @export
  */
 export const AuthServiceApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @param {V1AddUsersToRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addUsersToRole: async (body: V1AddUsersToRoleRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling addUsersToRole.');
-            }
-            const localVarPath = `/api/auth/v1/role/users/add`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Auth API
-         * @param {V1CheckHMACAuthRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        checkHMACAuth: async (body: V1CheckHMACAuthRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling checkHMACAuth.');
-            }
-            const localVarPath = `/api/auth/v1/check-hmac`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary User Access Keys API
-         * @param {V1CreateAccessKeyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createAccessKey: async (body: V1CreateAccessKeyRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createAccessKey.');
-            }
-            const localVarPath = `/api/auth/v1/accesskey`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Account API
-         * @param {V1CreateAccountRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createAccount: async (body: V1CreateAccountRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createAccount.');
-            }
-            const localVarPath = `/api/auth/v1/account`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1CreatePolicyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPolicy: async (body: V1CreatePolicyRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createPolicy.');
-            }
-            const localVarPath = `/api/auth/v1/policy`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1CreateRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createRole: async (body: V1CreateRoleRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createRole.');
-            }
-            const localVarPath = `/api/auth/v1/role`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1CreateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUser: async (body: V1CreateUserRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createUser.');
-            }
-            const localVarPath = `/api/auth/v1/user`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} accessKeyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteAccessKey: async (accessKeyID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessKeyID' is not null or undefined
-            if (accessKeyID === null || accessKeyID === undefined) {
-                throw new RequiredError('accessKeyID','Required parameter accessKeyID was null or undefined when calling deleteAccessKey.');
-            }
-            const localVarPath = `/api/auth/v1/accesskey/{accessKeyID}`
-                .replace(`{${"accessKeyID"}}`, encodeURIComponent(String(accessKeyID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} accountID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteAccount: async (accountID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountID' is not null or undefined
-            if (accountID === null || accountID === undefined) {
-                throw new RequiredError('accountID','Required parameter accountID was null or undefined when calling deleteAccount.');
-            }
-            const localVarPath = `/api/auth/v1/account/{accountID}`
-                .replace(`{${"accountID"}}`, encodeURIComponent(String(accountID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} policyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePolicy: async (policyID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'policyID' is not null or undefined
-            if (policyID === null || policyID === undefined) {
-                throw new RequiredError('policyID','Required parameter policyID was null or undefined when calling deletePolicy.');
-            }
-            const localVarPath = `/api/auth/v1/policy/{policyID}`
-                .replace(`{${"policyID"}}`, encodeURIComponent(String(policyID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteRole: async (roleID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'roleID' is not null or undefined
-            if (roleID === null || roleID === undefined) {
-                throw new RequiredError('roleID','Required parameter roleID was null or undefined when calling deleteRole.');
-            }
-            const localVarPath = `/api/auth/v1/role/{roleID}`
-                .replace(`{${"roleID"}}`, encodeURIComponent(String(roleID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userID' is not null or undefined
-            if (userID === null || userID === undefined) {
-                throw new RequiredError('userID','Required parameter userID was null or undefined when calling deleteUser.');
-            }
-            const localVarPath = `/api/auth/v1/user/{userID}`
-                .replace(`{${"userID"}}`, encodeURIComponent(String(userID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} accountID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getAccount: async (accountID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountID' is not null or undefined
-            if (accountID === null || accountID === undefined) {
-                throw new RequiredError('accountID','Required parameter accountID was null or undefined when calling getAccount.');
-            }
-            const localVarPath = `/api/auth/v1/account/{accountID}`
-                .replace(`{${"accountID"}}`, encodeURIComponent(String(accountID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} [offset] 
-         * @param {string} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDefaultPolicies: async (offset?: string, limit?: string, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/v1/default-policies`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getOwnAccount: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/v1/account`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPasswordPolicy: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/v1/password-policy`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPolicies: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/v1/policies`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary RBAC API
-         * @param {string} policyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPolicy: async (policyID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'policyID' is not null or undefined
-            if (policyID === null || policyID === undefined) {
-                throw new RequiredError('policyID','Required parameter policyID was null or undefined when calling getPolicy.');
-            }
-            const localVarPath = `/api/auth/v1/policy/{policyID}`
-                .replace(`{${"policyID"}}`, encodeURIComponent(String(policyID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getRole: async (roleID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'roleID' is not null or undefined
-            if (roleID === null || roleID === undefined) {
-                throw new RequiredError('roleID','Required parameter roleID was null or undefined when calling getRole.');
-            }
-            const localVarPath = `/api/auth/v1/role/{roleID}`
-                .replace(`{${"roleID"}}`, encodeURIComponent(String(roleID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getRoles: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/v1/roles`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userID' is not null or undefined
-            if (userID === null || userID === undefined) {
-                throw new RequiredError('userID','Required parameter userID was null or undefined when calling getUser.');
-            }
-            const localVarPath = `/api/auth/v1/user/{userID}`
-                .replace(`{${"userID"}}`, encodeURIComponent(String(userID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserAccessKeys: async (userID: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userID' is not null or undefined
-            if (userID === null || userID === undefined) {
-                throw new RequiredError('userID','Required parameter userID was null or undefined when calling getUserAccessKeys.');
-            }
-            const localVarPath = `/api/auth/v1/user/accesskeys/{userID}`
-                .replace(`{${"userID"}}`, encodeURIComponent(String(userID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} email 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserIDByEmail: async (email: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'email' is not null or undefined
-            if (email === null || email === undefined) {
-                throw new RequiredError('email','Required parameter email was null or undefined when calling getUserIDByEmail.');
-            }
-            const localVarPath = `/api/auth/v1/user-id-by-email/{email}`
-                .replace(`{${"email"}}`, encodeURIComponent(String(email)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary User API
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserInfo: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/v1/userinfo`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} [offset] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers: async (offset?: string, limit?: number, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/v1/users`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {string} [offset] 
-         * @param {string} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsersForRole: async (roleID: string, offset?: string, limit?: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'roleID' is not null or undefined
-            if (roleID === null || roleID === undefined) {
-                throw new RequiredError('roleID','Required parameter roleID was null or undefined when calling getUsersForRole.');
-            }
-            const localVarPath = `/api/auth/v1/role/users/{roleID}`
-                .replace(`{${"roleID"}}`, encodeURIComponent(String(roleID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1RemoveUsersFromRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeUsersFromRole: async (body: V1RemoveUsersFromRoleRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling removeUsersFromRole.');
-            }
-            const localVarPath = `/api/auth/v1/role/users/remove`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1ResetPasswordRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        resetPassword: async (body: V1ResetPasswordRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling resetPassword.');
-            }
-            const localVarPath = `/api/auth/v1/reset-password`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Password API
-         * @param {V1SetPasswordRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setPassword: async (body: V1SetPasswordRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling setPassword.');
-            }
-            const localVarPath = `/api/auth/v1/set-password`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} accountAccountID 
-         * @param {V1UpdateAccountRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateAccount: async (accountAccountID: string, body: V1UpdateAccountRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountAccountID' is not null or undefined
-            if (accountAccountID === null || accountAccountID === undefined) {
-                throw new RequiredError('accountAccountID','Required parameter accountAccountID was null or undefined when calling updateAccount.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updateAccount.');
-            }
-            const localVarPath = `/api/auth/v1/account/{account.accountID}`
-                .replace(`{${"account.accountID"}}`, encodeURIComponent(String(accountAccountID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1UpdatePolicyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePolicy: async (body: V1UpdatePolicyRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updatePolicy.');
-            }
-            const localVarPath = `/api/auth/v1/policy`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {V1UpdateRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateRole: async (body: V1UpdateRoleRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updateRole.');
-            }
-            const localVarPath = `/api/auth/v1/role`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} userUserID 
-         * @param {V1UpdateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateUser: async (userUserID: string, body: V1UpdateUserRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userUserID' is not null or undefined
-            if (userUserID === null || userUserID === undefined) {
-                throw new RequiredError('userUserID','Required parameter userUserID was null or undefined when calling updateUser.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updateUser.');
-            }
-            const localVarPath = `/api/auth/v1/user/{user.userID}`
-                .replace(`{${"user.userID"}}`, encodeURIComponent(String(userUserID)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
+  return {
+    /**
+     *
+     * @param {V1AddUsersToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addUsersToRole: async (body: V1AddUsersToRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling addUsersToRole.');
+      }
+      const localVarPath = `/api/auth/v1/role/users/add`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Auth API
+     * @param {V1CheckHMACAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    checkHMACAuth: async (body: V1CheckHMACAuthRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling checkHMACAuth.');
+      }
+      const localVarPath = `/api/auth/v1/check-hmac`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary User Access Keys API
+     * @param {V1CreateAccessKeyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAccessKey: async (body: V1CreateAccessKeyRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createAccessKey.');
+      }
+      const localVarPath = `/api/auth/v1/accesskey`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Account API
+     * @param {V1CreateAccountRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAccount: async (body: V1CreateAccountRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createAccount.');
+      }
+      const localVarPath = `/api/auth/v1/account`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1CreatePolicyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPolicy: async (body: V1CreatePolicyRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createPolicy.');
+      }
+      const localVarPath = `/api/auth/v1/policy`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1CreateRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createRole: async (body: V1CreateRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createRole.');
+      }
+      const localVarPath = `/api/auth/v1/role`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1CreateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUser: async (body: V1CreateUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createUser.');
+      }
+      const localVarPath = `/api/auth/v1/user`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} accessKeyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAccessKey: async (accessKeyID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'accessKeyID' is not null or undefined
+      if (accessKeyID === null || accessKeyID === undefined) {
+        throw new RequiredError(
+          'accessKeyID',
+          'Required parameter accessKeyID was null or undefined when calling deleteAccessKey.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/accesskey/{accessKeyID}`.replace(
+        `{${'accessKeyID'}}`,
+        encodeURIComponent(String(accessKeyID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} accountID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAccount: async (accountID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'accountID' is not null or undefined
+      if (accountID === null || accountID === undefined) {
+        throw new RequiredError(
+          'accountID',
+          'Required parameter accountID was null or undefined when calling deleteAccount.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/account/{accountID}`.replace(
+        `{${'accountID'}}`,
+        encodeURIComponent(String(accountID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} policyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePolicy: async (policyID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'policyID' is not null or undefined
+      if (policyID === null || policyID === undefined) {
+        throw new RequiredError(
+          'policyID',
+          'Required parameter policyID was null or undefined when calling deletePolicy.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/policy/{policyID}`.replace(
+        `{${'policyID'}}`,
+        encodeURIComponent(String(policyID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteRole: async (roleID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'roleID' is not null or undefined
+      if (roleID === null || roleID === undefined) {
+        throw new RequiredError('roleID', 'Required parameter roleID was null or undefined when calling deleteRole.');
+      }
+      const localVarPath = `/api/auth/v1/role/{roleID}`.replace(`{${'roleID'}}`, encodeURIComponent(String(roleID)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'userID' is not null or undefined
+      if (userID === null || userID === undefined) {
+        throw new RequiredError('userID', 'Required parameter userID was null or undefined when calling deleteUser.');
+      }
+      const localVarPath = `/api/auth/v1/user/{userID}`.replace(`{${'userID'}}`, encodeURIComponent(String(userID)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} accountID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAccount: async (accountID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'accountID' is not null or undefined
+      if (accountID === null || accountID === undefined) {
+        throw new RequiredError(
+          'accountID',
+          'Required parameter accountID was null or undefined when calling getAccount.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/account/{accountID}`.replace(
+        `{${'accountID'}}`,
+        encodeURIComponent(String(accountID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} [offset]
+     * @param {string} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDefaultPolicies: async (offset?: string, limit?: string, options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/default-policies`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (offset !== undefined) {
+        localVarQueryParameter['offset'] = offset;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter['limit'] = limit;
+      }
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOwnAccount: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/account`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPasswordPolicy: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/password-policy`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPolicies: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/policies`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary RBAC API
+     * @param {string} policyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPolicy: async (policyID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'policyID' is not null or undefined
+      if (policyID === null || policyID === undefined) {
+        throw new RequiredError(
+          'policyID',
+          'Required parameter policyID was null or undefined when calling getPolicy.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/policy/{policyID}`.replace(
+        `{${'policyID'}}`,
+        encodeURIComponent(String(policyID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRole: async (roleID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'roleID' is not null or undefined
+      if (roleID === null || roleID === undefined) {
+        throw new RequiredError('roleID', 'Required parameter roleID was null or undefined when calling getRole.');
+      }
+      const localVarPath = `/api/auth/v1/role/{roleID}`.replace(`{${'roleID'}}`, encodeURIComponent(String(roleID)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRoles: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/roles`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'userID' is not null or undefined
+      if (userID === null || userID === undefined) {
+        throw new RequiredError('userID', 'Required parameter userID was null or undefined when calling getUser.');
+      }
+      const localVarPath = `/api/auth/v1/user/{userID}`.replace(`{${'userID'}}`, encodeURIComponent(String(userID)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserAccessKeys: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'userID' is not null or undefined
+      if (userID === null || userID === undefined) {
+        throw new RequiredError(
+          'userID',
+          'Required parameter userID was null or undefined when calling getUserAccessKeys.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/user/accesskeys/{userID}`.replace(
+        `{${'userID'}}`,
+        encodeURIComponent(String(userID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserIDByEmail: async (email: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'email' is not null or undefined
+      if (email === null || email === undefined) {
+        throw new RequiredError(
+          'email',
+          'Required parameter email was null or undefined when calling getUserIDByEmail.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/user-id-by-email/{email}`.replace(
+        `{${'email'}}`,
+        encodeURIComponent(String(email)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary User API
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserInfo: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/userinfo`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} [offset]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsers: async (offset?: string, limit?: number, options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/users`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (offset !== undefined) {
+        localVarQueryParameter['offset'] = offset;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter['limit'] = limit;
+      }
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {string} [offset]
+     * @param {string} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsersForRole: async (
+      roleID: string,
+      offset?: string,
+      limit?: string,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'roleID' is not null or undefined
+      if (roleID === null || roleID === undefined) {
+        throw new RequiredError(
+          'roleID',
+          'Required parameter roleID was null or undefined when calling getUsersForRole.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/role/users/{roleID}`.replace(
+        `{${'roleID'}}`,
+        encodeURIComponent(String(roleID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (offset !== undefined) {
+        localVarQueryParameter['offset'] = offset;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter['limit'] = limit;
+      }
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1RemoveUsersFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeUsersFromRole: async (body: V1RemoveUsersFromRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling removeUsersFromRole.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/role/users/remove`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1ResetPasswordRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    resetPassword: async (body: V1ResetPasswordRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling resetPassword.');
+      }
+      const localVarPath = `/api/auth/v1/reset-password`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Password API
+     * @param {V1SetPasswordRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    setPassword: async (body: V1SetPasswordRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling setPassword.');
+      }
+      const localVarPath = `/api/auth/v1/set-password`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} accountAccountID
+     * @param {V1UpdateAccountRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAccount: async (
+      accountAccountID: string,
+      body: V1UpdateAccountRequest,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'accountAccountID' is not null or undefined
+      if (accountAccountID === null || accountAccountID === undefined) {
+        throw new RequiredError(
+          'accountAccountID',
+          'Required parameter accountAccountID was null or undefined when calling updateAccount.',
+        );
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updateAccount.');
+      }
+      const localVarPath = `/api/auth/v1/account/{account.accountID}`.replace(
+        `{${'account.accountID'}}`,
+        encodeURIComponent(String(accountAccountID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1UpdatePolicyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePolicy: async (body: V1UpdatePolicyRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updatePolicy.');
+      }
+      const localVarPath = `/api/auth/v1/policy`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1UpdateRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateRole: async (body: V1UpdateRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updateRole.');
+      }
+      const localVarPath = `/api/auth/v1/role`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {string} userUserID
+     * @param {V1UpdateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUser: async (userUserID: string, body: V1UpdateUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'userUserID' is not null or undefined
+      if (userUserID === null || userUserID === undefined) {
+        throw new RequiredError(
+          'userUserID',
+          'Required parameter userUserID was null or undefined when calling updateUser.',
+        );
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updateUser.');
+      }
+      const localVarPath = `/api/auth/v1/user/{user.userID}`.replace(
+        `{${'user.userID'}}`,
+        encodeURIComponent(String(userUserID)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+  };
 };
 
 /**
  * AuthServiceApi - functional programming interface
  * @export
  */
-export const AuthServiceApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @param {V1AddUsersToRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addUsersToRole(body: V1AddUsersToRoleRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddUsersToRoleResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).addUsersToRole(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Auth API
-         * @param {V1CheckHMACAuthRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async checkHMACAuth(body: V1CheckHMACAuthRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CheckHMACAuthResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).checkHMACAuth(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary User Access Keys API
-         * @param {V1CreateAccessKeyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createAccessKey(body: V1CreateAccessKeyRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccessKeyResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createAccessKey(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Account API
-         * @param {V1CreateAccountRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createAccount(body: V1CreateAccountRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccountResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createAccount(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1CreatePolicyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createPolicy(body: V1CreatePolicyRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreatePolicyResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createPolicy(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1CreateRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createRole(body: V1CreateRoleRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateRoleResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createRole(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1CreateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createUser(body: V1CreateUserRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateUserResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createUser(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} accessKeyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteAccessKey(accessKeyID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteAccessKey(accessKeyID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} accountID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteAccount(accountID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteAccount(accountID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} policyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deletePolicy(policyID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deletePolicy(policyID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteRole(roleID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteRole(roleID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteUser(userID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteUser(userID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} accountID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getAccount(accountID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetAccountResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getAccount(accountID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} [offset] 
-         * @param {string} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDefaultPolicies(offset?: string, limit?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetDefaultPoliciesResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getDefaultPolicies(offset, limit, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getOwnAccount(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetAccountResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getOwnAccount(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPasswordPolicy(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPasswordPolicyResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getPasswordPolicy(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPolicies(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPoliciesResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getPolicies(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary RBAC API
-         * @param {string} policyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPolicy(policyID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPolicyResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getPolicy(policyID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getRole(roleID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetRoleResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getRole(roleID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getRoles(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetRolesResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getRoles(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUser(userID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUser(userID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUserAccessKeys(userID: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserAccessKeysResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUserAccessKeys(userID, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} email 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUserIDByEmail(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserIDByEmailResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUserIDByEmail(email, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary User API
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUserInfo(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserInfoResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUserInfo(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} [offset] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUsers(offset?: string, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUsersResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUsers(offset, limit, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {string} [offset] 
-         * @param {string} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUsersForRole(roleID: string, offset?: string, limit?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUsersForRoleResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUsersForRole(roleID, offset, limit, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1RemoveUsersFromRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async removeUsersFromRole(body: V1RemoveUsersFromRoleRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemoveUsersFromRoleResponse>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).removeUsersFromRole(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1ResetPasswordRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async resetPassword(body: V1ResetPasswordRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).resetPassword(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Password API
-         * @param {V1SetPasswordRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async setPassword(body: V1SetPasswordRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).setPassword(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} accountAccountID 
-         * @param {V1UpdateAccountRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateAccount(accountAccountID, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1UpdatePolicyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updatePolicy(body: V1UpdatePolicyRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updatePolicy(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {V1UpdateRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateRole(body: V1UpdateRoleRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateRole(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @param {string} userUserID 
-         * @param {V1UpdateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateUser(userUserID: string, body: V1UpdateUserRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateUser(userUserID, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
+export const AuthServiceApiFp = function (configuration?: Configuration) {
+  return {
+    /**
+     *
+     * @param {V1AddUsersToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async addUsersToRole(
+      body: V1AddUsersToRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddUsersToRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).addUsersToRole(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Auth API
+     * @param {V1CheckHMACAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async checkHMACAuth(
+      body: V1CheckHMACAuthRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CheckHMACAuthResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).checkHMACAuth(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary User Access Keys API
+     * @param {V1CreateAccessKeyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createAccessKey(
+      body: V1CreateAccessKeyRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccessKeyResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createAccessKey(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Account API
+     * @param {V1CreateAccountRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createAccount(
+      body: V1CreateAccountRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccountResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createAccount(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1CreatePolicyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createPolicy(
+      body: V1CreatePolicyRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreatePolicyResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createPolicy(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1CreateRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createRole(
+      body: V1CreateRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createRole(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1CreateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createUser(
+      body: V1CreateUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateUserResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createUser(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} accessKeyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteAccessKey(
+      accessKeyID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteAccessKey(
+        accessKeyID,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} accountID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteAccount(
+      accountID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteAccount(accountID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} policyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deletePolicy(
+      policyID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deletePolicy(policyID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteRole(
+      roleID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteRole(roleID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteUser(
+      userID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteUser(userID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} accountID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getAccount(
+      accountID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetAccountResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getAccount(accountID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} [offset]
+     * @param {string} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getDefaultPolicies(
+      offset?: string,
+      limit?: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetDefaultPoliciesResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getDefaultPolicies(
+        offset,
+        limit,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getOwnAccount(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetAccountResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getOwnAccount(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPasswordPolicy(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPasswordPolicyResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getPasswordPolicy(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPolicies(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPoliciesResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getPolicies(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary RBAC API
+     * @param {string} policyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPolicy(
+      policyID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPolicyResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getPolicy(policyID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getRole(
+      roleID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getRole(roleID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getRoles(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetRolesResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getRoles(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUser(
+      userID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUser(userID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUserAccessKeys(
+      userID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserAccessKeysResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUserAccessKeys(userID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUserIDByEmail(
+      email: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserIDByEmailResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUserIDByEmail(email, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary User API
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUserInfo(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserInfoResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUserInfo(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} [offset]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUsers(
+      offset?: string,
+      limit?: number,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUsersResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUsers(offset, limit, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {string} [offset]
+     * @param {string} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUsersForRole(
+      roleID: string,
+      offset?: string,
+      limit?: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUsersForRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getUsersForRole(
+        roleID,
+        offset,
+        limit,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1RemoveUsersFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async removeUsersFromRole(
+      body: V1RemoveUsersFromRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemoveUsersFromRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).removeUsersFromRole(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1ResetPasswordRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async resetPassword(
+      body: V1ResetPasswordRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).resetPassword(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Password API
+     * @param {V1SetPasswordRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async setPassword(
+      body: V1SetPasswordRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).setPassword(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} accountAccountID
+     * @param {V1UpdateAccountRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateAccount(
+      accountAccountID: string,
+      body: V1UpdateAccountRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateAccount(
+        accountAccountID,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1UpdatePolicyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updatePolicy(
+      body: V1UpdatePolicyRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updatePolicy(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1UpdateRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateRole(
+      body: V1UpdateRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateRole(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {string} userUserID
+     * @param {V1UpdateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateUser(
+      userUserID: string,
+      body: V1UpdateUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateUser(
+        userUserID,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+  };
 };
 
 /**
  * AuthServiceApi - factory interface
  * @export
  */
-export const AuthServiceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @param {V1AddUsersToRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addUsersToRole(body: V1AddUsersToRoleRequest, options?: any): AxiosPromise<V1AddUsersToRoleResponse> {
-            return AuthServiceApiFp(configuration).addUsersToRole(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Auth API
-         * @param {V1CheckHMACAuthRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        checkHMACAuth(body: V1CheckHMACAuthRequest, options?: any): AxiosPromise<V1CheckHMACAuthResponse> {
-            return AuthServiceApiFp(configuration).checkHMACAuth(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary User Access Keys API
-         * @param {V1CreateAccessKeyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createAccessKey(body: V1CreateAccessKeyRequest, options?: any): AxiosPromise<V1CreateAccessKeyResponse> {
-            return AuthServiceApiFp(configuration).createAccessKey(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Account API
-         * @param {V1CreateAccountRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createAccount(body: V1CreateAccountRequest, options?: any): AxiosPromise<V1CreateAccountResponse> {
-            return AuthServiceApiFp(configuration).createAccount(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1CreatePolicyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPolicy(body: V1CreatePolicyRequest, options?: any): AxiosPromise<V1CreatePolicyResponse> {
-            return AuthServiceApiFp(configuration).createPolicy(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1CreateRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createRole(body: V1CreateRoleRequest, options?: any): AxiosPromise<V1CreateRoleResponse> {
-            return AuthServiceApiFp(configuration).createRole(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1CreateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUser(body: V1CreateUserRequest, options?: any): AxiosPromise<V1CreateUserResponse> {
-            return AuthServiceApiFp(configuration).createUser(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} accessKeyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteAccessKey(accessKeyID: string, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).deleteAccessKey(accessKeyID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} accountID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteAccount(accountID: string, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).deleteAccount(accountID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} policyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePolicy(policyID: string, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).deletePolicy(policyID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteRole(roleID: string, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).deleteRole(roleID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser(userID: string, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).deleteUser(userID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} accountID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getAccount(accountID: string, options?: any): AxiosPromise<V1GetAccountResponse> {
-            return AuthServiceApiFp(configuration).getAccount(accountID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} [offset] 
-         * @param {string} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDefaultPolicies(offset?: string, limit?: string, options?: any): AxiosPromise<V1GetDefaultPoliciesResponse> {
-            return AuthServiceApiFp(configuration).getDefaultPolicies(offset, limit, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getOwnAccount(options?: any): AxiosPromise<V1GetAccountResponse> {
-            return AuthServiceApiFp(configuration).getOwnAccount(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPasswordPolicy(options?: any): AxiosPromise<V1GetPasswordPolicyResponse> {
-            return AuthServiceApiFp(configuration).getPasswordPolicy(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPolicies(options?: any): AxiosPromise<V1GetPoliciesResponse> {
-            return AuthServiceApiFp(configuration).getPolicies(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary RBAC API
-         * @param {string} policyID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPolicy(policyID: string, options?: any): AxiosPromise<V1GetPolicyResponse> {
-            return AuthServiceApiFp(configuration).getPolicy(policyID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getRole(roleID: string, options?: any): AxiosPromise<V1GetRoleResponse> {
-            return AuthServiceApiFp(configuration).getRole(roleID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getRoles(options?: any): AxiosPromise<V1GetRolesResponse> {
-            return AuthServiceApiFp(configuration).getRoles(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUser(userID: string, options?: any): AxiosPromise<V1GetUserResponse> {
-            return AuthServiceApiFp(configuration).getUser(userID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} userID 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserAccessKeys(userID: string, options?: any): AxiosPromise<V1GetUserAccessKeysResponse> {
-            return AuthServiceApiFp(configuration).getUserAccessKeys(userID, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} email 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserIDByEmail(email: string, options?: any): AxiosPromise<V1GetUserIDByEmailResponse> {
-            return AuthServiceApiFp(configuration).getUserIDByEmail(email, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary User API
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserInfo(options?: any): AxiosPromise<V1GetUserInfoResponse> {
-            return AuthServiceApiFp(configuration).getUserInfo(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} [offset] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers(offset?: string, limit?: number, options?: any): AxiosPromise<V1GetUsersResponse> {
-            return AuthServiceApiFp(configuration).getUsers(offset, limit, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} roleID 
-         * @param {string} [offset] 
-         * @param {string} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsersForRole(roleID: string, offset?: string, limit?: string, options?: any): AxiosPromise<V1GetUsersForRoleResponse> {
-            return AuthServiceApiFp(configuration).getUsersForRole(roleID, offset, limit, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1RemoveUsersFromRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeUsersFromRole(body: V1RemoveUsersFromRoleRequest, options?: any): AxiosPromise<V1RemoveUsersFromRoleResponse> {
-            return AuthServiceApiFp(configuration).removeUsersFromRole(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1ResetPasswordRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        resetPassword(body: V1ResetPasswordRequest, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).resetPassword(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Password API
-         * @param {V1SetPasswordRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setPassword(body: V1SetPasswordRequest, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).setPassword(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} accountAccountID 
-         * @param {V1UpdateAccountRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).updateAccount(accountAccountID, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1UpdatePolicyRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePolicy(body: V1UpdatePolicyRequest, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).updatePolicy(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {V1UpdateRoleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateRole(body: V1UpdateRoleRequest, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).updateRole(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} userUserID 
-         * @param {V1UpdateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateUser(userUserID: string, body: V1UpdateUserRequest, options?: any): AxiosPromise<object> {
-            return AuthServiceApiFp(configuration).updateUser(userUserID, body, options).then((request) => request(axios, basePath));
-        },
-    };
+export const AuthServiceApiFactory = function (
+  configuration?: Configuration,
+  basePath?: string,
+  axios?: AxiosInstance,
+) {
+  return {
+    /**
+     *
+     * @param {V1AddUsersToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addUsersToRole(body: V1AddUsersToRoleRequest, options?: any): AxiosPromise<V1AddUsersToRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .addUsersToRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Auth API
+     * @param {V1CheckHMACAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    checkHMACAuth(body: V1CheckHMACAuthRequest, options?: any): AxiosPromise<V1CheckHMACAuthResponse> {
+      return AuthServiceApiFp(configuration)
+        .checkHMACAuth(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary User Access Keys API
+     * @param {V1CreateAccessKeyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAccessKey(body: V1CreateAccessKeyRequest, options?: any): AxiosPromise<V1CreateAccessKeyResponse> {
+      return AuthServiceApiFp(configuration)
+        .createAccessKey(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Account API
+     * @param {V1CreateAccountRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAccount(body: V1CreateAccountRequest, options?: any): AxiosPromise<V1CreateAccountResponse> {
+      return AuthServiceApiFp(configuration)
+        .createAccount(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1CreatePolicyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPolicy(body: V1CreatePolicyRequest, options?: any): AxiosPromise<V1CreatePolicyResponse> {
+      return AuthServiceApiFp(configuration)
+        .createPolicy(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1CreateRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createRole(body: V1CreateRoleRequest, options?: any): AxiosPromise<V1CreateRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .createRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1CreateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUser(body: V1CreateUserRequest, options?: any): AxiosPromise<V1CreateUserResponse> {
+      return AuthServiceApiFp(configuration)
+        .createUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} accessKeyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAccessKey(accessKeyID: string, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .deleteAccessKey(accessKeyID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} accountID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAccount(accountID: string, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .deleteAccount(accountID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} policyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePolicy(policyID: string, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .deletePolicy(policyID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteRole(roleID: string, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .deleteRole(roleID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteUser(userID: string, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .deleteUser(userID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} accountID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAccount(accountID: string, options?: any): AxiosPromise<V1GetAccountResponse> {
+      return AuthServiceApiFp(configuration)
+        .getAccount(accountID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} [offset]
+     * @param {string} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDefaultPolicies(offset?: string, limit?: string, options?: any): AxiosPromise<V1GetDefaultPoliciesResponse> {
+      return AuthServiceApiFp(configuration)
+        .getDefaultPolicies(offset, limit, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOwnAccount(options?: any): AxiosPromise<V1GetAccountResponse> {
+      return AuthServiceApiFp(configuration)
+        .getOwnAccount(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPasswordPolicy(options?: any): AxiosPromise<V1GetPasswordPolicyResponse> {
+      return AuthServiceApiFp(configuration)
+        .getPasswordPolicy(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPolicies(options?: any): AxiosPromise<V1GetPoliciesResponse> {
+      return AuthServiceApiFp(configuration)
+        .getPolicies(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary RBAC API
+     * @param {string} policyID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPolicy(policyID: string, options?: any): AxiosPromise<V1GetPolicyResponse> {
+      return AuthServiceApiFp(configuration)
+        .getPolicy(policyID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRole(roleID: string, options?: any): AxiosPromise<V1GetRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .getRole(roleID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRoles(options?: any): AxiosPromise<V1GetRolesResponse> {
+      return AuthServiceApiFp(configuration)
+        .getRoles(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUser(userID: string, options?: any): AxiosPromise<V1GetUserResponse> {
+      return AuthServiceApiFp(configuration)
+        .getUser(userID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserAccessKeys(userID: string, options?: any): AxiosPromise<V1GetUserAccessKeysResponse> {
+      return AuthServiceApiFp(configuration)
+        .getUserAccessKeys(userID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserIDByEmail(email: string, options?: any): AxiosPromise<V1GetUserIDByEmailResponse> {
+      return AuthServiceApiFp(configuration)
+        .getUserIDByEmail(email, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary User API
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserInfo(options?: any): AxiosPromise<V1GetUserInfoResponse> {
+      return AuthServiceApiFp(configuration)
+        .getUserInfo(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} [offset]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsers(offset?: string, limit?: number, options?: any): AxiosPromise<V1GetUsersResponse> {
+      return AuthServiceApiFp(configuration)
+        .getUsers(offset, limit, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} roleID
+     * @param {string} [offset]
+     * @param {string} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsersForRole(
+      roleID: string,
+      offset?: string,
+      limit?: string,
+      options?: any,
+    ): AxiosPromise<V1GetUsersForRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .getUsersForRole(roleID, offset, limit, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1RemoveUsersFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeUsersFromRole(
+      body: V1RemoveUsersFromRoleRequest,
+      options?: any,
+    ): AxiosPromise<V1RemoveUsersFromRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .removeUsersFromRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1ResetPasswordRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    resetPassword(body: V1ResetPasswordRequest, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .resetPassword(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Password API
+     * @param {V1SetPasswordRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    setPassword(body: V1SetPasswordRequest, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .setPassword(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} accountAccountID
+     * @param {V1UpdateAccountRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .updateAccount(accountAccountID, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1UpdatePolicyRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePolicy(body: V1UpdatePolicyRequest, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .updatePolicy(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1UpdateRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateRole(body: V1UpdateRoleRequest, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .updateRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {string} userUserID
+     * @param {V1UpdateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUser(userUserID: string, body: V1UpdateUserRequest, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .updateUser(userUserID, body, options)
+        .then((request) => request(axios, basePath));
+    },
+  };
 };
 
 /**
@@ -4339,1820 +4576,2016 @@ export const AuthServiceApiFactory = function (configuration?: Configuration, ba
  * @extends {BaseAPI}
  */
 export class AuthServiceApi extends BaseAPI {
-    /**
-     * 
-     * @param {V1AddUsersToRoleRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public addUsersToRole(body: V1AddUsersToRoleRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).addUsersToRole(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1AddUsersToRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public addUsersToRole(body: V1AddUsersToRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .addUsersToRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Auth API
-     * @param {V1CheckHMACAuthRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public checkHMACAuth(body: V1CheckHMACAuthRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).checkHMACAuth(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Auth API
+   * @param {V1CheckHMACAuthRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public checkHMACAuth(body: V1CheckHMACAuthRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .checkHMACAuth(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary User Access Keys API
-     * @param {V1CreateAccessKeyRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public createAccessKey(body: V1CreateAccessKeyRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).createAccessKey(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary User Access Keys API
+   * @param {V1CreateAccessKeyRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createAccessKey(body: V1CreateAccessKeyRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createAccessKey(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Account API
-     * @param {V1CreateAccountRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public createAccount(body: V1CreateAccountRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).createAccount(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Account API
+   * @param {V1CreateAccountRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createAccount(body: V1CreateAccountRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createAccount(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1CreatePolicyRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public createPolicy(body: V1CreatePolicyRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).createPolicy(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1CreatePolicyRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createPolicy(body: V1CreatePolicyRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createPolicy(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1CreateRoleRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public createRole(body: V1CreateRoleRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).createRole(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1CreateRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createRole(body: V1CreateRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1CreateUserRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public createUser(body: V1CreateUserRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).createUser(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1CreateUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createUser(body: V1CreateUserRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} accessKeyID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public deleteAccessKey(accessKeyID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).deleteAccessKey(accessKeyID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} accessKeyID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deleteAccessKey(accessKeyID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .deleteAccessKey(accessKeyID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} accountID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public deleteAccount(accountID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).deleteAccount(accountID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} accountID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deleteAccount(accountID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .deleteAccount(accountID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} policyID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public deletePolicy(policyID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).deletePolicy(policyID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} policyID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deletePolicy(policyID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .deletePolicy(policyID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} roleID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public deleteRole(roleID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).deleteRole(roleID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} roleID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deleteRole(roleID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .deleteRole(roleID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} userID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public deleteUser(userID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).deleteUser(userID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} userID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deleteUser(userID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .deleteUser(userID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} accountID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getAccount(accountID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getAccount(accountID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} accountID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getAccount(accountID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getAccount(accountID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} [offset] 
-     * @param {string} [limit] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getDefaultPolicies(offset?: string, limit?: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getDefaultPolicies(offset, limit, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} [offset]
+   * @param {string} [limit]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getDefaultPolicies(offset?: string, limit?: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getDefaultPolicies(offset, limit, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getOwnAccount(options?: any) {
-        return AuthServiceApiFp(this.configuration).getOwnAccount(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getOwnAccount(options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getOwnAccount(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getPasswordPolicy(options?: any) {
-        return AuthServiceApiFp(this.configuration).getPasswordPolicy(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getPasswordPolicy(options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getPasswordPolicy(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getPolicies(options?: any) {
-        return AuthServiceApiFp(this.configuration).getPolicies(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getPolicies(options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getPolicies(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary RBAC API
-     * @param {string} policyID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getPolicy(policyID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getPolicy(policyID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary RBAC API
+   * @param {string} policyID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getPolicy(policyID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getPolicy(policyID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} roleID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getRole(roleID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getRole(roleID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} roleID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getRole(roleID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getRole(roleID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getRoles(options?: any) {
-        return AuthServiceApiFp(this.configuration).getRoles(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getRoles(options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getRoles(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} userID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getUser(userID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getUser(userID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} userID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getUser(userID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getUser(userID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} userID 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getUserAccessKeys(userID: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getUserAccessKeys(userID, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} userID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getUserAccessKeys(userID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getUserAccessKeys(userID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} email 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getUserIDByEmail(email: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getUserIDByEmail(email, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} email
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getUserIDByEmail(email: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getUserIDByEmail(email, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary User API
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getUserInfo(options?: any) {
-        return AuthServiceApiFp(this.configuration).getUserInfo(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary User API
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getUserInfo(options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getUserInfo(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} [offset] 
-     * @param {number} [limit] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getUsers(offset?: string, limit?: number, options?: any) {
-        return AuthServiceApiFp(this.configuration).getUsers(offset, limit, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} [offset]
+   * @param {number} [limit]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getUsers(offset?: string, limit?: number, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getUsers(offset, limit, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} roleID 
-     * @param {string} [offset] 
-     * @param {string} [limit] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public getUsersForRole(roleID: string, offset?: string, limit?: string, options?: any) {
-        return AuthServiceApiFp(this.configuration).getUsersForRole(roleID, offset, limit, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} roleID
+   * @param {string} [offset]
+   * @param {string} [limit]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getUsersForRole(roleID: string, offset?: string, limit?: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getUsersForRole(roleID, offset, limit, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1RemoveUsersFromRoleRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public removeUsersFromRole(body: V1RemoveUsersFromRoleRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).removeUsersFromRole(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1RemoveUsersFromRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public removeUsersFromRole(body: V1RemoveUsersFromRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .removeUsersFromRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1ResetPasswordRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public resetPassword(body: V1ResetPasswordRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).resetPassword(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1ResetPasswordRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public resetPassword(body: V1ResetPasswordRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .resetPassword(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Password API
-     * @param {V1SetPasswordRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public setPassword(body: V1SetPasswordRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).setPassword(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Password API
+   * @param {V1SetPasswordRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public setPassword(body: V1SetPasswordRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .setPassword(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} accountAccountID 
-     * @param {V1UpdateAccountRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).updateAccount(accountAccountID, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {string} accountAccountID
+   * @param {V1UpdateAccountRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .updateAccount(accountAccountID, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1UpdatePolicyRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public updatePolicy(body: V1UpdatePolicyRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).updatePolicy(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1UpdatePolicyRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public updatePolicy(body: V1UpdatePolicyRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .updatePolicy(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {V1UpdateRoleRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public updateRole(body: V1UpdateRoleRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).updateRole(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @param {V1UpdateRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public updateRole(body: V1UpdateRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .updateRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @param {string} userUserID 
-     * @param {V1UpdateUserRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthServiceApi
-     */
-    public updateUser(userUserID: string, body: V1UpdateUserRequest, options?: any) {
-        return AuthServiceApiFp(this.configuration).updateUser(userUserID, body, options).then((request) => request(this.axios, this.basePath));
-    }
-
+  /**
+   *
+   * @param {string} userUserID
+   * @param {V1UpdateUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public updateUser(userUserID: string, body: V1UpdateUserRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .updateUser(userUserID, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 }
-
 
 /**
  * DistrConfigServiceApi - axios parameter creator
  * @export
  */
 export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary ActivatePool data pool task
-         * @param {DistrconfigActivatePoolRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        activatePool: async (body: DistrconfigActivatePoolRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling activatePool.');
-            }
-            const localVarPath = `/api/distribution/v1/activate-pool`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Assign data pools to mobile application
-         * @param {DistrconfigAssignAppPoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        assignAppPools: async (body: DistrconfigAssignAppPoolsRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling assignAppPools.');
-            }
-            const localVarPath = `/api/distribution/v1/assign-app-pools`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Assign mobile application to users
-         * @param {DistrconfigAssignAppUsersRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        assignAppUsers: async (body: DistrconfigAssignAppUsersRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling assignAppUsers.');
-            }
-            const localVarPath = `/api/distribution/v1/assign-app-users`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Assign filtering tag to user
-         * @param {DistrconfigAssignTagToUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        assignTagToUser: async (body: DistrconfigAssignTagToUserRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling assignTagToUser.');
-            }
-            const localVarPath = `/api/distribution/v1/assign-tag-to-user`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Create mobile application
-         * @param {DistrconfigMobileApp} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createApp: async (body: DistrconfigMobileApp, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createApp.');
-            }
-            const localVarPath = `/api/distribution/v1/app`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary CreatePool new data pool task
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPool: async (body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createPool.');
-            }
-            const localVarPath = `/api/distribution/v1/pool`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary CreatePool new data pool task
-         * @param {DistrconfigCreatePoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPools: async (body: DistrconfigCreatePoolsRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createPools.');
-            }
-            const localVarPath = `/api/distribution/v1/pools`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Registers user in distribution database
-         * @param {DistrconfigCreateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUser: async (body: DistrconfigCreateUserRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createUser.');
-            }
-            const localVarPath = `/api/distribution/v1/user`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Delete mobile application
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteApp: async (id: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling deleteApp.');
-            }
-            const localVarPath = `/api/distribution/v1/app/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary DeletePool data pool task
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePool: async (id: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling deletePool.');
-            }
-            const localVarPath = `/api/distribution/v1/pool/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Deletes user from distribution db
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser: async (id: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling deleteUser.');
-            }
-            const localVarPath = `/api/distribution/v1/user/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Get all mobile applications
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getApps: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/distribution/v1/apps`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Get data pool task
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPool: async (id: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling getPool.');
-            }
-            const localVarPath = `/api/distribution/v1/pool/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary ActivatePool data pool task
-         * @param {string} id 
-         * @param {string} [userId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPoolDistribution: async (id: string, userId?: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling getPoolDistribution.');
-            }
-            const localVarPath = `/api/distribution/v1/get-pool-distribution/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (userId !== undefined) {
-                localVarQueryParameter['userId'] = userId;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Get all data pool tasks
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPools: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/distribution/v1/pools`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Fetch all users in account distribution db
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/distribution/v1/users`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Set the mobile application bundle
-         * @param {DistrconfigSetAppBundleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setAppBundle: async (body: DistrconfigSetAppBundleRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling setAppBundle.');
-            }
-            const localVarPath = `/api/distribution/v1/set-app-bundle`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Unassign data pool from mobile application
-         * @param {DistrconfigUnassignAppPoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        unassignAppPools: async (body: DistrconfigUnassignAppPoolsRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling unassignAppPools.');
-            }
-            const localVarPath = `/api/distribution/v1/unassign-app-pools`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Unassign mobile application from users
-         * @param {DistrconfigUnassignAppUsersRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        unassignAppUsers: async (body: DistrconfigUnassignAppUsersRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling unassignAppUsers.');
-            }
-            const localVarPath = `/api/distribution/v1/unassign-app-users`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Unassign filtering tag from user
-         * @param {DistrconfigUnassignTagFromUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        unassignTagFromUser: async (body: DistrconfigUnassignTagFromUserRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling unassignTagFromUser.');
-            }
-            const localVarPath = `/api/distribution/v1/unassign-tag-from-user`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary UpdatePool data pool task
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePool: async (body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updatePool.');
-            }
-            const localVarPath = `/api/distribution/v1/pool`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary UpdatePool data pool task
-         * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePool2: async (dataPoolId: string, body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'dataPoolId' is not null or undefined
-            if (dataPoolId === null || dataPoolId === undefined) {
-                throw new RequiredError('dataPoolId','Required parameter dataPoolId was null or undefined when calling updatePool2.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updatePool2.');
-            }
-            const localVarPath = `/api/distribution/v1/pool/{dataPool.id}`
-                .replace(`{${"dataPool.id"}}`, encodeURIComponent(String(dataPoolId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Validate pool data against pool specification
-         * @param {DistrconfigValidatePoolDataRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        validatePoolData: async (body: DistrconfigValidatePoolDataRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling validatePoolData.');
-            }
-            const localVarPath = `/api/distribution/v1/validate-pool-data`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
+  return {
+    /**
+     *
+     * @summary ActivatePool data pool task
+     * @param {DistrconfigActivatePoolRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    activatePool: async (body: DistrconfigActivatePoolRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling activatePool.');
+      }
+      const localVarPath = `/api/distribution/v1/activate-pool`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Assign data pools to mobile application
+     * @param {DistrconfigAssignAppPoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignAppPools: async (body: DistrconfigAssignAppPoolsRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignAppPools.');
+      }
+      const localVarPath = `/api/distribution/v1/assign-app-pools`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Assign mobile application to users
+     * @param {DistrconfigAssignAppUsersRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignAppUsers: async (body: DistrconfigAssignAppUsersRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignAppUsers.');
+      }
+      const localVarPath = `/api/distribution/v1/assign-app-users`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Assign filtering tag to user
+     * @param {DistrconfigAssignTagToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignTagToUser: async (body: DistrconfigAssignTagToUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignTagToUser.');
+      }
+      const localVarPath = `/api/distribution/v1/assign-tag-to-user`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Create mobile application
+     * @param {DistrconfigMobileApp} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createApp: async (body: DistrconfigMobileApp, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createApp.');
+      }
+      const localVarPath = `/api/distribution/v1/app`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary CreatePool new data pool task
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPool: async (body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createPool.');
+      }
+      const localVarPath = `/api/distribution/v1/pool`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary CreatePool new data pool task
+     * @param {DistrconfigCreatePoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPools: async (body: DistrconfigCreatePoolsRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createPools.');
+      }
+      const localVarPath = `/api/distribution/v1/pools`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Registers user in distribution database
+     * @param {DistrconfigCreateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUser: async (body: DistrconfigCreateUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createUser.');
+      }
+      const localVarPath = `/api/distribution/v1/user`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Delete mobile application
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteApp: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling deleteApp.');
+      }
+      const localVarPath = `/api/distribution/v1/app/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary DeletePool data pool task
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePool: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling deletePool.');
+      }
+      const localVarPath = `/api/distribution/v1/pool/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Deletes user from distribution db
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteUser: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling deleteUser.');
+      }
+      const localVarPath = `/api/distribution/v1/user/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Get all mobile applications
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getApps: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/distribution/v1/apps`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Get data pool task
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPool: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling getPool.');
+      }
+      const localVarPath = `/api/distribution/v1/pool/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary ActivatePool data pool task
+     * @param {string} id
+     * @param {string} [userId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPoolDistribution: async (id: string, userId?: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling getPoolDistribution.');
+      }
+      const localVarPath = `/api/distribution/v1/get-pool-distribution/{id}`.replace(
+        `{${'id'}}`,
+        encodeURIComponent(String(id)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (userId !== undefined) {
+        localVarQueryParameter['userId'] = userId;
+      }
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Get all data pool tasks
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPools: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/distribution/v1/pools`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Fetch all users in account distribution db
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsers: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/distribution/v1/users`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Set the mobile application bundle
+     * @param {DistrconfigSetAppBundleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    setAppBundle: async (body: DistrconfigSetAppBundleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling setAppBundle.');
+      }
+      const localVarPath = `/api/distribution/v1/set-app-bundle`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Unassign data pool from mobile application
+     * @param {DistrconfigUnassignAppPoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignAppPools: async (body: DistrconfigUnassignAppPoolsRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling unassignAppPools.');
+      }
+      const localVarPath = `/api/distribution/v1/unassign-app-pools`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Unassign mobile application from users
+     * @param {DistrconfigUnassignAppUsersRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignAppUsers: async (body: DistrconfigUnassignAppUsersRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling unassignAppUsers.');
+      }
+      const localVarPath = `/api/distribution/v1/unassign-app-users`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Unassign filtering tag from user
+     * @param {DistrconfigUnassignTagFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignTagFromUser: async (
+      body: DistrconfigUnassignTagFromUserRequest,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling unassignTagFromUser.',
+        );
+      }
+      const localVarPath = `/api/distribution/v1/unassign-tag-from-user`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary UpdatePool data pool task
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePool: async (body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updatePool.');
+      }
+      const localVarPath = `/api/distribution/v1/pool`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary UpdatePool data pool task
+     * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePool2: async (dataPoolId: string, body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'dataPoolId' is not null or undefined
+      if (dataPoolId === null || dataPoolId === undefined) {
+        throw new RequiredError(
+          'dataPoolId',
+          'Required parameter dataPoolId was null or undefined when calling updatePool2.',
+        );
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updatePool2.');
+      }
+      const localVarPath = `/api/distribution/v1/pool/{dataPool.id}`.replace(
+        `{${'dataPool.id'}}`,
+        encodeURIComponent(String(dataPoolId)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Validate pool data against pool specification
+     * @param {DistrconfigValidatePoolDataRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    validatePoolData: async (body: DistrconfigValidatePoolDataRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling validatePoolData.');
+      }
+      const localVarPath = `/api/distribution/v1/validate-pool-data`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+  };
 };
 
 /**
  * DistrConfigServiceApi - functional programming interface
  * @export
  */
-export const DistrConfigServiceApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary ActivatePool data pool task
-         * @param {DistrconfigActivatePoolRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async activatePool(body: DistrconfigActivatePoolRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).activatePool(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Assign data pools to mobile application
-         * @param {DistrconfigAssignAppPoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async assignAppPools(body: DistrconfigAssignAppPoolsRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignAppPools(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Assign mobile application to users
-         * @param {DistrconfigAssignAppUsersRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async assignAppUsers(body: DistrconfigAssignAppUsersRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignAppUsers(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Assign filtering tag to user
-         * @param {DistrconfigAssignTagToUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async assignTagToUser(body: DistrconfigAssignTagToUserRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignTagToUser(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Create mobile application
-         * @param {DistrconfigMobileApp} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createApp(body: DistrconfigMobileApp, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createApp(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary CreatePool new data pool task
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createPool(body: DistrconfigDataPool, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createPool(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary CreatePool new data pool task
-         * @param {DistrconfigCreatePoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createPools(body: DistrconfigCreatePoolsRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createPools(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Registers user in distribution database
-         * @param {DistrconfigCreateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createUser(body: DistrconfigCreateUserRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createUser(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Delete mobile application
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteApp(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).deleteApp(id, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary DeletePool data pool task
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deletePool(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).deletePool(id, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Deletes user from distribution db
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteUser(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).deleteUser(id, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Get all mobile applications
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getApps(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetAppsResponse>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getApps(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Get data pool task
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPool(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolResponse>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getPool(id, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary ActivatePool data pool task
-         * @param {string} id 
-         * @param {string} [userId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPoolDistribution(id: string, userId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolDistributionResponse>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getPoolDistribution(id, userId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Get all data pool tasks
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPools(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolsResponse>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getPools(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Fetch all users in account distribution db
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUsers(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetUsersResponse>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getUsers(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Set the mobile application bundle
-         * @param {DistrconfigSetAppBundleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async setAppBundle(body: DistrconfigSetAppBundleRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).setAppBundle(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Unassign data pool from mobile application
-         * @param {DistrconfigUnassignAppPoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async unassignAppPools(body: DistrconfigUnassignAppPoolsRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignAppPools(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Unassign mobile application from users
-         * @param {DistrconfigUnassignAppUsersRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async unassignAppUsers(body: DistrconfigUnassignAppUsersRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignAppUsers(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Unassign filtering tag from user
-         * @param {DistrconfigUnassignTagFromUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async unassignTagFromUser(body: DistrconfigUnassignTagFromUserRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignTagFromUser(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary UpdatePool data pool task
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updatePool(body: DistrconfigDataPool, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).updatePool(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary UpdatePool data pool task
-         * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updatePool2(dataPoolId: string, body: DistrconfigDataPool, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).updatePool2(dataPoolId, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Validate pool data against pool specification
-         * @param {DistrconfigValidatePoolDataRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async validatePoolData(body: DistrconfigValidatePoolDataRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigValidatePoolDataResponse>> {
-            const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).validatePoolData(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
+export const DistrConfigServiceApiFp = function (configuration?: Configuration) {
+  return {
+    /**
+     *
+     * @summary ActivatePool data pool task
+     * @param {DistrconfigActivatePoolRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async activatePool(
+      body: DistrconfigActivatePoolRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).activatePool(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Assign data pools to mobile application
+     * @param {DistrconfigAssignAppPoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async assignAppPools(
+      body: DistrconfigAssignAppPoolsRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignAppPools(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Assign mobile application to users
+     * @param {DistrconfigAssignAppUsersRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async assignAppUsers(
+      body: DistrconfigAssignAppUsersRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignAppUsers(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Assign filtering tag to user
+     * @param {DistrconfigAssignTagToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async assignTagToUser(
+      body: DistrconfigAssignTagToUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignTagToUser(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Create mobile application
+     * @param {DistrconfigMobileApp} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createApp(
+      body: DistrconfigMobileApp,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createApp(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary CreatePool new data pool task
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createPool(
+      body: DistrconfigDataPool,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createPool(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary CreatePool new data pool task
+     * @param {DistrconfigCreatePoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createPools(
+      body: DistrconfigCreatePoolsRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createPools(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Registers user in distribution database
+     * @param {DistrconfigCreateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createUser(
+      body: DistrconfigCreateUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).createUser(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Delete mobile application
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteApp(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).deleteApp(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary DeletePool data pool task
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deletePool(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).deletePool(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Deletes user from distribution db
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteUser(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).deleteUser(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Get all mobile applications
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getApps(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetAppsResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getApps(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Get data pool task
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPool(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getPool(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary ActivatePool data pool task
+     * @param {string} id
+     * @param {string} [userId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPoolDistribution(
+      id: string,
+      userId?: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolDistributionResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getPoolDistribution(
+        id,
+        userId,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Get all data pool tasks
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPools(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolsResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getPools(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Fetch all users in account distribution db
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUsers(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetUsersResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getUsers(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Set the mobile application bundle
+     * @param {DistrconfigSetAppBundleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async setAppBundle(
+      body: DistrconfigSetAppBundleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).setAppBundle(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Unassign data pool from mobile application
+     * @param {DistrconfigUnassignAppPoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async unassignAppPools(
+      body: DistrconfigUnassignAppPoolsRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignAppPools(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Unassign mobile application from users
+     * @param {DistrconfigUnassignAppUsersRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async unassignAppUsers(
+      body: DistrconfigUnassignAppUsersRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignAppUsers(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Unassign filtering tag from user
+     * @param {DistrconfigUnassignTagFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async unassignTagFromUser(
+      body: DistrconfigUnassignTagFromUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignTagFromUser(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary UpdatePool data pool task
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updatePool(
+      body: DistrconfigDataPool,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).updatePool(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary UpdatePool data pool task
+     * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updatePool2(
+      dataPoolId: string,
+      body: DistrconfigDataPool,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).updatePool2(
+        dataPoolId,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Validate pool data against pool specification
+     * @param {DistrconfigValidatePoolDataRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async validatePoolData(
+      body: DistrconfigValidatePoolDataRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigValidatePoolDataResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).validatePoolData(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+  };
 };
 
 /**
  * DistrConfigServiceApi - factory interface
  * @export
  */
-export const DistrConfigServiceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @summary ActivatePool data pool task
-         * @param {DistrconfigActivatePoolRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        activatePool(body: DistrconfigActivatePoolRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).activatePool(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Assign data pools to mobile application
-         * @param {DistrconfigAssignAppPoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        assignAppPools(body: DistrconfigAssignAppPoolsRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).assignAppPools(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Assign mobile application to users
-         * @param {DistrconfigAssignAppUsersRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        assignAppUsers(body: DistrconfigAssignAppUsersRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).assignAppUsers(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Assign filtering tag to user
-         * @param {DistrconfigAssignTagToUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        assignTagToUser(body: DistrconfigAssignTagToUserRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).assignTagToUser(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Create mobile application
-         * @param {DistrconfigMobileApp} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createApp(body: DistrconfigMobileApp, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).createApp(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary CreatePool new data pool task
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPool(body: DistrconfigDataPool, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).createPool(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary CreatePool new data pool task
-         * @param {DistrconfigCreatePoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPools(body: DistrconfigCreatePoolsRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).createPools(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Registers user in distribution database
-         * @param {DistrconfigCreateUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUser(body: DistrconfigCreateUserRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).createUser(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Delete mobile application
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteApp(id: string, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).deleteApp(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary DeletePool data pool task
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePool(id: string, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).deletePool(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Deletes user from distribution db
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser(id: string, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).deleteUser(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Get all mobile applications
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getApps(options?: any): AxiosPromise<DistrconfigGetAppsResponse> {
-            return DistrConfigServiceApiFp(configuration).getApps(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Get data pool task
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPool(id: string, options?: any): AxiosPromise<DistrconfigGetPoolResponse> {
-            return DistrConfigServiceApiFp(configuration).getPool(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary ActivatePool data pool task
-         * @param {string} id 
-         * @param {string} [userId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPoolDistribution(id: string, userId?: string, options?: any): AxiosPromise<DistrconfigGetPoolDistributionResponse> {
-            return DistrConfigServiceApiFp(configuration).getPoolDistribution(id, userId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Get all data pool tasks
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPools(options?: any): AxiosPromise<DistrconfigGetPoolsResponse> {
-            return DistrConfigServiceApiFp(configuration).getPools(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Fetch all users in account distribution db
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers(options?: any): AxiosPromise<DistrconfigGetUsersResponse> {
-            return DistrConfigServiceApiFp(configuration).getUsers(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Set the mobile application bundle
-         * @param {DistrconfigSetAppBundleRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setAppBundle(body: DistrconfigSetAppBundleRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).setAppBundle(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Unassign data pool from mobile application
-         * @param {DistrconfigUnassignAppPoolsRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        unassignAppPools(body: DistrconfigUnassignAppPoolsRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).unassignAppPools(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Unassign mobile application from users
-         * @param {DistrconfigUnassignAppUsersRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        unassignAppUsers(body: DistrconfigUnassignAppUsersRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).unassignAppUsers(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Unassign filtering tag from user
-         * @param {DistrconfigUnassignTagFromUserRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        unassignTagFromUser(body: DistrconfigUnassignTagFromUserRequest, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).unassignTagFromUser(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary UpdatePool data pool task
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePool(body: DistrconfigDataPool, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).updatePool(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary UpdatePool data pool task
-         * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-         * @param {DistrconfigDataPool} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePool2(dataPoolId: string, body: DistrconfigDataPool, options?: any): AxiosPromise<object> {
-            return DistrConfigServiceApiFp(configuration).updatePool2(dataPoolId, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Validate pool data against pool specification
-         * @param {DistrconfigValidatePoolDataRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        validatePoolData(body: DistrconfigValidatePoolDataRequest, options?: any): AxiosPromise<DistrconfigValidatePoolDataResponse> {
-            return DistrConfigServiceApiFp(configuration).validatePoolData(body, options).then((request) => request(axios, basePath));
-        },
-    };
+export const DistrConfigServiceApiFactory = function (
+  configuration?: Configuration,
+  basePath?: string,
+  axios?: AxiosInstance,
+) {
+  return {
+    /**
+     *
+     * @summary ActivatePool data pool task
+     * @param {DistrconfigActivatePoolRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    activatePool(body: DistrconfigActivatePoolRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .activatePool(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Assign data pools to mobile application
+     * @param {DistrconfigAssignAppPoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignAppPools(body: DistrconfigAssignAppPoolsRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .assignAppPools(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Assign mobile application to users
+     * @param {DistrconfigAssignAppUsersRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignAppUsers(body: DistrconfigAssignAppUsersRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .assignAppUsers(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Assign filtering tag to user
+     * @param {DistrconfigAssignTagToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignTagToUser(body: DistrconfigAssignTagToUserRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .assignTagToUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Create mobile application
+     * @param {DistrconfigMobileApp} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createApp(body: DistrconfigMobileApp, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .createApp(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary CreatePool new data pool task
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPool(body: DistrconfigDataPool, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .createPool(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary CreatePool new data pool task
+     * @param {DistrconfigCreatePoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPools(body: DistrconfigCreatePoolsRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .createPools(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Registers user in distribution database
+     * @param {DistrconfigCreateUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUser(body: DistrconfigCreateUserRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .createUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Delete mobile application
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteApp(id: string, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .deleteApp(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary DeletePool data pool task
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePool(id: string, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .deletePool(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Deletes user from distribution db
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteUser(id: string, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .deleteUser(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Get all mobile applications
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getApps(options?: any): AxiosPromise<DistrconfigGetAppsResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .getApps(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Get data pool task
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPool(id: string, options?: any): AxiosPromise<DistrconfigGetPoolResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .getPool(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary ActivatePool data pool task
+     * @param {string} id
+     * @param {string} [userId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPoolDistribution(
+      id: string,
+      userId?: string,
+      options?: any,
+    ): AxiosPromise<DistrconfigGetPoolDistributionResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .getPoolDistribution(id, userId, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Get all data pool tasks
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPools(options?: any): AxiosPromise<DistrconfigGetPoolsResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .getPools(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Fetch all users in account distribution db
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsers(options?: any): AxiosPromise<DistrconfigGetUsersResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .getUsers(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Set the mobile application bundle
+     * @param {DistrconfigSetAppBundleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    setAppBundle(body: DistrconfigSetAppBundleRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .setAppBundle(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Unassign data pool from mobile application
+     * @param {DistrconfigUnassignAppPoolsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignAppPools(body: DistrconfigUnassignAppPoolsRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .unassignAppPools(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Unassign mobile application from users
+     * @param {DistrconfigUnassignAppUsersRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignAppUsers(body: DistrconfigUnassignAppUsersRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .unassignAppUsers(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Unassign filtering tag from user
+     * @param {DistrconfigUnassignTagFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignTagFromUser(body: DistrconfigUnassignTagFromUserRequest, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .unassignTagFromUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary UpdatePool data pool task
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePool(body: DistrconfigDataPool, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .updatePool(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary UpdatePool data pool task
+     * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
+     * @param {DistrconfigDataPool} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePool2(dataPoolId: string, body: DistrconfigDataPool, options?: any): AxiosPromise<object> {
+      return DistrConfigServiceApiFp(configuration)
+        .updatePool2(dataPoolId, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Validate pool data against pool specification
+     * @param {DistrconfigValidatePoolDataRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    validatePoolData(
+      body: DistrconfigValidatePoolDataRequest,
+      options?: any,
+    ): AxiosPromise<DistrconfigValidatePoolDataResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .validatePoolData(body, options)
+        .then((request) => request(axios, basePath));
+    },
+  };
 };
 
 /**
@@ -6162,899 +6595,1016 @@ export const DistrConfigServiceApiFactory = function (configuration?: Configurat
  * @extends {BaseAPI}
  */
 export class DistrConfigServiceApi extends BaseAPI {
-    /**
-     * 
-     * @summary ActivatePool data pool task
-     * @param {DistrconfigActivatePoolRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public activatePool(body: DistrconfigActivatePoolRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).activatePool(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary ActivatePool data pool task
+   * @param {DistrconfigActivatePoolRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public activatePool(body: DistrconfigActivatePoolRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .activatePool(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Assign data pools to mobile application
-     * @param {DistrconfigAssignAppPoolsRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public assignAppPools(body: DistrconfigAssignAppPoolsRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).assignAppPools(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Assign data pools to mobile application
+   * @param {DistrconfigAssignAppPoolsRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public assignAppPools(body: DistrconfigAssignAppPoolsRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .assignAppPools(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Assign mobile application to users
-     * @param {DistrconfigAssignAppUsersRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public assignAppUsers(body: DistrconfigAssignAppUsersRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).assignAppUsers(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Assign mobile application to users
+   * @param {DistrconfigAssignAppUsersRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public assignAppUsers(body: DistrconfigAssignAppUsersRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .assignAppUsers(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Assign filtering tag to user
-     * @param {DistrconfigAssignTagToUserRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public assignTagToUser(body: DistrconfigAssignTagToUserRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).assignTagToUser(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Assign filtering tag to user
+   * @param {DistrconfigAssignTagToUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public assignTagToUser(body: DistrconfigAssignTagToUserRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .assignTagToUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Create mobile application
-     * @param {DistrconfigMobileApp} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public createApp(body: DistrconfigMobileApp, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).createApp(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Create mobile application
+   * @param {DistrconfigMobileApp} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public createApp(body: DistrconfigMobileApp, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .createApp(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary CreatePool new data pool task
-     * @param {DistrconfigDataPool} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public createPool(body: DistrconfigDataPool, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).createPool(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary CreatePool new data pool task
+   * @param {DistrconfigDataPool} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public createPool(body: DistrconfigDataPool, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .createPool(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary CreatePool new data pool task
-     * @param {DistrconfigCreatePoolsRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public createPools(body: DistrconfigCreatePoolsRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).createPools(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary CreatePool new data pool task
+   * @param {DistrconfigCreatePoolsRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public createPools(body: DistrconfigCreatePoolsRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .createPools(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Registers user in distribution database
-     * @param {DistrconfigCreateUserRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public createUser(body: DistrconfigCreateUserRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).createUser(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Registers user in distribution database
+   * @param {DistrconfigCreateUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public createUser(body: DistrconfigCreateUserRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .createUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Delete mobile application
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public deleteApp(id: string, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).deleteApp(id, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Delete mobile application
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public deleteApp(id: string, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .deleteApp(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary DeletePool data pool task
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public deletePool(id: string, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).deletePool(id, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary DeletePool data pool task
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public deletePool(id: string, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .deletePool(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Deletes user from distribution db
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public deleteUser(id: string, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).deleteUser(id, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Deletes user from distribution db
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public deleteUser(id: string, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .deleteUser(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Get all mobile applications
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public getApps(options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).getApps(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Get all mobile applications
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public getApps(options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .getApps(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Get data pool task
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public getPool(id: string, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).getPool(id, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Get data pool task
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public getPool(id: string, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .getPool(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary ActivatePool data pool task
-     * @param {string} id 
-     * @param {string} [userId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public getPoolDistribution(id: string, userId?: string, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).getPoolDistribution(id, userId, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary ActivatePool data pool task
+   * @param {string} id
+   * @param {string} [userId]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public getPoolDistribution(id: string, userId?: string, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .getPoolDistribution(id, userId, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Get all data pool tasks
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public getPools(options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).getPools(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Get all data pool tasks
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public getPools(options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .getPools(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Fetch all users in account distribution db
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public getUsers(options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).getUsers(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Fetch all users in account distribution db
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public getUsers(options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .getUsers(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Set the mobile application bundle
-     * @param {DistrconfigSetAppBundleRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public setAppBundle(body: DistrconfigSetAppBundleRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).setAppBundle(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Set the mobile application bundle
+   * @param {DistrconfigSetAppBundleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public setAppBundle(body: DistrconfigSetAppBundleRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .setAppBundle(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Unassign data pool from mobile application
-     * @param {DistrconfigUnassignAppPoolsRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public unassignAppPools(body: DistrconfigUnassignAppPoolsRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).unassignAppPools(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Unassign data pool from mobile application
+   * @param {DistrconfigUnassignAppPoolsRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public unassignAppPools(body: DistrconfigUnassignAppPoolsRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .unassignAppPools(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Unassign mobile application from users
-     * @param {DistrconfigUnassignAppUsersRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public unassignAppUsers(body: DistrconfigUnassignAppUsersRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).unassignAppUsers(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Unassign mobile application from users
+   * @param {DistrconfigUnassignAppUsersRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public unassignAppUsers(body: DistrconfigUnassignAppUsersRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .unassignAppUsers(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Unassign filtering tag from user
-     * @param {DistrconfigUnassignTagFromUserRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public unassignTagFromUser(body: DistrconfigUnassignTagFromUserRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).unassignTagFromUser(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Unassign filtering tag from user
+   * @param {DistrconfigUnassignTagFromUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public unassignTagFromUser(body: DistrconfigUnassignTagFromUserRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .unassignTagFromUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary UpdatePool data pool task
-     * @param {DistrconfigDataPool} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public updatePool(body: DistrconfigDataPool, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).updatePool(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary UpdatePool data pool task
+   * @param {DistrconfigDataPool} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public updatePool(body: DistrconfigDataPool, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .updatePool(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary UpdatePool data pool task
-     * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-     * @param {DistrconfigDataPool} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public updatePool2(dataPoolId: string, body: DistrconfigDataPool, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).updatePool2(dataPoolId, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary UpdatePool data pool task
+   * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
+   * @param {DistrconfigDataPool} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public updatePool2(dataPoolId: string, body: DistrconfigDataPool, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .updatePool2(dataPoolId, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Validate pool data against pool specification
-     * @param {DistrconfigValidatePoolDataRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DistrConfigServiceApi
-     */
-    public validatePoolData(body: DistrconfigValidatePoolDataRequest, options?: any) {
-        return DistrConfigServiceApiFp(this.configuration).validatePoolData(body, options).then((request) => request(this.axios, this.basePath));
-    }
-
+  /**
+   *
+   * @summary Validate pool data against pool specification
+   * @param {DistrconfigValidatePoolDataRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public validatePoolData(body: DistrconfigValidatePoolDataRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .validatePoolData(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 }
-
 
 /**
  * FunctionsServiceApi - axios parameter creator
  * @export
  */
 export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Post function for execution in async way
-         * @param {string} reason 
-         * @param {string} callId 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        callAsyncFunction: async (reason: string, callId: string, body: object, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reason' is not null or undefined
-            if (reason === null || reason === undefined) {
-                throw new RequiredError('reason','Required parameter reason was null or undefined when calling callAsyncFunction.');
-            }
-            // verify required parameter 'callId' is not null or undefined
-            if (callId === null || callId === undefined) {
-                throw new RequiredError('callId','Required parameter callId was null or undefined when calling callAsyncFunction.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling callAsyncFunction.');
-            }
-            const localVarPath = `/api/func/v1/post-call/{reason}/{call.id}`
-                .replace(`{${"reason"}}`, encodeURIComponent(String(reason)))
-                .replace(`{${"call.id"}}`, encodeURIComponent(String(callId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+  return {
+    /**
+     *
+     * @summary Post function for execution in async way
+     * @param {string} reason
+     * @param {string} callId
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    callAsyncFunction: async (
+      reason: string,
+      callId: string,
+      body: object,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'reason' is not null or undefined
+      if (reason === null || reason === undefined) {
+        throw new RequiredError(
+          'reason',
+          'Required parameter reason was null or undefined when calling callAsyncFunction.',
+        );
+      }
+      // verify required parameter 'callId' is not null or undefined
+      if (callId === null || callId === undefined) {
+        throw new RequiredError(
+          'callId',
+          'Required parameter callId was null or undefined when calling callAsyncFunction.',
+        );
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling callAsyncFunction.',
+        );
+      }
+      const localVarPath = `/api/func/v1/post-call/{reason}/{call.id}`
+        .replace(`{${'reason'}}`, encodeURIComponent(String(reason)))
+        .replace(`{${'call.id'}}`, encodeURIComponent(String(callId)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Call a function synchroniously
+     * @param {string} id
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    callSyncFunction: async (id: string, body: object, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling callSyncFunction.');
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling callSyncFunction.');
+      }
+      const localVarPath = `/api/func/v1/call-sync/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Call a function synchroniously
-         * @param {string} id 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        callSyncFunction: async (id: string, body: object, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling callSyncFunction.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling callSyncFunction.');
-            }
-            const localVarPath = `/api/func/v1/call-sync/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Test a function call
+     * @param {string} id
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    callTestFunction: async (id: string, body: object, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling callTestFunction.');
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling callTestFunction.');
+      }
+      const localVarPath = `/api/func/v1/call-test/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Test a function call
-         * @param {string} id 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        callTestFunction: async (id: string, body: object, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling callTestFunction.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling callTestFunction.');
-            }
-            const localVarPath = `/api/func/v1/call-test/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Create function
+     * @param {FunctionsCreateFunctionRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFunction: async (body: FunctionsCreateFunctionRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createFunction.');
+      }
+      const localVarPath = `/api/func/v1/function`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Create function
-         * @param {FunctionsCreateFunctionRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createFunction: async (body: FunctionsCreateFunctionRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createFunction.');
-            }
-            const localVarPath = `/api/func/v1/function`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Delete function
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFunction: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling deleteFunction.');
+      }
+      const localVarPath = `/api/func/v1/function/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Get function
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFunction: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling getFunction.');
+      }
+      const localVarPath = `/api/func/v1/function/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Delete function
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFunction: async (id: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling deleteFunction.');
-            }
-            const localVarPath = `/api/func/v1/function/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Fetch all functions
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFunctions: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/func/v1/functions`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Update function
+     * @param {FunctionsFunction} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFunction: async (body: FunctionsFunction, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updateFunction.');
+      }
+      const localVarPath = `/api/func/v1/function`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Get function
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFunction: async (id: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling getFunction.');
-            }
-            const localVarPath = `/api/func/v1/function/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Update function
+     * @param {string} functionId
+     * @param {FunctionsFunction} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFunction2: async (functionId: string, body: FunctionsFunction, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'functionId' is not null or undefined
+      if (functionId === null || functionId === undefined) {
+        throw new RequiredError(
+          'functionId',
+          'Required parameter functionId was null or undefined when calling updateFunction2.',
+        );
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updateFunction2.');
+      }
+      const localVarPath = `/api/func/v1/function/{function.id}`.replace(
+        `{${'function.id'}}`,
+        encodeURIComponent(String(functionId)),
+      );
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Fetch all functions
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFunctions: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/func/v1/functions`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Update function
-         * @param {FunctionsFunction} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateFunction: async (body: FunctionsFunction, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updateFunction.');
-            }
-            const localVarPath = `/api/func/v1/function`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Update function
-         * @param {string} functionId 
-         * @param {FunctionsFunction} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateFunction2: async (functionId: string, body: FunctionsFunction, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'functionId' is not null or undefined
-            if (functionId === null || functionId === undefined) {
-                throw new RequiredError('functionId','Required parameter functionId was null or undefined when calling updateFunction2.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updateFunction2.');
-            }
-            const localVarPath = `/api/func/v1/function/{function.id}`
-                .replace(`{${"function.id"}}`, encodeURIComponent(String(functionId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+  };
 };
 
 /**
  * FunctionsServiceApi - functional programming interface
  * @export
  */
-export const FunctionsServiceApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Post function for execution in async way
-         * @param {string} reason 
-         * @param {string} callId 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async callAsyncFunction(reason: string, callId: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).callAsyncFunction(reason, callId, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Call a function synchroniously
-         * @param {string} id 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async callSyncFunction(id: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).callSyncFunction(id, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Test a function call
-         * @param {string} id 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async callTestFunction(id: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).callTestFunction(id, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Create function
-         * @param {FunctionsCreateFunctionRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createFunction(body: FunctionsCreateFunctionRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCreateFunctionResponse>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).createFunction(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Delete function
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteFunction(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).deleteFunction(id, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Get function
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getFunction(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsGetFunctionResponse>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).getFunction(id, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Fetch all functions
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getFunctions(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsGetFunctionsResponse>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).getFunctions(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Update function
-         * @param {FunctionsFunction} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateFunction(body: FunctionsFunction, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).updateFunction(body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Update function
-         * @param {string} functionId 
-         * @param {FunctionsFunction} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateFunction2(functionId: string, body: FunctionsFunction, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).updateFunction2(functionId, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
+export const FunctionsServiceApiFp = function (configuration?: Configuration) {
+  return {
+    /**
+     *
+     * @summary Post function for execution in async way
+     * @param {string} reason
+     * @param {string} callId
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async callAsyncFunction(
+      reason: string,
+      callId: string,
+      body: object,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).callAsyncFunction(
+        reason,
+        callId,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Call a function synchroniously
+     * @param {string} id
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async callSyncFunction(
+      id: string,
+      body: object,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).callSyncFunction(
+        id,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Test a function call
+     * @param {string} id
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async callTestFunction(
+      id: string,
+      body: object,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).callTestFunction(
+        id,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Create function
+     * @param {FunctionsCreateFunctionRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createFunction(
+      body: FunctionsCreateFunctionRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCreateFunctionResponse>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).createFunction(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Delete function
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteFunction(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).deleteFunction(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Get function
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getFunction(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsGetFunctionResponse>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).getFunction(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Fetch all functions
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getFunctions(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsGetFunctionsResponse>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).getFunctions(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Update function
+     * @param {FunctionsFunction} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateFunction(
+      body: FunctionsFunction,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).updateFunction(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Update function
+     * @param {string} functionId
+     * @param {FunctionsFunction} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateFunction2(
+      functionId: string,
+      body: FunctionsFunction,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await FunctionsServiceApiAxiosParamCreator(configuration).updateFunction2(
+        functionId,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+  };
 };
 
 /**
  * FunctionsServiceApi - factory interface
  * @export
  */
-export const FunctionsServiceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @summary Post function for execution in async way
-         * @param {string} reason 
-         * @param {string} callId 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        callAsyncFunction(reason: string, callId: string, body: object, options?: any): AxiosPromise<object> {
-            return FunctionsServiceApiFp(configuration).callAsyncFunction(reason, callId, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Call a function synchroniously
-         * @param {string} id 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        callSyncFunction(id: string, body: object, options?: any): AxiosPromise<FunctionsCallFunctionResponse> {
-            return FunctionsServiceApiFp(configuration).callSyncFunction(id, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Test a function call
-         * @param {string} id 
-         * @param {object} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        callTestFunction(id: string, body: object, options?: any): AxiosPromise<FunctionsCallFunctionResponse> {
-            return FunctionsServiceApiFp(configuration).callTestFunction(id, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Create function
-         * @param {FunctionsCreateFunctionRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createFunction(body: FunctionsCreateFunctionRequest, options?: any): AxiosPromise<FunctionsCreateFunctionResponse> {
-            return FunctionsServiceApiFp(configuration).createFunction(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Delete function
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFunction(id: string, options?: any): AxiosPromise<object> {
-            return FunctionsServiceApiFp(configuration).deleteFunction(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Get function
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFunction(id: string, options?: any): AxiosPromise<FunctionsGetFunctionResponse> {
-            return FunctionsServiceApiFp(configuration).getFunction(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Fetch all functions
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFunctions(options?: any): AxiosPromise<FunctionsGetFunctionsResponse> {
-            return FunctionsServiceApiFp(configuration).getFunctions(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Update function
-         * @param {FunctionsFunction} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateFunction(body: FunctionsFunction, options?: any): AxiosPromise<object> {
-            return FunctionsServiceApiFp(configuration).updateFunction(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Update function
-         * @param {string} functionId 
-         * @param {FunctionsFunction} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateFunction2(functionId: string, body: FunctionsFunction, options?: any): AxiosPromise<object> {
-            return FunctionsServiceApiFp(configuration).updateFunction2(functionId, body, options).then((request) => request(axios, basePath));
-        },
-    };
+export const FunctionsServiceApiFactory = function (
+  configuration?: Configuration,
+  basePath?: string,
+  axios?: AxiosInstance,
+) {
+  return {
+    /**
+     *
+     * @summary Post function for execution in async way
+     * @param {string} reason
+     * @param {string} callId
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    callAsyncFunction(reason: string, callId: string, body: object, options?: any): AxiosPromise<object> {
+      return FunctionsServiceApiFp(configuration)
+        .callAsyncFunction(reason, callId, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Call a function synchroniously
+     * @param {string} id
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    callSyncFunction(id: string, body: object, options?: any): AxiosPromise<FunctionsCallFunctionResponse> {
+      return FunctionsServiceApiFp(configuration)
+        .callSyncFunction(id, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Test a function call
+     * @param {string} id
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    callTestFunction(id: string, body: object, options?: any): AxiosPromise<FunctionsCallFunctionResponse> {
+      return FunctionsServiceApiFp(configuration)
+        .callTestFunction(id, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Create function
+     * @param {FunctionsCreateFunctionRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFunction(body: FunctionsCreateFunctionRequest, options?: any): AxiosPromise<FunctionsCreateFunctionResponse> {
+      return FunctionsServiceApiFp(configuration)
+        .createFunction(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Delete function
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFunction(id: string, options?: any): AxiosPromise<object> {
+      return FunctionsServiceApiFp(configuration)
+        .deleteFunction(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Get function
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFunction(id: string, options?: any): AxiosPromise<FunctionsGetFunctionResponse> {
+      return FunctionsServiceApiFp(configuration)
+        .getFunction(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Fetch all functions
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFunctions(options?: any): AxiosPromise<FunctionsGetFunctionsResponse> {
+      return FunctionsServiceApiFp(configuration)
+        .getFunctions(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Update function
+     * @param {FunctionsFunction} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFunction(body: FunctionsFunction, options?: any): AxiosPromise<object> {
+      return FunctionsServiceApiFp(configuration)
+        .updateFunction(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Update function
+     * @param {string} functionId
+     * @param {FunctionsFunction} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFunction2(functionId: string, body: FunctionsFunction, options?: any): AxiosPromise<object> {
+      return FunctionsServiceApiFp(configuration)
+        .updateFunction2(functionId, body, options)
+        .then((request) => request(axios, basePath));
+    },
+  };
 };
 
 /**
@@ -7064,509 +7614,566 @@ export const FunctionsServiceApiFactory = function (configuration?: Configuratio
  * @extends {BaseAPI}
  */
 export class FunctionsServiceApi extends BaseAPI {
-    /**
-     * 
-     * @summary Post function for execution in async way
-     * @param {string} reason 
-     * @param {string} callId 
-     * @param {object} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public callAsyncFunction(reason: string, callId: string, body: object, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).callAsyncFunction(reason, callId, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Post function for execution in async way
+   * @param {string} reason
+   * @param {string} callId
+   * @param {object} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public callAsyncFunction(reason: string, callId: string, body: object, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .callAsyncFunction(reason, callId, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Call a function synchroniously
-     * @param {string} id 
-     * @param {object} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public callSyncFunction(id: string, body: object, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).callSyncFunction(id, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Call a function synchroniously
+   * @param {string} id
+   * @param {object} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public callSyncFunction(id: string, body: object, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .callSyncFunction(id, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Test a function call
-     * @param {string} id 
-     * @param {object} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public callTestFunction(id: string, body: object, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).callTestFunction(id, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Test a function call
+   * @param {string} id
+   * @param {object} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public callTestFunction(id: string, body: object, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .callTestFunction(id, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Create function
-     * @param {FunctionsCreateFunctionRequest} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public createFunction(body: FunctionsCreateFunctionRequest, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).createFunction(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Create function
+   * @param {FunctionsCreateFunctionRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public createFunction(body: FunctionsCreateFunctionRequest, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .createFunction(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Delete function
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public deleteFunction(id: string, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).deleteFunction(id, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Delete function
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public deleteFunction(id: string, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .deleteFunction(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Get function
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public getFunction(id: string, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).getFunction(id, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Get function
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public getFunction(id: string, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .getFunction(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Fetch all functions
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public getFunctions(options?: any) {
-        return FunctionsServiceApiFp(this.configuration).getFunctions(options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Fetch all functions
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public getFunctions(options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .getFunctions(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Update function
-     * @param {FunctionsFunction} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public updateFunction(body: FunctionsFunction, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).updateFunction(body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Update function
+   * @param {FunctionsFunction} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public updateFunction(body: FunctionsFunction, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .updateFunction(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Update function
-     * @param {string} functionId 
-     * @param {FunctionsFunction} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FunctionsServiceApi
-     */
-    public updateFunction2(functionId: string, body: FunctionsFunction, options?: any) {
-        return FunctionsServiceApiFp(this.configuration).updateFunction2(functionId, body, options).then((request) => request(this.axios, this.basePath));
-    }
-
+  /**
+   *
+   * @summary Update function
+   * @param {string} functionId
+   * @param {FunctionsFunction} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof FunctionsServiceApi
+   */
+  public updateFunction2(functionId: string, body: FunctionsFunction, options?: any) {
+    return FunctionsServiceApiFp(this.configuration)
+      .updateFunction2(functionId, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 }
-
 
 /**
  * PoolDataServiceApi - axios parameter creator
  * @export
  */
 export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Bulk create mobile data records in a pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkCreate: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'poolId' is not null or undefined
-            if (poolId === null || poolId === undefined) {
-                throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling bulkCreate.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling bulkCreate.');
-            }
-            const localVarPath = `/api/data/_r/{poolId}`
-                .replace(`{${"poolId"}}`, encodeURIComponent(String(poolId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+  return {
+    /**
+     *
+     * @summary Bulk create mobile data records in a pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkCreate: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError('poolId', 'Required parameter poolId was null or undefined when calling bulkCreate.');
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling bulkCreate.');
+      }
+      const localVarPath = `/api/data/_r/{poolId}`.replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Bulk delete records from mobile data pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkDelete: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError('poolId', 'Required parameter poolId was null or undefined when calling bulkDelete.');
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling bulkDelete.');
+      }
+      const localVarPath = `/api/data/_r/{poolId}`.replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Bulk delete records from mobile data pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkDelete: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'poolId' is not null or undefined
-            if (poolId === null || poolId === undefined) {
-                throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling bulkDelete.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling bulkDelete.');
-            }
-            const localVarPath = `/api/data/_r/{poolId}`
-                .replace(`{${"poolId"}}`, encodeURIComponent(String(poolId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Bulk update records in mobile data pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkUpdate: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError('poolId', 'Required parameter poolId was null or undefined when calling bulkUpdate.');
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling bulkUpdate.');
+      }
+      const localVarPath = `/api/data/_r/{poolId}`.replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Bulk update records in mobile data pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkUpdate: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'poolId' is not null or undefined
-            if (poolId === null || poolId === undefined) {
-                throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling bulkUpdate.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling bulkUpdate.');
-            }
-            const localVarPath = `/api/data/_r/{poolId}`
-                .replace(`{${"poolId"}}`, encodeURIComponent(String(poolId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
 
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Get single mobile data record
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    get: async (poolId: string, id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError('poolId', 'Required parameter poolId was null or undefined when calling get.');
+      }
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling get.');
+      }
+      const localVarPath = `/api/data/_r/{poolId}/{id}`
+        .replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)))
+        .replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary List mobile data records
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {number} limit The max number of records to fetch.
+     * @param {number} skip The records to skip from the beggining
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    list: async (poolId: string, limit: number, skip: number, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError('poolId', 'Required parameter poolId was null or undefined when calling list.');
+      }
+      // verify required parameter 'limit' is not null or undefined
+      if (limit === null || limit === undefined) {
+        throw new RequiredError('limit', 'Required parameter limit was null or undefined when calling list.');
+      }
+      // verify required parameter 'skip' is not null or undefined
+      if (skip === null || skip === undefined) {
+        throw new RequiredError('skip', 'Required parameter skip was null or undefined when calling list.');
+      }
+      const localVarPath = `/api/data/_r/{poolId}`.replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Get single mobile data record
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {string} id The ID (Primary Key) of the record
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        get: async (poolId: string, id: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'poolId' is not null or undefined
-            if (poolId === null || poolId === undefined) {
-                throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling get.');
-            }
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling get.');
-            }
-            const localVarPath = `/api/data/_r/{poolId}/{id}`
-                .replace(`{${"poolId"}}`, encodeURIComponent(String(poolId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+      if (limit !== undefined) {
+        localVarQueryParameter['limit'] = limit;
+      }
 
+      if (skip !== undefined) {
+        localVarQueryParameter['skip'] = skip;
+      }
 
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary List mobile data records
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {number} limit The max number of records to fetch.
-         * @param {number} skip The records to skip from the beggining
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        list: async (poolId: string, limit: number, skip: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'poolId' is not null or undefined
-            if (poolId === null || poolId === undefined) {
-                throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling list.');
-            }
-            // verify required parameter 'limit' is not null or undefined
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling list.');
-            }
-            // verify required parameter 'skip' is not null or undefined
-            if (skip === null || skip === undefined) {
-                throw new RequiredError('skip','Required parameter skip was null or undefined when calling list.');
-            }
-            const localVarPath = `/api/data/_r/{poolId}`
-                .replace(`{${"poolId"}}`, encodeURIComponent(String(poolId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+  };
 };
 
 /**
  * PoolDataServiceApi - functional programming interface
  * @export
  */
-export const PoolDataServiceApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Bulk create mobile data records in a pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async bulkCreate(poolId: string, body: Array<DataDocument>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkCreateResponse>> {
-            const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).bulkCreate(poolId, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Bulk delete records from mobile data pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async bulkDelete(poolId: string, body: Array<DataDocument>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkDeleteResponse>> {
-            const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).bulkDelete(poolId, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Bulk update records in mobile data pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async bulkUpdate(poolId: string, body: Array<DataDocument>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkUpdateResponse>> {
-            const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).bulkUpdate(poolId, body, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Get single mobile data record
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {string} id The ID (Primary Key) of the record
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async get(poolId: string, id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataDocument>> {
-            const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).get(poolId, id, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary List mobile data records
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {number} limit The max number of records to fetch.
-         * @param {number} skip The records to skip from the beggining
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async list(poolId: string, limit: number, skip: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataListResponse>> {
-            const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).list(poolId, limit, skip, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
+export const PoolDataServiceApiFp = function (configuration?: Configuration) {
+  return {
+    /**
+     *
+     * @summary Bulk create mobile data records in a pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async bulkCreate(
+      poolId: string,
+      body: Array<DataDocument>,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkCreateResponse>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).bulkCreate(
+        poolId,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Bulk delete records from mobile data pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async bulkDelete(
+      poolId: string,
+      body: Array<DataDocument>,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkDeleteResponse>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).bulkDelete(
+        poolId,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Bulk update records in mobile data pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async bulkUpdate(
+      poolId: string,
+      body: Array<DataDocument>,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkUpdateResponse>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).bulkUpdate(
+        poolId,
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Get single mobile data record
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async get(
+      poolId: string,
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataDocument>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).get(poolId, id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary List mobile data records
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {number} limit The max number of records to fetch.
+     * @param {number} skip The records to skip from the beggining
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async list(
+      poolId: string,
+      limit: number,
+      skip: number,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataListResponse>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).list(
+        poolId,
+        limit,
+        skip,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+  };
 };
 
 /**
  * PoolDataServiceApi - factory interface
  * @export
  */
-export const PoolDataServiceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @summary Bulk create mobile data records in a pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkCreate(poolId: string, body: Array<DataDocument>, options?: any): AxiosPromise<DataBulkCreateResponse> {
-            return PoolDataServiceApiFp(configuration).bulkCreate(poolId, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Bulk delete records from mobile data pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkDelete(poolId: string, body: Array<DataDocument>, options?: any): AxiosPromise<DataBulkDeleteResponse> {
-            return PoolDataServiceApiFp(configuration).bulkDelete(poolId, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Bulk update records in mobile data pool
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {Array<DataDocument>} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkUpdate(poolId: string, body: Array<DataDocument>, options?: any): AxiosPromise<DataBulkUpdateResponse> {
-            return PoolDataServiceApiFp(configuration).bulkUpdate(poolId, body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Get single mobile data record
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {string} id The ID (Primary Key) of the record
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        get(poolId: string, id: string, options?: any): AxiosPromise<DataDocument> {
-            return PoolDataServiceApiFp(configuration).get(poolId, id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary List mobile data records
-         * @param {string} poolId Pool ID (e.g. orders)
-         * @param {number} limit The max number of records to fetch.
-         * @param {number} skip The records to skip from the beggining
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<DataListResponse> {
-            return PoolDataServiceApiFp(configuration).list(poolId, limit, skip, options).then((request) => request(axios, basePath));
-        },
-    };
+export const PoolDataServiceApiFactory = function (
+  configuration?: Configuration,
+  basePath?: string,
+  axios?: AxiosInstance,
+) {
+  return {
+    /**
+     *
+     * @summary Bulk create mobile data records in a pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkCreate(poolId: string, body: Array<DataDocument>, options?: any): AxiosPromise<DataBulkCreateResponse> {
+      return PoolDataServiceApiFp(configuration)
+        .bulkCreate(poolId, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Bulk delete records from mobile data pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkDelete(poolId: string, body: Array<DataDocument>, options?: any): AxiosPromise<DataBulkDeleteResponse> {
+      return PoolDataServiceApiFp(configuration)
+        .bulkDelete(poolId, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Bulk update records in mobile data pool
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {Array<DataDocument>} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkUpdate(poolId: string, body: Array<DataDocument>, options?: any): AxiosPromise<DataBulkUpdateResponse> {
+      return PoolDataServiceApiFp(configuration)
+        .bulkUpdate(poolId, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Get single mobile data record
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    get(poolId: string, id: string, options?: any): AxiosPromise<DataDocument> {
+      return PoolDataServiceApiFp(configuration)
+        .get(poolId, id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary List mobile data records
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {number} limit The max number of records to fetch.
+     * @param {number} skip The records to skip from the beggining
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<DataListResponse> {
+      return PoolDataServiceApiFp(configuration)
+        .list(poolId, limit, skip, options)
+        .then((request) => request(axios, basePath));
+    },
+  };
 };
 
 /**
@@ -7576,72 +8183,79 @@ export const PoolDataServiceApiFactory = function (configuration?: Configuration
  * @extends {BaseAPI}
  */
 export class PoolDataServiceApi extends BaseAPI {
-    /**
-     * 
-     * @summary Bulk create mobile data records in a pool
-     * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<DataDocument>} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PoolDataServiceApi
-     */
-    public bulkCreate(poolId: string, body: Array<DataDocument>, options?: any) {
-        return PoolDataServiceApiFp(this.configuration).bulkCreate(poolId, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Bulk create mobile data records in a pool
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {Array<DataDocument>} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public bulkCreate(poolId: string, body: Array<DataDocument>, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .bulkCreate(poolId, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Bulk delete records from mobile data pool
-     * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<DataDocument>} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PoolDataServiceApi
-     */
-    public bulkDelete(poolId: string, body: Array<DataDocument>, options?: any) {
-        return PoolDataServiceApiFp(this.configuration).bulkDelete(poolId, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Bulk delete records from mobile data pool
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {Array<DataDocument>} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public bulkDelete(poolId: string, body: Array<DataDocument>, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .bulkDelete(poolId, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Bulk update records in mobile data pool
-     * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<DataDocument>} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PoolDataServiceApi
-     */
-    public bulkUpdate(poolId: string, body: Array<DataDocument>, options?: any) {
-        return PoolDataServiceApiFp(this.configuration).bulkUpdate(poolId, body, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Bulk update records in mobile data pool
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {Array<DataDocument>} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public bulkUpdate(poolId: string, body: Array<DataDocument>, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .bulkUpdate(poolId, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary Get single mobile data record
-     * @param {string} poolId Pool ID (e.g. orders)
-     * @param {string} id The ID (Primary Key) of the record
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PoolDataServiceApi
-     */
-    public get(poolId: string, id: string, options?: any) {
-        return PoolDataServiceApiFp(this.configuration).get(poolId, id, options).then((request) => request(this.axios, this.basePath));
-    }
+  /**
+   *
+   * @summary Get single mobile data record
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {string} id The ID (Primary Key) of the record
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public get(poolId: string, id: string, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .get(poolId, id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 
-    /**
-     * 
-     * @summary List mobile data records
-     * @param {string} poolId Pool ID (e.g. orders)
-     * @param {number} limit The max number of records to fetch.
-     * @param {number} skip The records to skip from the beggining
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PoolDataServiceApi
-     */
-    public list(poolId: string, limit: number, skip: number, options?: any) {
-        return PoolDataServiceApiFp(this.configuration).list(poolId, limit, skip, options).then((request) => request(this.axios, this.basePath));
-    }
-
+  /**
+   *
+   * @summary List mobile data records
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {number} limit The max number of records to fetch.
+   * @param {number} skip The records to skip from the beggining
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public list(poolId: string, limit: number, skip: number, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .list(poolId, limit, skip, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
 }
-
-
