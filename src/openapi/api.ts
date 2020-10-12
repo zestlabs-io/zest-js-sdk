@@ -1210,31 +1210,6 @@ export interface V1CreateAccessKeyResponse {
 /**
  *
  * @export
- * @interface V1CreateAccountRequest
- */
-export interface V1CreateAccountRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof V1CreateAccountRequest
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CreateAccountRequest
-   */
-  description?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CreateAccountRequest
-   */
-  email?: string;
-}
-/**
- *
- * @export
  * @interface V1CreateAccountResponse
  */
 export interface V1CreateAccountResponse {
@@ -2516,44 +2491,6 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     },
     /**
      *
-     * @summary Account API
-     * @param {V1CreateAccountRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAccount: async (body: V1CreateAccountRequest, options: any = {}): Promise<RequestArgs> => {
-      // verify required parameter 'body' is not null or undefined
-      if (body === null || body === undefined) {
-        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createAccount.');
-      }
-      const localVarPath = `/api/auth/v1/account`;
-      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      localVarHeaderParameter['Content-Type'] = 'application/json';
-
-      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
-      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-      delete localVarUrlObj.search;
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-      const needsSerialization =
-        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
-
-      return {
-        url: globalImportUrl.format(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
      * @param {V1CreatePolicyRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2703,44 +2640,6 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     },
     /**
      *
-     * @param {string} accountID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAccount: async (accountID: string, options: any = {}): Promise<RequestArgs> => {
-      // verify required parameter 'accountID' is not null or undefined
-      if (accountID === null || accountID === undefined) {
-        throw new RequiredError(
-          'accountID',
-          'Required parameter accountID was null or undefined when calling deleteAccount.',
-        );
-      }
-      const localVarPath = `/api/auth/v1/account/{accountID}`.replace(
-        `{${'accountID'}}`,
-        encodeURIComponent(String(accountID)),
-      );
-      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
-      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-      delete localVarUrlObj.search;
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-
-      return {
-        url: globalImportUrl.format(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2827,44 +2726,6 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         baseOptions = configuration.baseOptions;
       }
       const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
-      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-      delete localVarUrlObj.search;
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-
-      return {
-        url: globalImportUrl.format(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
-     * @param {string} accountID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAccount: async (accountID: string, options: any = {}): Promise<RequestArgs> => {
-      // verify required parameter 'accountID' is not null or undefined
-      if (accountID === null || accountID === undefined) {
-        throw new RequiredError(
-          'accountID',
-          'Required parameter accountID was null or undefined when calling getAccount.',
-        );
-      }
-      const localVarPath = `/api/auth/v1/account/{accountID}`.replace(
-        `{${'accountID'}}`,
-        encodeURIComponent(String(accountID)),
-      );
-      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
@@ -3671,23 +3532,6 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Account API
-     * @param {V1CreateAccountRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async createAccount(
-      body: V1CreateAccountRequest,
-      options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccountResponse>> {
-      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createAccount(body, options);
-      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
-        return axios.request(axiosRequestArgs);
-      };
-    },
-    /**
-     *
      * @param {V1CreatePolicyRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3755,22 +3599,6 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @param {string} accountID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async deleteAccount(
-      accountID: string,
-      options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteAccount(accountID, options);
-      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
-        return axios.request(axiosRequestArgs);
-      };
-    },
-    /**
-     *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3812,22 +3640,6 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteUser(userID, options);
-      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
-        return axios.request(axiosRequestArgs);
-      };
-    },
-    /**
-     *
-     * @param {string} accountID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getAccount(
-      accountID: string,
-      options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetAccountResponse>> {
-      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getAccount(accountID, options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -4225,18 +4037,6 @@ export const AuthServiceApiFactory = function (
     },
     /**
      *
-     * @summary Account API
-     * @param {V1CreateAccountRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAccount(body: V1CreateAccountRequest, options?: any): AxiosPromise<V1CreateAccountResponse> {
-      return AuthServiceApiFp(configuration)
-        .createAccount(body, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
      * @param {V1CreatePolicyRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4281,17 +4081,6 @@ export const AuthServiceApiFactory = function (
     },
     /**
      *
-     * @param {string} accountID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAccount(accountID: string, options?: any): AxiosPromise<object> {
-      return AuthServiceApiFp(configuration)
-        .deleteAccount(accountID, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4321,17 +4110,6 @@ export const AuthServiceApiFactory = function (
     deleteUser(userID: string, options?: any): AxiosPromise<object> {
       return AuthServiceApiFp(configuration)
         .deleteUser(userID, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
-     * @param {string} accountID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAccount(accountID: string, options?: any): AxiosPromise<V1GetAccountResponse> {
-      return AuthServiceApiFp(configuration)
-        .getAccount(accountID, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -4619,20 +4397,6 @@ export class AuthServiceApi extends BaseAPI {
 
   /**
    *
-   * @summary Account API
-   * @param {V1CreateAccountRequest} body
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof AuthServiceApi
-   */
-  public createAccount(body: V1CreateAccountRequest, options?: any) {
-    return AuthServiceApiFp(this.configuration)
-      .createAccount(body, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
    * @param {V1CreatePolicyRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -4685,19 +4449,6 @@ export class AuthServiceApi extends BaseAPI {
 
   /**
    *
-   * @param {string} accountID
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof AuthServiceApi
-   */
-  public deleteAccount(accountID: string, options?: any) {
-    return AuthServiceApiFp(this.configuration)
-      .deleteAccount(accountID, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
    * @param {string} policyID
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -4732,19 +4483,6 @@ export class AuthServiceApi extends BaseAPI {
   public deleteUser(userID: string, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .deleteUser(userID, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
-   * @param {string} accountID
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof AuthServiceApi
-   */
-  public getAccount(accountID: string, options?: any) {
-    return AuthServiceApiFp(this.configuration)
-      .getAccount(accountID, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
