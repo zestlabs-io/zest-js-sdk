@@ -334,6 +334,249 @@
         ]
       }
     },
+    "/api/auth/v1/check-token": {
+      "post": {
+        "operationId": "AuthService_CheckTokenAuth",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckTokenAuthResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckTokenAuthRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/client": {
+      "post": {
+        "summary": "CreateClient will try to create a new oidc client for the account with the\naccountID concatenated with suffix provided in the request. If the client already exists\nor there are already 20 clients, an error will be returned.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`CreateClient`\n\t\tScope:",
+        "operationId": "AuthService_CreateClient",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateClientResponse"
+            },
+            "examples": {
+              "application/json": {
+                "client": "The client that have been created"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned when no valid client ID is provided in the request, or the account has already has 20 clients.",
+            "schema": {}
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateClientRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/client/{id}": {
+      "delete": {
+        "summary": "DeleteClient will delete the client with the provided ID and return\nan error, if a key with this ID does not exist, or is not part of accounts clients",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`DeleteClient`\n\t\tScope:\t\t\tclient ID",
+        "operationId": "AuthService_DeleteClient",
+        "responses": {
+          "200": {
+            "description": "Returned when Client is successfuly deleted.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteClientResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when no valid client ID is provided in the request, or the account has already has 20 clients.",
+            "schema": {}
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when a user with the provided ID could not be found within the scope of the account.",
+            "schema": {}
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "put": {
+        "summary": "UpdateClient updates the data for account client.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`UpdateClient`\n\t\tScope:\t\t\t`id`",
+        "operationId": "AuthService_UpdateClient",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateClientResponse"
+            },
+            "examples": {
+              "application/json": {
+                "client": "The client that have been updated"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned when no valid client ID is provided in the request.",
+            "schema": {}
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when a client ID could not be found within the scope of the account.",
+            "schema": {}
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateClientRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/clients": {
+      "get": {
+        "summary": "GetClients loads all clients for account.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`GetClients`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_GetClients",
+        "responses": {
+          "200": {
+            "description": "Returned when clients are successfuly fetched.",
+            "schema": {
+              "$ref": "#/definitions/v1GetClientsResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/default-policies": {
       "get": {
         "operationId": "AuthService_GetDefaultPolicies",
@@ -692,6 +935,84 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/v1UpdateRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/policies/add": {
+      "post": {
+        "operationId": "AuthService_AddPoliciesToRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/policies/remove": {
+      "post": {
+        "operationId": "AuthService_RemovePoliciesFromRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromRoleRequest"
             }
           }
         ],
@@ -1076,6 +1397,84 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user/policies/add": {
+      "post": {
+        "operationId": "AuthService_AddPoliciesToUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user/policies/remove": {
+      "post": {
+        "operationId": "AuthService_RemovePoliciesFromUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromUserRequest"
+            }
           }
         ],
         "tags": [
@@ -1647,46 +2046,6 @@
         ]
       }
     },
-    "/api/distribution/v1/activate-pool": {
-      "post": {
-        "summary": "ActivatePool data pool task",
-        "operationId": "DistrConfigService_ActivatePool",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/distrconfigActivatePoolResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/distrconfigActivatePoolRequest"
-            }
-          }
-        ],
-        "tags": [
-          "DistrConfigService"
-        ]
-      }
-    },
     "/api/distribution/v1/app": {
       "post": {
         "summary": "Create mobile application",
@@ -1727,7 +2086,203 @@
         ]
       }
     },
+    "/api/distribution/v1/app/pools/assign": {
+      "post": {
+        "summary": "Assign data pools to mobile application",
+        "operationId": "DistrConfigService_AssignPoolsToApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignPoolsToAppResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignPoolsToAppRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/app/pools/unassign": {
+      "post": {
+        "summary": "Unassign data pool from mobile application",
+        "operationId": "DistrConfigService_UnassignPoolsFromApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignPoolsFromAppResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignPoolsFromAppRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/app/users/assign": {
+      "post": {
+        "summary": "Assign mobile application to users",
+        "operationId": "DistrConfigService_AssignAppToUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignAppToUsersResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignAppToUsersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/app/users/unassign": {
+      "post": {
+        "summary": "Unassign mobile application from users",
+        "operationId": "DistrConfigService_UnassignAppFromUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignAppFromUsersResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignAppFromUsersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
     "/api/distribution/v1/app/{id}": {
+      "get": {
+        "summary": "Get a mobile application",
+        "operationId": "DistrConfigService_GetApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigGetAppResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      },
       "delete": {
         "summary": "Delete mobile application",
         "operationId": "DistrConfigService_DeleteApp",
@@ -1765,6 +2320,52 @@
         ]
       }
     },
+    "/api/distribution/v1/app/{id}/bundle": {
+      "post": {
+        "summary": "Set the mobile application bundle",
+        "operationId": "DistrConfigService_SetAppBundle",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigSetAppBundleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigSetAppBundleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
     "/api/distribution/v1/apps": {
       "get": {
         "summary": "Get all mobile applications",
@@ -1795,15 +2396,16 @@
         ]
       }
     },
-    "/api/distribution/v1/assign-app-pools": {
+    "/api/distribution/v1/pool": {
       "post": {
-        "summary": "Assign data pools to mobile application",
-        "operationId": "DistrConfigService_AssignAppPools",
+        "summary": "Create a data pool that can be used to distribute data to mobile users.",
+        "description": "Errors:\n- 400    Returned when no valid pool definition is provided in the request\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
+        "operationId": "DistrConfigService_CreatePool",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/distrconfigAssignAppPoolsResponse"
+              "$ref": "#/definitions/distrconfigCreatePoolResponse"
             }
           },
           "404": {
@@ -1826,24 +2428,23 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/distrconfigAssignAppPoolsRequest"
+              "$ref": "#/definitions/distrconfigDataPool"
             }
           }
         ],
         "tags": [
           "DistrConfigService"
         ]
-      }
-    },
-    "/api/distribution/v1/assign-app-users": {
-      "post": {
-        "summary": "Assign mobile application to users",
-        "operationId": "DistrConfigService_AssignAppUsers",
+      },
+      "put": {
+        "summary": "Update an already existing data pool.",
+        "description": "Errors:\n- 400    Returned when no valid pool definition is provided in the request\n- 404    Returned when a pool with the given ID does not exist\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
+        "operationId": "DistrConfigService_UpdatePool",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/distrconfigAssignAppUsersResponse"
+              "$ref": "#/definitions/distrconfigUpdatePoolResponse"
             }
           },
           "404": {
@@ -1866,7 +2467,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/distrconfigAssignAppUsersRequest"
+              "$ref": "#/definitions/distrconfigDataPool"
             }
           }
         ],
@@ -1875,15 +2476,16 @@
         ]
       }
     },
-    "/api/distribution/v1/assign-tag-to-user": {
+    "/api/distribution/v1/pool/activate": {
       "post": {
-        "summary": "Assign filtering tag to user",
-        "operationId": "DistrConfigService_AssignTagToUser",
+        "summary": "Activate data pool, which will enable the distribution of its data to \nmobile users.",
+        "description": "Errors:\n- 400    Returned when no valid pool ID is provided in the request, or \n         when the pool is already active\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
+        "operationId": "DistrConfigService_ActivatePool",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/distrconfigAssignTagToUserResponse"
+              "$ref": "#/definitions/distrconfigActivatePoolResponse"
             }
           },
           "404": {
@@ -1906,7 +2508,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/distrconfigAssignTagToUserRequest"
+              "$ref": "#/definitions/distrconfigActivatePoolRequest"
             }
           }
         ],
@@ -1915,9 +2517,10 @@
         ]
       }
     },
-    "/api/distribution/v1/get-pool-distribution/{id}": {
+    "/api/distribution/v1/pool/distribution/{id}": {
       "get": {
-        "summary": "ActivatePool data pool task",
+        "summary": "Get the data distribution details for the pool.",
+        "description": "Errors:\n- 400    Returned when no valid pool ID is provided in the request\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
         "operationId": "DistrConfigService_GetPoolDistribution",
         "responses": {
           "200": {
@@ -1959,15 +2562,16 @@
         ]
       }
     },
-    "/api/distribution/v1/pool": {
+    "/api/distribution/v1/pool/validate": {
       "post": {
-        "summary": "CreatePool new data pool task",
-        "operationId": "DistrConfigService_CreatePool",
+        "summary": "Validate pool data against pool specification",
+        "description": "Errors:\n- 400    Returned when no valid pool definition is provided in the request\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
+        "operationId": "DistrConfigService_ValidatePoolData",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/distrconfigCreatePoolResponse"
+              "$ref": "#/definitions/distrconfigValidatePoolDataResponse"
             }
           },
           "404": {
@@ -1990,45 +2594,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/distrconfigDataPool"
-            }
-          }
-        ],
-        "tags": [
-          "DistrConfigService"
-        ]
-      },
-      "put": {
-        "summary": "UpdatePool data pool task",
-        "operationId": "DistrConfigService_UpdatePool",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/distrconfigUpdatePoolResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/distrconfigDataPool"
+              "$ref": "#/definitions/distrconfigValidatePoolDataRequest"
             }
           }
         ],
@@ -2039,7 +2605,8 @@
     },
     "/api/distribution/v1/pool/{dataPool.id}": {
       "patch": {
-        "summary": "UpdatePool data pool task",
+        "summary": "Update an already existing data pool.",
+        "description": "Errors:\n- 400    Returned when no valid pool definition is provided in the request\n- 404    Returned when a pool with the given ID does not exist\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
         "operationId": "DistrConfigService_UpdatePool2",
         "responses": {
           "200": {
@@ -2086,7 +2653,8 @@
     },
     "/api/distribution/v1/pool/{id}": {
       "get": {
-        "summary": "Get data pool task",
+        "summary": "Get the data pool with the given ID.",
+        "description": "Errors:\n- 400    Returned when no valid pool ID is provided in the request\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
         "operationId": "DistrConfigService_GetPool",
         "responses": {
           "200": {
@@ -2122,7 +2690,8 @@
         ]
       },
       "delete": {
-        "summary": "DeletePool data pool task",
+        "summary": "Delete data pool with all its data from the system and the mobile users' \ndevices.",
+        "description": "Errors:\n- 400    Returned when no valid pool ID is provided in the request\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
         "operationId": "DistrConfigService_DeletePool",
         "responses": {
           "200": {
@@ -2160,7 +2729,8 @@
     },
     "/api/distribution/v1/pools": {
       "get": {
-        "summary": "Get all data pool tasks",
+        "summary": "Get the list of all data pool that have been created in the system.",
+        "description": "Errors:\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
         "operationId": "DistrConfigService_GetPools",
         "responses": {
           "200": {
@@ -2188,7 +2758,8 @@
         ]
       },
       "post": {
-        "summary": "CreatePool new data pool task",
+        "summary": "Create several data pools, which can be used to distribute data to mobile users.",
+        "description": "Errors:\n- 400    Returned when no valid pool definitions are provided in the request\n- 403    Returned when the caller is not allowed to perform this call\n- 500    Returned whenever an internall error occurs",
         "operationId": "DistrConfigService_CreatePools",
         "responses": {
           "200": {
@@ -2218,166 +2789,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/distrconfigCreatePoolsRequest"
-            }
-          }
-        ],
-        "tags": [
-          "DistrConfigService"
-        ]
-      }
-    },
-    "/api/distribution/v1/set-app-bundle": {
-      "post": {
-        "summary": "Set the mobile application bundle",
-        "operationId": "DistrConfigService_SetAppBundle",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/distrconfigSetAppBundleResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/distrconfigSetAppBundleRequest"
-            }
-          }
-        ],
-        "tags": [
-          "DistrConfigService"
-        ]
-      }
-    },
-    "/api/distribution/v1/unassign-app-pools": {
-      "post": {
-        "summary": "Unassign data pool from mobile application",
-        "operationId": "DistrConfigService_UnassignAppPools",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/distrconfigUnassignAppPoolsResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/distrconfigUnassignAppPoolsRequest"
-            }
-          }
-        ],
-        "tags": [
-          "DistrConfigService"
-        ]
-      }
-    },
-    "/api/distribution/v1/unassign-app-users": {
-      "post": {
-        "summary": "Unassign mobile application from users",
-        "operationId": "DistrConfigService_UnassignAppUsers",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/distrconfigUnassignAppUsersResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/distrconfigUnassignAppUsersRequest"
-            }
-          }
-        ],
-        "tags": [
-          "DistrConfigService"
-        ]
-      }
-    },
-    "/api/distribution/v1/unassign-tag-from-user": {
-      "post": {
-        "summary": "Unassign filtering tag from user",
-        "operationId": "DistrConfigService_UnassignTagFromUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/distrconfigUnassignTagFromUserResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/distrconfigUnassignTagFromUserRequest"
             }
           }
         ],
@@ -2426,6 +2837,86 @@
         ]
       }
     },
+    "/api/distribution/v1/user/tags/assign": {
+      "post": {
+        "summary": "Assign filtering tag to user",
+        "operationId": "DistrConfigService_AssignTagToUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignTagToUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigAssignTagToUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
+    "/api/distribution/v1/user/tags/unassign": {
+      "post": {
+        "summary": "Unassign filtering tag from user",
+        "operationId": "DistrConfigService_UnassignTagFromUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignTagFromUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/distrconfigUnassignTagFromUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
     "/api/distribution/v1/user/{id}": {
       "delete": {
         "summary": "Deletes user from distribution db",
@@ -2464,6 +2955,44 @@
         ]
       }
     },
+    "/api/distribution/v1/user/{userID}": {
+      "get": {
+        "summary": "Fetch the user with the given ID",
+        "operationId": "DistrConfigService_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/distrconfigGetUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DistrConfigService"
+        ]
+      }
+    },
     "/api/distribution/v1/users": {
       "get": {
         "summary": "Fetch all users in account distribution db",
@@ -2489,46 +3018,6 @@
             }
           }
         },
-        "tags": [
-          "DistrConfigService"
-        ]
-      }
-    },
-    "/api/distribution/v1/validate-pool-data": {
-      "post": {
-        "summary": "Validate pool data against pool specification",
-        "operationId": "DistrConfigService_ValidatePoolData",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/distrconfigValidatePoolDataResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/distrconfigValidatePoolDataRequest"
-            }
-          }
-        ],
         "tags": [
           "DistrConfigService"
         ]
@@ -3013,6 +3502,56 @@
         }
       }
     },
+    "v1AddPoliciesToRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1AddPoliciesToRoleResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1AddPoliciesToUserRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1AddPoliciesToUserResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "v1AddUsersToRoleRequest": {
       "type": "object",
       "properties": {
@@ -3077,6 +3616,33 @@
         }
       }
     },
+    "v1CheckTokenAuthRequest": {
+      "type": "object",
+      "properties": {
+        "authKey": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "validity": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CheckTokenAuthResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "format": "byte"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
     "v1ContactDetails": {
       "type": "object",
       "properties": {
@@ -3116,6 +3682,31 @@
         "accountID": {
           "type": "string",
           "format": "int64"
+        }
+      }
+    },
+    "v1CreateClientRequest": {
+      "type": "object",
+      "properties": {
+        "suffix": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "base_color": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateClientResponse": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/v1OIDCClient"
         }
       }
     },
@@ -3182,6 +3773,9 @@
     "v1DeleteAccountResponse": {
       "type": "object"
     },
+    "v1DeleteClientResponse": {
+      "type": "object"
+    },
     "v1DeletePolicyResponse": {
       "type": "object"
     },
@@ -3196,6 +3790,17 @@
       "properties": {
         "account": {
           "$ref": "#/definitions/v1Account"
+        }
+      }
+    },
+    "v1GetClientsResponse": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OIDCClient"
+          }
         }
       }
     },
@@ -3326,6 +3931,26 @@
         }
       }
     },
+    "v1OIDCClient": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "base_color": {
+          "type": "string"
+        }
+      }
+    },
     "v1PasswordPolicy": {
       "type": "object",
       "properties": {
@@ -3399,6 +4024,56 @@
         }
       }
     },
+    "v1RemovePoliciesFromRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1RemovePoliciesFromRoleResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1RemovePoliciesFromUserRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1RemovePoliciesFromUserResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "v1RemoveUsersFromRoleRequest": {
       "type": "object",
       "properties": {
@@ -3455,6 +4130,20 @@
         }
       }
     },
+    "v1RoleUpdate": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
     "v1SetPasswordRequest": {
       "type": "object",
       "properties": {
@@ -3483,6 +4172,31 @@
     "v1UpdateAccountResponse": {
       "type": "object"
     },
+    "v1UpdateClientRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "base_color": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UpdateClientResponse": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/v1OIDCClient"
+        }
+      }
+    },
     "v1UpdatePolicyRequest": {
       "type": "object",
       "properties": {
@@ -3498,7 +4212,7 @@
       "type": "object",
       "properties": {
         "role": {
-          "$ref": "#/definitions/v1Role"
+          "$ref": "#/definitions/v1RoleUpdate"
         }
       }
     },
@@ -3509,7 +4223,7 @@
       "type": "object",
       "properties": {
         "user": {
-          "$ref": "#/definitions/v1User"
+          "$ref": "#/definitions/v1UserUpdate"
         }
       }
     },
@@ -3576,6 +4290,29 @@
           "items": {
             "$ref": "#/definitions/v1Policy"
           }
+        }
+      }
+    },
+    "v1UserUpdate": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
         }
       }
     },
@@ -3730,13 +4467,13 @@
     "distrconfigActivatePoolResponse": {
       "type": "object"
     },
-    "distrconfigAssignAppPoolsRequest": {
+    "distrconfigAssignAppToUsersRequest": {
       "type": "object",
       "properties": {
-        "appId": {
+        "appID": {
           "type": "string"
         },
-        "poolIds": {
+        "userIDs": {
           "type": "array",
           "items": {
             "type": "string"
@@ -3744,16 +4481,10 @@
         }
       }
     },
-    "distrconfigAssignAppPoolsResponse": {
-      "type": "object"
-    },
-    "distrconfigAssignAppUsersRequest": {
+    "distrconfigAssignAppToUsersResponse": {
       "type": "object",
       "properties": {
-        "appId": {
-          "type": "string"
-        },
-        "userIds": {
+        "failedUserIDs": {
           "type": "array",
           "items": {
             "type": "string"
@@ -3761,16 +4492,38 @@
         }
       }
     },
-    "distrconfigAssignAppUsersResponse": {
-      "type": "object"
+    "distrconfigAssignPoolsToAppRequest": {
+      "type": "object",
+      "properties": {
+        "appID": {
+          "type": "string"
+        },
+        "poolIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distrconfigAssignPoolsToAppResponse": {
+      "type": "object",
+      "properties": {
+        "failedPoolIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "distrconfigAssignTagToUserRequest": {
       "type": "object",
       "properties": {
-        "poolId": {
+        "poolID": {
           "type": "string"
         },
-        "userId": {
+        "userID": {
           "type": "string"
         },
         "tagValue": {
@@ -3849,6 +4602,24 @@
         }
       }
     },
+    "distrconfigDataPoolShort": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Primary key together with accountId - should be unique by client - used also as name of the pool"
+        },
+        "poolType": {
+          "$ref": "#/definitions/distrconfigPoolType",
+          "title": "The type of the pool - User, Filtered(with tags), Global (for the app)"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "When activated it locks the record and cannot be changed"
+        }
+      }
+    },
     "distrconfigDeleteAppResponse": {
       "type": "object"
     },
@@ -3864,7 +4635,7 @@
         "id": {
           "type": "string"
         },
-        "activeAppId": {
+        "activeAppID": {
           "type": "string"
         },
         "tagAssignments": {
@@ -3872,6 +4643,14 @@
           "items": {
             "$ref": "#/definitions/distrconfigUserTagAssignment"
           }
+        }
+      }
+    },
+    "distrconfigGetAppResponse": {
+      "type": "object",
+      "properties": {
+        "app": {
+          "$ref": "#/definitions/distrconfigMobileAppWithPools"
         }
       }
     },
@@ -3917,7 +4696,7 @@
         "dataPool": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/distrconfigDataPool"
+            "$ref": "#/definitions/distrconfigDataPoolShort"
           },
           "title": "List of all data pool tasks"
         },
@@ -3929,6 +4708,14 @@
         }
       },
       "title": "Contains list of all data pool tasks"
+    },
+    "distrconfigGetUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/distrconfigDistributionUser"
+        }
+      }
     },
     "distrconfigGetUsersResponse": {
       "type": "object",
@@ -3982,7 +4769,7 @@
     "distrconfigPoolSize": {
       "type": "object",
       "properties": {
-        "poolId": {
+        "poolID": {
           "type": "string"
         },
         "globalDataSizeBytes": {
@@ -4019,13 +4806,13 @@
     "distrconfigSetAppBundleResponse": {
       "type": "object"
     },
-    "distrconfigUnassignAppPoolsRequest": {
+    "distrconfigUnassignAppFromUsersRequest": {
       "type": "object",
       "properties": {
-        "appId": {
+        "appID": {
           "type": "string"
         },
-        "poolIds": {
+        "userIDs": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4033,16 +4820,10 @@
         }
       }
     },
-    "distrconfigUnassignAppPoolsResponse": {
-      "type": "object"
-    },
-    "distrconfigUnassignAppUsersRequest": {
+    "distrconfigUnassignAppFromUsersResponse": {
       "type": "object",
       "properties": {
-        "appId": {
-          "type": "string"
-        },
-        "userIds": {
+        "failedUserIDs": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4050,16 +4831,38 @@
         }
       }
     },
-    "distrconfigUnassignAppUsersResponse": {
-      "type": "object"
+    "distrconfigUnassignPoolsFromAppRequest": {
+      "type": "object",
+      "properties": {
+        "appID": {
+          "type": "string"
+        },
+        "poolIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distrconfigUnassignPoolsFromAppResponse": {
+      "type": "object",
+      "properties": {
+        "failedPoolIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "distrconfigUnassignTagFromUserRequest": {
       "type": "object",
       "properties": {
-        "poolId": {
+        "poolID": {
           "type": "string"
         },
-        "userId": {
+        "userID": {
           "type": "string"
         },
         "tagValue": {
@@ -4077,7 +4880,7 @@
     "distrconfigUserTagAssignment": {
       "type": "object",
       "properties": {
-        "poolId": {
+        "poolID": {
           "type": "string"
         },
         "value": {
@@ -4238,6 +5041,7 @@
     },
     "dataDocument": {
       "type": "object",
+      "additionalProperties": true,
       "properties": {
         "_id": {
           "type": "string"
@@ -4251,12 +5055,11 @@
           "items": {
             "type": "string"
           }
-        },
-        "...": {
-          "type": "string",
-          "description": "Any other fields that are part of the structure"
         }
-      }
+      },
+      "required": [
+        "_id"
+      ]
     }
   }
 }

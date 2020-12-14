@@ -343,6 +343,7 @@
     },
     "dataDocument": {
       "type": "object",
+      "additionalProperties": true,
       "properties": {
         "_id": {
           "type": "string"
@@ -356,12 +357,11 @@
           "items": {
             "type": "string"
           }
-        },
-        "...": {
-          "type": "string",
-          "description": "Any other fields that are part of the structure"
         }
-      }
+      },
+      "required": [
+        "_id"
+      ]
     }
   }
 }

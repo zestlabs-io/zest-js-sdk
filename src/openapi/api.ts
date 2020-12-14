@@ -98,7 +98,7 @@ export interface DataDocument {
    * @type {string}
    * @memberof DataDocument
    */
-  _id?: string;
+  _id: string;
   /**
    *
    * @type {string}
@@ -111,12 +111,6 @@ export interface DataDocument {
    * @memberof DataDocument
    */
   tags?: Array<string>;
-  /**
-   * Any other fields that are part of the structure
-   * @type {string}
-   * @memberof DataDocument
-   */
-  ___?: string;
 }
 /**
  *
@@ -178,40 +172,66 @@ export interface DistrconfigActivatePoolRequest {
 /**
  *
  * @export
- * @interface DistrconfigAssignAppPoolsRequest
+ * @interface DistrconfigAssignAppToUsersRequest
  */
-export interface DistrconfigAssignAppPoolsRequest {
+export interface DistrconfigAssignAppToUsersRequest {
   /**
    *
    * @type {string}
-   * @memberof DistrconfigAssignAppPoolsRequest
+   * @memberof DistrconfigAssignAppToUsersRequest
    */
-  appId?: string;
+  appID?: string;
   /**
    *
    * @type {Array<string>}
-   * @memberof DistrconfigAssignAppPoolsRequest
+   * @memberof DistrconfigAssignAppToUsersRequest
    */
-  poolIds?: Array<string>;
+  userIDs?: Array<string>;
 }
 /**
  *
  * @export
- * @interface DistrconfigAssignAppUsersRequest
+ * @interface DistrconfigAssignAppToUsersResponse
  */
-export interface DistrconfigAssignAppUsersRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof DistrconfigAssignAppUsersRequest
-   */
-  appId?: string;
+export interface DistrconfigAssignAppToUsersResponse {
   /**
    *
    * @type {Array<string>}
-   * @memberof DistrconfigAssignAppUsersRequest
+   * @memberof DistrconfigAssignAppToUsersResponse
    */
-  userIds?: Array<string>;
+  failedUserIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface DistrconfigAssignPoolsToAppRequest
+ */
+export interface DistrconfigAssignPoolsToAppRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigAssignPoolsToAppRequest
+   */
+  appID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigAssignPoolsToAppRequest
+   */
+  poolIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface DistrconfigAssignPoolsToAppResponse
+ */
+export interface DistrconfigAssignPoolsToAppResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigAssignPoolsToAppResponse
+   */
+  failedPoolIDs?: Array<string>;
 }
 /**
  *
@@ -224,13 +244,13 @@ export interface DistrconfigAssignTagToUserRequest {
    * @type {string}
    * @memberof DistrconfigAssignTagToUserRequest
    */
-  poolId?: string;
+  poolID?: string;
   /**
    *
    * @type {string}
    * @memberof DistrconfigAssignTagToUserRequest
    */
-  userId?: string;
+  userID?: string;
   /**
    *
    * @type {string}
@@ -316,6 +336,31 @@ export interface DistrconfigDataPool {
 /**
  *
  * @export
+ * @interface DistrconfigDataPoolShort
+ */
+export interface DistrconfigDataPoolShort {
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDataPoolShort
+   */
+  id?: string;
+  /**
+   *
+   * @type {DistrconfigPoolType}
+   * @memberof DistrconfigDataPoolShort
+   */
+  poolType?: DistrconfigPoolType;
+  /**
+   *
+   * @type {boolean}
+   * @memberof DistrconfigDataPoolShort
+   */
+  active?: boolean;
+}
+/**
+ *
+ * @export
  * @interface DistrconfigDistributionUser
  */
 export interface DistrconfigDistributionUser {
@@ -330,13 +375,26 @@ export interface DistrconfigDistributionUser {
    * @type {string}
    * @memberof DistrconfigDistributionUser
    */
-  activeAppId?: string;
+  activeAppID?: string;
   /**
    *
    * @type {Array<DistrconfigUserTagAssignment>}
    * @memberof DistrconfigDistributionUser
    */
   tagAssignments?: Array<DistrconfigUserTagAssignment>;
+}
+/**
+ *
+ * @export
+ * @interface DistrconfigGetAppResponse
+ */
+export interface DistrconfigGetAppResponse {
+  /**
+   *
+   * @type {DistrconfigMobileAppWithPools}
+   * @memberof DistrconfigGetAppResponse
+   */
+  app?: DistrconfigMobileAppWithPools;
 }
 /**
  *
@@ -397,16 +455,29 @@ export interface DistrconfigGetPoolResponse {
 export interface DistrconfigGetPoolsResponse {
   /**
    *
-   * @type {Array<DistrconfigDataPool>}
+   * @type {Array<DistrconfigDataPoolShort>}
    * @memberof DistrconfigGetPoolsResponse
    */
-  dataPool?: Array<DistrconfigDataPool>;
+  dataPool?: Array<DistrconfigDataPoolShort>;
   /**
    *
    * @type {{ [key: string]: DistrconfigPoolSize; }}
    * @memberof DistrconfigGetPoolsResponse
    */
   poolSizes?: { [key: string]: DistrconfigPoolSize };
+}
+/**
+ *
+ * @export
+ * @interface DistrconfigGetUserResponse
+ */
+export interface DistrconfigGetUserResponse {
+  /**
+   *
+   * @type {DistrconfigDistributionUser}
+   * @memberof DistrconfigGetUserResponse
+   */
+  user?: DistrconfigDistributionUser;
 }
 /**
  *
@@ -488,7 +559,7 @@ export interface DistrconfigPoolSize {
    * @type {string}
    * @memberof DistrconfigPoolSize
    */
-  poolId?: string;
+  poolID?: string;
   /**
    *
    * @type {string}
@@ -536,40 +607,66 @@ export interface DistrconfigSetAppBundleRequest {
 /**
  *
  * @export
- * @interface DistrconfigUnassignAppPoolsRequest
+ * @interface DistrconfigUnassignAppFromUsersRequest
  */
-export interface DistrconfigUnassignAppPoolsRequest {
+export interface DistrconfigUnassignAppFromUsersRequest {
   /**
    *
    * @type {string}
-   * @memberof DistrconfigUnassignAppPoolsRequest
+   * @memberof DistrconfigUnassignAppFromUsersRequest
    */
-  appId?: string;
+  appID?: string;
   /**
    *
    * @type {Array<string>}
-   * @memberof DistrconfigUnassignAppPoolsRequest
+   * @memberof DistrconfigUnassignAppFromUsersRequest
    */
-  poolIds?: Array<string>;
+  userIDs?: Array<string>;
 }
 /**
  *
  * @export
- * @interface DistrconfigUnassignAppUsersRequest
+ * @interface DistrconfigUnassignAppFromUsersResponse
  */
-export interface DistrconfigUnassignAppUsersRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof DistrconfigUnassignAppUsersRequest
-   */
-  appId?: string;
+export interface DistrconfigUnassignAppFromUsersResponse {
   /**
    *
    * @type {Array<string>}
-   * @memberof DistrconfigUnassignAppUsersRequest
+   * @memberof DistrconfigUnassignAppFromUsersResponse
    */
-  userIds?: Array<string>;
+  failedUserIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface DistrconfigUnassignPoolsFromAppRequest
+ */
+export interface DistrconfigUnassignPoolsFromAppRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigUnassignPoolsFromAppRequest
+   */
+  appID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigUnassignPoolsFromAppRequest
+   */
+  poolIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface DistrconfigUnassignPoolsFromAppResponse
+ */
+export interface DistrconfigUnassignPoolsFromAppResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DistrconfigUnassignPoolsFromAppResponse
+   */
+  failedPoolIDs?: Array<string>;
 }
 /**
  *
@@ -582,13 +679,13 @@ export interface DistrconfigUnassignTagFromUserRequest {
    * @type {string}
    * @memberof DistrconfigUnassignTagFromUserRequest
    */
-  poolId?: string;
+  poolID?: string;
   /**
    *
    * @type {string}
    * @memberof DistrconfigUnassignTagFromUserRequest
    */
-  userId?: string;
+  userID?: string;
   /**
    *
    * @type {string}
@@ -607,7 +704,7 @@ export interface DistrconfigUserTagAssignment {
    * @type {string}
    * @memberof DistrconfigUserTagAssignment
    */
-  poolId?: string;
+  poolID?: string;
   /**
    *
    * @type {string}
@@ -1053,6 +1150,70 @@ export interface V1Action {
 /**
  *
  * @export
+ * @interface V1AddPoliciesToRoleRequest
+ */
+export interface V1AddPoliciesToRoleRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddPoliciesToRoleRequest
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToRoleRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1AddPoliciesToRoleResponse
+ */
+export interface V1AddPoliciesToRoleResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToRoleResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1AddPoliciesToUserRequest
+ */
+export interface V1AddPoliciesToUserRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddPoliciesToUserRequest
+   */
+  userID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToUserRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1AddPoliciesToUserResponse
+ */
+export interface V1AddPoliciesToUserResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToUserResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
  * @interface V1AddUsersToRoleRequest
  */
 export interface V1AddUsersToRoleRequest {
@@ -1153,6 +1314,50 @@ export interface V1CheckHMACAuthResponse {
 /**
  *
  * @export
+ * @interface V1CheckTokenAuthRequest
+ */
+export interface V1CheckTokenAuthRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthRequest
+   */
+  authKey?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthRequest
+   */
+  signature?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthRequest
+   */
+  validity?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CheckTokenAuthResponse
+ */
+export interface V1CheckTokenAuthResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthResponse
+   */
+  token?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthResponse
+   */
+  error?: string;
+}
+/**
+ *
+ * @export
  * @interface V1ContactDetails
  */
 export interface V1ContactDetails {
@@ -1219,6 +1424,50 @@ export interface V1CreateAccountResponse {
    * @memberof V1CreateAccountResponse
    */
   accountID?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateClientRequest
+ */
+export interface V1CreateClientRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  suffix?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  redirect_uri?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  base_color?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateClientResponse
+ */
+export interface V1CreateClientResponse {
+  /**
+   *
+   * @type {V1OIDCClient}
+   * @memberof V1CreateClientResponse
+   */
+  client?: V1OIDCClient;
 }
 /**
  *
@@ -1328,6 +1577,19 @@ export interface V1GetAccountResponse {
    * @memberof V1GetAccountResponse
    */
   account?: V1Account;
+}
+/**
+ *
+ * @export
+ * @interface V1GetClientsResponse
+ */
+export interface V1GetClientsResponse {
+  /**
+   *
+   * @type {Array<V1OIDCClient>}
+   * @memberof V1GetClientsResponse
+   */
+  client?: Array<V1OIDCClient>;
 }
 /**
  *
@@ -1731,6 +1993,43 @@ export interface V1Metric {
 /**
  *
  * @export
+ * @interface V1OIDCClient
+ */
+export interface V1OIDCClient {
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  secret?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  redirect_uri?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  base_color?: string;
+}
+/**
+ *
+ * @export
  * @interface V1PasswordPolicy
  */
 export interface V1PasswordPolicy {
@@ -1837,6 +2136,70 @@ export interface V1Policy {
 /**
  *
  * @export
+ * @interface V1RemovePoliciesFromRoleRequest
+ */
+export interface V1RemovePoliciesFromRoleRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1RemovePoliciesFromRoleRequest
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromRoleRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1RemovePoliciesFromRoleResponse
+ */
+export interface V1RemovePoliciesFromRoleResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromRoleResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1RemovePoliciesFromUserRequest
+ */
+export interface V1RemovePoliciesFromUserRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1RemovePoliciesFromUserRequest
+   */
+  userID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromUserRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1RemovePoliciesFromUserResponse
+ */
+export interface V1RemovePoliciesFromUserResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromUserResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
  * @interface V1RemoveUsersFromRoleRequest
  */
 export interface V1RemoveUsersFromRoleRequest {
@@ -1913,6 +2276,31 @@ export interface V1Role {
 /**
  *
  * @export
+ * @interface V1RoleUpdate
+ */
+export interface V1RoleUpdate {
+  /**
+   *
+   * @type {string}
+   * @memberof V1RoleUpdate
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1RoleUpdate
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1RoleUpdate
+   */
+  description?: string;
+}
+/**
+ *
+ * @export
  * @interface V1SetPasswordRequest
  */
 export interface V1SetPasswordRequest {
@@ -1951,6 +2339,50 @@ export interface V1UpdateAccountRequest {
 /**
  *
  * @export
+ * @interface V1UpdateClientRequest
+ */
+export interface V1UpdateClientRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  redirect_uri?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  base_color?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1UpdateClientResponse
+ */
+export interface V1UpdateClientResponse {
+  /**
+   *
+   * @type {V1OIDCClient}
+   * @memberof V1UpdateClientResponse
+   */
+  client?: V1OIDCClient;
+}
+/**
+ *
+ * @export
  * @interface V1UpdatePolicyRequest
  */
 export interface V1UpdatePolicyRequest {
@@ -1969,10 +2401,10 @@ export interface V1UpdatePolicyRequest {
 export interface V1UpdateRoleRequest {
   /**
    *
-   * @type {V1Role}
+   * @type {V1RoleUpdate}
    * @memberof V1UpdateRoleRequest
    */
-  role?: V1Role;
+  role?: V1RoleUpdate;
 }
 /**
  *
@@ -1982,10 +2414,10 @@ export interface V1UpdateRoleRequest {
 export interface V1UpdateUserRequest {
   /**
    *
-   * @type {V1User}
+   * @type {V1UserUpdate}
    * @memberof V1UpdateUserRequest
    */
-  user?: V1User;
+  user?: V1UserUpdate;
 }
 /**
  *
@@ -2084,6 +2516,49 @@ export interface V1UserInfo {
    * @memberof V1UserInfo
    */
   policies?: Array<V1Policy>;
+}
+/**
+ *
+ * @export
+ * @interface V1UserUpdate
+ */
+export interface V1UserUpdate {
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  firstName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  lastName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  language?: string;
 }
 
 /**
@@ -2378,6 +2853,86 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
   return {
     /**
      *
+     * @param {V1AddPoliciesToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToRole: async (body: V1AddPoliciesToRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling addPoliciesToRole.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/role/policies/add`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1AddPoliciesToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToUser: async (body: V1AddPoliciesToUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling addPoliciesToUser.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/user/policies/add`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @param {V1AddUsersToRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2453,6 +3008,43 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     },
     /**
      *
+     * @param {V1CheckTokenAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    checkTokenAuth: async (body: V1CheckTokenAuthRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling checkTokenAuth.');
+      }
+      const localVarPath = `/api/auth/v1/check-token`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary User Access Keys API
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
@@ -2464,6 +3056,44 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         throw new RequiredError('body', 'Required parameter body was null or undefined when calling createAccessKey.');
       }
       const localVarPath = `/api/auth/v1/accesskey`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+     * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+     * @param {V1CreateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createClient: async (body: V1CreateClientRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createClient.');
+      }
+      const localVarPath = `/api/auth/v1/client`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -2639,6 +3269,39 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+     * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteClient: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling deleteClient.');
+      }
+      const localVarPath = `/api/auth/v1/client/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
@@ -2726,6 +3389,34 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         baseOptions = configuration.baseOptions;
       }
       const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+     * @summary GetClients loads all clients for account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClients: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/clients`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
@@ -3184,6 +3875,86 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     },
     /**
      *
+     * @param {V1RemovePoliciesFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromRole: async (body: V1RemovePoliciesFromRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling removePoliciesFromRole.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/role/policies/remove`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1RemovePoliciesFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromUser: async (body: V1RemovePoliciesFromUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling removePoliciesFromUser.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/user/policies/remove`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @param {V1RemoveUsersFromRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3350,6 +4121,49 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+     * @summary UpdateClient updates the data for account client.
+     * @param {string} id
+     * @param {V1UpdateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateClient: async (id: string, body: V1UpdateClientRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling updateClient.');
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updateClient.');
+      }
+      const localVarPath = `/api/auth/v1/client/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      *
      * @param {V1UpdatePolicyRequest} body
      * @param {*} [options] Override http request option.
@@ -3482,6 +4296,38 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
   return {
     /**
      *
+     * @param {V1AddPoliciesToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async addPoliciesToRole(
+      body: V1AddPoliciesToRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddPoliciesToRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).addPoliciesToRole(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1AddPoliciesToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async addPoliciesToUser(
+      body: V1AddPoliciesToUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddPoliciesToUserResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).addPoliciesToUser(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @param {V1AddUsersToRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3515,6 +4361,22 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @param {V1CheckTokenAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async checkTokenAuth(
+      body: V1CheckTokenAuthRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CheckTokenAuthResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).checkTokenAuth(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @summary User Access Keys API
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
@@ -3525,6 +4387,23 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccessKeyResponse>> {
       const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createAccessKey(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+     * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+     * @param {V1CreateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createClient(
+      body: V1CreateClientRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateClientResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createClient(body, options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -3598,6 +4477,23 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+     * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteClient(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteClient(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
      *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
@@ -3640,6 +4536,21 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteUser(userID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+     * @summary GetClients loads all clients for account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getClients(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetClientsResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getClients(options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -3864,6 +4775,44 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @param {V1RemovePoliciesFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async removePoliciesFromRole(
+      body: V1RemovePoliciesFromRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemovePoliciesFromRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).removePoliciesFromRole(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1RemovePoliciesFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async removePoliciesFromUser(
+      body: V1RemovePoliciesFromUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemovePoliciesFromUserResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).removePoliciesFromUser(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @param {V1RemoveUsersFromRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3928,6 +4877,25 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
         body,
         options,
       );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+     * @summary UpdateClient updates the data for account client.
+     * @param {string} id
+     * @param {V1UpdateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateClient(
+      id: string,
+      body: V1UpdateClientRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1UpdateClientResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateClient(id, body, options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -4002,6 +4970,28 @@ export const AuthServiceApiFactory = function (
   return {
     /**
      *
+     * @param {V1AddPoliciesToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToRole(body: V1AddPoliciesToRoleRequest, options?: any): AxiosPromise<V1AddPoliciesToRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .addPoliciesToRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1AddPoliciesToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToUser(body: V1AddPoliciesToUserRequest, options?: any): AxiosPromise<V1AddPoliciesToUserResponse> {
+      return AuthServiceApiFp(configuration)
+        .addPoliciesToUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @param {V1AddUsersToRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4025,6 +5015,17 @@ export const AuthServiceApiFactory = function (
     },
     /**
      *
+     * @param {V1CheckTokenAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    checkTokenAuth(body: V1CheckTokenAuthRequest, options?: any): AxiosPromise<V1CheckTokenAuthResponse> {
+      return AuthServiceApiFp(configuration)
+        .checkTokenAuth(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @summary User Access Keys API
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
@@ -4033,6 +5034,18 @@ export const AuthServiceApiFactory = function (
     createAccessKey(body: V1CreateAccessKeyRequest, options?: any): AxiosPromise<V1CreateAccessKeyResponse> {
       return AuthServiceApiFp(configuration)
         .createAccessKey(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+     * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+     * @param {V1CreateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createClient(body: V1CreateClientRequest, options?: any): AxiosPromise<V1CreateClientResponse> {
+      return AuthServiceApiFp(configuration)
+        .createClient(body, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -4080,6 +5093,18 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+     * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteClient(id: string, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .deleteClient(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
@@ -4110,6 +5135,17 @@ export const AuthServiceApiFactory = function (
     deleteUser(userID: string, options?: any): AxiosPromise<object> {
       return AuthServiceApiFp(configuration)
         .deleteUser(userID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+     * @summary GetClients loads all clients for account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClients(options?: any): AxiosPromise<V1GetClientsResponse> {
+      return AuthServiceApiFp(configuration)
+        .getClients(options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -4263,6 +5299,34 @@ export const AuthServiceApiFactory = function (
     },
     /**
      *
+     * @param {V1RemovePoliciesFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromRole(
+      body: V1RemovePoliciesFromRoleRequest,
+      options?: any,
+    ): AxiosPromise<V1RemovePoliciesFromRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .removePoliciesFromRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1RemovePoliciesFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromUser(
+      body: V1RemovePoliciesFromUserRequest,
+      options?: any,
+    ): AxiosPromise<V1RemovePoliciesFromUserResponse> {
+      return AuthServiceApiFp(configuration)
+        .removePoliciesFromUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @param {V1RemoveUsersFromRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4311,6 +5375,19 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+     * @summary UpdateClient updates the data for account client.
+     * @param {string} id
+     * @param {V1UpdateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateClient(id: string, body: V1UpdateClientRequest, options?: any): AxiosPromise<V1UpdateClientResponse> {
+      return AuthServiceApiFp(configuration)
+        .updateClient(id, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      *
      * @param {V1UpdatePolicyRequest} body
      * @param {*} [options] Override http request option.
@@ -4356,6 +5433,32 @@ export const AuthServiceApiFactory = function (
 export class AuthServiceApi extends BaseAPI {
   /**
    *
+   * @param {V1AddPoliciesToRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public addPoliciesToRole(body: V1AddPoliciesToRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .addPoliciesToRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @param {V1AddPoliciesToUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public addPoliciesToUser(body: V1AddPoliciesToUserRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .addPoliciesToUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @param {V1AddUsersToRoleRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -4383,6 +5486,19 @@ export class AuthServiceApi extends BaseAPI {
 
   /**
    *
+   * @param {V1CheckTokenAuthRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public checkTokenAuth(body: V1CheckTokenAuthRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .checkTokenAuth(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @summary User Access Keys API
    * @param {V1CreateAccessKeyRequest} body
    * @param {*} [options] Override http request option.
@@ -4392,6 +5508,20 @@ export class AuthServiceApi extends BaseAPI {
   public createAccessKey(body: V1CreateAccessKeyRequest, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .createAccessKey(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+   * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+   * @param {V1CreateClientRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createClient(body: V1CreateClientRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createClient(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -4448,6 +5578,20 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+   * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deleteClient(id: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .deleteClient(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    *
    * @param {string} policyID
    * @param {*} [options] Override http request option.
@@ -4483,6 +5627,19 @@ export class AuthServiceApi extends BaseAPI {
   public deleteUser(userID: string, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .deleteUser(userID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+   * @summary GetClients loads all clients for account.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getClients(options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getClients(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -4658,6 +5815,32 @@ export class AuthServiceApi extends BaseAPI {
 
   /**
    *
+   * @param {V1RemovePoliciesFromRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public removePoliciesFromRole(body: V1RemovePoliciesFromRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .removePoliciesFromRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @param {V1RemovePoliciesFromUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public removePoliciesFromUser(body: V1RemovePoliciesFromUserRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .removePoliciesFromUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @param {V1RemoveUsersFromRoleRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -4711,6 +5894,21 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+   * @summary UpdateClient updates the data for account client.
+   * @param {string} id
+   * @param {V1UpdateClientRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public updateClient(id: string, body: V1UpdateClientRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .updateClient(id, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    *
    * @param {V1UpdatePolicyRequest} body
    * @param {*} [options] Override http request option.
@@ -4758,8 +5956,8 @@ export class AuthServiceApi extends BaseAPI {
 export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: Configuration) {
   return {
     /**
-     *
-     * @summary ActivatePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
      * @param {DistrconfigActivatePoolRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4769,45 +5967,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       if (body === null || body === undefined) {
         throw new RequiredError('body', 'Required parameter body was null or undefined when calling activatePool.');
       }
-      const localVarPath = `/api/distribution/v1/activate-pool`;
-      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      localVarHeaderParameter['Content-Type'] = 'application/json';
-
-      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
-      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-      delete localVarUrlObj.search;
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-      const needsSerialization =
-        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
-
-      return {
-        url: globalImportUrl.format(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
-     * @summary Assign data pools to mobile application
-     * @param {DistrconfigAssignAppPoolsRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    assignAppPools: async (body: DistrconfigAssignAppPoolsRequest, options: any = {}): Promise<RequestArgs> => {
-      // verify required parameter 'body' is not null or undefined
-      if (body === null || body === undefined) {
-        throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignAppPools.');
-      }
-      const localVarPath = `/api/distribution/v1/assign-app-pools`;
+      const localVarPath = `/api/distribution/v1/pool/activate`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -4836,16 +5996,54 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Assign mobile application to users
-     * @param {DistrconfigAssignAppUsersRequest} body
+     * @param {DistrconfigAssignAppToUsersRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppUsers: async (body: DistrconfigAssignAppUsersRequest, options: any = {}): Promise<RequestArgs> => {
+    assignAppToUsers: async (body: DistrconfigAssignAppToUsersRequest, options: any = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       if (body === null || body === undefined) {
-        throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignAppUsers.');
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignAppToUsers.');
       }
-      const localVarPath = `/api/distribution/v1/assign-app-users`;
+      const localVarPath = `/api/distribution/v1/app/users/assign`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Assign data pools to mobile application
+     * @param {DistrconfigAssignPoolsToAppRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignPoolsToApp: async (body: DistrconfigAssignPoolsToAppRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignPoolsToApp.');
+      }
+      const localVarPath = `/api/distribution/v1/app/pools/assign`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -4883,7 +6081,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       if (body === null || body === undefined) {
         throw new RequiredError('body', 'Required parameter body was null or undefined when calling assignTagToUser.');
       }
-      const localVarPath = `/api/distribution/v1/assign-tag-to-user`;
+      const localVarPath = `/api/distribution/v1/user/tags/assign`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -4948,8 +6146,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary CreatePool new data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Create a data pool that can be used to distribute data to mobile users.
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4986,8 +6184,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary CreatePool new data pool task
+     * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Create several data pools, which can be used to distribute data to mobile users.
      * @param {DistrconfigCreatePoolsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5095,8 +6293,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary DeletePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Delete data pool with all its data from the system and the mobile users\'  devices.
      * @param {string} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5162,6 +6360,39 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     },
     /**
      *
+     * @summary Get a mobile application
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getApp: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling getApp.');
+      }
+      const localVarPath = `/api/distribution/v1/app/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary Get all mobile applications
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5189,8 +6420,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary Get data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the data pool with the given ID.
      * @param {string} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5222,8 +6453,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary ActivatePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the data distribution details for the pool.
      * @param {string} id
      * @param {string} [userId]
      * @param {*} [options] Override http request option.
@@ -5234,7 +6465,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       if (id === null || id === undefined) {
         throw new RequiredError('id', 'Required parameter id was null or undefined when calling getPoolDistribution.');
       }
-      const localVarPath = `/api/distribution/v1/get-pool-distribution/{id}`.replace(
+      const localVarPath = `/api/distribution/v1/pool/distribution/{id}`.replace(
         `{${'id'}}`,
         encodeURIComponent(String(id)),
       );
@@ -5263,13 +6494,49 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary Get all data pool tasks
+     * Errors: - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the list of all data pool that have been created in the system.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getPools: async (options: any = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/distribution/v1/pools`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Fetch the user with the given ID
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'userID' is not null or undefined
+      if (userID === null || userID === undefined) {
+        throw new RequiredError('userID', 'Required parameter userID was null or undefined when calling getUser.');
+      }
+      const localVarPath = `/api/distribution/v1/user/{userID}`.replace(
+        `{${'userID'}}`,
+        encodeURIComponent(String(userID)),
+      );
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -5321,54 +6588,21 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Set the mobile application bundle
+     * @param {string} id
      * @param {DistrconfigSetAppBundleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setAppBundle: async (body: DistrconfigSetAppBundleRequest, options: any = {}): Promise<RequestArgs> => {
+    setAppBundle: async (id: string, body: DistrconfigSetAppBundleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling setAppBundle.');
+      }
       // verify required parameter 'body' is not null or undefined
       if (body === null || body === undefined) {
         throw new RequiredError('body', 'Required parameter body was null or undefined when calling setAppBundle.');
       }
-      const localVarPath = `/api/distribution/v1/set-app-bundle`;
-      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      localVarHeaderParameter['Content-Type'] = 'application/json';
-
-      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
-      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-      delete localVarUrlObj.search;
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-      const needsSerialization =
-        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
-
-      return {
-        url: globalImportUrl.format(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
-     * @summary Unassign data pool from mobile application
-     * @param {DistrconfigUnassignAppPoolsRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    unassignAppPools: async (body: DistrconfigUnassignAppPoolsRequest, options: any = {}): Promise<RequestArgs> => {
-      // verify required parameter 'body' is not null or undefined
-      if (body === null || body === undefined) {
-        throw new RequiredError('body', 'Required parameter body was null or undefined when calling unassignAppPools.');
-      }
-      const localVarPath = `/api/distribution/v1/unassign-app-pools`;
+      const localVarPath = `/api/distribution/v1/app/{id}/bundle`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -5397,16 +6631,66 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Unassign mobile application from users
-     * @param {DistrconfigUnassignAppUsersRequest} body
+     * @param {DistrconfigUnassignAppFromUsersRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignAppUsers: async (body: DistrconfigUnassignAppUsersRequest, options: any = {}): Promise<RequestArgs> => {
+    unassignAppFromUsers: async (
+      body: DistrconfigUnassignAppFromUsersRequest,
+      options: any = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       if (body === null || body === undefined) {
-        throw new RequiredError('body', 'Required parameter body was null or undefined when calling unassignAppUsers.');
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling unassignAppFromUsers.',
+        );
       }
-      const localVarPath = `/api/distribution/v1/unassign-app-users`;
+      const localVarPath = `/api/distribution/v1/app/users/unassign`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Unassign data pool from mobile application
+     * @param {DistrconfigUnassignPoolsFromAppRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignPoolsFromApp: async (
+      body: DistrconfigUnassignPoolsFromAppRequest,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling unassignPoolsFromApp.',
+        );
+      }
+      const localVarPath = `/api/distribution/v1/app/pools/unassign`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -5450,7 +6734,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
           'Required parameter body was null or undefined when calling unassignTagFromUser.',
         );
       }
-      const localVarPath = `/api/distribution/v1/unassign-tag-from-user`;
+      const localVarPath = `/api/distribution/v1/user/tags/unassign`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -5477,8 +6761,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary UpdatePool data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Update an already existing data pool.
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5515,8 +6799,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
-     * @summary UpdatePool data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Update an already existing data pool.
      * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
@@ -5564,7 +6848,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       };
     },
     /**
-     *
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Validate pool data against pool specification
      * @param {DistrconfigValidatePoolDataRequest} body
      * @param {*} [options] Override http request option.
@@ -5575,7 +6859,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       if (body === null || body === undefined) {
         throw new RequiredError('body', 'Required parameter body was null or undefined when calling validatePoolData.');
       }
-      const localVarPath = `/api/distribution/v1/validate-pool-data`;
+      const localVarPath = `/api/distribution/v1/pool/validate`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -5611,8 +6895,8 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 export const DistrConfigServiceApiFp = function (configuration?: Configuration) {
   return {
     /**
-     *
-     * @summary ActivatePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
      * @param {DistrconfigActivatePoolRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5629,16 +6913,16 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     },
     /**
      *
-     * @summary Assign data pools to mobile application
-     * @param {DistrconfigAssignAppPoolsRequest} body
+     * @summary Assign mobile application to users
+     * @param {DistrconfigAssignAppToUsersRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async assignAppPools(
-      body: DistrconfigAssignAppPoolsRequest,
+    async assignAppToUsers(
+      body: DistrconfigAssignAppToUsersRequest,
       options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignAppPools(
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigAssignAppToUsersResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignAppToUsers(
         body,
         options,
       );
@@ -5649,16 +6933,16 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     },
     /**
      *
-     * @summary Assign mobile application to users
-     * @param {DistrconfigAssignAppUsersRequest} body
+     * @summary Assign data pools to mobile application
+     * @param {DistrconfigAssignPoolsToAppRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async assignAppUsers(
-      body: DistrconfigAssignAppUsersRequest,
+    async assignPoolsToApp(
+      body: DistrconfigAssignPoolsToAppRequest,
       options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignAppUsers(
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigAssignPoolsToAppResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).assignPoolsToApp(
         body,
         options,
       );
@@ -5705,8 +6989,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary CreatePool new data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Create a data pool that can be used to distribute data to mobile users.
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5722,8 +7006,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary CreatePool new data pool task
+     * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Create several data pools, which can be used to distribute data to mobile users.
      * @param {DistrconfigCreatePoolsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5773,8 +7057,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary DeletePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Delete data pool with all its data from the system and the mobile users\'  devices.
      * @param {string} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5808,6 +7092,23 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     },
     /**
      *
+     * @summary Get a mobile application
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getApp(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetAppResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getApp(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @summary Get all mobile applications
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5822,8 +7123,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary Get data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the data pool with the given ID.
      * @param {string} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5839,8 +7140,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary ActivatePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the data distribution details for the pool.
      * @param {string} id
      * @param {string} [userId]
      * @param {*} [options] Override http request option.
@@ -5862,8 +7163,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary Get all data pool tasks
+     * Errors: - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the list of all data pool that have been created in the system.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5871,6 +7172,23 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolsResponse>> {
       const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getPools(options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Fetch the user with the given ID
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getUser(
+      userID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetUserResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).getUser(userID, options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -5894,32 +7212,18 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Set the mobile application bundle
+     * @param {string} id
      * @param {DistrconfigSetAppBundleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async setAppBundle(
+      id: string,
       body: DistrconfigSetAppBundleRequest,
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).setAppBundle(body, options);
-      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
-        return axios.request(axiosRequestArgs);
-      };
-    },
-    /**
-     *
-     * @summary Unassign data pool from mobile application
-     * @param {DistrconfigUnassignAppPoolsRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async unassignAppPools(
-      body: DistrconfigUnassignAppPoolsRequest,
-      options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignAppPools(
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).setAppBundle(
+        id,
         body,
         options,
       );
@@ -5931,15 +7235,35 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Unassign mobile application from users
-     * @param {DistrconfigUnassignAppUsersRequest} body
+     * @param {DistrconfigUnassignAppFromUsersRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async unassignAppUsers(
-      body: DistrconfigUnassignAppUsersRequest,
+    async unassignAppFromUsers(
+      body: DistrconfigUnassignAppFromUsersRequest,
       options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignAppUsers(
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigUnassignAppFromUsersResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignAppFromUsers(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Unassign data pool from mobile application
+     * @param {DistrconfigUnassignPoolsFromAppRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async unassignPoolsFromApp(
+      body: DistrconfigUnassignPoolsFromAppRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigUnassignPoolsFromAppResponse>> {
+      const localVarAxiosArgs = await DistrConfigServiceApiAxiosParamCreator(configuration).unassignPoolsFromApp(
         body,
         options,
       );
@@ -5969,8 +7293,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary UpdatePool data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Update an already existing data pool.
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5986,8 +7310,8 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
-     * @summary UpdatePool data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Update an already existing data pool.
      * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
@@ -6009,7 +7333,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       };
     },
     /**
-     *
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Validate pool data against pool specification
      * @param {DistrconfigValidatePoolDataRequest} body
      * @param {*} [options] Override http request option.
@@ -6042,8 +7366,8 @@ export const DistrConfigServiceApiFactory = function (
 ) {
   return {
     /**
-     *
-     * @summary ActivatePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
      * @param {DistrconfigActivatePoolRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6055,26 +7379,32 @@ export const DistrConfigServiceApiFactory = function (
     },
     /**
      *
-     * @summary Assign data pools to mobile application
-     * @param {DistrconfigAssignAppPoolsRequest} body
+     * @summary Assign mobile application to users
+     * @param {DistrconfigAssignAppToUsersRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppPools(body: DistrconfigAssignAppPoolsRequest, options?: any): AxiosPromise<object> {
+    assignAppToUsers(
+      body: DistrconfigAssignAppToUsersRequest,
+      options?: any,
+    ): AxiosPromise<DistrconfigAssignAppToUsersResponse> {
       return DistrConfigServiceApiFp(configuration)
-        .assignAppPools(body, options)
+        .assignAppToUsers(body, options)
         .then((request) => request(axios, basePath));
     },
     /**
      *
-     * @summary Assign mobile application to users
-     * @param {DistrconfigAssignAppUsersRequest} body
+     * @summary Assign data pools to mobile application
+     * @param {DistrconfigAssignPoolsToAppRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppUsers(body: DistrconfigAssignAppUsersRequest, options?: any): AxiosPromise<object> {
+    assignPoolsToApp(
+      body: DistrconfigAssignPoolsToAppRequest,
+      options?: any,
+    ): AxiosPromise<DistrconfigAssignPoolsToAppResponse> {
       return DistrConfigServiceApiFp(configuration)
-        .assignAppUsers(body, options)
+        .assignPoolsToApp(body, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -6102,8 +7432,8 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary CreatePool new data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Create a data pool that can be used to distribute data to mobile users.
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6114,8 +7444,8 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary CreatePool new data pool task
+     * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Create several data pools, which can be used to distribute data to mobile users.
      * @param {DistrconfigCreatePoolsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6150,8 +7480,8 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary DeletePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Delete data pool with all its data from the system and the mobile users\'  devices.
      * @param {string} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6175,6 +7505,18 @@ export const DistrConfigServiceApiFactory = function (
     },
     /**
      *
+     * @summary Get a mobile application
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getApp(id: string, options?: any): AxiosPromise<DistrconfigGetAppResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .getApp(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @summary Get all mobile applications
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6185,8 +7527,8 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary Get data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the data pool with the given ID.
      * @param {string} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6197,8 +7539,8 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary ActivatePool data pool task
+     * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the data distribution details for the pool.
      * @param {string} id
      * @param {string} [userId]
      * @param {*} [options] Override http request option.
@@ -6214,14 +7556,26 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary Get all data pool tasks
+     * Errors: - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Get the list of all data pool that have been created in the system.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getPools(options?: any): AxiosPromise<DistrconfigGetPoolsResponse> {
       return DistrConfigServiceApiFp(configuration)
         .getPools(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Fetch the user with the given ID
+     * @param {string} userID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUser(userID: string, options?: any): AxiosPromise<DistrconfigGetUserResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .getUser(userID, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -6238,37 +7592,44 @@ export const DistrConfigServiceApiFactory = function (
     /**
      *
      * @summary Set the mobile application bundle
+     * @param {string} id
      * @param {DistrconfigSetAppBundleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setAppBundle(body: DistrconfigSetAppBundleRequest, options?: any): AxiosPromise<object> {
+    setAppBundle(id: string, body: DistrconfigSetAppBundleRequest, options?: any): AxiosPromise<object> {
       return DistrConfigServiceApiFp(configuration)
-        .setAppBundle(body, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
-     * @summary Unassign data pool from mobile application
-     * @param {DistrconfigUnassignAppPoolsRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    unassignAppPools(body: DistrconfigUnassignAppPoolsRequest, options?: any): AxiosPromise<object> {
-      return DistrConfigServiceApiFp(configuration)
-        .unassignAppPools(body, options)
+        .setAppBundle(id, body, options)
         .then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Unassign mobile application from users
-     * @param {DistrconfigUnassignAppUsersRequest} body
+     * @param {DistrconfigUnassignAppFromUsersRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignAppUsers(body: DistrconfigUnassignAppUsersRequest, options?: any): AxiosPromise<object> {
+    unassignAppFromUsers(
+      body: DistrconfigUnassignAppFromUsersRequest,
+      options?: any,
+    ): AxiosPromise<DistrconfigUnassignAppFromUsersResponse> {
       return DistrConfigServiceApiFp(configuration)
-        .unassignAppUsers(body, options)
+        .unassignAppFromUsers(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Unassign data pool from mobile application
+     * @param {DistrconfigUnassignPoolsFromAppRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unassignPoolsFromApp(
+      body: DistrconfigUnassignPoolsFromAppRequest,
+      options?: any,
+    ): AxiosPromise<DistrconfigUnassignPoolsFromAppResponse> {
+      return DistrConfigServiceApiFp(configuration)
+        .unassignPoolsFromApp(body, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -6284,8 +7645,8 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary UpdatePool data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Update an already existing data pool.
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6296,8 +7657,8 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary UpdatePool data pool task
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+     * @summary Update an already existing data pool.
      * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
      * @param {DistrconfigDataPool} body
      * @param {*} [options] Override http request option.
@@ -6309,7 +7670,7 @@ export const DistrConfigServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
+     * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Validate pool data against pool specification
      * @param {DistrconfigValidatePoolDataRequest} body
      * @param {*} [options] Override http request option.
@@ -6334,8 +7695,8 @@ export const DistrConfigServiceApiFactory = function (
  */
 export class DistrConfigServiceApi extends BaseAPI {
   /**
-   *
-   * @summary ActivatePool data pool task
+   * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
    * @param {DistrconfigActivatePoolRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6349,29 +7710,29 @@ export class DistrConfigServiceApi extends BaseAPI {
 
   /**
    *
-   * @summary Assign data pools to mobile application
-   * @param {DistrconfigAssignAppPoolsRequest} body
+   * @summary Assign mobile application to users
+   * @param {DistrconfigAssignAppToUsersRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignAppPools(body: DistrconfigAssignAppPoolsRequest, options?: any) {
+  public assignAppToUsers(body: DistrconfigAssignAppToUsersRequest, options?: any) {
     return DistrConfigServiceApiFp(this.configuration)
-      .assignAppPools(body, options)
+      .assignAppToUsers(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    *
-   * @summary Assign mobile application to users
-   * @param {DistrconfigAssignAppUsersRequest} body
+   * @summary Assign data pools to mobile application
+   * @param {DistrconfigAssignPoolsToAppRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignAppUsers(body: DistrconfigAssignAppUsersRequest, options?: any) {
+  public assignPoolsToApp(body: DistrconfigAssignPoolsToAppRequest, options?: any) {
     return DistrConfigServiceApiFp(this.configuration)
-      .assignAppUsers(body, options)
+      .assignPoolsToApp(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -6404,8 +7765,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary CreatePool new data pool task
+   * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Create a data pool that can be used to distribute data to mobile users.
    * @param {DistrconfigDataPool} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6418,8 +7779,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary CreatePool new data pool task
+   * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Create several data pools, which can be used to distribute data to mobile users.
    * @param {DistrconfigCreatePoolsRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6460,8 +7821,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary DeletePool data pool task
+   * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Delete data pool with all its data from the system and the mobile users\'  devices.
    * @param {string} id
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6489,6 +7850,20 @@ export class DistrConfigServiceApi extends BaseAPI {
 
   /**
    *
+   * @summary Get a mobile application
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public getApp(id: string, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .getApp(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @summary Get all mobile applications
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6501,8 +7876,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary Get data pool task
+   * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Get the data pool with the given ID.
    * @param {string} id
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6515,8 +7890,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary ActivatePool data pool task
+   * Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Get the data distribution details for the pool.
    * @param {string} id
    * @param {string} [userId]
    * @param {*} [options] Override http request option.
@@ -6530,8 +7905,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary Get all data pool tasks
+   * Errors: - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Get the list of all data pool that have been created in the system.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
@@ -6539,6 +7914,20 @@ export class DistrConfigServiceApi extends BaseAPI {
   public getPools(options?: any) {
     return DistrConfigServiceApiFp(this.configuration)
       .getPools(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Fetch the user with the given ID
+   * @param {string} userID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public getUser(userID: string, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .getUser(userID, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -6558,42 +7947,43 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Set the mobile application bundle
+   * @param {string} id
    * @param {DistrconfigSetAppBundleRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public setAppBundle(body: DistrconfigSetAppBundleRequest, options?: any) {
+  public setAppBundle(id: string, body: DistrconfigSetAppBundleRequest, options?: any) {
     return DistrConfigServiceApiFp(this.configuration)
-      .setAppBundle(body, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
-   * @summary Unassign data pool from mobile application
-   * @param {DistrconfigUnassignAppPoolsRequest} body
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DistrConfigServiceApi
-   */
-  public unassignAppPools(body: DistrconfigUnassignAppPoolsRequest, options?: any) {
-    return DistrConfigServiceApiFp(this.configuration)
-      .unassignAppPools(body, options)
+      .setAppBundle(id, body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    *
    * @summary Unassign mobile application from users
-   * @param {DistrconfigUnassignAppUsersRequest} body
+   * @param {DistrconfigUnassignAppFromUsersRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public unassignAppUsers(body: DistrconfigUnassignAppUsersRequest, options?: any) {
+  public unassignAppFromUsers(body: DistrconfigUnassignAppFromUsersRequest, options?: any) {
     return DistrConfigServiceApiFp(this.configuration)
-      .unassignAppUsers(body, options)
+      .unassignAppFromUsers(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Unassign data pool from mobile application
+   * @param {DistrconfigUnassignPoolsFromAppRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DistrConfigServiceApi
+   */
+  public unassignPoolsFromApp(body: DistrconfigUnassignPoolsFromAppRequest, options?: any) {
+    return DistrConfigServiceApiFp(this.configuration)
+      .unassignPoolsFromApp(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -6612,8 +8002,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary UpdatePool data pool task
+   * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Update an already existing data pool.
    * @param {DistrconfigDataPool} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6626,8 +8016,8 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary UpdatePool data pool task
+   * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
+   * @summary Update an already existing data pool.
    * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
    * @param {DistrconfigDataPool} body
    * @param {*} [options] Override http request option.
@@ -6641,7 +8031,7 @@ export class DistrConfigServiceApi extends BaseAPI {
   }
 
   /**
-   *
+   * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
    * @summary Validate pool data against pool specification
    * @param {DistrconfigValidatePoolDataRequest} body
    * @param {*} [options] Override http request option.

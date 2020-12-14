@@ -211,6 +211,249 @@
         ]
       }
     },
+    "/api/auth/v1/check-token": {
+      "post": {
+        "operationId": "AuthService_CheckTokenAuth",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckTokenAuthResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckTokenAuthRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/client": {
+      "post": {
+        "summary": "CreateClient will try to create a new oidc client for the account with the\naccountID concatenated with suffix provided in the request. If the client already exists\nor there are already 20 clients, an error will be returned.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`CreateClient`\n\t\tScope:",
+        "operationId": "AuthService_CreateClient",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateClientResponse"
+            },
+            "examples": {
+              "application/json": {
+                "client": "The client that have been created"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned when no valid client ID is provided in the request, or the account has already has 20 clients.",
+            "schema": {}
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateClientRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/client/{id}": {
+      "delete": {
+        "summary": "DeleteClient will delete the client with the provided ID and return\nan error, if a key with this ID does not exist, or is not part of accounts clients",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`DeleteClient`\n\t\tScope:\t\t\tclient ID",
+        "operationId": "AuthService_DeleteClient",
+        "responses": {
+          "200": {
+            "description": "Returned when Client is successfuly deleted.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteClientResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when no valid client ID is provided in the request, or the account has already has 20 clients.",
+            "schema": {}
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when a user with the provided ID could not be found within the scope of the account.",
+            "schema": {}
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "put": {
+        "summary": "UpdateClient updates the data for account client.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`UpdateClient`\n\t\tScope:\t\t\t`id`",
+        "operationId": "AuthService_UpdateClient",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateClientResponse"
+            },
+            "examples": {
+              "application/json": {
+                "client": "The client that have been updated"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned when no valid client ID is provided in the request.",
+            "schema": {}
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when a client ID could not be found within the scope of the account.",
+            "schema": {}
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateClientRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/clients": {
+      "get": {
+        "summary": "GetClients loads all clients for account.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`GetClients`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_GetClients",
+        "responses": {
+          "200": {
+            "description": "Returned when clients are successfuly fetched.",
+            "schema": {
+              "$ref": "#/definitions/v1GetClientsResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/default-policies": {
       "get": {
         "operationId": "AuthService_GetDefaultPolicies",
@@ -569,6 +812,84 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/v1UpdateRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/policies/add": {
+      "post": {
+        "operationId": "AuthService_AddPoliciesToRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/role/policies/remove": {
+      "post": {
+        "operationId": "AuthService_RemovePoliciesFromRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromRoleResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromRoleRequest"
             }
           }
         ],
@@ -960,6 +1281,84 @@
         ]
       }
     },
+    "/api/auth/v1/user/policies/add": {
+      "post": {
+        "operationId": "AuthService_AddPoliciesToUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddPoliciesToUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/user/policies/remove": {
+      "post": {
+        "operationId": "AuthService_RemovePoliciesFromUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromUserResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RemovePoliciesFromUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/user/{user.userID}": {
       "put": {
         "operationId": "AuthService_UpdateUser",
@@ -1257,6 +1656,56 @@
         }
       }
     },
+    "v1AddPoliciesToRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1AddPoliciesToRoleResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1AddPoliciesToUserRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1AddPoliciesToUserResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "v1AddUsersToRoleRequest": {
       "type": "object",
       "properties": {
@@ -1321,6 +1770,33 @@
         }
       }
     },
+    "v1CheckTokenAuthRequest": {
+      "type": "object",
+      "properties": {
+        "authKey": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "validity": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CheckTokenAuthResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "format": "byte"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
     "v1ContactDetails": {
       "type": "object",
       "properties": {
@@ -1360,6 +1836,31 @@
         "accountID": {
           "type": "string",
           "format": "int64"
+        }
+      }
+    },
+    "v1CreateClientRequest": {
+      "type": "object",
+      "properties": {
+        "suffix": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "base_color": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateClientResponse": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/v1OIDCClient"
         }
       }
     },
@@ -1426,6 +1927,9 @@
     "v1DeleteAccountResponse": {
       "type": "object"
     },
+    "v1DeleteClientResponse": {
+      "type": "object"
+    },
     "v1DeletePolicyResponse": {
       "type": "object"
     },
@@ -1440,6 +1944,17 @@
       "properties": {
         "account": {
           "$ref": "#/definitions/v1Account"
+        }
+      }
+    },
+    "v1GetClientsResponse": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OIDCClient"
+          }
         }
       }
     },
@@ -1570,6 +2085,26 @@
         }
       }
     },
+    "v1OIDCClient": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "base_color": {
+          "type": "string"
+        }
+      }
+    },
     "v1PasswordPolicy": {
       "type": "object",
       "properties": {
@@ -1643,6 +2178,56 @@
         }
       }
     },
+    "v1RemovePoliciesFromRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1RemovePoliciesFromRoleResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1RemovePoliciesFromUserRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "policyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1RemovePoliciesFromUserResponse": {
+      "type": "object",
+      "properties": {
+        "failedPolicyIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "v1RemoveUsersFromRoleRequest": {
       "type": "object",
       "properties": {
@@ -1699,6 +2284,20 @@
         }
       }
     },
+    "v1RoleUpdate": {
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
     "v1SetPasswordRequest": {
       "type": "object",
       "properties": {
@@ -1727,6 +2326,31 @@
     "v1UpdateAccountResponse": {
       "type": "object"
     },
+    "v1UpdateClientRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "base_color": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UpdateClientResponse": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/v1OIDCClient"
+        }
+      }
+    },
     "v1UpdatePolicyRequest": {
       "type": "object",
       "properties": {
@@ -1742,7 +2366,7 @@
       "type": "object",
       "properties": {
         "role": {
-          "$ref": "#/definitions/v1Role"
+          "$ref": "#/definitions/v1RoleUpdate"
         }
       }
     },
@@ -1753,7 +2377,7 @@
       "type": "object",
       "properties": {
         "user": {
-          "$ref": "#/definitions/v1User"
+          "$ref": "#/definitions/v1UserUpdate"
         }
       }
     },
@@ -1820,6 +2444,29 @@
           "items": {
             "$ref": "#/definitions/v1Policy"
           }
+        }
+      }
+    },
+    "v1UserUpdate": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
         }
       }
     }
