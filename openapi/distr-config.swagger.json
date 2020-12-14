@@ -1144,6 +1144,24 @@
         }
       }
     },
+    "distrconfigDataPoolShort": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Primary key together with accountId - should be unique by client - used also as name of the pool"
+        },
+        "poolType": {
+          "$ref": "#/definitions/distrconfigPoolType",
+          "title": "The type of the pool - User, Filtered(with tags), Global (for the app)"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "When activated it locks the record and cannot be changed"
+        }
+      }
+    },
     "distrconfigDeleteAppResponse": {
       "type": "object"
     },
@@ -1220,7 +1238,7 @@
         "dataPool": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/distrconfigDataPool"
+            "$ref": "#/definitions/distrconfigDataPoolShort"
           },
           "title": "List of all data pool tasks"
         },

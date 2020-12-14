@@ -98,7 +98,7 @@ export interface DataDocument {
    * @type {string}
    * @memberof DataDocument
    */
-  _id?: string;
+  _id: string;
   /**
    *
    * @type {string}
@@ -111,12 +111,6 @@ export interface DataDocument {
    * @memberof DataDocument
    */
   tags?: Array<string>;
-  /**
-   * Any other fields that are part of the structure
-   * @type {string}
-   * @memberof DataDocument
-   */
-  ___?: string;
 }
 /**
  *
@@ -342,6 +336,31 @@ export interface DistrconfigDataPool {
 /**
  *
  * @export
+ * @interface DistrconfigDataPoolShort
+ */
+export interface DistrconfigDataPoolShort {
+  /**
+   *
+   * @type {string}
+   * @memberof DistrconfigDataPoolShort
+   */
+  id?: string;
+  /**
+   *
+   * @type {DistrconfigPoolType}
+   * @memberof DistrconfigDataPoolShort
+   */
+  poolType?: DistrconfigPoolType;
+  /**
+   *
+   * @type {boolean}
+   * @memberof DistrconfigDataPoolShort
+   */
+  active?: boolean;
+}
+/**
+ *
+ * @export
  * @interface DistrconfigDistributionUser
  */
 export interface DistrconfigDistributionUser {
@@ -436,10 +455,10 @@ export interface DistrconfigGetPoolResponse {
 export interface DistrconfigGetPoolsResponse {
   /**
    *
-   * @type {Array<DistrconfigDataPool>}
+   * @type {Array<DistrconfigDataPoolShort>}
    * @memberof DistrconfigGetPoolsResponse
    */
-  dataPool?: Array<DistrconfigDataPool>;
+  dataPool?: Array<DistrconfigDataPoolShort>;
   /**
    *
    * @type {{ [key: string]: DistrconfigPoolSize; }}
@@ -1131,6 +1150,70 @@ export interface V1Action {
 /**
  *
  * @export
+ * @interface V1AddPoliciesToRoleRequest
+ */
+export interface V1AddPoliciesToRoleRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddPoliciesToRoleRequest
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToRoleRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1AddPoliciesToRoleResponse
+ */
+export interface V1AddPoliciesToRoleResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToRoleResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1AddPoliciesToUserRequest
+ */
+export interface V1AddPoliciesToUserRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddPoliciesToUserRequest
+   */
+  userID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToUserRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1AddPoliciesToUserResponse
+ */
+export interface V1AddPoliciesToUserResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddPoliciesToUserResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
  * @interface V1AddUsersToRoleRequest
  */
 export interface V1AddUsersToRoleRequest {
@@ -1231,6 +1314,50 @@ export interface V1CheckHMACAuthResponse {
 /**
  *
  * @export
+ * @interface V1CheckTokenAuthRequest
+ */
+export interface V1CheckTokenAuthRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthRequest
+   */
+  authKey?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthRequest
+   */
+  signature?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthRequest
+   */
+  validity?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CheckTokenAuthResponse
+ */
+export interface V1CheckTokenAuthResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthResponse
+   */
+  token?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckTokenAuthResponse
+   */
+  error?: string;
+}
+/**
+ *
+ * @export
  * @interface V1ContactDetails
  */
 export interface V1ContactDetails {
@@ -1297,6 +1424,50 @@ export interface V1CreateAccountResponse {
    * @memberof V1CreateAccountResponse
    */
   accountID?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateClientRequest
+ */
+export interface V1CreateClientRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  suffix?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  redirect_uri?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateClientRequest
+   */
+  base_color?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateClientResponse
+ */
+export interface V1CreateClientResponse {
+  /**
+   *
+   * @type {V1OIDCClient}
+   * @memberof V1CreateClientResponse
+   */
+  client?: V1OIDCClient;
 }
 /**
  *
@@ -1406,6 +1577,19 @@ export interface V1GetAccountResponse {
    * @memberof V1GetAccountResponse
    */
   account?: V1Account;
+}
+/**
+ *
+ * @export
+ * @interface V1GetClientsResponse
+ */
+export interface V1GetClientsResponse {
+  /**
+   *
+   * @type {Array<V1OIDCClient>}
+   * @memberof V1GetClientsResponse
+   */
+  client?: Array<V1OIDCClient>;
 }
 /**
  *
@@ -1809,6 +1993,43 @@ export interface V1Metric {
 /**
  *
  * @export
+ * @interface V1OIDCClient
+ */
+export interface V1OIDCClient {
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  secret?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  redirect_uri?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1OIDCClient
+   */
+  base_color?: string;
+}
+/**
+ *
+ * @export
  * @interface V1PasswordPolicy
  */
 export interface V1PasswordPolicy {
@@ -1915,6 +2136,70 @@ export interface V1Policy {
 /**
  *
  * @export
+ * @interface V1RemovePoliciesFromRoleRequest
+ */
+export interface V1RemovePoliciesFromRoleRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1RemovePoliciesFromRoleRequest
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromRoleRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1RemovePoliciesFromRoleResponse
+ */
+export interface V1RemovePoliciesFromRoleResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromRoleResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1RemovePoliciesFromUserRequest
+ */
+export interface V1RemovePoliciesFromUserRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1RemovePoliciesFromUserRequest
+   */
+  userID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromUserRequest
+   */
+  policyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface V1RemovePoliciesFromUserResponse
+ */
+export interface V1RemovePoliciesFromUserResponse {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemovePoliciesFromUserResponse
+   */
+  failedPolicyIDs?: Array<string>;
+}
+/**
+ *
+ * @export
  * @interface V1RemoveUsersFromRoleRequest
  */
 export interface V1RemoveUsersFromRoleRequest {
@@ -1991,6 +2276,31 @@ export interface V1Role {
 /**
  *
  * @export
+ * @interface V1RoleUpdate
+ */
+export interface V1RoleUpdate {
+  /**
+   *
+   * @type {string}
+   * @memberof V1RoleUpdate
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1RoleUpdate
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1RoleUpdate
+   */
+  description?: string;
+}
+/**
+ *
+ * @export
  * @interface V1SetPasswordRequest
  */
 export interface V1SetPasswordRequest {
@@ -2029,6 +2339,50 @@ export interface V1UpdateAccountRequest {
 /**
  *
  * @export
+ * @interface V1UpdateClientRequest
+ */
+export interface V1UpdateClientRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  redirect_uri?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateClientRequest
+   */
+  base_color?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1UpdateClientResponse
+ */
+export interface V1UpdateClientResponse {
+  /**
+   *
+   * @type {V1OIDCClient}
+   * @memberof V1UpdateClientResponse
+   */
+  client?: V1OIDCClient;
+}
+/**
+ *
+ * @export
  * @interface V1UpdatePolicyRequest
  */
 export interface V1UpdatePolicyRequest {
@@ -2047,10 +2401,10 @@ export interface V1UpdatePolicyRequest {
 export interface V1UpdateRoleRequest {
   /**
    *
-   * @type {V1Role}
+   * @type {V1RoleUpdate}
    * @memberof V1UpdateRoleRequest
    */
-  role?: V1Role;
+  role?: V1RoleUpdate;
 }
 /**
  *
@@ -2060,10 +2414,10 @@ export interface V1UpdateRoleRequest {
 export interface V1UpdateUserRequest {
   /**
    *
-   * @type {V1User}
+   * @type {V1UserUpdate}
    * @memberof V1UpdateUserRequest
    */
-  user?: V1User;
+  user?: V1UserUpdate;
 }
 /**
  *
@@ -2162,6 +2516,49 @@ export interface V1UserInfo {
    * @memberof V1UserInfo
    */
   policies?: Array<V1Policy>;
+}
+/**
+ *
+ * @export
+ * @interface V1UserUpdate
+ */
+export interface V1UserUpdate {
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  firstName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  lastName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  language?: string;
 }
 
 /**
@@ -2456,6 +2853,86 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
   return {
     /**
      *
+     * @param {V1AddPoliciesToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToRole: async (body: V1AddPoliciesToRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling addPoliciesToRole.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/role/policies/add`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1AddPoliciesToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToUser: async (body: V1AddPoliciesToUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling addPoliciesToUser.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/user/policies/add`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @param {V1AddUsersToRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2531,6 +3008,43 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     },
     /**
      *
+     * @param {V1CheckTokenAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    checkTokenAuth: async (body: V1CheckTokenAuthRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling checkTokenAuth.');
+      }
+      const localVarPath = `/api/auth/v1/check-token`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary User Access Keys API
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
@@ -2542,6 +3056,44 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         throw new RequiredError('body', 'Required parameter body was null or undefined when calling createAccessKey.');
       }
       const localVarPath = `/api/auth/v1/accesskey`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+     * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+     * @param {V1CreateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createClient: async (body: V1CreateClientRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling createClient.');
+      }
+      const localVarPath = `/api/auth/v1/client`;
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -2717,6 +3269,39 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+     * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteClient: async (id: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling deleteClient.');
+      }
+      const localVarPath = `/api/auth/v1/client/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
@@ -2804,6 +3389,34 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         baseOptions = configuration.baseOptions;
       }
       const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+     * @summary GetClients loads all clients for account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClients: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/clients`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
@@ -3262,6 +3875,86 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     },
     /**
      *
+     * @param {V1RemovePoliciesFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromRole: async (body: V1RemovePoliciesFromRoleRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling removePoliciesFromRole.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/role/policies/remove`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {V1RemovePoliciesFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromUser: async (body: V1RemovePoliciesFromUserRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling removePoliciesFromUser.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/user/policies/remove`;
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @param {V1RemoveUsersFromRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3428,6 +4121,49 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+     * @summary UpdateClient updates the data for account client.
+     * @param {string} id
+     * @param {V1UpdateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateClient: async (id: string, body: V1UpdateClientRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling updateClient.');
+      }
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling updateClient.');
+      }
+      const localVarPath = `/api/auth/v1/client/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const needsSerialization =
+        typeof body !== 'string' || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      *
      * @param {V1UpdatePolicyRequest} body
      * @param {*} [options] Override http request option.
@@ -3560,6 +4296,38 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
   return {
     /**
      *
+     * @param {V1AddPoliciesToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async addPoliciesToRole(
+      body: V1AddPoliciesToRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddPoliciesToRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).addPoliciesToRole(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1AddPoliciesToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async addPoliciesToUser(
+      body: V1AddPoliciesToUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddPoliciesToUserResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).addPoliciesToUser(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @param {V1AddUsersToRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3593,6 +4361,22 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @param {V1CheckTokenAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async checkTokenAuth(
+      body: V1CheckTokenAuthRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CheckTokenAuthResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).checkTokenAuth(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @summary User Access Keys API
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
@@ -3603,6 +4387,23 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccessKeyResponse>> {
       const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createAccessKey(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+     * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+     * @param {V1CreateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createClient(
+      body: V1CreateClientRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateClientResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createClient(body, options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -3676,6 +4477,23 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+     * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteClient(
+      id: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteClient(id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
      *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
@@ -3718,6 +4536,21 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).deleteUser(userID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+     * @summary GetClients loads all clients for account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getClients(
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetClientsResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getClients(options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -3942,6 +4775,44 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @param {V1RemovePoliciesFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async removePoliciesFromRole(
+      body: V1RemovePoliciesFromRoleRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemovePoliciesFromRoleResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).removePoliciesFromRole(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @param {V1RemovePoliciesFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async removePoliciesFromUser(
+      body: V1RemovePoliciesFromUserRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemovePoliciesFromUserResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).removePoliciesFromUser(
+        body,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @param {V1RemoveUsersFromRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4006,6 +4877,25 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
         body,
         options,
       );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+     * @summary UpdateClient updates the data for account client.
+     * @param {string} id
+     * @param {V1UpdateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateClient(
+      id: string,
+      body: V1UpdateClientRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1UpdateClientResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).updateClient(id, body, options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -4080,6 +4970,28 @@ export const AuthServiceApiFactory = function (
   return {
     /**
      *
+     * @param {V1AddPoliciesToRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToRole(body: V1AddPoliciesToRoleRequest, options?: any): AxiosPromise<V1AddPoliciesToRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .addPoliciesToRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1AddPoliciesToUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPoliciesToUser(body: V1AddPoliciesToUserRequest, options?: any): AxiosPromise<V1AddPoliciesToUserResponse> {
+      return AuthServiceApiFp(configuration)
+        .addPoliciesToUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @param {V1AddUsersToRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4103,6 +5015,17 @@ export const AuthServiceApiFactory = function (
     },
     /**
      *
+     * @param {V1CheckTokenAuthRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    checkTokenAuth(body: V1CheckTokenAuthRequest, options?: any): AxiosPromise<V1CheckTokenAuthResponse> {
+      return AuthServiceApiFp(configuration)
+        .checkTokenAuth(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @summary User Access Keys API
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
@@ -4111,6 +5034,18 @@ export const AuthServiceApiFactory = function (
     createAccessKey(body: V1CreateAccessKeyRequest, options?: any): AxiosPromise<V1CreateAccessKeyResponse> {
       return AuthServiceApiFp(configuration)
         .createAccessKey(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+     * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+     * @param {V1CreateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createClient(body: V1CreateClientRequest, options?: any): AxiosPromise<V1CreateClientResponse> {
+      return AuthServiceApiFp(configuration)
+        .createClient(body, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -4158,6 +5093,18 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+     * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+     * @param {string} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteClient(id: string, options?: any): AxiosPromise<object> {
+      return AuthServiceApiFp(configuration)
+        .deleteClient(id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      *
      * @param {string} policyID
      * @param {*} [options] Override http request option.
@@ -4188,6 +5135,17 @@ export const AuthServiceApiFactory = function (
     deleteUser(userID: string, options?: any): AxiosPromise<object> {
       return AuthServiceApiFp(configuration)
         .deleteUser(userID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+     * @summary GetClients loads all clients for account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClients(options?: any): AxiosPromise<V1GetClientsResponse> {
+      return AuthServiceApiFp(configuration)
+        .getClients(options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -4341,6 +5299,34 @@ export const AuthServiceApiFactory = function (
     },
     /**
      *
+     * @param {V1RemovePoliciesFromRoleRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromRole(
+      body: V1RemovePoliciesFromRoleRequest,
+      options?: any,
+    ): AxiosPromise<V1RemovePoliciesFromRoleResponse> {
+      return AuthServiceApiFp(configuration)
+        .removePoliciesFromRole(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {V1RemovePoliciesFromUserRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePoliciesFromUser(
+      body: V1RemovePoliciesFromUserRequest,
+      options?: any,
+    ): AxiosPromise<V1RemovePoliciesFromUserResponse> {
+      return AuthServiceApiFp(configuration)
+        .removePoliciesFromUser(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @param {V1RemoveUsersFromRoleRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4389,6 +5375,19 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+     * @summary UpdateClient updates the data for account client.
+     * @param {string} id
+     * @param {V1UpdateClientRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateClient(id: string, body: V1UpdateClientRequest, options?: any): AxiosPromise<V1UpdateClientResponse> {
+      return AuthServiceApiFp(configuration)
+        .updateClient(id, body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      *
      * @param {V1UpdatePolicyRequest} body
      * @param {*} [options] Override http request option.
@@ -4434,6 +5433,32 @@ export const AuthServiceApiFactory = function (
 export class AuthServiceApi extends BaseAPI {
   /**
    *
+   * @param {V1AddPoliciesToRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public addPoliciesToRole(body: V1AddPoliciesToRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .addPoliciesToRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @param {V1AddPoliciesToUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public addPoliciesToUser(body: V1AddPoliciesToUserRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .addPoliciesToUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @param {V1AddUsersToRoleRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -4461,6 +5486,19 @@ export class AuthServiceApi extends BaseAPI {
 
   /**
    *
+   * @param {V1CheckTokenAuthRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public checkTokenAuth(body: V1CheckTokenAuthRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .checkTokenAuth(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @summary User Access Keys API
    * @param {V1CreateAccessKeyRequest} body
    * @param {*} [options] Override http request option.
@@ -4470,6 +5508,20 @@ export class AuthServiceApi extends BaseAPI {
   public createAccessKey(body: V1CreateAccessKeyRequest, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .createAccessKey(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+   * @summary CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+   * @param {V1CreateClientRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createClient(body: V1CreateClientRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createClient(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -4526,6 +5578,20 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+   * @summary DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+   * @param {string} id
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deleteClient(id: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .deleteClient(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    *
    * @param {string} policyID
    * @param {*} [options] Override http request option.
@@ -4561,6 +5627,19 @@ export class AuthServiceApi extends BaseAPI {
   public deleteUser(userID: string, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .deleteUser(userID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+   * @summary GetClients loads all clients for account.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getClients(options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getClients(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -4736,6 +5815,32 @@ export class AuthServiceApi extends BaseAPI {
 
   /**
    *
+   * @param {V1RemovePoliciesFromRoleRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public removePoliciesFromRole(body: V1RemovePoliciesFromRoleRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .removePoliciesFromRole(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @param {V1RemovePoliciesFromUserRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public removePoliciesFromUser(body: V1RemovePoliciesFromUserRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .removePoliciesFromUser(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @param {V1RemoveUsersFromRoleRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -4785,6 +5890,21 @@ export class AuthServiceApi extends BaseAPI {
   public updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .updateAccount(accountAccountID, body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+   * @summary UpdateClient updates the data for account client.
+   * @param {string} id
+   * @param {V1UpdateClientRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public updateClient(id: string, body: V1UpdateClientRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .updateClient(id, body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
