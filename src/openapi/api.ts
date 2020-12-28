@@ -9010,6 +9010,58 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
     },
     /**
      *
+     * @summary Delete attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAttachment: async (poolId: string, id: string, attname: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError(
+          'poolId',
+          'Required parameter poolId was null or undefined when calling deleteAttachment.',
+        );
+      }
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling deleteAttachment.');
+      }
+      // verify required parameter 'attname' is not null or undefined
+      if (attname === null || attname === undefined) {
+        throw new RequiredError(
+          'attname',
+          'Required parameter attname was null or undefined when calling deleteAttachment.',
+        );
+      }
+      const localVarPath = `/api/data/_r/{poolId}/{id}/{attname}`
+        .replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)))
+        .replace(`{${'id'}}`, encodeURIComponent(String(id)))
+        .replace(`{${'attname'}}`, encodeURIComponent(String(attname)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary Get single mobile data record
      * @param {string} poolId Pool ID (e.g. orders)
      * @param {string} id The ID (Primary Key) of the record
@@ -9028,6 +9080,58 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
       const localVarPath = `/api/data/_r/{poolId}/{id}`
         .replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)))
         .replace(`{${'id'}}`, encodeURIComponent(String(id)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Get attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAttachment: async (poolId: string, id: string, attname: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError(
+          'poolId',
+          'Required parameter poolId was null or undefined when calling getAttachment.',
+        );
+      }
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling getAttachment.');
+      }
+      // verify required parameter 'attname' is not null or undefined
+      if (attname === null || attname === undefined) {
+        throw new RequiredError(
+          'attname',
+          'Required parameter attname was null or undefined when calling getAttachment.',
+        );
+      }
+      const localVarPath = `/api/data/_r/{poolId}/{id}/{attname}`
+        .replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)))
+        .replace(`{${'id'}}`, encodeURIComponent(String(id)))
+        .replace(`{${'attname'}}`, encodeURIComponent(String(attname)));
       const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
       let baseOptions;
       if (configuration) {
@@ -9093,6 +9197,80 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
       delete localVarUrlObj.search;
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: globalImportUrl.format(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Store attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {any} upfile The attachment content file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    storeAttachment: async (
+      poolId: string,
+      id: string,
+      attname: string,
+      upfile: any,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'poolId' is not null or undefined
+      if (poolId === null || poolId === undefined) {
+        throw new RequiredError(
+          'poolId',
+          'Required parameter poolId was null or undefined when calling storeAttachment.',
+        );
+      }
+      // verify required parameter 'id' is not null or undefined
+      if (id === null || id === undefined) {
+        throw new RequiredError('id', 'Required parameter id was null or undefined when calling storeAttachment.');
+      }
+      // verify required parameter 'attname' is not null or undefined
+      if (attname === null || attname === undefined) {
+        throw new RequiredError(
+          'attname',
+          'Required parameter attname was null or undefined when calling storeAttachment.',
+        );
+      }
+      // verify required parameter 'upfile' is not null or undefined
+      if (upfile === null || upfile === undefined) {
+        throw new RequiredError(
+          'upfile',
+          'Required parameter upfile was null or undefined when calling storeAttachment.',
+        );
+      }
+      const localVarPath = `/api/data/_r/{poolId}/{id}/{attname}`
+        .replace(`{${'poolId'}}`, encodeURIComponent(String(poolId)))
+        .replace(`{${'id'}}`, encodeURIComponent(String(id)))
+        .replace(`{${'attname'}}`, encodeURIComponent(String(attname)));
+      const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+      const localVarFormParams = new FormData();
+
+      if (upfile !== undefined) {
+        localVarFormParams.append('upfile', upfile as any);
+      }
+
+      localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+
+      localVarUrlObj.query = { ...localVarUrlObj.query, ...localVarQueryParameter, ...options.query };
+      // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+      delete localVarUrlObj.search;
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = localVarFormParams;
 
       return {
         url: globalImportUrl.format(localVarUrlObj),
@@ -9179,6 +9357,32 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @summary Delete attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteAttachment(
+      poolId: string,
+      id: string,
+      attname: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).deleteAttachment(
+        poolId,
+        id,
+        attname,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
      * @summary Get single mobile data record
      * @param {string} poolId Pool ID (e.g. orders)
      * @param {string} id The ID (Primary Key) of the record
@@ -9191,6 +9395,32 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataDocument>> {
       const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).get(poolId, id, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Get attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getAttachment(
+      poolId: string,
+      id: string,
+      attname: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).getAttachment(
+        poolId,
+        id,
+        attname,
+        options,
+      );
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
         return axios.request(axiosRequestArgs);
@@ -9215,6 +9445,35 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
         poolId,
         limit,
         skip,
+        options,
+      );
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = { ...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     *
+     * @summary Store attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {any} upfile The attachment content file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async storeAttachment(
+      poolId: string,
+      id: string,
+      attname: string,
+      upfile: any,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+      const localVarAxiosArgs = await PoolDataServiceApiAxiosParamCreator(configuration).storeAttachment(
+        poolId,
+        id,
+        attname,
+        upfile,
         options,
       );
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
@@ -9276,6 +9535,20 @@ export const PoolDataServiceApiFactory = function (
     },
     /**
      *
+     * @summary Delete attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAttachment(poolId: string, id: string, attname: string, options?: any): AxiosPromise<string> {
+      return PoolDataServiceApiFp(configuration)
+        .deleteAttachment(poolId, id, attname, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @summary Get single mobile data record
      * @param {string} poolId Pool ID (e.g. orders)
      * @param {string} id The ID (Primary Key) of the record
@@ -9285,6 +9558,20 @@ export const PoolDataServiceApiFactory = function (
     get(poolId: string, id: string, options?: any): AxiosPromise<DataDocument> {
       return PoolDataServiceApiFp(configuration)
         .get(poolId, id, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Get attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAttachment(poolId: string, id: string, attname: string, options?: any): AxiosPromise<any> {
+      return PoolDataServiceApiFp(configuration)
+        .getAttachment(poolId, id, attname, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -9299,6 +9586,21 @@ export const PoolDataServiceApiFactory = function (
     list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<DataListResponse> {
       return PoolDataServiceApiFp(configuration)
         .list(poolId, limit, skip, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Store attachment
+     * @param {string} poolId Pool ID (e.g. orders)
+     * @param {string} id The ID (Primary Key) of the record
+     * @param {string} attname Attachment name
+     * @param {any} upfile The attachment content file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    storeAttachment(poolId: string, id: string, attname: string, upfile: any, options?: any): AxiosPromise<string> {
+      return PoolDataServiceApiFp(configuration)
+        .storeAttachment(poolId, id, attname, upfile, options)
         .then((request) => request(axios, basePath));
     },
   };
@@ -9358,6 +9660,22 @@ export class PoolDataServiceApi extends BaseAPI {
 
   /**
    *
+   * @summary Delete attachment
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {string} id The ID (Primary Key) of the record
+   * @param {string} attname Attachment name
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public deleteAttachment(poolId: string, id: string, attname: string, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .deleteAttachment(poolId, id, attname, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @summary Get single mobile data record
    * @param {string} poolId Pool ID (e.g. orders)
    * @param {string} id The ID (Primary Key) of the record
@@ -9368,6 +9686,22 @@ export class PoolDataServiceApi extends BaseAPI {
   public get(poolId: string, id: string, options?: any) {
     return PoolDataServiceApiFp(this.configuration)
       .get(poolId, id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Get attachment
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {string} id The ID (Primary Key) of the record
+   * @param {string} attname Attachment name
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public getAttachment(poolId: string, id: string, attname: string, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .getAttachment(poolId, id, attname, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -9384,6 +9718,23 @@ export class PoolDataServiceApi extends BaseAPI {
   public list(poolId: string, limit: number, skip: number, options?: any) {
     return PoolDataServiceApiFp(this.configuration)
       .list(poolId, limit, skip, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Store attachment
+   * @param {string} poolId Pool ID (e.g. orders)
+   * @param {string} id The ID (Primary Key) of the record
+   * @param {string} attname Attachment name
+   * @param {any} upfile The attachment content file
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PoolDataServiceApi
+   */
+  public storeAttachment(poolId: string, id: string, attname: string, upfile: any, options?: any) {
+    return PoolDataServiceApiFp(this.configuration)
+      .storeAttachment(poolId, id, attname, upfile, options)
       .then((request) => request(this.axios, this.basePath));
   }
 }

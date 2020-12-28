@@ -20,17 +20,19 @@
   ],
   "paths": {
     "/api/data/_r/{poolId}": {
+      "parameters": [
+        {
+          "name": "poolId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "Pool ID (e.g. orders)"
+        }
+      ],
       "get": {
         "summary": "List mobile data records",
         "operationId": "PoolDataService_List",
         "parameters": [
-          {
-            "name": "poolId",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "Pool ID (e.g. orders)"
-          },
           {
             "name": "limit",
             "in": "query",
@@ -70,13 +72,6 @@
         "operationId": "PoolDataService_BulkDelete",
         "parameters": [
           {
-            "name": "poolId",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "Pool ID (e.g. orders)"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -108,13 +103,6 @@
         "summary": "Bulk update records in mobile data pool",
         "operationId": "PoolDataService_BulkUpdate",
         "parameters": [
-          {
-            "name": "poolId",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "Pool ID (e.g. orders)"
-          },
           {
             "name": "body",
             "in": "body",
@@ -148,13 +136,6 @@
         "operationId": "PoolDataService_BulkCreate",
         "parameters": [
           {
-            "name": "poolId",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "Pool ID (e.g. orders)"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -184,30 +165,156 @@
       }
     },
     "/api/data/_r/{poolId}/{id}": {
+      "parameters": [
+        {
+          "name": "poolId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "Pool ID (e.g. orders)"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "The ID (Primary Key) of the record"
+        }
+      ],
       "get": {
         "summary": "Get single mobile data record",
         "operationId": "PoolDataService_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dataGetResponse"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "404": {
+            "description": "Returned when the document does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      }
+    },
+    "/api/data/_r/{poolId}/{id}/{attname}": {
+      "parameters": [
+        {
+          "name": "poolId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "Pool ID (e.g. orders)"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "The ID (Primary Key) of the record"
+        },
+        {
+          "name": "attname",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "Attachment name"
+        }
+      ],
+      "get": {
+        "summary": "Get attachment",
+        "operationId": "PoolDataService_GetAttachment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "404": {
+            "description": "Returned when the document does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "put": {
+        "summary": "Store attachment",
+        "operationId": "PoolDataService_StoreAttachment",
+        "consumes": [
+          "multipart/form-data"
+        ],
         "parameters": [
           {
-            "name": "poolId",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "Pool ID (e.g. orders)"
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The ID (Primary Key) of the record"
+            "name": "upfile",
+            "in": "formData",
+            "type": "file",
+            "description": "The attachment content file",
+            "required": true
           }
         ],
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/dataGetResponse"
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "400": {
+            "description": "Returned when input parameters are not provided",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "404": {
+            "description": "Returned when the document does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "PoolDataService"
+        ]
+      },
+      "delete": {
+        "summary": "Delete attachment",
+        "operationId": "PoolDataService_DeleteAttachment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "string",
+              "format": "string"
             }
           },
           "400": {
