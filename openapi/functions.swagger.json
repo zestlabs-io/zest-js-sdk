@@ -508,6 +508,9 @@
       "properties": {
         "function": {
           "$ref": "#/definitions/functionsFunction"
+        },
+        "result": {
+          "$ref": "#/definitions/functionsFunction"
         }
       }
     },

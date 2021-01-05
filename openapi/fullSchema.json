@@ -3242,6 +3242,12 @@
       "get": {
         "summary": "Get attachment",
         "operationId": "PoolDataService_GetAttachment",
+        "consumes": [
+          "*/*"
+        ],
+        "produces": [
+          "*/*"
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4537,6 +4543,9 @@
       "type": "object",
       "properties": {
         "function": {
+          "$ref": "#/definitions/functionsFunction"
+        },
+        "result": {
           "$ref": "#/definitions/functionsFunction"
         }
       }

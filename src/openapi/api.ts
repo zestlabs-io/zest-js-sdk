@@ -967,6 +967,12 @@ export interface FunctionsGetFunctionResponse {
    * @memberof FunctionsGetFunctionResponse
    */
   _function?: FunctionsFunction;
+  /**
+   *
+   * @type {FunctionsFunction}
+   * @memberof FunctionsGetFunctionResponse
+   */
+  result?: FunctionsFunction;
 }
 /**
  *
