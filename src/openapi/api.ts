@@ -1681,66 +1681,17 @@ export interface V1GetLogLabelsResponse {
   loglabels?: Array<V1LabelValues>;
 }
 /**
- * The GetLogsRequest contains all parameters for searching for log entries inside the appscape log store. Those parameters will filter the logs that will be retrieved to only provide entries that macht the values in the  request.
+ * GetMetricsMetaResponse contains a list of metric meta objects, describing all metrics that are currently available in the system.
  * @export
- * @interface V1GetLogsRequest
+ * @interface V1GetMetricsMetaResponse
  */
-export interface V1GetLogsRequest {
+export interface V1GetMetricsMetaResponse {
   /**
    *
-   * @type {string}
-   * @memberof V1GetLogsRequest
+   * @type {Array<V1MetricMeta>}
+   * @memberof V1GetMetricsMetaResponse
    */
-  time_from?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1GetLogsRequest
-   */
-  time_till?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof V1GetLogsRequest
-   */
-  limit?: number;
-  /**
-   *
-   * @type {Array<V1Label>}
-   * @memberof V1GetLogsRequest
-   */
-  labels?: Array<V1Label>;
-  /**
-   *
-   * @type {LogEntrySeverity}
-   * @memberof V1GetLogsRequest
-   */
-  severity?: LogEntrySeverity;
-  /**
-   *
-   * @type {string}
-   * @memberof V1GetLogsRequest
-   */
-  match?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1GetLogsRequest
-   */
-  not_match?: string;
-}
-/**
- * GetLogsResponse contains a list of log entries that match the request  parameters.
- * @export
- * @interface V1GetLogsResponse
- */
-export interface V1GetLogsResponse {
-  /**
-   *
-   * @type {Array<V1LogEntry>}
-   * @memberof V1GetLogsResponse
-   */
-  logs?: Array<V1LogEntry>;
+  metrics?: Array<V1MetricMeta>;
 }
 /**
  *
@@ -1979,19 +1930,6 @@ export interface V1LabelValues {
   values?: Array<string>;
 }
 /**
- * ListMetricsResponse contains a list of metric meta objects, describing all metrics that are currently available in the system.
- * @export
- * @interface V1ListMetricsResponse
- */
-export interface V1ListMetricsResponse {
-  /**
-   *
-   * @type {Array<V1MetricMeta>}
-   * @memberof V1ListMetricsResponse
-   */
-  metrics?: Array<V1MetricMeta>;
-}
-/**
  * LogEntry is a single log messsage which consists of a set of fields or  attributes, some of which are available to all messages, and others are  specific to the event that created the message.
  * @export
  * @interface V1LogEntry
@@ -2114,6 +2052,12 @@ export interface V1MetricMeta {
    * @memberof V1MetricMeta
    */
   description?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1MetricMeta
+   */
+  labels?: Array<string>;
 }
 /**
  * MetricSeries contains the data for a single metric for a requested time span. The object contains both the labels for the result, as well as the actual  data points.
@@ -2282,6 +2226,68 @@ export interface V1Policy {
    * @memberof V1Policy
    */
   permissions?: Array<V1Permission>;
+}
+/**
+ * The QueryLogsRequest contains all parameters for searching for log entries inside the appscape log store. Those parameters will filter the logs that will be retrieved to only provide entries that macht the values in the  request.
+ * @export
+ * @interface V1QueryLogsRequest
+ */
+export interface V1QueryLogsRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1QueryLogsRequest
+   */
+  time_from?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1QueryLogsRequest
+   */
+  time_till?: string;
+  /**
+   *
+   * @type {number}
+   * @memberof V1QueryLogsRequest
+   */
+  limit?: number;
+  /**
+   *
+   * @type {Array<V1Label>}
+   * @memberof V1QueryLogsRequest
+   */
+  labels?: Array<V1Label>;
+  /**
+   *
+   * @type {LogEntrySeverity}
+   * @memberof V1QueryLogsRequest
+   */
+  severity?: LogEntrySeverity;
+  /**
+   *
+   * @type {string}
+   * @memberof V1QueryLogsRequest
+   */
+  match?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1QueryLogsRequest
+   */
+  not_match?: string;
+}
+/**
+ * QueryLogsResponse contains a list of log entries that match the request  parameters.
+ * @export
+ * @interface V1QueryLogsResponse
+ */
+export interface V1QueryLogsResponse {
+  /**
+   *
+   * @type {Array<V1LogEntry>}
+   * @memberof V1QueryLogsResponse
+   */
+  logs?: Array<V1LogEntry>;
 }
 /**
  * The QueryMetricsRequest is used to retrieve data for a specific metric in a time period. Additionally, filters can be provided to only retrieve data points for a certain label, as well as aggregations, that can be used to  get a summary over the underlying data.
@@ -2786,7 +2792,42 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
      * @throws {RequiredError}
      */
     getLogLabels: async (options: any = {}): Promise<RequestArgs> => {
-      const localVarPath = `/api/appscape/v1/log-labels`;
+      const localVarPath = `/api/appscape/v1/logs/labels`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      const queryParameters = new URLSearchParams(localVarUrlObj.search);
+      for (const key in localVarQueryParameter) {
+        queryParameters.set(key, localVarQueryParameter[key]);
+      }
+      for (const key in options.query) {
+        queryParameters.set(key, options.query[key]);
+      }
+      localVarUrlObj.search = new URLSearchParams(queryParameters).toString();
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary List all available metrics in the system, returning metric name and  short description.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMetricsMeta: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/appscape/v1/metrics/meta`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, 'https://example.com');
       let baseOptions;
@@ -2817,16 +2858,16 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
     /**
      *
      * @summary Retrieve all logs that match the provided filters.
-     * @param {V1GetLogsRequest} body
+     * @param {V1QueryLogsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getLogs: async (body: V1GetLogsRequest, options: any = {}): Promise<RequestArgs> => {
+    queryLogs: async (body: V1QueryLogsRequest, options: any = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       if (body === null || body === undefined) {
-        throw new RequiredError('body', 'Required parameter body was null or undefined when calling getLogs.');
+        throw new RequiredError('body', 'Required parameter body was null or undefined when calling queryLogs.');
       }
-      const localVarPath = `/api/appscape/v1/logs`;
+      const localVarPath = `/api/appscape/v1/logs/query`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, 'https://example.com');
       let baseOptions;
@@ -2856,41 +2897,6 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
           ? configuration.isJsonMime(localVarRequestOptions.headers['Content-Type'])
           : nonString;
       localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
-
-      return {
-        url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
-     * @summary List all available metrics in the system, returning metric name and  short description.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listMetrics: async (options: any = {}): Promise<RequestArgs> => {
-      const localVarPath = `/api/appscape/v1/metrics/list`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, 'https://example.com');
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      const queryParameters = new URLSearchParams(localVarUrlObj.search);
-      for (const key in localVarQueryParameter) {
-        queryParameters.set(key, localVarQueryParameter[key]);
-      }
-      for (const key in options.query) {
-        queryParameters.set(key, options.query[key]);
-      }
-      localVarUrlObj.search = new URLSearchParams(queryParameters).toString();
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
       return {
         url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
@@ -2974,16 +2980,14 @@ export const AppscapeServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Retrieve all logs that match the provided filters.
-     * @param {V1GetLogsRequest} body
+     * @summary List all available metrics in the system, returning metric name and  short description.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async getLogs(
-      body: V1GetLogsRequest,
+    async getMetricsMeta(
       options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogsResponse>> {
-      const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getLogs(body, options);
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetMetricsMetaResponse>> {
+      const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).getMetricsMeta(options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = {
           ...localVarAxiosArgs.options,
@@ -2994,14 +2998,16 @@ export const AppscapeServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary List all available metrics in the system, returning metric name and  short description.
+     * @summary Retrieve all logs that match the provided filters.
+     * @param {V1QueryLogsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async listMetrics(
+    async queryLogs(
+      body: V1QueryLogsRequest,
       options?: any,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListMetricsResponse>> {
-      const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).listMetrics(options);
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1QueryLogsResponse>> {
+      const localVarAxiosArgs = await AppscapeServiceApiAxiosParamCreator(configuration).queryLogs(body, options);
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = {
           ...localVarAxiosArgs.options,
@@ -3056,25 +3062,25 @@ export const AppscapeServiceApiFactory = function (
     },
     /**
      *
-     * @summary Retrieve all logs that match the provided filters.
-     * @param {V1GetLogsRequest} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getLogs(body: V1GetLogsRequest, options?: any): AxiosPromise<V1GetLogsResponse> {
-      return AppscapeServiceApiFp(configuration)
-        .getLogs(body, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
      * @summary List all available metrics in the system, returning metric name and  short description.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetrics(options?: any): AxiosPromise<V1ListMetricsResponse> {
+    getMetricsMeta(options?: any): AxiosPromise<V1GetMetricsMetaResponse> {
       return AppscapeServiceApiFp(configuration)
-        .listMetrics(options)
+        .getMetricsMeta(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Retrieve all logs that match the provided filters.
+     * @param {V1QueryLogsRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    queryLogs(body: V1QueryLogsRequest, options?: any): AxiosPromise<V1QueryLogsResponse> {
+      return AppscapeServiceApiFp(configuration)
+        .queryLogs(body, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -3114,28 +3120,28 @@ export class AppscapeServiceApi extends BaseAPI {
 
   /**
    *
-   * @summary Retrieve all logs that match the provided filters.
-   * @param {V1GetLogsRequest} body
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof AppscapeServiceApi
-   */
-  public getLogs(body: V1GetLogsRequest, options?: any) {
-    return AppscapeServiceApiFp(this.configuration)
-      .getLogs(body, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
    * @summary List all available metrics in the system, returning metric name and  short description.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof AppscapeServiceApi
    */
-  public listMetrics(options?: any) {
+  public getMetricsMeta(options?: any) {
     return AppscapeServiceApiFp(this.configuration)
-      .listMetrics(options)
+      .getMetricsMeta(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Retrieve all logs that match the provided filters.
+   * @param {V1QueryLogsRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AppscapeServiceApi
+   */
+  public queryLogs(body: V1QueryLogsRequest, options?: any) {
+    return AppscapeServiceApiFp(this.configuration)
+      .queryLogs(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
