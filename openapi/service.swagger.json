@@ -250,6 +250,45 @@
         ]
       }
     },
+    "/api/auth/v1/check-username-exists": {
+      "post": {
+        "operationId": "AuthService_CheckUsernameExists",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckUsernameExistsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckUsernameExistsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/client": {
       "post": {
         "summary": "CreateClient will try to create a new oidc client for the account with the\naccountID concatenated with suffix provided in the request. If the client already exists\nor there are already 20 clients, an error will be returned.",
@@ -1797,6 +1836,26 @@
         }
       }
     },
+    "v1CheckUsernameExistsRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "userID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CheckUsernameExistsResponse": {
+      "type": "object",
+      "properties": {
+        "exists": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "v1ContactDetails": {
       "type": "object",
       "properties": {
@@ -1909,6 +1968,9 @@
           "type": "string"
         },
         "lastName": {
+          "type": "string"
+        },
+        "username": {
           "type": "string"
         }
       }
@@ -2390,6 +2452,9 @@
         "userID": {
           "type": "string"
         },
+        "username": {
+          "type": "string"
+        },
         "email": {
           "type": "string"
         },
@@ -2451,6 +2516,9 @@
       "type": "object",
       "properties": {
         "userID": {
+          "type": "string"
+        },
+        "username": {
           "type": "string"
         },
         "email": {
