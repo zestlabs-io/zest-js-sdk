@@ -245,7 +245,8 @@
     },
     "/api/auth/v1/accesskey": {
       "post": {
-        "summary": "User Access Keys API",
+        "summary": "CreateAccessKey creates a new access key for user",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`CreateAccessKey`\n\t\tScope:\t\t\tuser ID",
         "operationId": "AuthService_CreateAccessKey",
         "responses": {
           "200": {
@@ -285,6 +286,8 @@
     },
     "/api/auth/v1/accesskey/{accessKeyID}": {
       "delete": {
+        "summary": "DeleteAccessKey deletes access key for user",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`DeleteAccessKey`\n\t\tScope:\t\t\tuser ID",
         "operationId": "AuthService_DeleteAccessKey",
         "responses": {
           "200": {
@@ -476,13 +479,19 @@
     },
     "/api/auth/v1/check-username-exists": {
       "post": {
+        "summary": "CheckUsernameExists checks in the database if there is already user with the same username\nIf userID is provided and there is already defined username for this userID the method\nwi return false, so that the username can be used for this user",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`CheckUsernameExists`\n\t\tScope:\t\t\t`*`",
         "operationId": "AuthService_CheckUsernameExists",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "Returned when check was performed successfuly.",
             "schema": {
               "$ref": "#/definitions/v1CheckUsernameExistsResponse"
             }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
           },
           "404": {
             "description": "Returned when the resource does not exist.",
@@ -490,6 +499,10 @@
               "type": "string",
               "format": "string"
             }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
           },
           "default": {
             "description": "An unexpected error response",
@@ -584,7 +597,7 @@
             }
           },
           "400": {
-            "description": "Returned when no valid client ID is provided in the request, or the account has already has 20 clients.",
+            "description": "Returned when no valid client ID is provided in the request.",
             "schema": {}
           },
           "403": {
@@ -754,6 +767,64 @@
             "required": false,
             "type": "string",
             "format": "int64"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/federation": {
+      "post": {
+        "summary": "CreateFederationConfig will try to create a new oidc federation configuration, \nthat can be attached to users. The maximum registered federated configurations per account are 3.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`CreateFederationConfig`\n\t\tScope:",
+        "operationId": "AuthService_CreateFederationConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateFederationConfigResponse"
+            },
+            "examples": {
+              "application/json": {
+                "config": "The config that have been created"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned when no valid client ID is provided in the request, or the account has already has 3 federation configs.",
+            "schema": {}
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateFederationConfigRequest"
+            }
           }
         ],
         "tags": [
@@ -1509,6 +1580,8 @@
     },
     "/api/auth/v1/user/accesskeys/{userID}": {
       "get": {
+        "summary": "GetUserAccessKeys returns all access keys by user",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`GetUserAccessKeys`\n\t\tScope:\t\t\t`*`",
         "operationId": "AuthService_GetUserAccessKeys",
         "responses": {
           "200": {
@@ -4116,6 +4189,39 @@
         }
       }
     },
+    "v1CreateFederationConfigRequest": {
+      "type": "object",
+      "properties": {
+        "fedType": {
+          "$ref": "#/definitions/v1FederationType"
+        },
+        "oidcEndpoint": {
+          "type": "string",
+          "title": "OIDC Config"
+        },
+        "oidcClientID": {
+          "type": "string"
+        },
+        "oidcClientSecret": {
+          "type": "string"
+        },
+        "oidcScopes": {
+          "type": "string"
+        },
+        "oidcUseSecret": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "v1CreateFederationConfigResponse": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/v1FederationConfig"
+        }
+      }
+    },
     "v1CreatePolicyRequest": {
       "type": "object",
       "properties": {
@@ -4165,6 +4271,10 @@
         },
         "username": {
           "type": "string"
+        },
+        "federationID": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -4194,6 +4304,42 @@
     "v1DeleteUserResponse": {
       "type": "object"
     },
+    "v1FederationConfig": {
+      "type": "object",
+      "properties": {
+        "fedID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fedType": {
+          "$ref": "#/definitions/v1FederationType"
+        },
+        "oidcEndpoint": {
+          "type": "string",
+          "title": "OIDC Config"
+        },
+        "oidcClientID": {
+          "type": "string"
+        },
+        "oidcClientSecret": {
+          "type": "string"
+        },
+        "oidcScopes": {
+          "type": "string"
+        },
+        "oidcUseSecret": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "v1FederationType": {
+      "type": "string",
+      "enum": [
+        "Oidc"
+      ],
+      "default": "Oidc"
+    },
     "v1GetAccountResponse": {
       "type": "object",
       "properties": {
@@ -4221,6 +4367,14 @@
           "items": {
             "$ref": "#/definitions/v1Policy"
           }
+        }
+      }
+    },
+    "v1GetFederationConfigResponse": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/v1FederationConfig"
         }
       }
     },
@@ -4678,6 +4832,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "federationID": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -4702,6 +4860,9 @@
           "items": {
             "$ref": "#/definitions/v1Policy"
           }
+        },
+        "logoutUrl": {
+          "type": "string"
         }
       }
     },
@@ -4728,6 +4889,10 @@
         },
         "language": {
           "type": "string"
+        },
+        "federationID": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },

@@ -1510,6 +1510,62 @@ export interface V1CreateClientResponse {
 /**
  *
  * @export
+ * @interface V1CreateFederationConfigRequest
+ */
+export interface V1CreateFederationConfigRequest {
+  /**
+   *
+   * @type {V1FederationType}
+   * @memberof V1CreateFederationConfigRequest
+   */
+  fedType?: V1FederationType;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateFederationConfigRequest
+   */
+  oidcEndpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateFederationConfigRequest
+   */
+  oidcClientID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateFederationConfigRequest
+   */
+  oidcClientSecret?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateFederationConfigRequest
+   */
+  oidcScopes?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1CreateFederationConfigRequest
+   */
+  oidcUseSecret?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateFederationConfigResponse
+ */
+export interface V1CreateFederationConfigResponse {
+  /**
+   *
+   * @type {V1FederationConfig}
+   * @memberof V1CreateFederationConfigResponse
+   */
+  config?: V1FederationConfig;
+}
+/**
+ *
+ * @export
  * @interface V1CreatePolicyRequest
  */
 export interface V1CreatePolicyRequest {
@@ -1595,6 +1651,12 @@ export interface V1CreateUserRequest {
    * @memberof V1CreateUserRequest
    */
   username?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateUserRequest
+   */
+  federationID?: string;
 }
 /**
  *
@@ -1628,6 +1690,64 @@ export interface V1DataPoint {
    */
   v?: number;
 }
+/**
+ *
+ * @export
+ * @interface V1FederationConfig
+ */
+export interface V1FederationConfig {
+  /**
+   *
+   * @type {string}
+   * @memberof V1FederationConfig
+   */
+  fedID?: string;
+  /**
+   *
+   * @type {V1FederationType}
+   * @memberof V1FederationConfig
+   */
+  fedType?: V1FederationType;
+  /**
+   *
+   * @type {string}
+   * @memberof V1FederationConfig
+   */
+  oidcEndpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1FederationConfig
+   */
+  oidcClientID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1FederationConfig
+   */
+  oidcClientSecret?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1FederationConfig
+   */
+  oidcScopes?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1FederationConfig
+   */
+  oidcUseSecret?: boolean;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export enum V1FederationType {
+  Oidc = 'Oidc',
+}
+
 /**
  *
  * @export
@@ -1666,6 +1786,19 @@ export interface V1GetDefaultPoliciesResponse {
    * @memberof V1GetDefaultPoliciesResponse
    */
   policies?: Array<V1Policy>;
+}
+/**
+ *
+ * @export
+ * @interface V1GetFederationConfigResponse
+ */
+export interface V1GetFederationConfigResponse {
+  /**
+   *
+   * @type {V1FederationConfig}
+   * @memberof V1GetFederationConfigResponse
+   */
+  config?: V1FederationConfig;
 }
 /**
  *
@@ -2691,6 +2824,12 @@ export interface V1User {
    * @memberof V1User
    */
   roleIDs?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1User
+   */
+  federationID?: string;
 }
 /**
  *
@@ -2728,6 +2867,12 @@ export interface V1UserInfo {
    * @memberof V1UserInfo
    */
   policies?: Array<V1Policy>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserInfo
+   */
+  logoutUrl?: string;
 }
 /**
  *
@@ -2777,6 +2922,12 @@ export interface V1UserUpdate {
    * @memberof V1UserUpdate
    */
   language?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UserUpdate
+   */
+  federationID?: string;
 }
 
 /**
@@ -3409,7 +3560,8 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `CheckUsernameExists`   Scope:   `*`
+     * @summary CheckUsernameExists checks in the database if there is already user with the same username If userID is provided and there is already defined username for this userID the method wi return false, so that the username can be used for this user
      * @param {V1CheckUsernameExistsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3459,8 +3611,8 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
-     *
-     * @summary User Access Keys API
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
+     * @summary CreateAccessKey creates a new access key for user
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3519,6 +3671,57 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         throw new RequiredError('body', 'Required parameter body was null or undefined when calling createClient.');
       }
       const localVarPath = `/api/auth/v1/client`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      const queryParameters = new URLSearchParams(localVarUrlObj.search);
+      for (const key in localVarQueryParameter) {
+        queryParameters.set(key, localVarQueryParameter[key]);
+      }
+      for (const key in options.query) {
+        queryParameters.set(key, options.query[key]);
+      }
+      localVarUrlObj.search = new URLSearchParams(queryParameters).toString();
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      const nonString = typeof body !== 'string';
+      const needsSerialization =
+        nonString && configuration && configuration.isJsonMime
+          ? configuration.isJsonMime(localVarRequestOptions.headers['Content-Type'])
+          : nonString;
+      localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : body || '';
+
+      return {
+        url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateFederationConfig`   Scope:
+     * @summary CreateFederationConfig will try to create a new oidc federation configuration,  that can be attached to users. The maximum registered federated configurations per account are 3.
+     * @param {V1CreateFederationConfigRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFederationConfig: async (body: V1CreateFederationConfigRequest, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      if (body === null || body === undefined) {
+        throw new RequiredError(
+          'body',
+          'Required parameter body was null or undefined when calling createFederationConfig.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/federation`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, 'https://example.com');
       let baseOptions;
@@ -3696,7 +3899,8 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteAccessKey`   Scope:   user ID
+     * @summary DeleteAccessKey deletes access key for user
      * @param {string} accessKeyID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4243,7 +4447,8 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetUserAccessKeys`   Scope:   `*`
+     * @summary GetUserAccessKeys returns all access keys by user
      * @param {string} userID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5089,7 +5294,8 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       };
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `CheckUsernameExists`   Scope:   `*`
+     * @summary CheckUsernameExists checks in the database if there is already user with the same username If userID is provided and there is already defined username for this userID the method wi return false, so that the username can be used for this user
      * @param {V1CheckUsernameExistsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5108,8 +5314,8 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       };
     },
     /**
-     *
-     * @summary User Access Keys API
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
+     * @summary CreateAccessKey creates a new access key for user
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5139,6 +5345,29 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       options?: any,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateClientResponse>> {
       const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createClient(body, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = {
+          ...localVarAxiosArgs.options,
+          url: (configuration?.basePath || basePath) + localVarAxiosArgs.url,
+        };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateFederationConfig`   Scope:
+     * @summary CreateFederationConfig will try to create a new oidc federation configuration,  that can be attached to users. The maximum registered federated configurations per account are 3.
+     * @param {V1CreateFederationConfigRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createFederationConfig(
+      body: V1CreateFederationConfigRequest,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateFederationConfigResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).createFederationConfig(
+        body,
+        options,
+      );
       return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const axiosRequestArgs = {
           ...localVarAxiosArgs.options,
@@ -5205,7 +5434,8 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       };
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteAccessKey`   Scope:   user ID
+     * @summary DeleteAccessKey deletes access key for user
      * @param {string} accessKeyID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5473,7 +5703,8 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       };
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetUserAccessKeys`   Scope:   `*`
+     * @summary GetUserAccessKeys returns all access keys by user
      * @param {string} userID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5859,7 +6090,8 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `CheckUsernameExists`   Scope:   `*`
+     * @summary CheckUsernameExists checks in the database if there is already user with the same username If userID is provided and there is already defined username for this userID the method wi return false, so that the username can be used for this user
      * @param {V1CheckUsernameExistsRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5873,8 +6105,8 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
-     * @summary User Access Keys API
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
+     * @summary CreateAccessKey creates a new access key for user
      * @param {V1CreateAccessKeyRequest} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5894,6 +6126,21 @@ export const AuthServiceApiFactory = function (
     createClient(body: V1CreateClientRequest, options?: any): AxiosPromise<V1CreateClientResponse> {
       return AuthServiceApiFp(configuration)
         .createClient(body, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateFederationConfig`   Scope:
+     * @summary CreateFederationConfig will try to create a new oidc federation configuration,  that can be attached to users. The maximum registered federated configurations per account are 3.
+     * @param {V1CreateFederationConfigRequest} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFederationConfig(
+      body: V1CreateFederationConfigRequest,
+      options?: any,
+    ): AxiosPromise<V1CreateFederationConfigResponse> {
+      return AuthServiceApiFp(configuration)
+        .createFederationConfig(body, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -5930,7 +6177,8 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteAccessKey`   Scope:   user ID
+     * @summary DeleteAccessKey deletes access key for user
      * @param {string} accessKeyID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6083,7 +6331,8 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     *
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetUserAccessKeys`   Scope:   `*`
+     * @summary GetUserAccessKeys returns all access keys by user
      * @param {string} userID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6346,7 +6595,8 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
-   *
+   * Authorisation requirements:   Service:  `auth`   Call:    `CheckUsernameExists`   Scope:   `*`
+   * @summary CheckUsernameExists checks in the database if there is already user with the same username If userID is provided and there is already defined username for this userID the method wi return false, so that the username can be used for this user
    * @param {V1CheckUsernameExistsRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6359,8 +6609,8 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
-   *
-   * @summary User Access Keys API
+   * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
+   * @summary CreateAccessKey creates a new access key for user
    * @param {V1CreateAccessKeyRequest} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6383,6 +6633,20 @@ export class AuthServiceApi extends BaseAPI {
   public createClient(body: V1CreateClientRequest, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .createClient(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `CreateFederationConfig`   Scope:
+   * @summary CreateFederationConfig will try to create a new oidc federation configuration,  that can be attached to users. The maximum registered federated configurations per account are 3.
+   * @param {V1CreateFederationConfigRequest} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createFederationConfig(body: V1CreateFederationConfigRequest, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .createFederationConfig(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -6426,7 +6690,8 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
-   *
+   * Authorisation requirements:   Service:  `auth`   Call:    `DeleteAccessKey`   Scope:   user ID
+   * @summary DeleteAccessKey deletes access key for user
    * @param {string} accessKeyID
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -6607,7 +6872,8 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
-   *
+   * Authorisation requirements:   Service:  `auth`   Call:    `GetUserAccessKeys`   Scope:   `*`
+   * @summary GetUserAccessKeys returns all access keys by user
    * @param {string} userID
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
