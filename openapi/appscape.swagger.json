@@ -512,9 +512,6 @@
             "$ref": "#/definitions/v1Label"
           }
         },
-        "severity": {
-          "$ref": "#/definitions/LogEntrySeverity"
-        },
         "match": {
           "type": "string"
         },

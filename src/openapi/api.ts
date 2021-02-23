@@ -1764,6 +1764,19 @@ export interface V1GetAccountResponse {
 /**
  *
  * @export
+ * @interface V1GetClientResponse
+ */
+export interface V1GetClientResponse {
+  /**
+   *
+   * @type {V1OIDCClient}
+   * @memberof V1GetClientResponse
+   */
+  client?: V1OIDCClient;
+}
+/**
+ *
+ * @export
  * @interface V1GetClientsResponse
  */
 export interface V1GetClientsResponse {
@@ -2390,12 +2403,6 @@ export interface V1QueryLogsRequest {
    * @memberof V1QueryLogsRequest
    */
   labels?: Array<V1Label>;
-  /**
-   *
-   * @type {LogEntrySeverity}
-   * @memberof V1QueryLogsRequest
-   */
-  severity?: LogEntrySeverity;
   /**
    *
    * @type {string}
@@ -4108,6 +4115,52 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClient`   Scope:   `clientID`
+     * @summary GetClient loads a specific client.
+     * @param {string} clientID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClient: async (clientID: string, options: any = {}): Promise<RequestArgs> => {
+      // verify required parameter 'clientID' is not null or undefined
+      if (clientID === null || clientID === undefined) {
+        throw new RequiredError(
+          'clientID',
+          'Required parameter clientID was null or undefined when calling getClient.',
+        );
+      }
+      const localVarPath = `/api/auth/v1/client/{clientID}`.replace(
+        `{${'clientID'}}`,
+        encodeURIComponent(String(clientID)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      const queryParameters = new URLSearchParams(localVarUrlObj.search);
+      for (const key in localVarQueryParameter) {
+        queryParameters.set(key, localVarQueryParameter[key]);
+      }
+      for (const key in options.query) {
+        queryParameters.set(key, options.query[key]);
+      }
+      localVarUrlObj.search = new URLSearchParams(queryParameters).toString();
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
      * @summary GetClients loads all clients for account.
      * @param {*} [options] Override http request option.
@@ -5534,6 +5587,26 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClient`   Scope:   `clientID`
+     * @summary GetClient loads a specific client.
+     * @param {string} clientID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getClient(
+      clientID: string,
+      options?: any,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetClientResponse>> {
+      const localVarAxiosArgs = await AuthServiceApiAxiosParamCreator(configuration).getClient(clientID, options);
+      return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        const axiosRequestArgs = {
+          ...localVarAxiosArgs.options,
+          url: (configuration?.basePath || basePath) + localVarAxiosArgs.url,
+        };
+        return axios.request(axiosRequestArgs);
+      };
+    },
+    /**
      * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
      * @summary GetClients loads all clients for account.
      * @param {*} [options] Override http request option.
@@ -6234,6 +6307,18 @@ export const AuthServiceApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `GetClient`   Scope:   `clientID`
+     * @summary GetClient loads a specific client.
+     * @param {string} clientID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClient(clientID: string, options?: any): AxiosPromise<V1GetClientResponse> {
+      return AuthServiceApiFp(configuration)
+        .getClient(clientID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
      * @summary GetClients loads all clients for account.
      * @param {*} [options] Override http request option.
@@ -6753,6 +6838,20 @@ export class AuthServiceApi extends BaseAPI {
   public deleteUser(userID: string, options?: any) {
     return AuthServiceApiFp(this.configuration)
       .deleteUser(userID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `GetClient`   Scope:   `clientID`
+   * @summary GetClient loads a specific client.
+   * @param {string} clientID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public getClient(clientID: string, options?: any) {
+    return AuthServiceApiFp(this.configuration)
+      .getClient(clientID, options)
       .then((request) => request(this.axios, this.basePath));
   }
 

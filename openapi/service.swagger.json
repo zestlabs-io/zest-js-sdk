@@ -360,6 +360,50 @@
         ]
       }
     },
+    "/api/auth/v1/client/{clientID}": {
+      "get": {
+        "summary": "GetClient loads a specific client.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`GetClient`\n\t\tScope:\t\t\t`clientID`",
+        "operationId": "AuthService_GetClient",
+        "responses": {
+          "200": {
+            "description": "Returned when client is successfuly fetched.",
+            "schema": {
+              "$ref": "#/definitions/v1GetClientResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when a client with the given ID is not found.",
+            "schema": {}
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "clientID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/client/{id}": {
       "delete": {
         "summary": "DeleteClient will delete the client with the provided ID and return\nan error, if a key with this ID does not exist, or is not part of accounts clients",
@@ -2152,6 +2196,14 @@
       "properties": {
         "account": {
           "$ref": "#/definitions/v1Account"
+        }
+      }
+    },
+    "v1GetClientResponse": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/v1OIDCClient"
         }
       }
     },
