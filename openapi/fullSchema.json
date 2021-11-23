@@ -263,9 +263,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -304,9 +304,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -341,12 +341,50 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
+        "tags": [
+          "AuthService"
+        ]
+      },
+      "post": {
+        "summary": "CreateNewAccount is dedicated for site admins and automated account creation\nfrom other services, that create new user subscriptions",
+        "operationId": "AuthService_CreateNewAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateNewAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateNewAccountRequest"
+            }
+          }
+        ],
         "tags": [
           "AuthService"
         ]
@@ -370,9 +408,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -390,6 +428,93 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/v1UpdateAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/activate-account": {
+      "post": {
+        "summary": "ActivateAccount is dedicated for site admins and automated account management\nfrom other services, that create can active/deactivate accounts",
+        "operationId": "AuthService_ActivateAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ActivateAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ActivateAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/assume-account": {
+      "post": {
+        "operationId": "AuthService_AssumeAccount",
+        "responses": {
+          "200": {
+            "description": "Returned when assume account was executed successfuly.",
+            "schema": {
+              "$ref": "#/definitions/v1AssumeAccountResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AssumeAccountRequest"
             }
           }
         ],
@@ -417,9 +542,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -456,9 +581,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -505,9 +630,9 @@
             "schema": {}
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -563,9 +688,9 @@
             "schema": {}
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -609,9 +734,9 @@
             "schema": {}
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -657,9 +782,9 @@
             "schema": {}
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -708,9 +833,9 @@
             "schema": {}
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -726,7 +851,18 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateClientRequest"
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "redirectUri": {
+                  "type": "string"
+                },
+                "baseColor": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -763,12 +899,52 @@
             "schema": {}
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/deactivate-account": {
+      "post": {
+        "summary": "DeactivateAccount is dedicated for site admins and automated account management\nfrom other services, that create can active/deactivate accounts",
+        "operationId": "AuthService_DeactivateAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeactivateAccountResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeactivateAccountRequest"
+            }
+          }
+        ],
         "tags": [
           "AuthService"
         ]
@@ -792,9 +968,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -855,9 +1031,9 @@
             "schema": {}
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -894,9 +1070,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -923,9 +1099,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -952,9 +1128,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -989,9 +1165,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1029,9 +1205,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1064,9 +1240,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1076,6 +1252,53 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/reset-assume-account": {
+      "post": {
+        "operationId": "AuthService_ResetAssumeAccount",
+        "responses": {
+          "200": {
+            "description": "Returned when reset assume account was executed successfuly.",
+            "schema": {
+              "$ref": "#/definitions/v1ResetAssumeAccountResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ResetAssumeAccountRequest"
+            }
           }
         ],
         "tags": [
@@ -1101,9 +1324,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1140,9 +1363,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1177,9 +1400,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1216,9 +1439,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1255,9 +1478,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1294,9 +1517,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1333,9 +1556,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1372,9 +1595,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1423,9 +1646,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1458,9 +1681,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1495,9 +1718,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1525,9 +1748,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1539,6 +1762,44 @@
             "schema": {
               "$ref": "#/definitions/v1SetPasswordRequest"
             }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/subaccounts": {
+      "get": {
+        "operationId": "AuthService_GetSubaccounts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetSubaccountsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
           }
         ],
         "tags": [
@@ -1564,9 +1825,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1603,9 +1864,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1642,9 +1903,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1679,9 +1940,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1718,9 +1979,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1757,9 +2018,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1802,9 +2063,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1837,9 +2098,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1875,9 +2136,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1904,9 +2165,9 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/runtimeError"
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -3955,6 +4216,24 @@
       ],
       "default": "CreditCard"
     },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
     "v1AccessKey": {
       "type": "object",
       "properties": {
@@ -4001,6 +4280,18 @@
           "type": "string"
         }
       }
+    },
+    "v1ActivateAccountRequest": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1ActivateAccountResponse": {
+      "type": "object"
     },
     "v1AddPoliciesToRoleRequest": {
       "type": "object",
@@ -4076,6 +4367,18 @@
           }
         }
       }
+    },
+    "v1AssumeAccountRequest": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1AssumeAccountResponse": {
+      "type": "object"
     },
     "v1CheckHMACAuthRequest": {
       "type": "object",
@@ -4158,8 +4461,7 @@
       "type": "object",
       "properties": {
         "exists": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         }
       }
     },
@@ -4196,28 +4498,19 @@
         }
       }
     },
-    "v1CreateAccountResponse": {
-      "type": "object",
-      "properties": {
-        "accountID": {
-          "type": "string",
-          "format": "int64"
-        }
-      }
-    },
     "v1CreateClientRequest": {
       "type": "object",
       "properties": {
         "suffix": {
           "type": "string"
         },
-        "redirect_uri": {
+        "redirectUri": {
           "type": "string"
         },
         "description": {
           "type": "string"
         },
-        "base_color": {
+        "baseColor": {
           "type": "string"
         }
       }
@@ -4250,8 +4543,7 @@
           "type": "string"
         },
         "oidcUseSecret": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         }
       }
     },
@@ -4260,6 +4552,32 @@
       "properties": {
         "config": {
           "$ref": "#/definitions/v1FederationConfig"
+        }
+      }
+    },
+    "v1CreateNewAccountRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "paymentDetails": {
+          "$ref": "#/definitions/v1PaymentDetails"
+        },
+        "contactDetails": {
+          "$ref": "#/definitions/v1ContactDetails"
+        }
+      }
+    },
+    "v1CreateNewAccountResponse": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -4327,10 +4645,19 @@
         }
       }
     },
-    "v1DeleteAccessKeyResponse": {
+    "v1DeactivateAccountRequest": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1DeactivateAccountResponse": {
       "type": "object"
     },
-    "v1DeleteAccountResponse": {
+    "v1DeleteAccessKeyResponse": {
       "type": "object"
     },
     "v1DeleteClientResponse": {
@@ -4369,8 +4696,7 @@
           "type": "string"
         },
         "oidcUseSecret": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         }
       }
     },
@@ -4473,6 +4799,17 @@
         }
       }
     },
+    "v1GetSubaccountsResponse": {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Account"
+          }
+        }
+      }
+    },
     "v1GetUserAccessKeysResponse": {
       "type": "object",
       "properties": {
@@ -4552,13 +4889,13 @@
         "secret": {
           "type": "string"
         },
-        "redirect_uri": {
+        "redirectUri": {
           "type": "string"
         },
         "description": {
           "type": "string"
         },
-        "base_color": {
+        "baseColor": {
           "type": "string"
         }
       }
@@ -4571,20 +4908,16 @@
           "format": "int64"
         },
         "useLowerLetters": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "useUpperLetters": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "useNumbers": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "useSpecialCharecters": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         }
       }
     },
@@ -4711,6 +5044,12 @@
         }
       }
     },
+    "v1ResetAssumeAccountRequest": {
+      "type": "object"
+    },
+    "v1ResetAssumeAccountResponse": {
+      "type": "object"
+    },
     "v1ResetPasswordRequest": {
       "type": "object",
       "properties": {
@@ -4783,23 +5122,6 @@
     },
     "v1UpdateAccountResponse": {
       "type": "object"
-    },
-    "v1UpdateClientRequest": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "redirect_uri": {
-          "type": "string"
-        },
-        "base_color": {
-          "type": "string"
-        }
-      }
     },
     "v1UpdateClientResponse": {
       "type": "object",
@@ -4912,6 +5234,10 @@
         },
         "logoutUrl": {
           "type": "string"
+        },
+        "assumedAccountID": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },

@@ -15,7 +15,7 @@
       "url": "functions.swagger.json"
     },
     {
-      "url": "service.swagger.json"
+      "url": "auth.swagger.json"
     }
   ]
 }
