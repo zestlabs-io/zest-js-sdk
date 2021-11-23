@@ -1,16 +1,20 @@
 # Zest Cloud API JS/TS SDK
 
-## Usage
+## Usage in node module
 
 ```console
 npm i @zestlabs-io/zest-js-sdk
 ```
 
-set as environment variable your key and secret for Zest Cloud 
+Set your key and secret for Zest Cloud as environment variable:
 
 ```console
-export ZEST_KEY=HereComesYourKey ZEST_SECRET=HereCoresYourSecret
+export ZEST_KEY=HereComesYourKey ZEST_SECRET=HereComesYourSecret
 ```
+
+## Example usage
+
+Once set up, you can use below code to interact with the Zest Cloud.
 
 ### Creating user
 
@@ -28,7 +32,7 @@ const api = new AuthServiceApiHMAC(baseUrl, cloudKey, cloudSecret);
 const userCreateResponse = await api.createUser({ firstName: 'Test', lastName: 'User', email: 'test@zestlabs.io' });
 ```
 
-### Creating data pool and putting some customer data
+### Creating data pool and uploading data to it
 
 ```ts
 import { DistrconfigPoolType, PoolDataServiceApiHMAC } from '@zestlabs-io/zest-js-sdk';
@@ -57,10 +61,11 @@ const createResp = await dataApi.bulkCreate('my_pool',
 
 ```
 
-For more details on SDK - see tests:
- * [AuthAPI tests](./__tests__/auth/AuthAPI.test.ts)
- * [DistrAPI tests](./__tests__/distr/DistrAPI.test.ts)
- * [DataAPI tests](./__tests__/data/DataAPI.test.ts)
+For more details on the SDK, please refer to the tests:
+
+* [AuthAPI tests](./__tests__/auth/AuthAPI.test.ts)
+* [DistrAPI tests](./__tests__/distr/DistrAPI.test.ts)
+* [DataAPI tests](./__tests__/data/DataAPI.test.ts)
 
 ## License
 
