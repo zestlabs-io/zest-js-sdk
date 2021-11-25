@@ -17,7 +17,8 @@ publish: build
 
 .PHONY: tag
 tag:
-	git tag $(version)
+	git tag v$(version)
+	git push origin v${version}
 
 .PHONY: new-patch
 new-patch:
