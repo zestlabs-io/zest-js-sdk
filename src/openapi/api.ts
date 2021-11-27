@@ -13,7 +13,7 @@
  */
 
 import { Configuration } from './configuration';
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import {
@@ -981,7 +981,7 @@ export interface FunctionsGetFunctionResponse {
    * @type {FunctionsFunction}
    * @memberof FunctionsGetFunctionResponse
    */
-  _function?: FunctionsFunction;
+  function?: FunctionsFunction;
   /**
    *
    * @type {FunctionsFunction}
@@ -3078,7 +3078,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getLogLabels: async (options: any = {}): Promise<RequestArgs> => {
+    getLogLabels: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/appscape/v1/logs/labels`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3091,7 +3091,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -3106,7 +3106,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsMeta: async (options: any = {}): Promise<RequestArgs> => {
+    getMetricsMeta: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/appscape/v1/metrics/meta`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3119,7 +3119,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -3135,7 +3135,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    queryLogs: async (body: V1QueryLogsRequest, options: any = {}): Promise<RequestArgs> => {
+    queryLogs: async (body: V1QueryLogsRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('queryLogs', 'body', body);
       const localVarPath = `/api/appscape/v1/logs/query`;
@@ -3152,7 +3152,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3169,7 +3169,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    queryMetrics: async (body: V1QueryMetricsRequest, options: any = {}): Promise<RequestArgs> => {
+    queryMetrics: async (body: V1QueryMetricsRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('queryMetrics', 'body', body);
       const localVarPath = `/api/appscape/v1/metrics/query`;
@@ -3186,7 +3186,7 @@ export const AppscapeServiceApiAxiosParamCreator = function (configuration?: Con
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3213,7 +3213,7 @@ export const AppscapeServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getLogLabels(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLogLabelsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getLogLabels(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -3225,7 +3225,7 @@ export const AppscapeServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getMetricsMeta(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetMetricsMetaResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getMetricsMeta(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -3239,7 +3239,7 @@ export const AppscapeServiceApiFp = function (configuration?: Configuration) {
      */
     async queryLogs(
       body: V1QueryLogsRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1QueryLogsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.queryLogs(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -3253,7 +3253,7 @@ export const AppscapeServiceApiFp = function (configuration?: Configuration) {
      */
     async queryMetrics(
       body: V1QueryMetricsRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1QueryMetricsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.queryMetrics(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -3327,7 +3327,7 @@ export class AppscapeServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AppscapeServiceApi
    */
-  public getLogLabels(options?: any) {
+  public getLogLabels(options?: AxiosRequestConfig) {
     return AppscapeServiceApiFp(this.configuration)
       .getLogLabels(options)
       .then((request) => request(this.axios, this.basePath));
@@ -3340,7 +3340,7 @@ export class AppscapeServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AppscapeServiceApi
    */
-  public getMetricsMeta(options?: any) {
+  public getMetricsMeta(options?: AxiosRequestConfig) {
     return AppscapeServiceApiFp(this.configuration)
       .getMetricsMeta(options)
       .then((request) => request(this.axios, this.basePath));
@@ -3354,7 +3354,7 @@ export class AppscapeServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AppscapeServiceApi
    */
-  public queryLogs(body: V1QueryLogsRequest, options?: any) {
+  public queryLogs(body: V1QueryLogsRequest, options?: AxiosRequestConfig) {
     return AppscapeServiceApiFp(this.configuration)
       .queryLogs(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -3368,7 +3368,7 @@ export class AppscapeServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AppscapeServiceApi
    */
-  public queryMetrics(body: V1QueryMetricsRequest, options?: any) {
+  public queryMetrics(body: V1QueryMetricsRequest, options?: AxiosRequestConfig) {
     return AppscapeServiceApiFp(this.configuration)
       .queryMetrics(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -3388,7 +3388,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    activateAccount: async (body: V1ActivateAccountRequest, options: any = {}): Promise<RequestArgs> => {
+    activateAccount: async (body: V1ActivateAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('activateAccount', 'body', body);
       const localVarPath = `/api/auth/v1/activate-account`;
@@ -3405,7 +3405,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3421,7 +3421,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPoliciesToRole: async (body: V1AddPoliciesToRoleRequest, options: any = {}): Promise<RequestArgs> => {
+    addPoliciesToRole: async (
+      body: V1AddPoliciesToRoleRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('addPoliciesToRole', 'body', body);
       const localVarPath = `/api/auth/v1/role/policies/add`;
@@ -3438,7 +3441,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3454,7 +3457,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPoliciesToUser: async (body: V1AddPoliciesToUserRequest, options: any = {}): Promise<RequestArgs> => {
+    addPoliciesToUser: async (
+      body: V1AddPoliciesToUserRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('addPoliciesToUser', 'body', body);
       const localVarPath = `/api/auth/v1/user/policies/add`;
@@ -3471,7 +3477,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3487,7 +3493,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addUsersToRole: async (body: V1AddUsersToRoleRequest, options: any = {}): Promise<RequestArgs> => {
+    addUsersToRole: async (body: V1AddUsersToRoleRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('addUsersToRole', 'body', body);
       const localVarPath = `/api/auth/v1/role/users/add`;
@@ -3504,7 +3510,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3520,7 +3526,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assumeAccount: async (body: V1AssumeAccountRequest, options: any = {}): Promise<RequestArgs> => {
+    assumeAccount: async (body: V1AssumeAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('assumeAccount', 'body', body);
       const localVarPath = `/api/auth/v1/assume-account`;
@@ -3537,7 +3543,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3554,7 +3560,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    checkHMACAuth: async (body: V1CheckHMACAuthRequest, options: any = {}): Promise<RequestArgs> => {
+    checkHMACAuth: async (body: V1CheckHMACAuthRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('checkHMACAuth', 'body', body);
       const localVarPath = `/api/auth/v1/check-hmac`;
@@ -3571,7 +3577,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3587,7 +3593,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    checkTokenAuth: async (body: V1CheckTokenAuthRequest, options: any = {}): Promise<RequestArgs> => {
+    checkTokenAuth: async (body: V1CheckTokenAuthRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('checkTokenAuth', 'body', body);
       const localVarPath = `/api/auth/v1/check-token`;
@@ -3604,7 +3610,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3621,7 +3627,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    checkUsernameExists: async (body: V1CheckUsernameExistsRequest, options: any = {}): Promise<RequestArgs> => {
+    checkUsernameExists: async (
+      body: V1CheckUsernameExistsRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('checkUsernameExists', 'body', body);
       const localVarPath = `/api/auth/v1/check-username-exists`;
@@ -3638,7 +3647,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3655,7 +3664,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAccessKey: async (body: V1CreateAccessKeyRequest, options: any = {}): Promise<RequestArgs> => {
+    createAccessKey: async (body: V1CreateAccessKeyRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createAccessKey', 'body', body);
       const localVarPath = `/api/auth/v1/accesskey`;
@@ -3672,7 +3681,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3689,7 +3698,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createClient: async (body: V1CreateClientRequest, options: any = {}): Promise<RequestArgs> => {
+    createClient: async (body: V1CreateClientRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createClient', 'body', body);
       const localVarPath = `/api/auth/v1/client`;
@@ -3706,7 +3715,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3723,7 +3732,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFederationConfig: async (body: V1CreateFederationConfigRequest, options: any = {}): Promise<RequestArgs> => {
+    createFederationConfig: async (
+      body: V1CreateFederationConfigRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createFederationConfig', 'body', body);
       const localVarPath = `/api/auth/v1/federation`;
@@ -3740,7 +3752,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3757,7 +3769,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createNewAccount: async (body: V1CreateNewAccountRequest, options: any = {}): Promise<RequestArgs> => {
+    createNewAccount: async (
+      body: V1CreateNewAccountRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createNewAccount', 'body', body);
       const localVarPath = `/api/auth/v1/account`;
@@ -3774,7 +3789,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3790,7 +3805,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPolicy: async (body: V1CreatePolicyRequest, options: any = {}): Promise<RequestArgs> => {
+    createPolicy: async (body: V1CreatePolicyRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createPolicy', 'body', body);
       const localVarPath = `/api/auth/v1/policy`;
@@ -3807,7 +3822,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3823,7 +3838,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createRole: async (body: V1CreateRoleRequest, options: any = {}): Promise<RequestArgs> => {
+    createRole: async (body: V1CreateRoleRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createRole', 'body', body);
       const localVarPath = `/api/auth/v1/role`;
@@ -3840,7 +3855,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3856,7 +3871,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUser: async (body: V1CreateUserRequest, options: any = {}): Promise<RequestArgs> => {
+    createUser: async (body: V1CreateUserRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createUser', 'body', body);
       const localVarPath = `/api/auth/v1/user`;
@@ -3873,7 +3888,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3890,7 +3905,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deactivateAccount: async (body: V1DeactivateAccountRequest, options: any = {}): Promise<RequestArgs> => {
+    deactivateAccount: async (
+      body: V1DeactivateAccountRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('deactivateAccount', 'body', body);
       const localVarPath = `/api/auth/v1/deactivate-account`;
@@ -3907,7 +3925,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -3924,7 +3942,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAccessKey: async (accessKeyID: string, options: any = {}): Promise<RequestArgs> => {
+    deleteAccessKey: async (accessKeyID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'accessKeyID' is not null or undefined
       assertParamExists('deleteAccessKey', 'accessKeyID', accessKeyID);
       const localVarPath = `/api/auth/v1/accesskey/{accessKeyID}`.replace(
@@ -3942,7 +3960,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -3958,7 +3976,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteClient: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    deleteClient: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('deleteClient', 'id', id);
       const localVarPath = `/api/auth/v1/client/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -3973,7 +3991,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -3988,7 +4006,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePolicy: async (policyID: string, options: any = {}): Promise<RequestArgs> => {
+    deletePolicy: async (policyID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'policyID' is not null or undefined
       assertParamExists('deletePolicy', 'policyID', policyID);
       const localVarPath = `/api/auth/v1/policy/{policyID}`.replace(
@@ -4006,7 +4024,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4021,7 +4039,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteRole: async (roleID: string, options: any = {}): Promise<RequestArgs> => {
+    deleteRole: async (roleID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'roleID' is not null or undefined
       assertParamExists('deleteRole', 'roleID', roleID);
       const localVarPath = `/api/auth/v1/role/{roleID}`.replace(`{${'roleID'}}`, encodeURIComponent(String(roleID)));
@@ -4036,7 +4054,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4051,7 +4069,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+    deleteUser: async (userID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'userID' is not null or undefined
       assertParamExists('deleteUser', 'userID', userID);
       const localVarPath = `/api/auth/v1/user/{userID}`.replace(`{${'userID'}}`, encodeURIComponent(String(userID)));
@@ -4066,7 +4084,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4082,7 +4100,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getClient: async (clientID: string, options: any = {}): Promise<RequestArgs> => {
+    getClient: async (clientID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'clientID' is not null or undefined
       assertParamExists('getClient', 'clientID', clientID);
       const localVarPath = `/api/auth/v1/client/{clientID}`.replace(
@@ -4100,7 +4118,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4115,7 +4133,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getClients: async (options: any = {}): Promise<RequestArgs> => {
+    getClients: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/clients`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4128,7 +4146,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4144,7 +4162,11 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDefaultPolicies: async (offset?: string, limit?: string, options: any = {}): Promise<RequestArgs> => {
+    getDefaultPolicies: async (
+      offset?: string,
+      limit?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/default-policies`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4165,7 +4187,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         localVarQueryParameter['limit'] = limit;
       }
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4179,7 +4201,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOwnAccount: async (options: any = {}): Promise<RequestArgs> => {
+    getOwnAccount: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/account`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4192,7 +4214,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4206,7 +4228,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPasswordPolicy: async (options: any = {}): Promise<RequestArgs> => {
+    getPasswordPolicy: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/password-policy`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4219,7 +4241,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4233,7 +4255,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPolicies: async (options: any = {}): Promise<RequestArgs> => {
+    getPolicies: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/policies`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4246,7 +4268,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4262,7 +4284,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPolicy: async (policyID: string, options: any = {}): Promise<RequestArgs> => {
+    getPolicy: async (policyID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'policyID' is not null or undefined
       assertParamExists('getPolicy', 'policyID', policyID);
       const localVarPath = `/api/auth/v1/policy/{policyID}`.replace(
@@ -4280,7 +4302,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4295,7 +4317,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRole: async (roleID: string, options: any = {}): Promise<RequestArgs> => {
+    getRole: async (roleID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'roleID' is not null or undefined
       assertParamExists('getRole', 'roleID', roleID);
       const localVarPath = `/api/auth/v1/role/{roleID}`.replace(`{${'roleID'}}`, encodeURIComponent(String(roleID)));
@@ -4310,7 +4332,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4324,7 +4346,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRoles: async (options: any = {}): Promise<RequestArgs> => {
+    getRoles: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/roles`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4337,7 +4359,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4352,7 +4374,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubaccounts: async (accountID?: string, options: any = {}): Promise<RequestArgs> => {
+    getSubaccounts: async (accountID?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/subaccounts`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4369,7 +4391,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         localVarQueryParameter['accountID'] = accountID;
       }
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4384,7 +4406,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+    getUser: async (userID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'userID' is not null or undefined
       assertParamExists('getUser', 'userID', userID);
       const localVarPath = `/api/auth/v1/user/{userID}`.replace(`{${'userID'}}`, encodeURIComponent(String(userID)));
@@ -4399,7 +4421,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4415,7 +4437,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAccessKeys: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+    getUserAccessKeys: async (userID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'userID' is not null or undefined
       assertParamExists('getUserAccessKeys', 'userID', userID);
       const localVarPath = `/api/auth/v1/user/accesskeys/{userID}`.replace(
@@ -4433,7 +4455,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4448,7 +4470,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserIDByEmail: async (email: string, options: any = {}): Promise<RequestArgs> => {
+    getUserIDByEmail: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'email' is not null or undefined
       assertParamExists('getUserIDByEmail', 'email', email);
       const localVarPath = `/api/auth/v1/user-id-by-email/{email}`.replace(
@@ -4466,7 +4488,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4481,7 +4503,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserInfo: async (options: any = {}): Promise<RequestArgs> => {
+    getUserInfo: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/userinfo`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4494,7 +4516,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4510,7 +4532,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsers: async (offset?: string, limit?: number, options: any = {}): Promise<RequestArgs> => {
+    getUsers: async (offset?: string, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/users`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4531,7 +4553,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         localVarQueryParameter['limit'] = limit;
       }
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4552,7 +4574,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       roleID: string,
       offset?: string,
       limit?: string,
-      options: any = {},
+      options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'roleID' is not null or undefined
       assertParamExists('getUsersForRole', 'roleID', roleID);
@@ -4579,7 +4601,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
         localVarQueryParameter['limit'] = limit;
       }
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -4594,7 +4616,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePoliciesFromRole: async (body: V1RemovePoliciesFromRoleRequest, options: any = {}): Promise<RequestArgs> => {
+    removePoliciesFromRole: async (
+      body: V1RemovePoliciesFromRoleRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('removePoliciesFromRole', 'body', body);
       const localVarPath = `/api/auth/v1/role/policies/remove`;
@@ -4611,7 +4636,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4627,7 +4652,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePoliciesFromUser: async (body: V1RemovePoliciesFromUserRequest, options: any = {}): Promise<RequestArgs> => {
+    removePoliciesFromUser: async (
+      body: V1RemovePoliciesFromUserRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('removePoliciesFromUser', 'body', body);
       const localVarPath = `/api/auth/v1/user/policies/remove`;
@@ -4644,7 +4672,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4660,7 +4688,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeUsersFromRole: async (body: V1RemoveUsersFromRoleRequest, options: any = {}): Promise<RequestArgs> => {
+    removeUsersFromRole: async (
+      body: V1RemoveUsersFromRoleRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('removeUsersFromRole', 'body', body);
       const localVarPath = `/api/auth/v1/role/users/remove`;
@@ -4677,7 +4708,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4693,7 +4724,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    resetAssumeAccount: async (body: object, options: any = {}): Promise<RequestArgs> => {
+    resetAssumeAccount: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('resetAssumeAccount', 'body', body);
       const localVarPath = `/api/auth/v1/reset-assume-account`;
@@ -4710,7 +4741,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4726,7 +4757,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    resetPassword: async (body: V1ResetPasswordRequest, options: any = {}): Promise<RequestArgs> => {
+    resetPassword: async (body: V1ResetPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('resetPassword', 'body', body);
       const localVarPath = `/api/auth/v1/reset-password`;
@@ -4743,7 +4774,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4760,7 +4791,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setPassword: async (body: V1SetPasswordRequest, options: any = {}): Promise<RequestArgs> => {
+    setPassword: async (body: V1SetPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('setPassword', 'body', body);
       const localVarPath = `/api/auth/v1/set-password`;
@@ -4777,7 +4808,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4797,7 +4828,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     updateAccount: async (
       accountAccountID: string,
       body: V1UpdateAccountRequest,
-      options: any = {},
+      options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'accountAccountID' is not null or undefined
       assertParamExists('updateAccount', 'accountAccountID', accountAccountID);
@@ -4820,7 +4851,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4838,7 +4869,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateClient: async (id: string, body: InlineObject, options: any = {}): Promise<RequestArgs> => {
+    updateClient: async (id: string, body: InlineObject, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('updateClient', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -4857,7 +4888,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4873,7 +4904,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePolicy: async (body: V1UpdatePolicyRequest, options: any = {}): Promise<RequestArgs> => {
+    updatePolicy: async (body: V1UpdatePolicyRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('updatePolicy', 'body', body);
       const localVarPath = `/api/auth/v1/policy`;
@@ -4890,7 +4921,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4906,7 +4937,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateRole: async (body: V1UpdateRoleRequest, options: any = {}): Promise<RequestArgs> => {
+    updateRole: async (body: V1UpdateRoleRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('updateRole', 'body', body);
       const localVarPath = `/api/auth/v1/role`;
@@ -4923,7 +4954,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4940,7 +4971,11 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUser: async (userUserID: string, body: V1UpdateUserRequest, options: any = {}): Promise<RequestArgs> => {
+    updateUser: async (
+      userUserID: string,
+      body: V1UpdateUserRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'userUserID' is not null or undefined
       assertParamExists('updateUser', 'userUserID', userUserID);
       // verify required parameter 'body' is not null or undefined
@@ -4962,7 +4997,7 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -4991,7 +5026,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async activateAccount(
       body: V1ActivateAccountRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.activateAccount(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5004,7 +5039,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async addPoliciesToRole(
       body: V1AddPoliciesToRoleRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddPoliciesToRoleResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.addPoliciesToRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5017,7 +5052,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async addPoliciesToUser(
       body: V1AddPoliciesToUserRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddPoliciesToUserResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.addPoliciesToUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5030,7 +5065,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async addUsersToRole(
       body: V1AddUsersToRoleRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1AddUsersToRoleResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.addUsersToRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5043,7 +5078,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async assumeAccount(
       body: V1AssumeAccountRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assumeAccount(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5057,7 +5092,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async checkHMACAuth(
       body: V1CheckHMACAuthRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CheckHMACAuthResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.checkHMACAuth(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5070,7 +5105,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async checkTokenAuth(
       body: V1CheckTokenAuthRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CheckTokenAuthResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.checkTokenAuth(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5084,7 +5119,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async checkUsernameExists(
       body: V1CheckUsernameExistsRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CheckUsernameExistsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.checkUsernameExists(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5098,7 +5133,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async createAccessKey(
       body: V1CreateAccessKeyRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateAccessKeyResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessKey(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5112,7 +5147,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async createClient(
       body: V1CreateClientRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateClientResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createClient(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5126,7 +5161,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async createFederationConfig(
       body: V1CreateFederationConfigRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateFederationConfigResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createFederationConfig(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5140,7 +5175,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async createNewAccount(
       body: V1CreateNewAccountRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateNewAccountResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createNewAccount(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5153,7 +5188,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async createPolicy(
       body: V1CreatePolicyRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreatePolicyResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createPolicy(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5166,7 +5201,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async createRole(
       body: V1CreateRoleRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateRoleResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5179,7 +5214,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async createUser(
       body: V1CreateUserRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1CreateUserResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5193,7 +5228,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async deactivateAccount(
       body: V1DeactivateAccountRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deactivateAccount(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5207,7 +5242,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async deleteAccessKey(
       accessKeyID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessKey(accessKeyID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5221,7 +5256,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async deleteClient(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteClient(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5234,7 +5269,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async deletePolicy(
       policyID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deletePolicy(policyID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5247,7 +5282,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async deleteRole(
       roleID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(roleID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5260,7 +5295,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async deleteUser(
       userID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUser(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5274,7 +5309,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getClient(
       clientID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetClientResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getClient(clientID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5286,7 +5321,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getClients(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetClientsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getClients(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5301,7 +5336,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async getDefaultPolicies(
       offset?: string,
       limit?: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetDefaultPoliciesResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultPolicies(offset, limit, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5312,7 +5347,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getOwnAccount(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetAccountResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getOwnAccount(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5323,7 +5358,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getPasswordPolicy(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPasswordPolicyResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordPolicy(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5334,7 +5369,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getPolicies(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPoliciesResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPolicies(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5348,7 +5383,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getPolicy(
       policyID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetPolicyResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPolicy(policyID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5361,7 +5396,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getRole(
       roleID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetRoleResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(roleID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5372,7 +5407,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getRoles(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetRolesResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getRoles(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5385,7 +5420,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getSubaccounts(
       accountID?: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetSubaccountsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getSubaccounts(accountID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5398,7 +5433,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getUser(
       userID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5412,7 +5447,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getUserAccessKeys(
       userID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserAccessKeysResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUserAccessKeys(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5425,7 +5460,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getUserIDByEmail(
       email: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserIDByEmailResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUserIDByEmail(email, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5437,7 +5472,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getUserInfo(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUserInfoResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUserInfo(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5452,7 +5487,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async getUsers(
       offset?: string,
       limit?: number,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUsersResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(offset, limit, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5469,7 +5504,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       roleID: string,
       offset?: string,
       limit?: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetUsersForRoleResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForRole(roleID, offset, limit, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5482,7 +5517,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async removePoliciesFromRole(
       body: V1RemovePoliciesFromRoleRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemovePoliciesFromRoleResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.removePoliciesFromRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5495,7 +5530,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async removePoliciesFromUser(
       body: V1RemovePoliciesFromUserRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemovePoliciesFromUserResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.removePoliciesFromUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5508,7 +5543,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async removeUsersFromRole(
       body: V1RemoveUsersFromRoleRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RemoveUsersFromRoleResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.removeUsersFromRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5521,7 +5556,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async resetAssumeAccount(
       body: object,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.resetAssumeAccount(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5534,7 +5569,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async resetPassword(
       body: V1ResetPasswordRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.resetPassword(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5548,7 +5583,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async setPassword(
       body: V1SetPasswordRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.setPassword(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5563,7 +5598,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async updateAccount(
       accountAccountID: string,
       body: V1UpdateAccountRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccount(accountAccountID, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5579,7 +5614,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async updateClient(
       id: string,
       body: InlineObject,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1UpdateClientResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateClient(id, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5592,7 +5627,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async updatePolicy(
       body: V1UpdatePolicyRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updatePolicy(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5605,7 +5640,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async updateRole(
       body: V1UpdateRoleRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -5620,7 +5655,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async updateUser(
       userUserID: string,
       body: V1UpdateUserRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(userUserID, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -6127,7 +6162,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public activateAccount(body: V1ActivateAccountRequest, options?: any) {
+  public activateAccount(body: V1ActivateAccountRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .activateAccount(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6140,7 +6175,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public addPoliciesToRole(body: V1AddPoliciesToRoleRequest, options?: any) {
+  public addPoliciesToRole(body: V1AddPoliciesToRoleRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .addPoliciesToRole(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6153,7 +6188,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public addPoliciesToUser(body: V1AddPoliciesToUserRequest, options?: any) {
+  public addPoliciesToUser(body: V1AddPoliciesToUserRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .addPoliciesToUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6166,7 +6201,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public addUsersToRole(body: V1AddUsersToRoleRequest, options?: any) {
+  public addUsersToRole(body: V1AddUsersToRoleRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .addUsersToRole(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6179,7 +6214,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public assumeAccount(body: V1AssumeAccountRequest, options?: any) {
+  public assumeAccount(body: V1AssumeAccountRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .assumeAccount(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6193,7 +6228,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public checkHMACAuth(body: V1CheckHMACAuthRequest, options?: any) {
+  public checkHMACAuth(body: V1CheckHMACAuthRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .checkHMACAuth(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6206,7 +6241,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public checkTokenAuth(body: V1CheckTokenAuthRequest, options?: any) {
+  public checkTokenAuth(body: V1CheckTokenAuthRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .checkTokenAuth(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6220,7 +6255,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public checkUsernameExists(body: V1CheckUsernameExistsRequest, options?: any) {
+  public checkUsernameExists(body: V1CheckUsernameExistsRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .checkUsernameExists(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6234,7 +6269,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public createAccessKey(body: V1CreateAccessKeyRequest, options?: any) {
+  public createAccessKey(body: V1CreateAccessKeyRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createAccessKey(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6248,7 +6283,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public createClient(body: V1CreateClientRequest, options?: any) {
+  public createClient(body: V1CreateClientRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createClient(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6262,7 +6297,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public createFederationConfig(body: V1CreateFederationConfigRequest, options?: any) {
+  public createFederationConfig(body: V1CreateFederationConfigRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createFederationConfig(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6276,7 +6311,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public createNewAccount(body: V1CreateNewAccountRequest, options?: any) {
+  public createNewAccount(body: V1CreateNewAccountRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createNewAccount(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6289,7 +6324,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public createPolicy(body: V1CreatePolicyRequest, options?: any) {
+  public createPolicy(body: V1CreatePolicyRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createPolicy(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6302,7 +6337,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public createRole(body: V1CreateRoleRequest, options?: any) {
+  public createRole(body: V1CreateRoleRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createRole(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6315,7 +6350,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public createUser(body: V1CreateUserRequest, options?: any) {
+  public createUser(body: V1CreateUserRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6329,7 +6364,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public deactivateAccount(body: V1DeactivateAccountRequest, options?: any) {
+  public deactivateAccount(body: V1DeactivateAccountRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .deactivateAccount(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6343,7 +6378,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public deleteAccessKey(accessKeyID: string, options?: any) {
+  public deleteAccessKey(accessKeyID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .deleteAccessKey(accessKeyID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6357,7 +6392,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public deleteClient(id: string, options?: any) {
+  public deleteClient(id: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .deleteClient(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6370,7 +6405,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public deletePolicy(policyID: string, options?: any) {
+  public deletePolicy(policyID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .deletePolicy(policyID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6383,7 +6418,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public deleteRole(roleID: string, options?: any) {
+  public deleteRole(roleID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .deleteRole(roleID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6396,7 +6431,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public deleteUser(userID: string, options?: any) {
+  public deleteUser(userID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .deleteUser(userID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6410,7 +6445,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getClient(clientID: string, options?: any) {
+  public getClient(clientID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getClient(clientID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6423,7 +6458,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getClients(options?: any) {
+  public getClients(options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getClients(options)
       .then((request) => request(this.axios, this.basePath));
@@ -6437,7 +6472,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getDefaultPolicies(offset?: string, limit?: string, options?: any) {
+  public getDefaultPolicies(offset?: string, limit?: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getDefaultPolicies(offset, limit, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6449,7 +6484,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getOwnAccount(options?: any) {
+  public getOwnAccount(options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getOwnAccount(options)
       .then((request) => request(this.axios, this.basePath));
@@ -6461,7 +6496,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getPasswordPolicy(options?: any) {
+  public getPasswordPolicy(options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getPasswordPolicy(options)
       .then((request) => request(this.axios, this.basePath));
@@ -6473,7 +6508,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getPolicies(options?: any) {
+  public getPolicies(options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getPolicies(options)
       .then((request) => request(this.axios, this.basePath));
@@ -6487,7 +6522,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getPolicy(policyID: string, options?: any) {
+  public getPolicy(policyID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getPolicy(policyID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6500,7 +6535,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getRole(roleID: string, options?: any) {
+  public getRole(roleID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getRole(roleID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6512,7 +6547,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getRoles(options?: any) {
+  public getRoles(options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getRoles(options)
       .then((request) => request(this.axios, this.basePath));
@@ -6525,7 +6560,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getSubaccounts(accountID?: string, options?: any) {
+  public getSubaccounts(accountID?: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getSubaccounts(accountID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6538,7 +6573,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getUser(userID: string, options?: any) {
+  public getUser(userID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getUser(userID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6552,7 +6587,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getUserAccessKeys(userID: string, options?: any) {
+  public getUserAccessKeys(userID: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getUserAccessKeys(userID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6565,7 +6600,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getUserIDByEmail(email: string, options?: any) {
+  public getUserIDByEmail(email: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getUserIDByEmail(email, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6578,7 +6613,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getUserInfo(options?: any) {
+  public getUserInfo(options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getUserInfo(options)
       .then((request) => request(this.axios, this.basePath));
@@ -6592,7 +6627,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getUsers(offset?: string, limit?: number, options?: any) {
+  public getUsers(offset?: string, limit?: number, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getUsers(offset, limit, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6607,7 +6642,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getUsersForRole(roleID: string, offset?: string, limit?: string, options?: any) {
+  public getUsersForRole(roleID: string, offset?: string, limit?: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .getUsersForRole(roleID, offset, limit, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6620,7 +6655,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public removePoliciesFromRole(body: V1RemovePoliciesFromRoleRequest, options?: any) {
+  public removePoliciesFromRole(body: V1RemovePoliciesFromRoleRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .removePoliciesFromRole(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6633,7 +6668,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public removePoliciesFromUser(body: V1RemovePoliciesFromUserRequest, options?: any) {
+  public removePoliciesFromUser(body: V1RemovePoliciesFromUserRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .removePoliciesFromUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6646,7 +6681,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public removeUsersFromRole(body: V1RemoveUsersFromRoleRequest, options?: any) {
+  public removeUsersFromRole(body: V1RemoveUsersFromRoleRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .removeUsersFromRole(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6659,7 +6694,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public resetAssumeAccount(body: object, options?: any) {
+  public resetAssumeAccount(body: object, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .resetAssumeAccount(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6672,7 +6707,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public resetPassword(body: V1ResetPasswordRequest, options?: any) {
+  public resetPassword(body: V1ResetPasswordRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .resetPassword(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6686,7 +6721,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public setPassword(body: V1SetPasswordRequest, options?: any) {
+  public setPassword(body: V1SetPasswordRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .setPassword(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6700,7 +6735,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: any) {
+  public updateAccount(accountAccountID: string, body: V1UpdateAccountRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .updateAccount(accountAccountID, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6715,7 +6750,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public updateClient(id: string, body: InlineObject, options?: any) {
+  public updateClient(id: string, body: InlineObject, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .updateClient(id, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6728,7 +6763,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public updatePolicy(body: V1UpdatePolicyRequest, options?: any) {
+  public updatePolicy(body: V1UpdatePolicyRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .updatePolicy(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6741,7 +6776,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public updateRole(body: V1UpdateRoleRequest, options?: any) {
+  public updateRole(body: V1UpdateRoleRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .updateRole(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6755,7 +6790,7 @@ export class AuthServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public updateUser(userUserID: string, body: V1UpdateUserRequest, options?: any) {
+  public updateUser(userUserID: string, body: V1UpdateUserRequest, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .updateUser(userUserID, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -6775,7 +6810,10 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    activatePool: async (body: DistrconfigActivatePoolRequest, options: any = {}): Promise<RequestArgs> => {
+    activatePool: async (
+      body: DistrconfigActivatePoolRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('activatePool', 'body', body);
       const localVarPath = `/api/distribution/v1/pool/activate`;
@@ -6792,7 +6830,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -6809,7 +6847,10 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppToUsers: async (body: DistrconfigAssignAppToUsersRequest, options: any = {}): Promise<RequestArgs> => {
+    assignAppToUsers: async (
+      body: DistrconfigAssignAppToUsersRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('assignAppToUsers', 'body', body);
       const localVarPath = `/api/distribution/v1/app/users/assign`;
@@ -6826,7 +6867,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -6843,7 +6884,10 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignPoolsToApp: async (body: DistrconfigAssignPoolsToAppRequest, options: any = {}): Promise<RequestArgs> => {
+    assignPoolsToApp: async (
+      body: DistrconfigAssignPoolsToAppRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('assignPoolsToApp', 'body', body);
       const localVarPath = `/api/distribution/v1/app/pools/assign`;
@@ -6860,7 +6904,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -6877,7 +6921,10 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignTagToUser: async (body: DistrconfigAssignTagToUserRequest, options: any = {}): Promise<RequestArgs> => {
+    assignTagToUser: async (
+      body: DistrconfigAssignTagToUserRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('assignTagToUser', 'body', body);
       const localVarPath = `/api/distribution/v1/user/tags/assign`;
@@ -6894,7 +6941,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -6911,7 +6958,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApp: async (body: DistrconfigMobileApp, options: any = {}): Promise<RequestArgs> => {
+    createApp: async (body: DistrconfigMobileApp, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createApp', 'body', body);
       const localVarPath = `/api/distribution/v1/app`;
@@ -6928,7 +6975,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -6945,7 +6992,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPool: async (body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
+    createPool: async (body: DistrconfigDataPool, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createPool', 'body', body);
       const localVarPath = `/api/distribution/v1/pool`;
@@ -6962,7 +7009,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -6979,7 +7026,10 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPools: async (body: DistrconfigCreatePoolsRequest, options: any = {}): Promise<RequestArgs> => {
+    createPools: async (
+      body: DistrconfigCreatePoolsRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createPools', 'body', body);
       const localVarPath = `/api/distribution/v1/pools`;
@@ -6996,7 +7046,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7013,7 +7063,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUser: async (body: DistrconfigCreateUserRequest, options: any = {}): Promise<RequestArgs> => {
+    createUser: async (body: DistrconfigCreateUserRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createUser', 'body', body);
       const localVarPath = `/api/distribution/v1/user`;
@@ -7030,7 +7080,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7047,7 +7097,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteApp: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    deleteApp: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('deleteApp', 'id', id);
       const localVarPath = `/api/distribution/v1/app/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -7062,7 +7112,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7078,7 +7128,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePool: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    deletePool: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('deletePool', 'id', id);
       const localVarPath = `/api/distribution/v1/pool/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -7093,7 +7143,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7109,7 +7159,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUser: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    deleteUser: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('deleteUser', 'id', id);
       const localVarPath = `/api/distribution/v1/user/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -7124,7 +7174,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7140,7 +7190,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApp: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    getApp: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('getApp', 'id', id);
       const localVarPath = `/api/distribution/v1/app/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -7155,7 +7205,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7170,7 +7220,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApps: async (options: any = {}): Promise<RequestArgs> => {
+    getApps: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/distribution/v1/apps`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7183,7 +7233,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7199,7 +7249,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPool: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    getPool: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('getPool', 'id', id);
       const localVarPath = `/api/distribution/v1/pool/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -7214,7 +7264,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7231,7 +7281,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPoolDistribution: async (id: string, userId?: string, options: any = {}): Promise<RequestArgs> => {
+    getPoolDistribution: async (
+      id: string,
+      userId?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('getPoolDistribution', 'id', id);
       const localVarPath = `/api/distribution/v1/pool/distribution/{id}`.replace(
@@ -7253,7 +7307,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
         localVarQueryParameter['userId'] = userId;
       }
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7268,7 +7322,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPools: async (options: any = {}): Promise<RequestArgs> => {
+    getPools: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/distribution/v1/pools`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7281,7 +7335,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7297,7 +7351,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUser: async (userID: string, options: any = {}): Promise<RequestArgs> => {
+    getUser: async (userID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'userID' is not null or undefined
       assertParamExists('getUser', 'userID', userID);
       const localVarPath = `/api/distribution/v1/user/{userID}`.replace(
@@ -7315,7 +7369,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7330,7 +7384,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsers: async (options: any = {}): Promise<RequestArgs> => {
+    getUsers: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/distribution/v1/users`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7343,7 +7397,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -7360,7 +7414,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setAppBundle: async (id: string, body: DistrconfigSetAppBundleRequest, options: any = {}): Promise<RequestArgs> => {
+    setAppBundle: async (
+      id: string,
+      body: DistrconfigSetAppBundleRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('setAppBundle', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -7379,7 +7437,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7398,7 +7456,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      */
     unassignAppFromUsers: async (
       body: DistrconfigUnassignAppFromUsersRequest,
-      options: any = {},
+      options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('unassignAppFromUsers', 'body', body);
@@ -7416,7 +7474,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7435,7 +7493,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      */
     unassignPoolsFromApp: async (
       body: DistrconfigUnassignPoolsFromAppRequest,
-      options: any = {},
+      options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('unassignPoolsFromApp', 'body', body);
@@ -7453,7 +7511,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7472,7 +7530,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      */
     unassignTagFromUser: async (
       body: DistrconfigUnassignTagFromUserRequest,
-      options: any = {},
+      options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('unassignTagFromUser', 'body', body);
@@ -7490,7 +7548,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7507,7 +7565,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePool: async (body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
+    updatePool: async (body: DistrconfigDataPool, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('updatePool', 'body', body);
       const localVarPath = `/api/distribution/v1/pool`;
@@ -7524,7 +7582,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7542,7 +7600,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePool2: async (dataPoolId: string, body: DistrconfigDataPool, options: any = {}): Promise<RequestArgs> => {
+    updatePool2: async (
+      dataPoolId: string,
+      body: DistrconfigDataPool,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'dataPoolId' is not null or undefined
       assertParamExists('updatePool2', 'dataPoolId', dataPoolId);
       // verify required parameter 'body' is not null or undefined
@@ -7564,7 +7626,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7581,7 +7643,10 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    validatePoolData: async (body: DistrconfigValidatePoolDataRequest, options: any = {}): Promise<RequestArgs> => {
+    validatePoolData: async (
+      body: DistrconfigValidatePoolDataRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('validatePoolData', 'body', body);
       const localVarPath = `/api/distribution/v1/pool/validate`;
@@ -7598,7 +7663,7 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -7627,7 +7692,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async activatePool(
       body: DistrconfigActivatePoolRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.activatePool(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7641,7 +7706,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async assignAppToUsers(
       body: DistrconfigAssignAppToUsersRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigAssignAppToUsersResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignAppToUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7655,7 +7720,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async assignPoolsToApp(
       body: DistrconfigAssignPoolsToAppRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigAssignPoolsToAppResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignPoolsToApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7669,7 +7734,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async assignTagToUser(
       body: DistrconfigAssignTagToUserRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignTagToUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7683,7 +7748,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async createApp(
       body: DistrconfigMobileApp,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7697,7 +7762,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async createPool(
       body: DistrconfigDataPool,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createPool(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7711,7 +7776,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async createPools(
       body: DistrconfigCreatePoolsRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createPools(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7725,7 +7790,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async createUser(
       body: DistrconfigCreateUserRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7739,7 +7804,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async deleteApp(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApp(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7753,7 +7818,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async deletePool(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deletePool(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7767,7 +7832,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async deleteUser(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUser(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7781,7 +7846,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getApp(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetAppResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApp(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7793,7 +7858,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     async getApps(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetAppsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApps(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7807,7 +7872,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getPool(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPool(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7823,7 +7888,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async getPoolDistribution(
       id: string,
       userId?: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolDistributionResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPoolDistribution(id, userId, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7835,7 +7900,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     async getPools(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetPoolsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPools(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7849,7 +7914,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getUser(
       userID: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetUserResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7861,7 +7926,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     async getUsers(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigGetUsersResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7877,7 +7942,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async setAppBundle(
       id: string,
       body: DistrconfigSetAppBundleRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.setAppBundle(id, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7891,7 +7956,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async unassignAppFromUsers(
       body: DistrconfigUnassignAppFromUsersRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigUnassignAppFromUsersResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignAppFromUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7905,7 +7970,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async unassignPoolsFromApp(
       body: DistrconfigUnassignPoolsFromAppRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigUnassignPoolsFromAppResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignPoolsFromApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7919,7 +7984,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async unassignTagFromUser(
       body: DistrconfigUnassignTagFromUserRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignTagFromUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7933,7 +7998,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async updatePool(
       body: DistrconfigDataPool,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updatePool(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7949,7 +8014,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async updatePool2(
       dataPoolId: string,
       body: DistrconfigDataPool,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updatePool2(dataPoolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -7963,7 +8028,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async validatePoolData(
       body: DistrconfigValidatePoolDataRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DistrconfigValidatePoolDataResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.validatePoolData(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -8269,7 +8334,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public activatePool(body: DistrconfigActivatePoolRequest, options?: any) {
+  public activatePool(body: DistrconfigActivatePoolRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .activatePool(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8283,7 +8348,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignAppToUsers(body: DistrconfigAssignAppToUsersRequest, options?: any) {
+  public assignAppToUsers(body: DistrconfigAssignAppToUsersRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .assignAppToUsers(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8297,7 +8362,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignPoolsToApp(body: DistrconfigAssignPoolsToAppRequest, options?: any) {
+  public assignPoolsToApp(body: DistrconfigAssignPoolsToAppRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .assignPoolsToApp(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8311,7 +8376,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignTagToUser(body: DistrconfigAssignTagToUserRequest, options?: any) {
+  public assignTagToUser(body: DistrconfigAssignTagToUserRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .assignTagToUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8325,7 +8390,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createApp(body: DistrconfigMobileApp, options?: any) {
+  public createApp(body: DistrconfigMobileApp, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createApp(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8339,7 +8404,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createPool(body: DistrconfigDataPool, options?: any) {
+  public createPool(body: DistrconfigDataPool, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createPool(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8353,7 +8418,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createPools(body: DistrconfigCreatePoolsRequest, options?: any) {
+  public createPools(body: DistrconfigCreatePoolsRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createPools(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8367,7 +8432,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createUser(body: DistrconfigCreateUserRequest, options?: any) {
+  public createUser(body: DistrconfigCreateUserRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8381,7 +8446,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public deleteApp(id: string, options?: any) {
+  public deleteApp(id: string, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .deleteApp(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8395,7 +8460,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public deletePool(id: string, options?: any) {
+  public deletePool(id: string, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .deletePool(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8409,7 +8474,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public deleteUser(id: string, options?: any) {
+  public deleteUser(id: string, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .deleteUser(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8423,7 +8488,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public getApp(id: string, options?: any) {
+  public getApp(id: string, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .getApp(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8436,7 +8501,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public getApps(options?: any) {
+  public getApps(options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .getApps(options)
       .then((request) => request(this.axios, this.basePath));
@@ -8450,7 +8515,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public getPool(id: string, options?: any) {
+  public getPool(id: string, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .getPool(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8465,7 +8530,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public getPoolDistribution(id: string, userId?: string, options?: any) {
+  public getPoolDistribution(id: string, userId?: string, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .getPoolDistribution(id, userId, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8478,7 +8543,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public getPools(options?: any) {
+  public getPools(options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .getPools(options)
       .then((request) => request(this.axios, this.basePath));
@@ -8492,7 +8557,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public getUser(userID: string, options?: any) {
+  public getUser(userID: string, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .getUser(userID, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8505,7 +8570,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public getUsers(options?: any) {
+  public getUsers(options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .getUsers(options)
       .then((request) => request(this.axios, this.basePath));
@@ -8520,7 +8585,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public setAppBundle(id: string, body: DistrconfigSetAppBundleRequest, options?: any) {
+  public setAppBundle(id: string, body: DistrconfigSetAppBundleRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .setAppBundle(id, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8534,7 +8599,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public unassignAppFromUsers(body: DistrconfigUnassignAppFromUsersRequest, options?: any) {
+  public unassignAppFromUsers(body: DistrconfigUnassignAppFromUsersRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .unassignAppFromUsers(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8548,7 +8613,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public unassignPoolsFromApp(body: DistrconfigUnassignPoolsFromAppRequest, options?: any) {
+  public unassignPoolsFromApp(body: DistrconfigUnassignPoolsFromAppRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .unassignPoolsFromApp(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8562,7 +8627,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public unassignTagFromUser(body: DistrconfigUnassignTagFromUserRequest, options?: any) {
+  public unassignTagFromUser(body: DistrconfigUnassignTagFromUserRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .unassignTagFromUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8576,7 +8641,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public updatePool(body: DistrconfigDataPool, options?: any) {
+  public updatePool(body: DistrconfigDataPool, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .updatePool(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8591,7 +8656,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public updatePool2(dataPoolId: string, body: DistrconfigDataPool, options?: any) {
+  public updatePool2(dataPoolId: string, body: DistrconfigDataPool, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .updatePool2(dataPoolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8605,7 +8670,7 @@ export class DistrConfigServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public validatePoolData(body: DistrconfigValidatePoolDataRequest, options?: any) {
+  public validatePoolData(body: DistrconfigValidatePoolDataRequest, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .validatePoolData(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8631,7 +8696,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
       reason: string,
       callId: string,
       body: object,
-      options: any = {},
+      options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'reason' is not null or undefined
       assertParamExists('callAsyncFunction', 'reason', reason);
@@ -8655,7 +8720,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -8673,7 +8738,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callSyncFunction: async (id: string, body: object, options: any = {}): Promise<RequestArgs> => {
+    callSyncFunction: async (id: string, body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('callSyncFunction', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -8692,7 +8757,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -8710,7 +8775,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callTestFunction: async (id: string, body: object, options: any = {}): Promise<RequestArgs> => {
+    callTestFunction: async (id: string, body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('callTestFunction', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -8729,7 +8794,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -8746,7 +8811,10 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFunction: async (body: FunctionsCreateFunctionRequest, options: any = {}): Promise<RequestArgs> => {
+    createFunction: async (
+      body: FunctionsCreateFunctionRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createFunction', 'body', body);
       const localVarPath = `/api/func/v1/function`;
@@ -8763,7 +8831,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -8780,7 +8848,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFunction: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    deleteFunction: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('deleteFunction', 'id', id);
       const localVarPath = `/api/func/v1/function/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -8795,7 +8863,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -8811,7 +8879,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunction: async (id: string, options: any = {}): Promise<RequestArgs> => {
+    getFunction: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('getFunction', 'id', id);
       const localVarPath = `/api/func/v1/function/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(id)));
@@ -8826,7 +8894,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -8841,7 +8909,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunctions: async (options: any = {}): Promise<RequestArgs> => {
+    getFunctions: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/func/v1/functions`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8854,7 +8922,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -8870,7 +8938,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFunction: async (body: FunctionsFunction, options: any = {}): Promise<RequestArgs> => {
+    updateFunction: async (body: FunctionsFunction, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('updateFunction', 'body', body);
       const localVarPath = `/api/func/v1/function`;
@@ -8887,7 +8955,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -8905,7 +8973,11 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFunction2: async (functionId: string, body: FunctionsFunction, options: any = {}): Promise<RequestArgs> => {
+    updateFunction2: async (
+      functionId: string,
+      body: FunctionsFunction,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'functionId' is not null or undefined
       assertParamExists('updateFunction2', 'functionId', functionId);
       // verify required parameter 'body' is not null or undefined
@@ -8927,7 +8999,7 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -8960,7 +9032,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
       reason: string,
       callId: string,
       body: object,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callAsyncFunction(reason, callId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -8976,7 +9048,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async callSyncFunction(
       id: string,
       body: object,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callSyncFunction(id, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -8992,7 +9064,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async callTestFunction(
       id: string,
       body: object,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callTestFunction(id, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9006,7 +9078,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      */
     async createFunction(
       body: FunctionsCreateFunctionRequest,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCreateFunctionResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createFunction(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9020,7 +9092,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      */
     async deleteFunction(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFunction(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9034,7 +9106,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      */
     async getFunction(
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsGetFunctionResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunction(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9046,7 +9118,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      * @throws {RequiredError}
      */
     async getFunctions(
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsGetFunctionsResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunctions(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9060,7 +9132,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      */
     async updateFunction(
       body: FunctionsFunction,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateFunction(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9076,7 +9148,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async updateFunction2(
       functionId: string,
       body: FunctionsFunction,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateFunction2(functionId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9209,7 +9281,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public callAsyncFunction(reason: string, callId: string, body: object, options?: any) {
+  public callAsyncFunction(reason: string, callId: string, body: object, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .callAsyncFunction(reason, callId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9224,7 +9296,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public callSyncFunction(id: string, body: object, options?: any) {
+  public callSyncFunction(id: string, body: object, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .callSyncFunction(id, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9239,7 +9311,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public callTestFunction(id: string, body: object, options?: any) {
+  public callTestFunction(id: string, body: object, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .callTestFunction(id, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9253,7 +9325,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public createFunction(body: FunctionsCreateFunctionRequest, options?: any) {
+  public createFunction(body: FunctionsCreateFunctionRequest, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .createFunction(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9267,7 +9339,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public deleteFunction(id: string, options?: any) {
+  public deleteFunction(id: string, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .deleteFunction(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9281,7 +9353,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public getFunction(id: string, options?: any) {
+  public getFunction(id: string, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .getFunction(id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9294,7 +9366,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public getFunctions(options?: any) {
+  public getFunctions(options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .getFunctions(options)
       .then((request) => request(this.axios, this.basePath));
@@ -9308,7 +9380,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public updateFunction(body: FunctionsFunction, options?: any) {
+  public updateFunction(body: FunctionsFunction, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .updateFunction(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9323,7 +9395,7 @@ export class FunctionsServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public updateFunction2(functionId: string, body: FunctionsFunction, options?: any) {
+  public updateFunction2(functionId: string, body: FunctionsFunction, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .updateFunction2(functionId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9344,7 +9416,11 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkCreate: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
+    bulkCreate: async (
+      poolId: string,
+      body: Array<DataDocument>,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('bulkCreate', 'poolId', poolId);
       // verify required parameter 'body' is not null or undefined
@@ -9363,7 +9439,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -9381,7 +9457,11 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkDelete: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
+    bulkDelete: async (
+      poolId: string,
+      body: Array<DataDocument>,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('bulkDelete', 'poolId', poolId);
       // verify required parameter 'body' is not null or undefined
@@ -9400,7 +9480,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -9418,7 +9498,11 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkUpdate: async (poolId: string, body: Array<DataDocument>, options: any = {}): Promise<RequestArgs> => {
+    bulkUpdate: async (
+      poolId: string,
+      body: Array<DataDocument>,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('bulkUpdate', 'poolId', poolId);
       // verify required parameter 'body' is not null or undefined
@@ -9437,7 +9521,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
@@ -9456,7 +9540,12 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAttachment: async (poolId: string, id: string, attname: string, options: any = {}): Promise<RequestArgs> => {
+    deleteAttachment: async (
+      poolId: string,
+      id: string,
+      attname: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('deleteAttachment', 'poolId', poolId);
       // verify required parameter 'id' is not null or undefined
@@ -9478,7 +9567,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -9495,7 +9584,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    get: async (poolId: string, id: string, options: any = {}): Promise<RequestArgs> => {
+    get: async (poolId: string, id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('get', 'poolId', poolId);
       // verify required parameter 'id' is not null or undefined
@@ -9514,7 +9603,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -9532,7 +9621,12 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAttachment: async (poolId: string, id: string, attname: string, options: any = {}): Promise<RequestArgs> => {
+    getAttachment: async (
+      poolId: string,
+      id: string,
+      attname: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('getAttachment', 'poolId', poolId);
       // verify required parameter 'id' is not null or undefined
@@ -9554,7 +9648,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -9572,7 +9666,12 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    list: async (poolId: string, limit: number, skip: number, options: any = {}): Promise<RequestArgs> => {
+    list: async (
+      poolId: string,
+      limit: number,
+      skip: number,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('list', 'poolId', poolId);
       // verify required parameter 'limit' is not null or undefined
@@ -9599,7 +9698,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
         localVarQueryParameter['skip'] = skip;
       }
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
@@ -9623,7 +9722,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
       id: string,
       attname: string,
       upfile: any,
-      options: any = {},
+      options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
       assertParamExists('storeAttachment', 'poolId', poolId);
@@ -9655,7 +9754,7 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
 
       localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
 
-      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = localVarFormParams;
@@ -9686,7 +9785,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
     async bulkCreate(
       poolId: string,
       body: Array<DataDocument>,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkCreateResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkCreate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9702,7 +9801,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
     async bulkDelete(
       poolId: string,
       body: Array<DataDocument>,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkDeleteResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDelete(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9718,7 +9817,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
     async bulkUpdate(
       poolId: string,
       body: Array<DataDocument>,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataBulkUpdateResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkUpdate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9736,7 +9835,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       poolId: string,
       id: string,
       attname: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAttachment(poolId, id, attname, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9752,7 +9851,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
     async get(
       poolId: string,
       id: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataDocument>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.get(poolId, id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9770,7 +9869,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       poolId: string,
       id: string,
       attname: string,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getAttachment(poolId, id, attname, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9788,7 +9887,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       poolId: string,
       limit: number,
       skip: number,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataListResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.list(poolId, limit, skip, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9808,7 +9907,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       id: string,
       attname: string,
       upfile: any,
-      options?: any,
+      options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.storeAttachment(poolId, id, attname, upfile, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -9941,7 +10040,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkCreate(poolId: string, body: Array<DataDocument>, options?: any) {
+  public bulkCreate(poolId: string, body: Array<DataDocument>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkCreate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9956,7 +10055,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkDelete(poolId: string, body: Array<DataDocument>, options?: any) {
+  public bulkDelete(poolId: string, body: Array<DataDocument>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkDelete(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9971,7 +10070,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkUpdate(poolId: string, body: Array<DataDocument>, options?: any) {
+  public bulkUpdate(poolId: string, body: Array<DataDocument>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkUpdate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -9987,7 +10086,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public deleteAttachment(poolId: string, id: string, attname: string, options?: any) {
+  public deleteAttachment(poolId: string, id: string, attname: string, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .deleteAttachment(poolId, id, attname, options)
       .then((request) => request(this.axios, this.basePath));
@@ -10002,7 +10101,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public get(poolId: string, id: string, options?: any) {
+  public get(poolId: string, id: string, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .get(poolId, id, options)
       .then((request) => request(this.axios, this.basePath));
@@ -10018,7 +10117,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public getAttachment(poolId: string, id: string, attname: string, options?: any) {
+  public getAttachment(poolId: string, id: string, attname: string, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .getAttachment(poolId, id, attname, options)
       .then((request) => request(this.axios, this.basePath));
@@ -10034,7 +10133,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public list(poolId: string, limit: number, skip: number, options?: any) {
+  public list(poolId: string, limit: number, skip: number, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .list(poolId, limit, skip, options)
       .then((request) => request(this.axios, this.basePath));
@@ -10051,7 +10150,7 @@ export class PoolDataServiceApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public storeAttachment(poolId: string, id: string, attname: string, upfile: any, options?: any) {
+  public storeAttachment(poolId: string, id: string, attname: string, upfile: any, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .storeAttachment(poolId, id, attname, upfile, options)
       .then((request) => request(this.axios, this.basePath));

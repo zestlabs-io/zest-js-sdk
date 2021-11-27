@@ -2,6 +2,14 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 PDIR=${DIR}/..
 
+if [ ! -f ~/bin/openapitools/openapi-generator-cli ]; then
+  mkdir -p ~/bin/openapitools
+  curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > ~/bin/openapitools/openapi-generator-cli
+  chmod u+x ~/bin/openapitools/openapi-generator-cli
+fi
+
+export PATH=$PATH:~/bin/openapitools/
+
 rm -rf ${PDIR}/src/openapi
 mkdir -p ${PDIR}/src/openapi
 
@@ -22,4 +30,4 @@ swagger-merger -i ${DIR}/fullRef.json -o ${DIR}/fullSchema.json
 
 
 # Generate
-openapi-generator generate --remove-operation-id-prefix -i ${DIR}/fullSchema.json -g typescript-axios -o ${PDIR}/src/openapi
+openapi-generator-cli generate --remove-operation-id-prefix -i ${DIR}/fullSchema.json -g typescript-axios -o ${PDIR}/src/openapi

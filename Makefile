@@ -24,6 +24,18 @@ tag:
 new-patch:
 	npm version patch
 
-.PHONY: release
-release: new-patch build publish
+.PHONY: new-minor
+new-minor:
+	npm version minor
+
+.PHONY: new-major
+new-major:
+	npm version major
+
+.PHONY: release-patch
+release-patch: new-patch build publish
+	echo "Released version $(cat package.json | jq -r .version)"
+
+.PHONY: release-minor
+release-patch: new-minor build publish
 	echo "Released version $(cat package.json | jq -r .version)"
