@@ -603,25 +603,6 @@ export enum DistrconfigPoolType {
 /**
  *
  * @export
- * @interface DistrconfigSetAppBundleRequest
- */
-export interface DistrconfigSetAppBundleRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof DistrconfigSetAppBundleRequest
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DistrconfigSetAppBundleRequest
-   */
-  bundleUrl?: string;
-}
-/**
- *
- * @export
  * @interface DistrconfigUnassignAppFromUsersRequest
  */
 export interface DistrconfigUnassignAppFromUsersRequest {
@@ -919,6 +900,12 @@ export interface FunctionsCreateFunctionRequest {
    * @memberof FunctionsCreateFunctionRequest
    */
   region?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsCreateFunctionRequest
+   */
+  config?: string;
 }
 /**
  *
@@ -969,6 +956,12 @@ export interface FunctionsFunction {
    * @memberof FunctionsFunction
    */
   region?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof FunctionsFunction
+   */
+  config?: string;
 }
 /**
  *
@@ -1030,10 +1023,24 @@ export interface InlineObject {
 /**
  *
  * @export
+ * @interface InlineObject1
+ */
+export interface InlineObject1 {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject1
+   */
+  bundleUrl?: string;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 
 export enum LogEntrySeverity {
+  Unknown = 'UNKNOWN',
   Trace = 'TRACE',
   Info = 'INFO',
   Warning = 'WARNING',
@@ -1061,18 +1068,14 @@ export enum PaymentDetailsPaymentType {
  * @interface ProtobufAny
  */
 export interface ProtobufAny {
+  [key: string]: object | any;
+
   /**
    * A URL/resource name whose content describes the type of the serialized protocol buffer message.  For URLs which use the scheme `http`, `https`, or no scheme, the following restrictions and interpretations apply:  * If no scheme is provided, `https` is assumed. * The last segment of the URL\'s path must represent the fully   qualified name of the type (as in `path/google.protobuf.Duration`).   The name should be in a canonical form (e.g., leading \".\" is   not accepted). * An HTTP GET on the URL must yield a [google.protobuf.Type][]   value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the   URL, or have them precompiled into a binary to avoid any   lookup. Therefore, binary compatibility needs to be preserved   on changes to types. (Use versioned type names to manage   breaking changes.)  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics.
    * @type {string}
    * @memberof ProtobufAny
    */
-  type_url?: string;
-  /**
-   * Must be a valid serialized protocol buffer of the above specified type.
-   * @type {string}
-   * @memberof ProtobufAny
-   */
-  value?: string;
+  '@type'?: string;
 }
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the `Value` type union.   The JSON representation for `NullValue` is JSON `null`.   - NULL_VALUE: Null value.
@@ -1106,37 +1109,6 @@ export interface RpcStatus {
    *
    * @type {Array<ProtobufAny>}
    * @memberof RpcStatus
-   */
-  details?: Array<ProtobufAny>;
-}
-/**
- *
- * @export
- * @interface RuntimeError
- */
-export interface RuntimeError {
-  /**
-   *
-   * @type {string}
-   * @memberof RuntimeError
-   */
-  error?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof RuntimeError
-   */
-  code?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof RuntimeError
-   */
-  message?: string;
-  /**
-   *
-   * @type {Array<ProtobufAny>}
-   * @memberof RuntimeError
    */
   details?: Array<ProtobufAny>;
 }
@@ -1329,6 +1301,12 @@ export interface V1AddUsersToRoleResponse {
    * @memberof V1AddUsersToRoleResponse
    */
   failedUserIDs?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1AddUsersToRoleResponse
+   */
+  errors?: Array<string>;
 }
 /**
  *
@@ -1782,6 +1760,12 @@ export interface V1CreateUserRequest {
    * @memberof V1CreateUserRequest
    */
   federationID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateUserRequest
+   */
+  phoneNumber?: string;
 }
 /**
  *
@@ -2538,13 +2522,13 @@ export interface V1QueryLogsRequest {
    * @type {string}
    * @memberof V1QueryLogsRequest
    */
-  time_from?: string;
+  timeFrom?: string;
   /**
    *
    * @type {string}
    * @memberof V1QueryLogsRequest
    */
-  time_till?: string;
+  timeTill?: string;
   /**
    *
    * @type {number}
@@ -2568,7 +2552,7 @@ export interface V1QueryLogsRequest {
    * @type {string}
    * @memberof V1QueryLogsRequest
    */
-  not_match?: string;
+  notMatch?: string;
 }
 /**
  * QueryLogsResponse contains a list of log entries that match the request  parameters.
@@ -2600,13 +2584,13 @@ export interface V1QueryMetricsRequest {
    * @type {string}
    * @memberof V1QueryMetricsRequest
    */
-  time_from?: string;
+  timeFrom?: string;
   /**
    *
    * @type {string}
    * @memberof V1QueryMetricsRequest
    */
-  time_till?: string;
+  timeTill?: string;
   /**
    *
    * @type {Array<V1LabelFilter>}
@@ -2728,6 +2712,12 @@ export interface V1RemoveUsersFromRoleResponse {
    * @memberof V1RemoveUsersFromRoleResponse
    */
   failedUserIDs?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1RemoveUsersFromRoleResponse
+   */
+  errors?: Array<string>;
 }
 /**
  *
@@ -4370,11 +4360,10 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
     },
     /**
      *
-     * @param {string} [accountID]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubaccounts: async (accountID?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    getSubaccounts: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       const localVarPath = `/api/auth/v1/subaccounts`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4386,10 +4375,6 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      if (accountID !== undefined) {
-        localVarQueryParameter['accountID'] = accountID;
-      }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -5414,15 +5399,13 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @param {string} [accountID]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async getSubaccounts(
-      accountID?: string,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetSubaccountsResponse>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.getSubaccounts(accountID, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getSubaccounts(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -5961,12 +5944,11 @@ export const AuthServiceApiFactory = function (
     },
     /**
      *
-     * @param {string} [accountID]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubaccounts(accountID?: string, options?: any): AxiosPromise<V1GetSubaccountsResponse> {
-      return localVarFp.getSubaccounts(accountID, options).then((request) => request(axios, basePath));
+    getSubaccounts(options?: any): AxiosPromise<V1GetSubaccountsResponse> {
+      return localVarFp.getSubaccounts(options).then((request) => request(axios, basePath));
     },
     /**
      *
@@ -6555,14 +6537,13 @@ export class AuthServiceApi extends BaseAPI {
 
   /**
    *
-   * @param {string} [accountID]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof AuthServiceApi
    */
-  public getSubaccounts(accountID?: string, options?: AxiosRequestConfig) {
+  public getSubaccounts(options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
-      .getSubaccounts(accountID, options)
+      .getSubaccounts(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -7410,15 +7391,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      *
      * @summary Set the mobile application bundle
      * @param {string} id
-     * @param {DistrconfigSetAppBundleRequest} body
+     * @param {InlineObject1} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setAppBundle: async (
-      id: string,
-      body: DistrconfigSetAppBundleRequest,
-      options: AxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
+    setAppBundle: async (id: string, body: InlineObject1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('setAppBundle', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -7935,13 +7912,13 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      *
      * @summary Set the mobile application bundle
      * @param {string} id
-     * @param {DistrconfigSetAppBundleRequest} body
+     * @param {InlineObject1} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async setAppBundle(
       id: string,
-      body: DistrconfigSetAppBundleRequest,
+      body: InlineObject1,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.setAppBundle(id, body, options);
@@ -8239,11 +8216,11 @@ export const DistrConfigServiceApiFactory = function (
      *
      * @summary Set the mobile application bundle
      * @param {string} id
-     * @param {DistrconfigSetAppBundleRequest} body
+     * @param {InlineObject1} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setAppBundle(id: string, body: DistrconfigSetAppBundleRequest, options?: any): AxiosPromise<object> {
+    setAppBundle(id: string, body: InlineObject1, options?: any): AxiosPromise<object> {
       return localVarFp.setAppBundle(id, body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -8580,12 +8557,12 @@ export class DistrConfigServiceApi extends BaseAPI {
    *
    * @summary Set the mobile application bundle
    * @param {string} id
-   * @param {DistrconfigSetAppBundleRequest} body
+   * @param {InlineObject1} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public setAppBundle(id: string, body: DistrconfigSetAppBundleRequest, options?: AxiosRequestConfig) {
+  public setAppBundle(id: string, body: InlineObject1, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .setAppBundle(id, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -8735,10 +8712,16 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @summary Call a function synchroniously
      * @param {string} id
      * @param {object} body
+     * @param {string} [payloadJSON]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callSyncFunction: async (id: string, body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    callSyncFunction: async (
+      id: string,
+      body: object,
+      payloadJSON?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('callSyncFunction', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -8754,6 +8737,10 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
       const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
+
+      if (payloadJSON !== undefined) {
+        localVarQueryParameter['payloadJSON'] = payloadJSON;
+      }
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -8772,10 +8759,16 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      * @summary Test a function call
      * @param {string} id
      * @param {object} body
+     * @param {string} [payloadJSON]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callTestFunction: async (id: string, body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    callTestFunction: async (
+      id: string,
+      body: object,
+      payloadJSON?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('callTestFunction', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -8791,6 +8784,10 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
       const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
+
+      if (payloadJSON !== undefined) {
+        localVarQueryParameter['payloadJSON'] = payloadJSON;
+      }
 
       localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9042,15 +9039,17 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      * @summary Call a function synchroniously
      * @param {string} id
      * @param {object} body
+     * @param {string} [payloadJSON]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async callSyncFunction(
       id: string,
       body: object,
+      payloadJSON?: string,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.callSyncFunction(id, body, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.callSyncFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -9058,15 +9057,17 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      * @summary Test a function call
      * @param {string} id
      * @param {object} body
+     * @param {string} [payloadJSON]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async callTestFunction(
       id: string,
       body: object,
+      payloadJSON?: string,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionsCallFunctionResponse>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.callTestFunction(id, body, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.callTestFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -9184,22 +9185,34 @@ export const FunctionsServiceApiFactory = function (
      * @summary Call a function synchroniously
      * @param {string} id
      * @param {object} body
+     * @param {string} [payloadJSON]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callSyncFunction(id: string, body: object, options?: any): AxiosPromise<FunctionsCallFunctionResponse> {
-      return localVarFp.callSyncFunction(id, body, options).then((request) => request(axios, basePath));
+    callSyncFunction(
+      id: string,
+      body: object,
+      payloadJSON?: string,
+      options?: any,
+    ): AxiosPromise<FunctionsCallFunctionResponse> {
+      return localVarFp.callSyncFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Test a function call
      * @param {string} id
      * @param {object} body
+     * @param {string} [payloadJSON]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callTestFunction(id: string, body: object, options?: any): AxiosPromise<FunctionsCallFunctionResponse> {
-      return localVarFp.callTestFunction(id, body, options).then((request) => request(axios, basePath));
+    callTestFunction(
+      id: string,
+      body: object,
+      payloadJSON?: string,
+      options?: any,
+    ): AxiosPromise<FunctionsCallFunctionResponse> {
+      return localVarFp.callTestFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
      *
@@ -9292,13 +9305,14 @@ export class FunctionsServiceApi extends BaseAPI {
    * @summary Call a function synchroniously
    * @param {string} id
    * @param {object} body
+   * @param {string} [payloadJSON]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public callSyncFunction(id: string, body: object, options?: AxiosRequestConfig) {
+  public callSyncFunction(id: string, body: object, payloadJSON?: string, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
-      .callSyncFunction(id, body, options)
+      .callSyncFunction(id, body, payloadJSON, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -9307,13 +9321,14 @@ export class FunctionsServiceApi extends BaseAPI {
    * @summary Test a function call
    * @param {string} id
    * @param {object} body
+   * @param {string} [payloadJSON]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public callTestFunction(id: string, body: object, options?: AxiosRequestConfig) {
+  public callTestFunction(id: string, body: object, payloadJSON?: string, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
-      .callTestFunction(id, body, options)
+      .callTestFunction(id, body, payloadJSON, options)
       .then((request) => request(this.axios, this.basePath));
   }
 

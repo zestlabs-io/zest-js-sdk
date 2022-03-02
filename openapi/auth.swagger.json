@@ -1574,15 +1574,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "accountID",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "int64"
-          }
-        ],
         "tags": [
           "AuthService"
         ]
@@ -2155,6 +2146,12 @@
           "items": {
             "type": "string"
           }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -2424,6 +2421,9 @@
         "federationID": {
           "type": "string",
           "format": "int64"
+        },
+        "phoneNumber": {
+          "type": "string"
         }
       }
     },
@@ -2827,6 +2827,12 @@
       "type": "object",
       "properties": {
         "failedUserIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "errors": {
           "type": "array",
           "items": {
             "type": "string"
