@@ -257,6 +257,59 @@
         ]
       }
     },
+    "/api/auth/v1/assing-account-role": {
+      "post": {
+        "summary": "AssignAccountRole upserts a record with accountID from context and userID/accountRole from request",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`AssignAccountRole`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_AssignAccountRole",
+        "responses": {
+          "200": {
+            "description": "Returned when role is upserted.",
+            "schema": {
+              "$ref": "#/definitions/v1AssignAccountRoleResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountRole",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/assume-account": {
       "post": {
         "operationId": "AuthService_AssumeAccount",
@@ -828,6 +881,84 @@
             }
           }
         ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/get-user-account-roles": {
+      "get": {
+        "summary": "GetUserAccountRoles fetches all accounts that the current user is member of (has account role)",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`GetUserAccountRoles`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_GetUserAccountRoles",
+        "responses": {
+          "200": {
+            "description": "Returned when listing is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserAccountRolesResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/list-account-roles": {
+      "get": {
+        "summary": "ListAccountRoles fetches all account roles for the current account.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`ListAccountRoles`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_ListAccountRoles",
+        "responses": {
+          "200": {
+            "description": "Returned when listing is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAccountRolesResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
         "tags": [
           "AuthService"
         ]
@@ -1579,6 +1710,53 @@
         ]
       }
     },
+    "/api/auth/v1/unassing-account-role": {
+      "post": {
+        "summary": "UnassingAccountRole removes a record with accountID from context and userID from request",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`UnassignAccountRole`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_UnassignAccountRole",
+        "responses": {
+          "200": {
+            "description": "Returned when account role is removed.",
+            "schema": {
+              "$ref": "#/definitions/v1UnassignAccountRoleResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/user": {
       "post": {
         "operationId": "AuthService_CreateUser",
@@ -2051,6 +2229,22 @@
         }
       }
     },
+    "v1AccountRole": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "accountRole": {
+          "type": "string"
+        }
+      },
+      "title": "-- AccountRoles"
+    },
     "v1Action": {
       "type": "object",
       "properties": {
@@ -2155,6 +2349,9 @@
         }
       }
     },
+    "v1AssignAccountRoleResponse": {
+      "type": "object"
+    },
     "v1AssumeAccountRequest": {
       "type": "object",
       "properties": {
@@ -2202,6 +2399,18 @@
           "format": "byte"
         },
         "error": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CheckRegistrationResponse": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "errorMessage": {
           "type": "string"
         }
       }
@@ -2383,6 +2592,9 @@
           "type": "string"
         }
       }
+    },
+    "v1CreateRegistrationResponse": {
+      "type": "object"
     },
     "v1CreateRoleRequest": {
       "type": "object",
@@ -2611,6 +2823,28 @@
         }
       }
     },
+    "v1GetUserAccountRolesInternalResponse": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1AccountRole"
+          }
+        }
+      }
+    },
+    "v1GetUserAccountRolesResponse": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1AccountRole"
+          }
+        }
+      }
+    },
     "v1GetUserIDByEmailResponse": {
       "type": "object",
       "properties": {
@@ -2667,6 +2901,17 @@
             "$ref": "#/definitions/v1User"
           },
           "title": "string offsetID = 4"
+        }
+      }
+    },
+    "v1ListAccountRolesResponse": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1AccountRole"
+          }
         }
       }
     },
@@ -2758,6 +3003,24 @@
           }
         }
       }
+    },
+    "v1ProcessRegistrationResponse": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RemoveAccountRoleResponse": {
+      "type": "object"
     },
     "v1RemovePoliciesFromRoleRequest": {
       "type": "object",
@@ -2908,6 +3171,9 @@
     "v1SetPasswordResponse": {
       "type": "object"
     },
+    "v1UnassignAccountRoleResponse": {
+      "type": "object"
+    },
     "v1UpdateAccountRequest": {
       "type": "object",
       "properties": {
@@ -2958,6 +3224,9 @@
       }
     },
     "v1UpdateUserResponse": {
+      "type": "object"
+    },
+    "v1UpsertAccountRoleResponse": {
       "type": "object"
     },
     "v1User": {
@@ -3034,6 +3303,15 @@
         "assumedAccountID": {
           "type": "string",
           "format": "int64"
+        },
+        "language": {
+          "type": "string"
+        },
+        "accountRoles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1AccountRole"
+          }
         }
       }
     },
