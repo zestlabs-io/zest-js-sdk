@@ -21,6 +21,7 @@
   "paths": {
     "$ref#appsc": "./appscape.swagger.json#/paths",
     "$ref#auth": "./auth.swagger.json#/paths",
+    "$ref#billing": "./billing.swagger.json#/paths",
     "$ref#func": "./functions.swagger.json#/paths",
     "$ref#distr": "./distr-config.swagger.json#/paths",
     "$ref#data": "./data.swagger.json#/paths"
@@ -28,6 +29,7 @@
   "definitions": {
     "$ref#appsc": "./appscape.swagger.json#/definitions",
     "$ref#auth": "./auth.swagger.json#/definitions",
+    "$ref#billing": "./billing.swagger.json#/definitions",
     "$ref#func": "./functions.swagger.json#/definitions",
     "$ref#distr": "./distr-config.swagger.json#/definitions",
     "$ref#data": "./data.swagger.json#/definitions"

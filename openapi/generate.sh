@@ -9,6 +9,7 @@ if [ "$1" != "nocopy" ]; then
   cp ${PDIR}/../data-distribution/functions/api/swagger/v1/functions.swagger.json ${DIR}/.
   cp ${PDIR}/../data-distribution/distr-config/api/swagger/v1/distr-config.swagger.json ${DIR}/.
   cp ${PDIR}/../data-distribution/data/api/swagger/v1/data.swagger.json ${DIR}/.
+  cp ${PDIR}/../billing/api/swagger/v1/service.swagger.json ${DIR}/billing.swagger.json
 fi
 
 # Swagger combine

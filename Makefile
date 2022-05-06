@@ -37,5 +37,5 @@ release-patch: new-patch build publish
 	echo "Released version $(cat package.json | jq -r .version)"
 
 .PHONY: release-minor
-release-patch: new-minor build publish
+release-minor: new-minor build publish
 	echo "Released version $(cat package.json | jq -r .version)"

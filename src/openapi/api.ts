@@ -37,12 +37,14 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
  * @enum {string}
  */
 
-export enum AccountAccountStatus {
-  Pending = 'PENDING',
-  Active = 'ACTIVE',
-  Disabled = 'DISABLED',
-  Deleted = 'DELETED',
-}
+export const AccountAccountStatus = {
+  Pending: 'PENDING',
+  Active: 'ACTIVE',
+  Disabled: 'DISABLED',
+  Deleted: 'DELETED',
+} as const;
+
+export type AccountAccountStatus = typeof AccountAccountStatus[keyof typeof AccountAccountStatus];
 
 /**
  *
@@ -114,16 +116,14 @@ export interface ApiAppscapeV1MetricsQueryAggregations {
   preserve?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum ApiAppscapeV1MetricsQueryAggregationsOpEnum {
-  Sum = 'SUM',
-  Avg = 'AVG',
-  Min = 'MIN',
-  Max = 'MAX',
-}
+export const ApiAppscapeV1MetricsQueryAggregationsOpEnum = {
+  Sum: 'SUM',
+  Avg: 'AVG',
+  Min: 'MIN',
+  Max: 'MAX',
+} as const;
+
+export type ApiAppscapeV1MetricsQueryAggregationsOpEnum = typeof ApiAppscapeV1MetricsQueryAggregationsOpEnum[keyof typeof ApiAppscapeV1MetricsQueryAggregationsOpEnum];
 
 /**
  * The LabelFilter is used to filter metrics based on their labels. The filter  can be one of EQ (equals), NE (not-equals), RM (regex-match), and NM (not  matching regex).
@@ -151,16 +151,14 @@ export interface ApiAppscapeV1MetricsQueryFilters {
   op?: ApiAppscapeV1MetricsQueryFiltersOpEnum;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum ApiAppscapeV1MetricsQueryFiltersOpEnum {
-  Eq = 'EQ',
-  Ne = 'NE',
-  Rm = 'RM',
-  Nm = 'NM',
-}
+export const ApiAppscapeV1MetricsQueryFiltersOpEnum = {
+  Eq: 'EQ',
+  Ne: 'NE',
+  Rm: 'RM',
+  Nm: 'NM',
+} as const;
+
+export type ApiAppscapeV1MetricsQueryFiltersOpEnum = typeof ApiAppscapeV1MetricsQueryFiltersOpEnum[keyof typeof ApiAppscapeV1MetricsQueryFiltersOpEnum];
 
 /**
  *
@@ -300,16 +298,14 @@ export interface ContainsListOfAllDataPoolTasksDataPool {
   active?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum = typeof ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum[keyof typeof ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum];
 
 /**
  *
@@ -344,10 +340,10 @@ export interface ContainsListOfAllDataPoolTasksPoolSizes {
 export interface DataBulkCreateResponse {
   /**
    * Successful creation
-   * @type {Array<InlineResponse20039Result>}
+   * @type {Array<InlineResponse20042Result>}
    * @memberof DataBulkCreateResponse
    */
-  result?: Array<InlineResponse20039Result>;
+  result?: Array<InlineResponse20042Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -363,10 +359,10 @@ export interface DataBulkCreateResponse {
 export interface DataBulkDeleteResponse {
   /**
    * Successful deletion
-   * @type {Array<InlineResponse20039Result>}
+   * @type {Array<InlineResponse20042Result>}
    * @memberof DataBulkDeleteResponse
    */
-  result?: Array<InlineResponse20039Result>;
+  result?: Array<InlineResponse20042Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -382,10 +378,10 @@ export interface DataBulkDeleteResponse {
 export interface DataBulkUpdateResponse {
   /**
    * Successful creation
-   * @type {Array<InlineResponse20039Result>}
+   * @type {Array<InlineResponse20042Result>}
    * @memberof DataBulkUpdateResponse
    */
-  result?: Array<InlineResponse20039Result>;
+  result?: Array<InlineResponse20042Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -463,10 +459,10 @@ export interface DataListResponse {
   offset?: number;
   /**
    *
-   * @type {Array<InlineResponse20038Rows>}
+   * @type {Array<InlineResponse20041Rows>}
    * @memberof DataListResponse
    */
-  rows?: Array<InlineResponse20038Rows>;
+  rows?: Array<InlineResponse20041Rows>;
 }
 /**
  *
@@ -665,16 +661,14 @@ export interface DistrconfigDataPool {
   onUploadFunction?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum DistrconfigDataPoolPoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const DistrconfigDataPoolPoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type DistrconfigDataPoolPoolTypeEnum = typeof DistrconfigDataPoolPoolTypeEnum[keyof typeof DistrconfigDataPoolPoolTypeEnum];
 
 /**
  *
@@ -702,16 +696,14 @@ export interface DistrconfigDataPoolShort {
   active?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum DistrconfigDataPoolShortPoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const DistrconfigDataPoolShortPoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type DistrconfigDataPoolShortPoolTypeEnum = typeof DistrconfigDataPoolShortPoolTypeEnum[keyof typeof DistrconfigDataPoolShortPoolTypeEnum];
 
 /**
  *
@@ -733,10 +725,10 @@ export interface DistrconfigDistributionUser {
   activeAppID?: string;
   /**
    *
-   * @type {Array<InlineResponse20036UserTagAssignments>}
+   * @type {Array<InlineResponse20039UserTagAssignments>}
    * @memberof DistrconfigDistributionUser
    */
-  tagAssignments?: Array<InlineResponse20036UserTagAssignments>;
+  tagAssignments?: Array<InlineResponse20039UserTagAssignments>;
 }
 /**
  *
@@ -746,10 +738,10 @@ export interface DistrconfigDistributionUser {
 export interface DistrconfigGetAppResponse {
   /**
    *
-   * @type {InlineResponse20032App}
+   * @type {InlineResponse20035App}
    * @memberof DistrconfigGetAppResponse
    */
-  app?: InlineResponse20032App;
+  app?: InlineResponse20035App;
 }
 /**
  *
@@ -759,10 +751,10 @@ export interface DistrconfigGetAppResponse {
 export interface DistrconfigGetAppsResponse {
   /**
    *
-   * @type {Array<InlineResponse20032App>}
+   * @type {Array<InlineResponse20035App>}
    * @memberof DistrconfigGetAppsResponse
    */
-  apps?: Array<InlineResponse20032App>;
+  apps?: Array<InlineResponse20035App>;
 }
 /**
  *
@@ -790,16 +782,14 @@ export interface DistrconfigGetPoolDistributionResponse {
   tagPrefix?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum DistrconfigGetPoolDistributionResponsePoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const DistrconfigGetPoolDistributionResponsePoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type DistrconfigGetPoolDistributionResponsePoolTypeEnum = typeof DistrconfigGetPoolDistributionResponsePoolTypeEnum[keyof typeof DistrconfigGetPoolDistributionResponsePoolTypeEnum];
 
 /**
  *
@@ -841,10 +831,10 @@ export interface DistrconfigGetPoolsResponse {
 export interface DistrconfigGetUserResponse {
   /**
    *
-   * @type {InlineResponse20036User}
+   * @type {InlineResponse20039User}
    * @memberof DistrconfigGetUserResponse
    */
-  user?: InlineResponse20036User;
+  user?: InlineResponse20039User;
 }
 /**
  *
@@ -854,10 +844,10 @@ export interface DistrconfigGetUserResponse {
 export interface DistrconfigGetUsersResponse {
   /**
    *
-   * @type {Array<InlineResponse20036User>}
+   * @type {Array<InlineResponse20039User>}
    * @memberof DistrconfigGetUsersResponse
    */
-  users?: Array<InlineResponse20036User>;
+  users?: Array<InlineResponse20039User>;
 }
 /**
  *
@@ -946,12 +936,14 @@ export interface DistrconfigPoolSize {
  * @enum {string}
  */
 
-export enum DistrconfigPoolType {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const DistrconfigPoolType = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type DistrconfigPoolType = typeof DistrconfigPoolType[keyof typeof DistrconfigPoolType];
 
 /**
  *
@@ -1099,16 +1091,14 @@ export interface DistrconfigValidatePoolDataRequest {
   data?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum DistrconfigValidatePoolDataRequestPoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const DistrconfigValidatePoolDataRequestPoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type DistrconfigValidatePoolDataRequestPoolTypeEnum = typeof DistrconfigValidatePoolDataRequestPoolTypeEnum[keyof typeof DistrconfigValidatePoolDataRequestPoolTypeEnum];
 
 /**
  *
@@ -1610,13 +1600,11 @@ export interface InlineObject13 {
   oidcUseSecret?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineObject13FedTypeEnum {
-  Oidc = 'Oidc',
-}
+export const InlineObject13FedTypeEnum = {
+  Oidc: 'Oidc',
+} as const;
+
+export type InlineObject13FedTypeEnum = typeof InlineObject13FedTypeEnum[keyof typeof InlineObject13FedTypeEnum];
 
 /**
  *
@@ -2215,16 +2203,14 @@ export interface InlineObject37 {
   onUploadFunction?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineObject37PoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const InlineObject37PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineObject37PoolTypeEnum = typeof InlineObject37PoolTypeEnum[keyof typeof InlineObject37PoolTypeEnum];
 
 /**
  *
@@ -2276,16 +2262,14 @@ export interface InlineObject38 {
   onUploadFunction?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineObject38PoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const InlineObject38PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineObject38PoolTypeEnum = typeof InlineObject38PoolTypeEnum[keyof typeof InlineObject38PoolTypeEnum];
 
 /**
  *
@@ -2351,16 +2335,14 @@ export interface InlineObject40 {
   data?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineObject40PoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const InlineObject40PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineObject40PoolTypeEnum = typeof InlineObject40PoolTypeEnum[keyof typeof InlineObject40PoolTypeEnum];
 
 /**
  *
@@ -2412,16 +2394,14 @@ export interface InlineObject41 {
   onUploadFunction?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineObject41PoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
+export const InlineObject41PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineObject41PoolTypeEnum = typeof InlineObject41PoolTypeEnum[keyof typeof InlineObject41PoolTypeEnum];
 
 /**
  *
@@ -2789,13 +2769,11 @@ export interface InlineResponse20011Config {
   oidcUseSecret?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineResponse20011ConfigFedTypeEnum {
-  Oidc = 'Oidc',
-}
+export const InlineResponse20011ConfigFedTypeEnum = {
+  Oidc: 'Oidc',
+} as const;
+
+export type InlineResponse20011ConfigFedTypeEnum = typeof InlineResponse20011ConfigFedTypeEnum[keyof typeof InlineResponse20011ConfigFedTypeEnum];
 
 /**
  *
@@ -3270,22 +3248,145 @@ export interface InlineResponse20025 {
 export interface InlineResponse20026 {
   /**
    *
-   * @type {boolean}
+   * @type {InlineResponse20026Subscription}
    * @memberof InlineResponse20026
    */
-  success?: boolean;
+  subscription?: InlineResponse20026Subscription;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20026Subscription
+ */
+export interface InlineResponse20026Subscription {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026
+   * @memberof InlineResponse20026Subscription
    */
-  err?: string;
+  subscriptionID?: string;
   /**
    *
-   * @type {object}
-   * @memberof InlineResponse20026
+   * @type {string}
+   * @memberof InlineResponse20026Subscription
    */
-  body?: object;
+  status?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026Subscription
+   */
+  created?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026Subscription
+   */
+  startDate?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026Subscription
+   */
+  currentPeriodStart?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026Subscription
+   */
+  currentPeriodEnd?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026Subscription
+   */
+  canceledAt?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20026Subscription
+   */
+  cancelAtPeriodEnd?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026Subscription
+   */
+  clientSecret?: string;
+  /**
+   *
+   * @type {InlineResponse20026SubscriptionSubscriptionItem}
+   * @memberof InlineResponse20026Subscription
+   */
+  subscriptionItem?: InlineResponse20026SubscriptionSubscriptionItem;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20026SubscriptionSubscriptionItem
+ */
+export interface InlineResponse20026SubscriptionSubscriptionItem {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItem
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItem
+   */
+  created?: string;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItem
+   */
+  quantity?: number;
+  /**
+   *
+   * @type {InlineResponse20026SubscriptionSubscriptionItemPrice}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItem
+   */
+  price?: InlineResponse20026SubscriptionSubscriptionItemPrice;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20026SubscriptionSubscriptionItemPrice
+ */
+export interface InlineResponse20026SubscriptionSubscriptionItemPrice {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
+   */
+  id?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
+   */
+  active?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
+   */
+  billingScheme?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
+   */
+  created?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
+   */
+  currency?: string;
 }
 /**
  *
@@ -3298,7 +3399,13 @@ export interface InlineResponse20027 {
    * @type {string}
    * @memberof InlineResponse20027
    */
-  id?: string;
+  subscriptionID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20027
+   */
+  clientSecret?: string;
 }
 /**
  *
@@ -3308,16 +3415,101 @@ export interface InlineResponse20027 {
 export interface InlineResponse20028 {
   /**
    *
-   * @type {InlineObject30}
+   * @type {InlineResponse20028SubscriptionStatus}
    * @memberof InlineResponse20028
    */
-  function?: InlineObject30;
+  subscriptionStatus?: InlineResponse20028SubscriptionStatus;
   /**
    *
-   * @type {InlineObject30}
+   * @type {boolean}
    * @memberof InlineResponse20028
    */
-  result?: InlineObject30;
+  hasSetupPayment?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20028
+   */
+  hasSetupSubscription?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20028SubscriptionStatus
+ */
+export interface InlineResponse20028SubscriptionStatus {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  subscriptionID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  priceID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  quantity?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  productDescription?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  customerID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  cardBrand?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  cardLast4?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  nextAmmountDue?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  nextPaymentDate?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  lastAmountPaid?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  lastInvoiceDescription?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028SubscriptionStatus
+   */
+  clientSecret?: string;
 }
 /**
  *
@@ -3327,10 +3519,22 @@ export interface InlineResponse20028 {
 export interface InlineResponse20029 {
   /**
    *
-   * @type {Array<InlineObject30>}
+   * @type {boolean}
    * @memberof InlineResponse20029
    */
-  functions?: Array<InlineObject30>;
+  success?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029
+   */
+  err?: string;
+  /**
+   *
+   * @type {object}
+   * @memberof InlineResponse20029
+   */
+  body?: object;
 }
 /**
  * A DataPoint represents a single data point in a metrics series and consists  of a timestamp and the value for the metric at the specific time.
@@ -3403,10 +3607,10 @@ export interface InlineResponse2003 {
 export interface InlineResponse20030 {
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof InlineResponse20030
    */
-  failedPoolIDs?: Array<string>;
+  id?: string;
 }
 /**
  *
@@ -3416,10 +3620,16 @@ export interface InlineResponse20030 {
 export interface InlineResponse20031 {
   /**
    *
-   * @type {Array<string>}
+   * @type {InlineObject30}
    * @memberof InlineResponse20031
    */
-  failedUserIDs?: Array<string>;
+  function?: InlineObject30;
+  /**
+   *
+   * @type {InlineObject30}
+   * @memberof InlineResponse20031
+   */
+  result?: InlineObject30;
 }
 /**
  *
@@ -3429,41 +3639,10 @@ export interface InlineResponse20031 {
 export interface InlineResponse20032 {
   /**
    *
-   * @type {InlineResponse20032App}
+   * @type {Array<InlineObject30>}
    * @memberof InlineResponse20032
    */
-  app?: InlineResponse20032App;
-}
-/**
- *
- * @export
- * @interface InlineResponse20032App
- */
-export interface InlineResponse20032App {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20032App
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20032App
-   */
-  bundleUrl?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20032App
-   */
-  active?: boolean;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20032App
-   */
-  assignedPools?: Array<string>;
+  functions?: Array<InlineObject30>;
 }
 /**
  *
@@ -3473,10 +3652,10 @@ export interface InlineResponse20032App {
 export interface InlineResponse20033 {
   /**
    *
-   * @type {Array<InlineResponse20032App>}
+   * @type {Array<string>}
    * @memberof InlineResponse20033
    */
-  apps?: Array<InlineResponse20032App>;
+  failedPoolIDs?: Array<string>;
 }
 /**
  *
@@ -3486,35 +3665,11 @@ export interface InlineResponse20033 {
 export interface InlineResponse20034 {
   /**
    *
-   * @type {string}
+   * @type {Array<string>}
    * @memberof InlineResponse20034
    */
-  dbUrl?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20034
-   */
-  poolType?: InlineResponse20034PoolTypeEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20034
-   */
-  tagPrefix?: string;
+  failedUserIDs?: Array<string>;
 }
-
-/**
- * @export
- * @enum {string}
- */
-export enum InlineResponse20034PoolTypeEnum {
-  Unknown = 'UNKNOWN',
-  Global = 'GLOBAL',
-  Filtered = 'FILTERED',
-  User = 'USER',
-}
-
 /**
  *
  * @export
@@ -3523,22 +3678,41 @@ export enum InlineResponse20034PoolTypeEnum {
 export interface InlineResponse20035 {
   /**
    *
-   * @type {string}
+   * @type {InlineResponse20035App}
    * @memberof InlineResponse20035
    */
-  derivedPk?: string;
+  app?: InlineResponse20035App;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20035App
+ */
+export interface InlineResponse20035App {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20035
+   * @memberof InlineResponse20035App
    */
-  derivedTag?: string;
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20035App
+   */
+  bundleUrl?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20035App
+   */
+  active?: boolean;
   /**
    *
    * @type {Array<string>}
-   * @memberof InlineResponse20035
+   * @memberof InlineResponse20035App
    */
-  validationErrors?: Array<string>;
+  assignedPools?: Array<string>;
 }
 /**
  *
@@ -3548,54 +3722,10 @@ export interface InlineResponse20035 {
 export interface InlineResponse20036 {
   /**
    *
-   * @type {InlineResponse20036User}
+   * @type {Array<InlineResponse20035App>}
    * @memberof InlineResponse20036
    */
-  user?: InlineResponse20036User;
-}
-/**
- *
- * @export
- * @interface InlineResponse20036User
- */
-export interface InlineResponse20036User {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20036User
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20036User
-   */
-  activeAppID?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20036UserTagAssignments>}
-   * @memberof InlineResponse20036User
-   */
-  tagAssignments?: Array<InlineResponse20036UserTagAssignments>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20036UserTagAssignments
- */
-export interface InlineResponse20036UserTagAssignments {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20036UserTagAssignments
-   */
-  poolID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20036UserTagAssignments
-   */
-  value?: string;
+  apps?: Array<InlineResponse20035App>;
 }
 /**
  *
@@ -3605,11 +3735,33 @@ export interface InlineResponse20036UserTagAssignments {
 export interface InlineResponse20037 {
   /**
    *
-   * @type {Array<InlineResponse20036User>}
+   * @type {string}
    * @memberof InlineResponse20037
    */
-  users?: Array<InlineResponse20036User>;
+  dbUrl?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20037
+   */
+  poolType?: InlineResponse20037PoolTypeEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20037
+   */
+  tagPrefix?: string;
 }
+
+export const InlineResponse20037PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineResponse20037PoolTypeEnum = typeof InlineResponse20037PoolTypeEnum[keyof typeof InlineResponse20037PoolTypeEnum];
+
 /**
  *
  * @export
@@ -3617,48 +3769,23 @@ export interface InlineResponse20037 {
  */
 export interface InlineResponse20038 {
   /**
-   * The number of rows in the database
-   * @type {number}
-   * @memberof InlineResponse20038
-   */
-  total_rows?: number;
-  /**
-   * Current offset
-   * @type {number}
-   * @memberof InlineResponse20038
-   */
-  offset?: number;
-  /**
    *
-   * @type {Array<InlineResponse20038Rows>}
+   * @type {string}
    * @memberof InlineResponse20038
    */
-  rows?: Array<InlineResponse20038Rows>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20038Rows
- */
-export interface InlineResponse20038Rows {
+  derivedPk?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20038Rows
+   * @memberof InlineResponse20038
    */
-  _id: string;
+  derivedTag?: string;
   /**
    *
-   * @type {string}
-   * @memberof InlineResponse20038Rows
-   */
-  _rev?: string;
-  /**
-   * Optional field for USER and FILTERED pools.
    * @type {Array<string>}
-   * @memberof InlineResponse20038Rows
+   * @memberof InlineResponse20038
    */
-  tags?: Array<string>;
+  validationErrors?: Array<string>;
 }
 /**
  *
@@ -3667,36 +3794,55 @@ export interface InlineResponse20038Rows {
  */
 export interface InlineResponse20039 {
   /**
-   * Successful creation
-   * @type {Array<InlineResponse20039Result>}
+   *
+   * @type {InlineResponse20039User}
    * @memberof InlineResponse20039
    */
-  result?: Array<InlineResponse20039Result>;
-  /**
-   * List of errors if any occur
-   * @type {Array<string>}
-   * @memberof InlineResponse20039
-   */
-  errors?: Array<string>;
+  user?: InlineResponse20039User;
 }
 /**
  *
  * @export
- * @interface InlineResponse20039Result
+ * @interface InlineResponse20039User
  */
-export interface InlineResponse20039Result {
+export interface InlineResponse20039User {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20039Result
+   * @memberof InlineResponse20039User
    */
   id?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20039Result
+   * @memberof InlineResponse20039User
    */
-  rev?: string;
+  activeAppID?: string;
+  /**
+   *
+   * @type {Array<InlineResponse20039UserTagAssignments>}
+   * @memberof InlineResponse20039User
+   */
+  tagAssignments?: Array<InlineResponse20039UserTagAssignments>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20039UserTagAssignments
+ */
+export interface InlineResponse20039UserTagAssignments {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20039UserTagAssignments
+   */
+  poolID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20039UserTagAssignments
+   */
+  value?: string;
 }
 /**
  *
@@ -3718,15 +3864,116 @@ export interface InlineResponse2004 {
  */
 export interface InlineResponse20040 {
   /**
-   * Successful deletion
-   * @type {Array<InlineResponse20039Result>}
+   *
+   * @type {Array<InlineResponse20039User>}
    * @memberof InlineResponse20040
    */
-  result?: Array<InlineResponse20039Result>;
+  users?: Array<InlineResponse20039User>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20041
+ */
+export interface InlineResponse20041 {
+  /**
+   * The number of rows in the database
+   * @type {number}
+   * @memberof InlineResponse20041
+   */
+  total_rows?: number;
+  /**
+   * Current offset
+   * @type {number}
+   * @memberof InlineResponse20041
+   */
+  offset?: number;
+  /**
+   *
+   * @type {Array<InlineResponse20041Rows>}
+   * @memberof InlineResponse20041
+   */
+  rows?: Array<InlineResponse20041Rows>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20041Rows
+ */
+export interface InlineResponse20041Rows {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20041Rows
+   */
+  _id: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20041Rows
+   */
+  _rev?: string;
+  /**
+   * Optional field for USER and FILTERED pools.
+   * @type {Array<string>}
+   * @memberof InlineResponse20041Rows
+   */
+  tags?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20042
+ */
+export interface InlineResponse20042 {
+  /**
+   * Successful creation
+   * @type {Array<InlineResponse20042Result>}
+   * @memberof InlineResponse20042
+   */
+  result?: Array<InlineResponse20042Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
-   * @memberof InlineResponse20040
+   * @memberof InlineResponse20042
+   */
+  errors?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20042Result
+ */
+export interface InlineResponse20042Result {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20042Result
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20042Result
+   */
+  rev?: string;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20043
+ */
+export interface InlineResponse20043 {
+  /**
+   * Successful deletion
+   * @type {Array<InlineResponse20042Result>}
+   * @memberof InlineResponse20043
+   */
+  result?: Array<InlineResponse20042Result>;
+  /**
+   * List of errors if any occur
+   * @type {Array<string>}
+   * @memberof InlineResponse20043
    */
   errors?: Array<string>;
 }
@@ -3774,16 +4021,14 @@ export interface InlineResponse2004Account {
   contactDetails?: InlineResponse2004AccountContactDetails;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineResponse2004AccountStatusEnum {
-  Pending = 'PENDING',
-  Active = 'ACTIVE',
-  Disabled = 'DISABLED',
-  Deleted = 'DELETED',
-}
+export const InlineResponse2004AccountStatusEnum = {
+  Pending: 'PENDING',
+  Active: 'ACTIVE',
+  Disabled: 'DISABLED',
+  Deleted: 'DELETED',
+} as const;
+
+export type InlineResponse2004AccountStatusEnum = typeof InlineResponse2004AccountStatusEnum[keyof typeof InlineResponse2004AccountStatusEnum];
 
 /**
  *
@@ -3830,16 +4075,14 @@ export interface InlineResponse2004AccountPaymentDetails {
   info?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineResponse2004AccountPaymentDetailsTypeEnum {
-  CreditCard = 'CreditCard',
-  Paypal = 'Paypal',
-  DirectDebig = 'DirectDebig',
-  Invoice = 'Invoice',
-}
+export const InlineResponse2004AccountPaymentDetailsTypeEnum = {
+  CreditCard: 'CreditCard',
+  Paypal: 'Paypal',
+  DirectDebig: 'DirectDebig',
+  Invoice: 'Invoice',
+} as const;
+
+export type InlineResponse2004AccountPaymentDetailsTypeEnum = typeof InlineResponse2004AccountPaymentDetailsTypeEnum[keyof typeof InlineResponse2004AccountPaymentDetailsTypeEnum];
 
 /**
  *
@@ -4018,19 +4261,17 @@ export interface InlineResponse200Logs {
   fields?: Array<InlineResponse200Fields>;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum InlineResponse200LogsSeverityEnum {
-  Unknown = 'UNKNOWN',
-  Trace = 'TRACE',
-  Info = 'INFO',
-  Warning = 'WARNING',
-  Error = 'ERROR',
-  Audit = 'AUDIT',
-  All = 'ALL',
-}
+export const InlineResponse200LogsSeverityEnum = {
+  Unknown: 'UNKNOWN',
+  Trace: 'TRACE',
+  Info: 'INFO',
+  Warning: 'WARNING',
+  Error: 'ERROR',
+  Audit: 'AUDIT',
+  All: 'ALL',
+} as const;
+
+export type InlineResponse200LogsSeverityEnum = typeof InlineResponse200LogsSeverityEnum[keyof typeof InlineResponse200LogsSeverityEnum];
 
 /**
  *
@@ -4063,15 +4304,17 @@ export interface InlineResponseDefault {
  * @enum {string}
  */
 
-export enum LogEntrySeverity {
-  Unknown = 'UNKNOWN',
-  Trace = 'TRACE',
-  Info = 'INFO',
-  Warning = 'WARNING',
-  Error = 'ERROR',
-  Audit = 'AUDIT',
-  All = 'ALL',
-}
+export const LogEntrySeverity = {
+  Unknown: 'UNKNOWN',
+  Trace: 'TRACE',
+  Info: 'INFO',
+  Warning: 'WARNING',
+  Error: 'ERROR',
+  Audit: 'AUDIT',
+  All: 'ALL',
+} as const;
+
+export type LogEntrySeverity = typeof LogEntrySeverity[keyof typeof LogEntrySeverity];
 
 /**
  *
@@ -4079,12 +4322,14 @@ export enum LogEntrySeverity {
  * @enum {string}
  */
 
-export enum PaymentDetailsPaymentType {
-  CreditCard = 'CreditCard',
-  Paypal = 'Paypal',
-  DirectDebig = 'DirectDebig',
-  Invoice = 'Invoice',
-}
+export const PaymentDetailsPaymentType = {
+  CreditCard: 'CreditCard',
+  Paypal: 'Paypal',
+  DirectDebig: 'DirectDebig',
+  Invoice: 'Invoice',
+} as const;
+
+export type PaymentDetailsPaymentType = typeof PaymentDetailsPaymentType[keyof typeof PaymentDetailsPaymentType];
 
 /**
  * `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.      Foo foo = ...;     Any any;     any.PackFrom(foo);     ...     if (any.UnpackTo(&foo)) {       ...     }  Example 2: Pack and unpack a message in Java.      Foo foo = ...;     Any any = Any.pack(foo);     ...     if (any.is(Foo.class)) {       foo = any.unpack(Foo.class);     }   Example 3: Pack and unpack a message in Python.      foo = Foo(...)     any = Any()     any.Pack(foo)     ...     if any.Is(Foo.DESCRIPTOR):       any.Unpack(foo)       ...   Example 4: Pack and unpack a message in Go       foo := &pb.Foo{...}      any, err := ptypes.MarshalAny(foo)      ...      foo := &pb.Foo{}      if err := ptypes.UnmarshalAny(any, foo); err != nil {        ...      }  The pack methods provided by protobuf library will by default use \'type.googleapis.com/full.type.name\' as the type URL and the unpack methods only use the fully qualified type name after the last \'/\' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:      package google.profile;     message Person {       string first_name = 1;       string last_name = 2;     }      {       \"@type\": \"type.googleapis.com/google.profile.Person\",       \"firstName\": <string>,       \"lastName\": <string>     }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):      {       \"@type\": \"type.googleapis.com/google.protobuf.Duration\",       \"value\": \"1.212s\"     }
@@ -4107,9 +4352,11 @@ export interface ProtobufAny {
  * @enum {string}
  */
 
-export enum ProtobufNullValue {
-  NullValue = 'NULL_VALUE',
-}
+export const ProtobufNullValue = {
+  NullValue: 'NULL_VALUE',
+} as const;
+
+export type ProtobufNullValue = typeof ProtobufNullValue[keyof typeof ProtobufNullValue];
 
 /**
  *
@@ -4199,16 +4446,14 @@ export interface V1Account {
   contactDetails?: InlineResponse2004AccountContactDetails;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum V1AccountStatusEnum {
-  Pending = 'PENDING',
-  Active = 'ACTIVE',
-  Disabled = 'DISABLED',
-  Deleted = 'DELETED',
-}
+export const V1AccountStatusEnum = {
+  Pending: 'PENDING',
+  Active: 'ACTIVE',
+  Disabled: 'DISABLED',
+  Deleted: 'DELETED',
+} as const;
+
+export type V1AccountStatusEnum = typeof V1AccountStatusEnum[keyof typeof V1AccountStatusEnum];
 
 /**
  *
@@ -4381,6 +4626,19 @@ export interface V1AssumeAccountRequest {
    * @memberof V1AssumeAccountRequest
    */
   accountID?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CancelSubscriptionResponse
+ */
+export interface V1CancelSubscriptionResponse {
+  /**
+   *
+   * @type {InlineResponse20026Subscription}
+   * @memberof V1CancelSubscriptionResponse
+   */
+  subscription?: InlineResponse20026Subscription;
 }
 /**
  *
@@ -4690,13 +4948,11 @@ export interface V1CreateFederationConfigRequest {
   oidcUseSecret?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum V1CreateFederationConfigRequestFedTypeEnum {
-  Oidc = 'Oidc',
-}
+export const V1CreateFederationConfigRequestFedTypeEnum = {
+  Oidc: 'Oidc',
+} as const;
+
+export type V1CreateFederationConfigRequestFedTypeEnum = typeof V1CreateFederationConfigRequestFedTypeEnum[keyof typeof V1CreateFederationConfigRequestFedTypeEnum];
 
 /**
  *
@@ -4812,6 +5068,25 @@ export interface V1CreateRoleResponse {
    * @memberof V1CreateRoleResponse
    */
   roleID?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateSubscriptionResponse
+ */
+export interface V1CreateSubscriptionResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateSubscriptionResponse
+   */
+  subscriptionID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateSubscriptionResponse
+   */
+  clientSecret?: string;
 }
 /**
  *
@@ -4951,13 +5226,11 @@ export interface V1FederationConfig {
   oidcUseSecret?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum V1FederationConfigFedTypeEnum {
-  Oidc = 'Oidc',
-}
+export const V1FederationConfigFedTypeEnum = {
+  Oidc: 'Oidc',
+} as const;
+
+export type V1FederationConfigFedTypeEnum = typeof V1FederationConfigFedTypeEnum[keyof typeof V1FederationConfigFedTypeEnum];
 
 /**
  *
@@ -4965,9 +5238,11 @@ export enum V1FederationConfigFedTypeEnum {
  * @enum {string}
  */
 
-export enum V1FederationType {
-  Oidc = 'Oidc',
-}
+export const V1FederationType = {
+  Oidc: 'Oidc',
+} as const;
+
+export type V1FederationType = typeof V1FederationType[keyof typeof V1FederationType];
 
 /**
  *
@@ -4981,6 +5256,31 @@ export interface V1GetAccountResponse {
    * @memberof V1GetAccountResponse
    */
   account?: InlineResponse2004Account;
+}
+/**
+ *
+ * @export
+ * @interface V1GetBillingStatusResponse
+ */
+export interface V1GetBillingStatusResponse {
+  /**
+   *
+   * @type {InlineResponse20028SubscriptionStatus}
+   * @memberof V1GetBillingStatusResponse
+   */
+  subscriptionStatus?: InlineResponse20028SubscriptionStatus;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1GetBillingStatusResponse
+   */
+  hasSetupPayment?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1GetBillingStatusResponse
+   */
+  hasSetupSubscription?: boolean;
 }
 /**
  *
@@ -5305,16 +5605,14 @@ export interface V1LabelFilter {
   op?: V1LabelFilterOpEnum;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum V1LabelFilterOpEnum {
-  Eq = 'EQ',
-  Ne = 'NE',
-  Rm = 'RM',
-  Nm = 'NM',
-}
+export const V1LabelFilterOpEnum = {
+  Eq: 'EQ',
+  Ne: 'NE',
+  Rm: 'RM',
+  Nm: 'NM',
+} as const;
+
+export type V1LabelFilterOpEnum = typeof V1LabelFilterOpEnum[keyof typeof V1LabelFilterOpEnum];
 
 /**
  *
@@ -5322,12 +5620,14 @@ export enum V1LabelFilterOpEnum {
  * @enum {string}
  */
 
-export enum V1LabelFilterOperator {
-  Eq = 'EQ',
-  Ne = 'NE',
-  Rm = 'RM',
-  Nm = 'NM',
-}
+export const V1LabelFilterOperator = {
+  Eq: 'EQ',
+  Ne: 'NE',
+  Rm: 'RM',
+  Nm: 'NM',
+} as const;
+
+export type V1LabelFilterOperator = typeof V1LabelFilterOperator[keyof typeof V1LabelFilterOperator];
 
 /**
  * LabelValues contain a list of all possible values per label name.
@@ -5411,19 +5711,17 @@ export interface V1LogEntry {
   fields?: Array<InlineResponse200Fields>;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum V1LogEntrySeverityEnum {
-  Unknown = 'UNKNOWN',
-  Trace = 'TRACE',
-  Info = 'INFO',
-  Warning = 'WARNING',
-  Error = 'ERROR',
-  Audit = 'AUDIT',
-  All = 'ALL',
-}
+export const V1LogEntrySeverityEnum = {
+  Unknown: 'UNKNOWN',
+  Trace: 'TRACE',
+  Info: 'INFO',
+  Warning: 'WARNING',
+  Error: 'ERROR',
+  Audit: 'AUDIT',
+  All: 'ALL',
+} as const;
+
+export type V1LogEntrySeverityEnum = typeof V1LogEntrySeverityEnum[keyof typeof V1LogEntrySeverityEnum];
 
 /**
  * A log entry field represents one single attribute of the log entry, which consists of a name and value pair and is not part of the default structure of log messages.
@@ -5470,16 +5768,14 @@ export interface V1MetricAggregation {
   preserve?: boolean;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum V1MetricAggregationOpEnum {
-  Sum = 'SUM',
-  Avg = 'AVG',
-  Min = 'MIN',
-  Max = 'MAX',
-}
+export const V1MetricAggregationOpEnum = {
+  Sum: 'SUM',
+  Avg: 'AVG',
+  Min: 'MIN',
+  Max: 'MAX',
+} as const;
+
+export type V1MetricAggregationOpEnum = typeof V1MetricAggregationOpEnum[keyof typeof V1MetricAggregationOpEnum];
 
 /**
  *
@@ -5487,12 +5783,14 @@ export enum V1MetricAggregationOpEnum {
  * @enum {string}
  */
 
-export enum V1MetricAggregationOperator {
-  Sum = 'SUM',
-  Avg = 'AVG',
-  Min = 'MIN',
-  Max = 'MAX',
-}
+export const V1MetricAggregationOperator = {
+  Sum: 'SUM',
+  Avg: 'AVG',
+  Min: 'MIN',
+  Max: 'MAX',
+} as const;
+
+export type V1MetricAggregationOperator = typeof V1MetricAggregationOperator[keyof typeof V1MetricAggregationOperator];
 
 /**
  * MetricMeta contains a name of a metric and a short description, indicating what this metric is representing.
@@ -5638,16 +5936,14 @@ export interface V1PaymentDetails {
   info?: string;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum V1PaymentDetailsTypeEnum {
-  CreditCard = 'CreditCard',
-  Paypal = 'Paypal',
-  DirectDebig = 'DirectDebig',
-  Invoice = 'Invoice',
-}
+export const V1PaymentDetailsTypeEnum = {
+  CreditCard: 'CreditCard',
+  Paypal: 'Paypal',
+  DirectDebig: 'DirectDebig',
+  Invoice: 'Invoice',
+} as const;
+
+export type V1PaymentDetailsTypeEnum = typeof V1PaymentDetailsTypeEnum[keyof typeof V1PaymentDetailsTypeEnum];
 
 /**
  *
@@ -5698,6 +5994,43 @@ export interface V1Policy {
    * @memberof V1Policy
    */
   permissions?: Array<InlineResponse20010Permissions>;
+}
+/**
+ *
+ * @export
+ * @interface V1Price
+ */
+export interface V1Price {
+  /**
+   *
+   * @type {string}
+   * @memberof V1Price
+   */
+  id?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1Price
+   */
+  active?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Price
+   */
+  billingScheme?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Price
+   */
+  created?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Price
+   */
+  currency?: string;
 }
 /**
  *
@@ -6029,6 +6362,183 @@ export interface V1SetPasswordRequest {
 /**
  *
  * @export
+ * @interface V1Subscription
+ */
+export interface V1Subscription {
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  subscriptionID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  status?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  created?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  startDate?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  currentPeriodStart?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  currentPeriodEnd?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  canceledAt?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1Subscription
+   */
+  cancelAtPeriodEnd?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Subscription
+   */
+  clientSecret?: string;
+  /**
+   *
+   * @type {InlineResponse20026SubscriptionSubscriptionItem}
+   * @memberof V1Subscription
+   */
+  subscriptionItem?: InlineResponse20026SubscriptionSubscriptionItem;
+}
+/**
+ *
+ * @export
+ * @interface V1SubscriptionItem
+ */
+export interface V1SubscriptionItem {
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionItem
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionItem
+   */
+  created?: string;
+  /**
+   *
+   * @type {number}
+   * @memberof V1SubscriptionItem
+   */
+  quantity?: number;
+  /**
+   *
+   * @type {InlineResponse20026SubscriptionSubscriptionItemPrice}
+   * @memberof V1SubscriptionItem
+   */
+  price?: InlineResponse20026SubscriptionSubscriptionItemPrice;
+}
+/**
+ *
+ * @export
+ * @interface V1SubscriptionStatus
+ */
+export interface V1SubscriptionStatus {
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  subscriptionID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  priceID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  quantity?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  productDescription?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  customerID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  cardBrand?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  cardLast4?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  nextAmmountDue?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  nextPaymentDate?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  lastAmountPaid?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  lastInvoiceDescription?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SubscriptionStatus
+   */
+  clientSecret?: string;
+}
+/**
+ *
+ * @export
  * @interface V1UpdateAccountRequest
  */
 export interface V1UpdateAccountRequest {
@@ -6077,6 +6587,19 @@ export interface V1UpdateRoleRequest {
    * @memberof V1UpdateRoleRequest
    */
   role?: ApiAuthV1RoleRole;
+}
+/**
+ *
+ * @export
+ * @interface V1UpdateSubscriptionResponse
+ */
+export interface V1UpdateSubscriptionResponse {
+  /**
+   *
+   * @type {InlineResponse20026Subscription}
+   * @memberof V1UpdateSubscriptionResponse
+   */
+  subscription?: InlineResponse20026Subscription;
 }
 /**
  *
@@ -10243,6 +10766,349 @@ export class AuthServiceApi extends BaseAPI {
 }
 
 /**
+ * BillingServiceApi - axios parameter creator
+ * @export
+ */
+export const BillingServiceApiAxiosParamCreator = function (configuration?: Configuration) {
+  return {
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
+     * @summary CancelSubscription cancels a subscription.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/cancel-subscription`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
+     * @summary CreateSubscription creates a new subscription for the logged in account.
+     * @param {string} [priceID]
+     * @param {string} [quantity]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createSubscription: async (
+      priceID?: string,
+      quantity?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/create-subscription`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (priceID !== undefined) {
+        localVarQueryParameter['priceID'] = priceID;
+      }
+
+      if (quantity !== undefined) {
+        localVarQueryParameter['quantity'] = quantity;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
+     * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getBillingStatus: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/get-status`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
+     * @summary UpdateSubscription with a new payment details.
+     * @param {string} [newPriceLookupKey]
+     * @param {string} [quantity]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateSubscription: async (
+      newPriceLookupKey?: string,
+      quantity?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/update-subscription`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (newPriceLookupKey !== undefined) {
+        localVarQueryParameter['newPriceLookupKey'] = newPriceLookupKey;
+      }
+
+      if (quantity !== undefined) {
+        localVarQueryParameter['quantity'] = quantity;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+  };
+};
+
+/**
+ * BillingServiceApi - functional programming interface
+ * @export
+ */
+export const BillingServiceApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = BillingServiceApiAxiosParamCreator(configuration);
+  return {
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
+     * @summary CancelSubscription cancels a subscription.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async cancelSubscription(
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
+     * @summary CreateSubscription creates a new subscription for the logged in account.
+     * @param {string} [priceID]
+     * @param {string} [quantity]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createSubscription(
+      priceID?: string,
+      quantity?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(priceID, quantity, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
+     * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getBillingStatus(
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getBillingStatus(options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
+     * @summary UpdateSubscription with a new payment details.
+     * @param {string} [newPriceLookupKey]
+     * @param {string} [quantity]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateSubscription(
+      newPriceLookupKey?: string,
+      quantity?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(
+        newPriceLookupKey,
+        quantity,
+        options,
+      );
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+  };
+};
+
+/**
+ * BillingServiceApi - factory interface
+ * @export
+ */
+export const BillingServiceApiFactory = function (
+  configuration?: Configuration,
+  basePath?: string,
+  axios?: AxiosInstance,
+) {
+  const localVarFp = BillingServiceApiFp(configuration);
+  return {
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
+     * @summary CancelSubscription cancels a subscription.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelSubscription(options?: any): AxiosPromise<InlineResponse20026> {
+      return localVarFp.cancelSubscription(options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
+     * @summary CreateSubscription creates a new subscription for the logged in account.
+     * @param {string} [priceID]
+     * @param {string} [quantity]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createSubscription(priceID?: string, quantity?: string, options?: any): AxiosPromise<InlineResponse20027> {
+      return localVarFp.createSubscription(priceID, quantity, options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
+     * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getBillingStatus(options?: any): AxiosPromise<InlineResponse20028> {
+      return localVarFp.getBillingStatus(options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
+     * @summary UpdateSubscription with a new payment details.
+     * @param {string} [newPriceLookupKey]
+     * @param {string} [quantity]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateSubscription(
+      newPriceLookupKey?: string,
+      quantity?: string,
+      options?: any,
+    ): AxiosPromise<InlineResponse20026> {
+      return localVarFp
+        .updateSubscription(newPriceLookupKey, quantity, options)
+        .then((request) => request(axios, basePath));
+    },
+  };
+};
+
+/**
+ * BillingServiceApi - object-oriented interface
+ * @export
+ * @class BillingServiceApi
+ * @extends {BaseAPI}
+ */
+export class BillingServiceApi extends BaseAPI {
+  /**
+   * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
+   * @summary CancelSubscription cancels a subscription.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public cancelSubscription(options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .cancelSubscription(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
+   * @summary CreateSubscription creates a new subscription for the logged in account.
+   * @param {string} [priceID]
+   * @param {string} [quantity]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public createSubscription(priceID?: string, quantity?: string, options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .createSubscription(priceID, quantity, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
+   * @summary GetBillingStatus returns the current billing status for logged in account.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public getBillingStatus(options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .getBillingStatus(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
+   * @summary UpdateSubscription with a new payment details.
+   * @param {string} [newPriceLookupKey]
+   * @param {string} [quantity]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public updateSubscription(newPriceLookupKey?: string, quantity?: string, options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .updateSubscription(newPriceLookupKey, quantity, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+}
+
+/**
  * DistrConfigServiceApi - axios parameter creator
  * @export
  */
@@ -11121,7 +11987,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async assignAppToUsers(
       body: InlineObject34,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignAppToUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11135,7 +12001,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async assignPoolsToApp(
       body: InlineObject32,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignPoolsToApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11261,7 +12127,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async getApp(
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApp(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11273,7 +12139,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getApps(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApps(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11305,7 +12171,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       id: string,
       userId?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPoolDistribution(id, userId, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11331,7 +12197,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async getUser(
       userID: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11343,7 +12209,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getUsers(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11373,7 +12239,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async unassignAppFromUsers(
       body: InlineObject35,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignAppFromUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11387,7 +12253,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async unassignPoolsFromApp(
       body: InlineObject33,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignPoolsFromApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11445,7 +12311,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async validatePoolData(
       body: InlineObject40,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.validatePoolData(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11480,7 +12346,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppToUsers(body: InlineObject34, options?: any): AxiosPromise<InlineResponse20031> {
+    assignAppToUsers(body: InlineObject34, options?: any): AxiosPromise<InlineResponse20034> {
       return localVarFp.assignAppToUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11490,7 +12356,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignPoolsToApp(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20030> {
+    assignPoolsToApp(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20033> {
       return localVarFp.assignPoolsToApp(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11580,7 +12446,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApp(id: string, options?: any): AxiosPromise<InlineResponse20032> {
+    getApp(id: string, options?: any): AxiosPromise<InlineResponse20035> {
       return localVarFp.getApp(id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11589,7 +12455,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApps(options?: any): AxiosPromise<InlineResponse20033> {
+    getApps(options?: any): AxiosPromise<InlineResponse20036> {
       return localVarFp.getApps(options).then((request) => request(axios, basePath));
     },
     /**
@@ -11610,7 +12476,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPoolDistribution(id: string, userId?: string, options?: any): AxiosPromise<InlineResponse20034> {
+    getPoolDistribution(id: string, userId?: string, options?: any): AxiosPromise<InlineResponse20037> {
       return localVarFp.getPoolDistribution(id, userId, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11629,7 +12495,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20036> {
+    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20039> {
       return localVarFp.getUser(userID, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11638,7 +12504,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsers(options?: any): AxiosPromise<InlineResponse20037> {
+    getUsers(options?: any): AxiosPromise<InlineResponse20040> {
       return localVarFp.getUsers(options).then((request) => request(axios, basePath));
     },
     /**
@@ -11659,7 +12525,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignAppFromUsers(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20031> {
+    unassignAppFromUsers(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20034> {
       return localVarFp.unassignAppFromUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11669,7 +12535,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignPoolsFromApp(body: InlineObject33, options?: any): AxiosPromise<InlineResponse20030> {
+    unassignPoolsFromApp(body: InlineObject33, options?: any): AxiosPromise<InlineResponse20033> {
       return localVarFp.unassignPoolsFromApp(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11710,7 +12576,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    validatePoolData(body: InlineObject40, options?: any): AxiosPromise<InlineResponse20035> {
+    validatePoolData(body: InlineObject40, options?: any): AxiosPromise<InlineResponse20038> {
       return localVarFp.validatePoolData(body, options).then((request) => request(axios, basePath));
     },
   };
@@ -12465,7 +13331,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
       body: object,
       payloadJSON?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callSyncFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12483,7 +13349,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
       body: object,
       payloadJSON?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callTestFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12497,7 +13363,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async createFunction(
       body: InlineObject29,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createFunction(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12525,7 +13391,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async getFunction(
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunction(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12537,7 +13403,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      */
     async getFunctions(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunctions(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12606,7 +13472,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callSyncFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20026> {
+    callSyncFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20029> {
       return localVarFp.callSyncFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12618,7 +13484,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callTestFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20026> {
+    callTestFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20029> {
       return localVarFp.callTestFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12628,7 +13494,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFunction(body: InlineObject29, options?: any): AxiosPromise<InlineResponse20027> {
+    createFunction(body: InlineObject29, options?: any): AxiosPromise<InlineResponse20030> {
       return localVarFp.createFunction(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12648,7 +13514,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunction(id: string, options?: any): AxiosPromise<InlineResponse20028> {
+    getFunction(id: string, options?: any): AxiosPromise<InlineResponse20031> {
       return localVarFp.getFunction(id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12657,7 +13523,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunctions(options?: any): AxiosPromise<InlineResponse20029> {
+    getFunctions(options?: any): AxiosPromise<InlineResponse20032> {
       return localVarFp.getFunctions(options).then((request) => request(axios, basePath));
     },
     /**
@@ -12834,13 +13700,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkCreate: async (
       poolId: string,
-      body: Array<InlineResponse20038Rows>,
+      body: Array<InlineResponse20041Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -12875,13 +13741,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkDelete: async (
       poolId: string,
-      body: Array<InlineResponse20038Rows>,
+      body: Array<InlineResponse20041Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -12916,13 +13782,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkUpdate: async (
       poolId: string,
-      body: Array<InlineResponse20038Rows>,
+      body: Array<InlineResponse20041Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -13200,15 +14066,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkCreate(
       poolId: string,
-      body: Array<InlineResponse20038Rows>,
+      body: Array<InlineResponse20041Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkCreate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13216,15 +14082,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkDelete(
       poolId: string,
-      body: Array<InlineResponse20038Rows>,
+      body: Array<InlineResponse20041Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDelete(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13232,15 +14098,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkUpdate(
       poolId: string,
-      body: Array<InlineResponse20038Rows>,
+      body: Array<InlineResponse20041Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkUpdate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13274,7 +14140,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       poolId: string,
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038Rows>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041Rows>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.get(poolId, id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13310,7 +14176,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       limit: number,
       skip: number,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.list(poolId, limit, skip, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13352,33 +14218,33 @@ export const PoolDataServiceApiFactory = function (
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkCreate(poolId: string, body: Array<InlineResponse20038Rows>, options?: any): AxiosPromise<InlineResponse20039> {
+    bulkCreate(poolId: string, body: Array<InlineResponse20041Rows>, options?: any): AxiosPromise<InlineResponse20042> {
       return localVarFp.bulkCreate(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkDelete(poolId: string, body: Array<InlineResponse20038Rows>, options?: any): AxiosPromise<InlineResponse20040> {
+    bulkDelete(poolId: string, body: Array<InlineResponse20041Rows>, options?: any): AxiosPromise<InlineResponse20043> {
       return localVarFp.bulkDelete(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20038Rows>} body
+     * @param {Array<InlineResponse20041Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkUpdate(poolId: string, body: Array<InlineResponse20038Rows>, options?: any): AxiosPromise<InlineResponse20039> {
+    bulkUpdate(poolId: string, body: Array<InlineResponse20041Rows>, options?: any): AxiosPromise<InlineResponse20042> {
       return localVarFp.bulkUpdate(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13401,7 +14267,7 @@ export const PoolDataServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    get(poolId: string, id: string, options?: any): AxiosPromise<InlineResponse20038Rows> {
+    get(poolId: string, id: string, options?: any): AxiosPromise<InlineResponse20041Rows> {
       return localVarFp.get(poolId, id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13425,7 +14291,7 @@ export const PoolDataServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<InlineResponse20038> {
+    list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<InlineResponse20041> {
       return localVarFp.list(poolId, limit, skip, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13457,12 +14323,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk create mobile data records in a pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20038Rows>} body
+   * @param {Array<InlineResponse20041Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkCreate(poolId: string, body: Array<InlineResponse20038Rows>, options?: AxiosRequestConfig) {
+  public bulkCreate(poolId: string, body: Array<InlineResponse20041Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkCreate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13472,12 +14338,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk delete records from mobile data pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20038Rows>} body
+   * @param {Array<InlineResponse20041Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkDelete(poolId: string, body: Array<InlineResponse20038Rows>, options?: AxiosRequestConfig) {
+  public bulkDelete(poolId: string, body: Array<InlineResponse20041Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkDelete(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13487,12 +14353,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk update records in mobile data pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20038Rows>} body
+   * @param {Array<InlineResponse20041Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkUpdate(poolId: string, body: Array<InlineResponse20038Rows>, options?: AxiosRequestConfig) {
+  public bulkUpdate(poolId: string, body: Array<InlineResponse20041Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkUpdate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
