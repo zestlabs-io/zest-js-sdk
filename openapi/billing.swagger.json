@@ -64,6 +64,45 @@
         ]
       }
     },
+    "/api/billing/v1/change-payment-method": {
+      "post": {
+        "summary": "ChangePaymentMethod with a new payment details.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`ChangePaymentMethod`\n\t\tScope:\t\t\t``",
+        "operationId": "BillingService_ChangePaymentMethod",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1ChangePaymentMethodResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
     "/api/billing/v1/create-subscription": {
       "post": {
         "summary": "CreateSubscription creates a new subscription for the logged in account.",
@@ -250,6 +289,14 @@
       "properties": {
         "subscription": {
           "$ref": "#/definitions/v1Subscription"
+        }
+      }
+    },
+    "v1ChangePaymentMethodResponse": {
+      "type": "object",
+      "properties": {
+        "clientSecret": {
+          "type": "string"
         }
       }
     },

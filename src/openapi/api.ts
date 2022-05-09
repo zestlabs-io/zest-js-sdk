@@ -340,10 +340,10 @@ export interface ContainsListOfAllDataPoolTasksPoolSizes {
 export interface DataBulkCreateResponse {
   /**
    * Successful creation
-   * @type {Array<InlineResponse20042Result>}
+   * @type {Array<InlineResponse20043Result>}
    * @memberof DataBulkCreateResponse
    */
-  result?: Array<InlineResponse20042Result>;
+  result?: Array<InlineResponse20043Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -359,10 +359,10 @@ export interface DataBulkCreateResponse {
 export interface DataBulkDeleteResponse {
   /**
    * Successful deletion
-   * @type {Array<InlineResponse20042Result>}
+   * @type {Array<InlineResponse20043Result>}
    * @memberof DataBulkDeleteResponse
    */
-  result?: Array<InlineResponse20042Result>;
+  result?: Array<InlineResponse20043Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -378,10 +378,10 @@ export interface DataBulkDeleteResponse {
 export interface DataBulkUpdateResponse {
   /**
    * Successful creation
-   * @type {Array<InlineResponse20042Result>}
+   * @type {Array<InlineResponse20043Result>}
    * @memberof DataBulkUpdateResponse
    */
-  result?: Array<InlineResponse20042Result>;
+  result?: Array<InlineResponse20043Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -459,10 +459,10 @@ export interface DataListResponse {
   offset?: number;
   /**
    *
-   * @type {Array<InlineResponse20041Rows>}
+   * @type {Array<InlineResponse20042Rows>}
    * @memberof DataListResponse
    */
-  rows?: Array<InlineResponse20041Rows>;
+  rows?: Array<InlineResponse20042Rows>;
 }
 /**
  *
@@ -725,10 +725,10 @@ export interface DistrconfigDistributionUser {
   activeAppID?: string;
   /**
    *
-   * @type {Array<InlineResponse20039UserTagAssignments>}
+   * @type {Array<InlineResponse20040UserTagAssignments>}
    * @memberof DistrconfigDistributionUser
    */
-  tagAssignments?: Array<InlineResponse20039UserTagAssignments>;
+  tagAssignments?: Array<InlineResponse20040UserTagAssignments>;
 }
 /**
  *
@@ -738,10 +738,10 @@ export interface DistrconfigDistributionUser {
 export interface DistrconfigGetAppResponse {
   /**
    *
-   * @type {InlineResponse20035App}
+   * @type {InlineResponse20036App}
    * @memberof DistrconfigGetAppResponse
    */
-  app?: InlineResponse20035App;
+  app?: InlineResponse20036App;
 }
 /**
  *
@@ -751,10 +751,10 @@ export interface DistrconfigGetAppResponse {
 export interface DistrconfigGetAppsResponse {
   /**
    *
-   * @type {Array<InlineResponse20035App>}
+   * @type {Array<InlineResponse20036App>}
    * @memberof DistrconfigGetAppsResponse
    */
-  apps?: Array<InlineResponse20035App>;
+  apps?: Array<InlineResponse20036App>;
 }
 /**
  *
@@ -831,10 +831,10 @@ export interface DistrconfigGetPoolsResponse {
 export interface DistrconfigGetUserResponse {
   /**
    *
-   * @type {InlineResponse20039User}
+   * @type {InlineResponse20040User}
    * @memberof DistrconfigGetUserResponse
    */
-  user?: InlineResponse20039User;
+  user?: InlineResponse20040User;
 }
 /**
  *
@@ -844,10 +844,10 @@ export interface DistrconfigGetUserResponse {
 export interface DistrconfigGetUsersResponse {
   /**
    *
-   * @type {Array<InlineResponse20039User>}
+   * @type {Array<InlineResponse20040User>}
    * @memberof DistrconfigGetUsersResponse
    */
-  users?: Array<InlineResponse20039User>;
+  users?: Array<InlineResponse20040User>;
 }
 /**
  *
@@ -3399,12 +3399,6 @@ export interface InlineResponse20027 {
    * @type {string}
    * @memberof InlineResponse20027
    */
-  subscriptionID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20027
-   */
   clientSecret?: string;
 }
 /**
@@ -3415,99 +3409,14 @@ export interface InlineResponse20027 {
 export interface InlineResponse20028 {
   /**
    *
-   * @type {InlineResponse20028SubscriptionStatus}
-   * @memberof InlineResponse20028
-   */
-  subscriptionStatus?: InlineResponse20028SubscriptionStatus;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20028
-   */
-  hasSetupPayment?: boolean;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20028
-   */
-  hasSetupSubscription?: boolean;
-}
-/**
- *
- * @export
- * @interface InlineResponse20028SubscriptionStatus
- */
-export interface InlineResponse20028SubscriptionStatus {
-  /**
-   *
    * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
+   * @memberof InlineResponse20028
    */
   subscriptionID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  priceID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  quantity?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  productDescription?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  customerID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  cardBrand?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  cardLast4?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  nextAmmountDue?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  nextPaymentDate?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  lastAmountPaid?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
-   */
-  lastInvoiceDescription?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20028SubscriptionStatus
+   * @memberof InlineResponse20028
    */
   clientSecret?: string;
 }
@@ -3519,22 +3428,101 @@ export interface InlineResponse20028SubscriptionStatus {
 export interface InlineResponse20029 {
   /**
    *
+   * @type {InlineResponse20029SubscriptionStatus}
+   * @memberof InlineResponse20029
+   */
+  subscriptionStatus?: InlineResponse20029SubscriptionStatus;
+  /**
+   *
    * @type {boolean}
    * @memberof InlineResponse20029
    */
-  success?: boolean;
+  hasSetupPayment?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20029
+   */
+  hasSetupSubscription?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20029SubscriptionStatus
+ */
+export interface InlineResponse20029SubscriptionStatus {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20029
+   * @memberof InlineResponse20029SubscriptionStatus
    */
-  err?: string;
+  subscriptionID?: string;
   /**
    *
-   * @type {object}
-   * @memberof InlineResponse20029
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
    */
-  body?: object;
+  priceID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  quantity?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  productDescription?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  customerID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  cardBrand?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  cardLast4?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  nextAmmountDue?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  nextPaymentDate?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  lastAmountPaid?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  lastInvoiceDescription?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  clientSecret?: string;
 }
 /**
  * A DataPoint represents a single data point in a metrics series and consists  of a timestamp and the value for the metric at the specific time.
@@ -3607,10 +3595,22 @@ export interface InlineResponse2003 {
 export interface InlineResponse20030 {
   /**
    *
+   * @type {boolean}
+   * @memberof InlineResponse20030
+   */
+  success?: boolean;
+  /**
+   *
    * @type {string}
    * @memberof InlineResponse20030
    */
-  id?: string;
+  err?: string;
+  /**
+   *
+   * @type {object}
+   * @memberof InlineResponse20030
+   */
+  body?: object;
 }
 /**
  *
@@ -3620,16 +3620,10 @@ export interface InlineResponse20030 {
 export interface InlineResponse20031 {
   /**
    *
-   * @type {InlineObject30}
+   * @type {string}
    * @memberof InlineResponse20031
    */
-  function?: InlineObject30;
-  /**
-   *
-   * @type {InlineObject30}
-   * @memberof InlineResponse20031
-   */
-  result?: InlineObject30;
+  id?: string;
 }
 /**
  *
@@ -3639,10 +3633,16 @@ export interface InlineResponse20031 {
 export interface InlineResponse20032 {
   /**
    *
-   * @type {Array<InlineObject30>}
+   * @type {InlineObject30}
    * @memberof InlineResponse20032
    */
-  functions?: Array<InlineObject30>;
+  function?: InlineObject30;
+  /**
+   *
+   * @type {InlineObject30}
+   * @memberof InlineResponse20032
+   */
+  result?: InlineObject30;
 }
 /**
  *
@@ -3652,10 +3652,10 @@ export interface InlineResponse20032 {
 export interface InlineResponse20033 {
   /**
    *
-   * @type {Array<string>}
+   * @type {Array<InlineObject30>}
    * @memberof InlineResponse20033
    */
-  failedPoolIDs?: Array<string>;
+  functions?: Array<InlineObject30>;
 }
 /**
  *
@@ -3668,7 +3668,7 @@ export interface InlineResponse20034 {
    * @type {Array<string>}
    * @memberof InlineResponse20034
    */
-  failedUserIDs?: Array<string>;
+  failedPoolIDs?: Array<string>;
 }
 /**
  *
@@ -3678,41 +3678,10 @@ export interface InlineResponse20034 {
 export interface InlineResponse20035 {
   /**
    *
-   * @type {InlineResponse20035App}
+   * @type {Array<string>}
    * @memberof InlineResponse20035
    */
-  app?: InlineResponse20035App;
-}
-/**
- *
- * @export
- * @interface InlineResponse20035App
- */
-export interface InlineResponse20035App {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20035App
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20035App
-   */
-  bundleUrl?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20035App
-   */
-  active?: boolean;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20035App
-   */
-  assignedPools?: Array<string>;
+  failedUserIDs?: Array<string>;
 }
 /**
  *
@@ -3722,10 +3691,41 @@ export interface InlineResponse20035App {
 export interface InlineResponse20036 {
   /**
    *
-   * @type {Array<InlineResponse20035App>}
+   * @type {InlineResponse20036App}
    * @memberof InlineResponse20036
    */
-  apps?: Array<InlineResponse20035App>;
+  app?: InlineResponse20036App;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20036App
+ */
+export interface InlineResponse20036App {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20036App
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20036App
+   */
+  bundleUrl?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20036App
+   */
+  active?: boolean;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineResponse20036App
+   */
+  assignedPools?: Array<string>;
 }
 /**
  *
@@ -3735,33 +3735,11 @@ export interface InlineResponse20036 {
 export interface InlineResponse20037 {
   /**
    *
-   * @type {string}
+   * @type {Array<InlineResponse20036App>}
    * @memberof InlineResponse20037
    */
-  dbUrl?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20037
-   */
-  poolType?: InlineResponse20037PoolTypeEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20037
-   */
-  tagPrefix?: string;
+  apps?: Array<InlineResponse20036App>;
 }
-
-export const InlineResponse20037PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineResponse20037PoolTypeEnum = typeof InlineResponse20037PoolTypeEnum[keyof typeof InlineResponse20037PoolTypeEnum];
-
 /**
  *
  * @export
@@ -3773,20 +3751,30 @@ export interface InlineResponse20038 {
    * @type {string}
    * @memberof InlineResponse20038
    */
-  derivedPk?: string;
+  dbUrl?: string;
   /**
    *
    * @type {string}
    * @memberof InlineResponse20038
    */
-  derivedTag?: string;
+  poolType?: InlineResponse20038PoolTypeEnum;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof InlineResponse20038
    */
-  validationErrors?: Array<string>;
+  tagPrefix?: string;
 }
+
+export const InlineResponse20038PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineResponse20038PoolTypeEnum = typeof InlineResponse20038PoolTypeEnum[keyof typeof InlineResponse20038PoolTypeEnum];
+
 /**
  *
  * @export
@@ -3795,54 +3783,22 @@ export interface InlineResponse20038 {
 export interface InlineResponse20039 {
   /**
    *
-   * @type {InlineResponse20039User}
+   * @type {string}
    * @memberof InlineResponse20039
    */
-  user?: InlineResponse20039User;
-}
-/**
- *
- * @export
- * @interface InlineResponse20039User
- */
-export interface InlineResponse20039User {
+  derivedPk?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20039User
+   * @memberof InlineResponse20039
    */
-  id?: string;
+  derivedTag?: string;
   /**
    *
-   * @type {string}
-   * @memberof InlineResponse20039User
+   * @type {Array<string>}
+   * @memberof InlineResponse20039
    */
-  activeAppID?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20039UserTagAssignments>}
-   * @memberof InlineResponse20039User
-   */
-  tagAssignments?: Array<InlineResponse20039UserTagAssignments>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20039UserTagAssignments
- */
-export interface InlineResponse20039UserTagAssignments {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20039UserTagAssignments
-   */
-  poolID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20039UserTagAssignments
-   */
-  value?: string;
+  validationErrors?: Array<string>;
 }
 /**
  *
@@ -3865,10 +3821,54 @@ export interface InlineResponse2004 {
 export interface InlineResponse20040 {
   /**
    *
-   * @type {Array<InlineResponse20039User>}
+   * @type {InlineResponse20040User}
    * @memberof InlineResponse20040
    */
-  users?: Array<InlineResponse20039User>;
+  user?: InlineResponse20040User;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20040User
+ */
+export interface InlineResponse20040User {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20040User
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20040User
+   */
+  activeAppID?: string;
+  /**
+   *
+   * @type {Array<InlineResponse20040UserTagAssignments>}
+   * @memberof InlineResponse20040User
+   */
+  tagAssignments?: Array<InlineResponse20040UserTagAssignments>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20040UserTagAssignments
+ */
+export interface InlineResponse20040UserTagAssignments {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20040UserTagAssignments
+   */
+  poolID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20040UserTagAssignments
+   */
+  value?: string;
 }
 /**
  *
@@ -3877,48 +3877,11 @@ export interface InlineResponse20040 {
  */
 export interface InlineResponse20041 {
   /**
-   * The number of rows in the database
-   * @type {number}
+   *
+   * @type {Array<InlineResponse20040User>}
    * @memberof InlineResponse20041
    */
-  total_rows?: number;
-  /**
-   * Current offset
-   * @type {number}
-   * @memberof InlineResponse20041
-   */
-  offset?: number;
-  /**
-   *
-   * @type {Array<InlineResponse20041Rows>}
-   * @memberof InlineResponse20041
-   */
-  rows?: Array<InlineResponse20041Rows>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20041Rows
- */
-export interface InlineResponse20041Rows {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20041Rows
-   */
-  _id: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20041Rows
-   */
-  _rev?: string;
-  /**
-   * Optional field for USER and FILTERED pools.
-   * @type {Array<string>}
-   * @memberof InlineResponse20041Rows
-   */
-  tags?: Array<string>;
+  users?: Array<InlineResponse20040User>;
 }
 /**
  *
@@ -3927,36 +3890,48 @@ export interface InlineResponse20041Rows {
  */
 export interface InlineResponse20042 {
   /**
-   * Successful creation
-   * @type {Array<InlineResponse20042Result>}
+   * The number of rows in the database
+   * @type {number}
    * @memberof InlineResponse20042
    */
-  result?: Array<InlineResponse20042Result>;
+  total_rows?: number;
   /**
-   * List of errors if any occur
-   * @type {Array<string>}
+   * Current offset
+   * @type {number}
    * @memberof InlineResponse20042
    */
-  errors?: Array<string>;
+  offset?: number;
+  /**
+   *
+   * @type {Array<InlineResponse20042Rows>}
+   * @memberof InlineResponse20042
+   */
+  rows?: Array<InlineResponse20042Rows>;
 }
 /**
  *
  * @export
- * @interface InlineResponse20042Result
+ * @interface InlineResponse20042Rows
  */
-export interface InlineResponse20042Result {
+export interface InlineResponse20042Rows {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20042Result
+   * @memberof InlineResponse20042Rows
    */
-  id?: string;
+  _id: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20042Result
+   * @memberof InlineResponse20042Rows
    */
-  rev?: string;
+  _rev?: string;
+  /**
+   * Optional field for USER and FILTERED pools.
+   * @type {Array<string>}
+   * @memberof InlineResponse20042Rows
+   */
+  tags?: Array<string>;
 }
 /**
  *
@@ -3965,15 +3940,53 @@ export interface InlineResponse20042Result {
  */
 export interface InlineResponse20043 {
   /**
-   * Successful deletion
-   * @type {Array<InlineResponse20042Result>}
+   * Successful creation
+   * @type {Array<InlineResponse20043Result>}
    * @memberof InlineResponse20043
    */
-  result?: Array<InlineResponse20042Result>;
+  result?: Array<InlineResponse20043Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
    * @memberof InlineResponse20043
+   */
+  errors?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20043Result
+ */
+export interface InlineResponse20043Result {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20043Result
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20043Result
+   */
+  rev?: string;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20044
+ */
+export interface InlineResponse20044 {
+  /**
+   * Successful deletion
+   * @type {Array<InlineResponse20043Result>}
+   * @memberof InlineResponse20044
+   */
+  result?: Array<InlineResponse20043Result>;
+  /**
+   * List of errors if any occur
+   * @type {Array<string>}
+   * @memberof InlineResponse20044
    */
   errors?: Array<string>;
 }
@@ -4643,6 +4656,19 @@ export interface V1CancelSubscriptionResponse {
 /**
  *
  * @export
+ * @interface V1ChangePaymentMethodResponse
+ */
+export interface V1ChangePaymentMethodResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1ChangePaymentMethodResponse
+   */
+  clientSecret?: string;
+}
+/**
+ *
+ * @export
  * @interface V1CheckHMACAuthRequest
  */
 export interface V1CheckHMACAuthRequest {
@@ -5265,10 +5291,10 @@ export interface V1GetAccountResponse {
 export interface V1GetBillingStatusResponse {
   /**
    *
-   * @type {InlineResponse20028SubscriptionStatus}
+   * @type {InlineResponse20029SubscriptionStatus}
    * @memberof V1GetBillingStatusResponse
    */
-  subscriptionStatus?: InlineResponse20028SubscriptionStatus;
+  subscriptionStatus?: InlineResponse20029SubscriptionStatus;
   /**
    *
    * @type {boolean}
@@ -10800,6 +10826,34 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       };
     },
     /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
+     * @summary ChangePaymentMethod with a new payment details.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    changePaymentMethod: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/change-payment-method`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
      * @param {string} [priceID]
@@ -10934,6 +10988,18 @@ export const BillingServiceApiFp = function (configuration?: Configuration) {
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
+     * @summary ChangePaymentMethod with a new payment details.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async changePaymentMethod(
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.changePaymentMethod(options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
      * @param {string} [priceID]
@@ -10945,7 +11011,7 @@ export const BillingServiceApiFp = function (configuration?: Configuration) {
       priceID?: string,
       quantity?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(priceID, quantity, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -10957,7 +11023,7 @@ export const BillingServiceApiFp = function (configuration?: Configuration) {
      */
     async getBillingStatus(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getBillingStatus(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11005,6 +11071,15 @@ export const BillingServiceApiFactory = function (
       return localVarFp.cancelSubscription(options).then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
+     * @summary ChangePaymentMethod with a new payment details.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    changePaymentMethod(options?: any): AxiosPromise<InlineResponse20027> {
+      return localVarFp.changePaymentMethod(options).then((request) => request(axios, basePath));
+    },
+    /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
      * @param {string} [priceID]
@@ -11012,7 +11087,7 @@ export const BillingServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createSubscription(priceID?: string, quantity?: string, options?: any): AxiosPromise<InlineResponse20027> {
+    createSubscription(priceID?: string, quantity?: string, options?: any): AxiosPromise<InlineResponse20028> {
       return localVarFp.createSubscription(priceID, quantity, options).then((request) => request(axios, basePath));
     },
     /**
@@ -11021,7 +11096,7 @@ export const BillingServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getBillingStatus(options?: any): AxiosPromise<InlineResponse20028> {
+    getBillingStatus(options?: any): AxiosPromise<InlineResponse20029> {
       return localVarFp.getBillingStatus(options).then((request) => request(axios, basePath));
     },
     /**
@@ -11061,6 +11136,19 @@ export class BillingServiceApi extends BaseAPI {
   public cancelSubscription(options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
       .cancelSubscription(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
+   * @summary ChangePaymentMethod with a new payment details.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public changePaymentMethod(options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .changePaymentMethod(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -11987,7 +12075,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async assignAppToUsers(
       body: InlineObject34,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignAppToUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12001,7 +12089,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async assignPoolsToApp(
       body: InlineObject32,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignPoolsToApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12127,7 +12215,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async getApp(
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApp(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12139,7 +12227,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getApps(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApps(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12171,7 +12259,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       id: string,
       userId?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPoolDistribution(id, userId, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12197,7 +12285,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async getUser(
       userID: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12209,7 +12297,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getUsers(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12239,7 +12327,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async unassignAppFromUsers(
       body: InlineObject35,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignAppFromUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12253,7 +12341,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async unassignPoolsFromApp(
       body: InlineObject33,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignPoolsFromApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12311,7 +12399,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async validatePoolData(
       body: InlineObject40,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.validatePoolData(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12346,7 +12434,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppToUsers(body: InlineObject34, options?: any): AxiosPromise<InlineResponse20034> {
+    assignAppToUsers(body: InlineObject34, options?: any): AxiosPromise<InlineResponse20035> {
       return localVarFp.assignAppToUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12356,7 +12444,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignPoolsToApp(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20033> {
+    assignPoolsToApp(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20034> {
       return localVarFp.assignPoolsToApp(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12446,7 +12534,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApp(id: string, options?: any): AxiosPromise<InlineResponse20035> {
+    getApp(id: string, options?: any): AxiosPromise<InlineResponse20036> {
       return localVarFp.getApp(id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12455,7 +12543,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApps(options?: any): AxiosPromise<InlineResponse20036> {
+    getApps(options?: any): AxiosPromise<InlineResponse20037> {
       return localVarFp.getApps(options).then((request) => request(axios, basePath));
     },
     /**
@@ -12476,7 +12564,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPoolDistribution(id: string, userId?: string, options?: any): AxiosPromise<InlineResponse20037> {
+    getPoolDistribution(id: string, userId?: string, options?: any): AxiosPromise<InlineResponse20038> {
       return localVarFp.getPoolDistribution(id, userId, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12495,7 +12583,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20039> {
+    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20040> {
       return localVarFp.getUser(userID, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12504,7 +12592,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsers(options?: any): AxiosPromise<InlineResponse20040> {
+    getUsers(options?: any): AxiosPromise<InlineResponse20041> {
       return localVarFp.getUsers(options).then((request) => request(axios, basePath));
     },
     /**
@@ -12525,7 +12613,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignAppFromUsers(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20034> {
+    unassignAppFromUsers(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20035> {
       return localVarFp.unassignAppFromUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12535,7 +12623,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignPoolsFromApp(body: InlineObject33, options?: any): AxiosPromise<InlineResponse20033> {
+    unassignPoolsFromApp(body: InlineObject33, options?: any): AxiosPromise<InlineResponse20034> {
       return localVarFp.unassignPoolsFromApp(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12576,7 +12664,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    validatePoolData(body: InlineObject40, options?: any): AxiosPromise<InlineResponse20038> {
+    validatePoolData(body: InlineObject40, options?: any): AxiosPromise<InlineResponse20039> {
       return localVarFp.validatePoolData(body, options).then((request) => request(axios, basePath));
     },
   };
@@ -13331,7 +13419,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
       body: object,
       payloadJSON?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callSyncFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13349,7 +13437,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
       body: object,
       payloadJSON?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callTestFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13363,7 +13451,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async createFunction(
       body: InlineObject29,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createFunction(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13391,7 +13479,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async getFunction(
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunction(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13403,7 +13491,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      */
     async getFunctions(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunctions(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13472,7 +13560,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callSyncFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20029> {
+    callSyncFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20030> {
       return localVarFp.callSyncFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13484,7 +13572,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callTestFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20029> {
+    callTestFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20030> {
       return localVarFp.callTestFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13494,7 +13582,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFunction(body: InlineObject29, options?: any): AxiosPromise<InlineResponse20030> {
+    createFunction(body: InlineObject29, options?: any): AxiosPromise<InlineResponse20031> {
       return localVarFp.createFunction(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13514,7 +13602,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunction(id: string, options?: any): AxiosPromise<InlineResponse20031> {
+    getFunction(id: string, options?: any): AxiosPromise<InlineResponse20032> {
       return localVarFp.getFunction(id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13523,7 +13611,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunctions(options?: any): AxiosPromise<InlineResponse20032> {
+    getFunctions(options?: any): AxiosPromise<InlineResponse20033> {
       return localVarFp.getFunctions(options).then((request) => request(axios, basePath));
     },
     /**
@@ -13700,13 +13788,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkCreate: async (
       poolId: string,
-      body: Array<InlineResponse20041Rows>,
+      body: Array<InlineResponse20042Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -13741,13 +13829,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkDelete: async (
       poolId: string,
-      body: Array<InlineResponse20041Rows>,
+      body: Array<InlineResponse20042Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -13782,13 +13870,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkUpdate: async (
       poolId: string,
-      body: Array<InlineResponse20041Rows>,
+      body: Array<InlineResponse20042Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -14066,15 +14154,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkCreate(
       poolId: string,
-      body: Array<InlineResponse20041Rows>,
+      body: Array<InlineResponse20042Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkCreate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14082,15 +14170,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkDelete(
       poolId: string,
-      body: Array<InlineResponse20041Rows>,
+      body: Array<InlineResponse20042Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDelete(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14098,15 +14186,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkUpdate(
       poolId: string,
-      body: Array<InlineResponse20041Rows>,
+      body: Array<InlineResponse20042Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkUpdate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14140,7 +14228,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       poolId: string,
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041Rows>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042Rows>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.get(poolId, id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14176,7 +14264,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       limit: number,
       skip: number,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.list(poolId, limit, skip, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14218,33 +14306,33 @@ export const PoolDataServiceApiFactory = function (
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkCreate(poolId: string, body: Array<InlineResponse20041Rows>, options?: any): AxiosPromise<InlineResponse20042> {
+    bulkCreate(poolId: string, body: Array<InlineResponse20042Rows>, options?: any): AxiosPromise<InlineResponse20043> {
       return localVarFp.bulkCreate(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkDelete(poolId: string, body: Array<InlineResponse20041Rows>, options?: any): AxiosPromise<InlineResponse20043> {
+    bulkDelete(poolId: string, body: Array<InlineResponse20042Rows>, options?: any): AxiosPromise<InlineResponse20044> {
       return localVarFp.bulkDelete(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20041Rows>} body
+     * @param {Array<InlineResponse20042Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkUpdate(poolId: string, body: Array<InlineResponse20041Rows>, options?: any): AxiosPromise<InlineResponse20042> {
+    bulkUpdate(poolId: string, body: Array<InlineResponse20042Rows>, options?: any): AxiosPromise<InlineResponse20043> {
       return localVarFp.bulkUpdate(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14267,7 +14355,7 @@ export const PoolDataServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    get(poolId: string, id: string, options?: any): AxiosPromise<InlineResponse20041Rows> {
+    get(poolId: string, id: string, options?: any): AxiosPromise<InlineResponse20042Rows> {
       return localVarFp.get(poolId, id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14291,7 +14379,7 @@ export const PoolDataServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<InlineResponse20041> {
+    list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<InlineResponse20042> {
       return localVarFp.list(poolId, limit, skip, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14323,12 +14411,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk create mobile data records in a pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20041Rows>} body
+   * @param {Array<InlineResponse20042Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkCreate(poolId: string, body: Array<InlineResponse20041Rows>, options?: AxiosRequestConfig) {
+  public bulkCreate(poolId: string, body: Array<InlineResponse20042Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkCreate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -14338,12 +14426,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk delete records from mobile data pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20041Rows>} body
+   * @param {Array<InlineResponse20042Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkDelete(poolId: string, body: Array<InlineResponse20041Rows>, options?: AxiosRequestConfig) {
+  public bulkDelete(poolId: string, body: Array<InlineResponse20042Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkDelete(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -14353,12 +14441,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk update records in mobile data pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20041Rows>} body
+   * @param {Array<InlineResponse20042Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkUpdate(poolId: string, body: Array<InlineResponse20041Rows>, options?: AxiosRequestConfig) {
+  public bulkUpdate(poolId: string, body: Array<InlineResponse20042Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkUpdate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
