@@ -325,6 +325,25 @@
         }
       }
     },
+    "v1InvoiceItem": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
     "v1Price": {
       "type": "object",
       "properties": {
@@ -447,6 +466,12 @@
         },
         "clientSecret": {
           "type": "string"
+        },
+        "invoiceItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1InvoiceItem"
+          }
         }
       }
     },

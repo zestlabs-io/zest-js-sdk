@@ -5533,6 +5533,28 @@
                     },
                     "clientSecret": {
                       "type": "string"
+                    },
+                    "invoiceItems": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "string",
+                            "format": "int64"
+                          },
+                          "currency": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "format": "int64"
+                          }
+                        }
+                      }
                     }
                   }
                 },
@@ -11941,6 +11963,28 @@
             },
             "clientSecret": {
               "type": "string"
+            },
+            "invoiceItems": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "string",
+                    "format": "int64"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "type": "string",
+                    "format": "int64"
+                  }
+                }
+              }
             }
           }
         },
@@ -11949,6 +11993,25 @@
         },
         "hasSetupSubscription": {
           "type": "boolean"
+        }
+      }
+    },
+    "v1InvoiceItem": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -12126,6 +12189,28 @@
         },
         "clientSecret": {
           "type": "string"
+        },
+        "invoiceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "format": "int64"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "string",
+                "format": "int64"
+              }
+            }
+          }
         }
       }
     },

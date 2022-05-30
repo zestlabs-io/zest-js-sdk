@@ -3523,6 +3523,43 @@ export interface InlineResponse20029SubscriptionStatus {
    * @memberof InlineResponse20029SubscriptionStatus
    */
   clientSecret?: string;
+  /**
+   *
+   * @type {Array<InlineResponse20029SubscriptionStatusInvoiceItems>}
+   * @memberof InlineResponse20029SubscriptionStatus
+   */
+  invoiceItems?: Array<InlineResponse20029SubscriptionStatusInvoiceItems>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20029SubscriptionStatusInvoiceItems
+ */
+export interface InlineResponse20029SubscriptionStatusInvoiceItems {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
+   */
+  amount?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
+   */
+  currency?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
+   */
+  quantity?: string;
 }
 /**
  * A DataPoint represents a single data point in a metrics series and consists  of a timestamp and the value for the metric at the specific time.
@@ -5587,6 +5624,37 @@ export interface V1GetUsersResponse {
   users?: Array<InlineResponse20023User>;
 }
 /**
+ *
+ * @export
+ * @interface V1InvoiceItem
+ */
+export interface V1InvoiceItem {
+  /**
+   *
+   * @type {string}
+   * @memberof V1InvoiceItem
+   */
+  amount?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1InvoiceItem
+   */
+  currency?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1InvoiceItem
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1InvoiceItem
+   */
+  quantity?: string;
+}
+/**
  * Labels are name-value pairs that are used to annotate metrics or log entries.
  * @export
  * @interface V1Label
@@ -6561,6 +6629,12 @@ export interface V1SubscriptionStatus {
    * @memberof V1SubscriptionStatus
    */
   clientSecret?: string;
+  /**
+   *
+   * @type {Array<InlineResponse20029SubscriptionStatusInvoiceItems>}
+   * @memberof V1SubscriptionStatus
+   */
+  invoiceItems?: Array<InlineResponse20029SubscriptionStatusInvoiceItems>;
 }
 /**
  *
