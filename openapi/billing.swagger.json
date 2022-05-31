@@ -64,6 +64,97 @@
         ]
       }
     },
+    "/api/billing/v1/change-billing-data": {
+      "post": {
+        "summary": "ChangeBillingData changes the address and vatID for existing customer.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`ChangeBillingData`\n\t\tScope:\t\t\t``",
+        "operationId": "BillingService_ChangeBillingData",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1ChangeBillingDataResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "addressParams.city",
+            "description": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.country",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.line1",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.line2",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.postalCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.state",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "taxIDDataParams.type",
+            "description": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "taxIDDataParams.value",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
     "/api/billing/v1/change-payment-method": {
       "post": {
         "summary": "ChangePaymentMethod with a new payment details.",
@@ -284,6 +375,41 @@
     "v1AccountRegisteredResponse": {
       "type": "object"
     },
+    "v1AddressParams": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+        },
+        "country": {
+          "type": "string"
+        },
+        "line1": {
+          "type": "string"
+        },
+        "line2": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BillingData": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/v1AddressParams"
+        },
+        "taxIDData": {
+          "$ref": "#/definitions/v1CustomerTaxIDDataParams"
+        }
+      }
+    },
     "v1CancelSubscriptionResponse": {
       "type": "object",
       "properties": {
@@ -291,6 +417,9 @@
           "$ref": "#/definitions/v1Subscription"
         }
       }
+    },
+    "v1ChangeBillingDataResponse": {
+      "type": "object"
     },
     "v1ChangePaymentMethodResponse": {
       "type": "object",
@@ -311,11 +440,26 @@
         }
       }
     },
+    "v1CustomerTaxIDDataParams": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
     "v1GetBillingStatusResponse": {
       "type": "object",
       "properties": {
         "subscriptionStatus": {
           "$ref": "#/definitions/v1SubscriptionStatus"
+        },
+        "billingData": {
+          "$ref": "#/definitions/v1BillingData"
         },
         "hasSetupPayment": {
           "type": "boolean"

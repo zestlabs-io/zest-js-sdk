@@ -3434,6 +3434,12 @@ export interface InlineResponse20029 {
   subscriptionStatus?: InlineResponse20029SubscriptionStatus;
   /**
    *
+   * @type {InlineResponse20029BillingData}
+   * @memberof InlineResponse20029
+   */
+  billingData?: InlineResponse20029BillingData;
+  /**
+   *
    * @type {boolean}
    * @memberof InlineResponse20029
    */
@@ -3444,6 +3450,87 @@ export interface InlineResponse20029 {
    * @memberof InlineResponse20029
    */
   hasSetupSubscription?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20029BillingData
+ */
+export interface InlineResponse20029BillingData {
+  /**
+   *
+   * @type {InlineResponse20029BillingDataAddress}
+   * @memberof InlineResponse20029BillingData
+   */
+  address?: InlineResponse20029BillingDataAddress;
+  /**
+   *
+   * @type {InlineResponse20029BillingDataTaxIDData}
+   * @memberof InlineResponse20029BillingData
+   */
+  taxIDData?: InlineResponse20029BillingDataTaxIDData;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20029BillingDataAddress
+ */
+export interface InlineResponse20029BillingDataAddress {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataAddress
+   */
+  city?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataAddress
+   */
+  country?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataAddress
+   */
+  line1?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataAddress
+   */
+  line2?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataAddress
+   */
+  postalCode?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataAddress
+   */
+  state?: string;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20029BillingDataTaxIDData
+ */
+export interface InlineResponse20029BillingDataTaxIDData {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataTaxIDData
+   */
+  type?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20029BillingDataTaxIDData
+   */
+  value?: string;
 }
 /**
  *
@@ -4667,6 +4754,49 @@ export interface V1AddUsersToRoleResponse {
 /**
  *
  * @export
+ * @interface V1AddressParams
+ */
+export interface V1AddressParams {
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddressParams
+   */
+  city?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddressParams
+   */
+  country?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddressParams
+   */
+  line1?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddressParams
+   */
+  line2?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddressParams
+   */
+  postalCode?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1AddressParams
+   */
+  state?: string;
+}
+/**
+ *
+ * @export
  * @interface V1AssumeAccountRequest
  */
 export interface V1AssumeAccountRequest {
@@ -4676,6 +4806,25 @@ export interface V1AssumeAccountRequest {
    * @memberof V1AssumeAccountRequest
    */
   accountID?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1BillingData
+ */
+export interface V1BillingData {
+  /**
+   *
+   * @type {InlineResponse20029BillingDataAddress}
+   * @memberof V1BillingData
+   */
+  address?: InlineResponse20029BillingDataAddress;
+  /**
+   *
+   * @type {InlineResponse20029BillingDataTaxIDData}
+   * @memberof V1BillingData
+   */
+  taxIDData?: InlineResponse20029BillingDataTaxIDData;
 }
 /**
  *
@@ -5208,6 +5357,25 @@ export interface V1CreateUserResponse {
   userID?: string;
 }
 /**
+ *
+ * @export
+ * @interface V1CustomerTaxIDDataParams
+ */
+export interface V1CustomerTaxIDDataParams {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CustomerTaxIDDataParams
+   */
+  type?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CustomerTaxIDDataParams
+   */
+  value?: string;
+}
+/**
  * A DataPoint represents a single data point in a metrics series and consists  of a timestamp and the value for the metric at the specific time.
  * @export
  * @interface V1DataPoint
@@ -5332,6 +5500,12 @@ export interface V1GetBillingStatusResponse {
    * @memberof V1GetBillingStatusResponse
    */
   subscriptionStatus?: InlineResponse20029SubscriptionStatus;
+  /**
+   *
+   * @type {InlineResponse20029BillingData}
+   * @memberof V1GetBillingStatusResponse
+   */
+  billingData?: InlineResponse20029BillingData;
   /**
    *
    * @type {boolean}
@@ -10900,6 +11074,84 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       };
     },
     /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
+     * @summary ChangeBillingData changes the address and vatID for existing customer.
+     * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
+     * @param {string} [addressParamsCountry]
+     * @param {string} [addressParamsLine1]
+     * @param {string} [addressParamsLine2]
+     * @param {string} [addressParamsPostalCode]
+     * @param {string} [addressParamsState]
+     * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
+     * @param {string} [taxIDDataParamsValue]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    changeBillingData: async (
+      addressParamsCity?: string,
+      addressParamsCountry?: string,
+      addressParamsLine1?: string,
+      addressParamsLine2?: string,
+      addressParamsPostalCode?: string,
+      addressParamsState?: string,
+      taxIDDataParamsType?: string,
+      taxIDDataParamsValue?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/change-billing-data`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (addressParamsCity !== undefined) {
+        localVarQueryParameter['addressParams.city'] = addressParamsCity;
+      }
+
+      if (addressParamsCountry !== undefined) {
+        localVarQueryParameter['addressParams.country'] = addressParamsCountry;
+      }
+
+      if (addressParamsLine1 !== undefined) {
+        localVarQueryParameter['addressParams.line1'] = addressParamsLine1;
+      }
+
+      if (addressParamsLine2 !== undefined) {
+        localVarQueryParameter['addressParams.line2'] = addressParamsLine2;
+      }
+
+      if (addressParamsPostalCode !== undefined) {
+        localVarQueryParameter['addressParams.postalCode'] = addressParamsPostalCode;
+      }
+
+      if (addressParamsState !== undefined) {
+        localVarQueryParameter['addressParams.state'] = addressParamsState;
+      }
+
+      if (taxIDDataParamsType !== undefined) {
+        localVarQueryParameter['taxIDDataParams.type'] = taxIDDataParamsType;
+      }
+
+      if (taxIDDataParamsValue !== undefined) {
+        localVarQueryParameter['taxIDDataParams.value'] = taxIDDataParamsValue;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
      * @summary ChangePaymentMethod with a new payment details.
      * @param {*} [options] Override http request option.
@@ -11062,6 +11314,44 @@ export const BillingServiceApiFp = function (configuration?: Configuration) {
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
+     * @summary ChangeBillingData changes the address and vatID for existing customer.
+     * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
+     * @param {string} [addressParamsCountry]
+     * @param {string} [addressParamsLine1]
+     * @param {string} [addressParamsLine2]
+     * @param {string} [addressParamsPostalCode]
+     * @param {string} [addressParamsState]
+     * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
+     * @param {string} [taxIDDataParamsValue]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async changeBillingData(
+      addressParamsCity?: string,
+      addressParamsCountry?: string,
+      addressParamsLine1?: string,
+      addressParamsLine2?: string,
+      addressParamsPostalCode?: string,
+      addressParamsState?: string,
+      taxIDDataParamsType?: string,
+      taxIDDataParamsValue?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.changeBillingData(
+        addressParamsCity,
+        addressParamsCountry,
+        addressParamsLine1,
+        addressParamsLine2,
+        addressParamsPostalCode,
+        addressParamsState,
+        taxIDDataParamsType,
+        taxIDDataParamsValue,
+        options,
+      );
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
      * @summary ChangePaymentMethod with a new payment details.
      * @param {*} [options] Override http request option.
@@ -11145,6 +11435,45 @@ export const BillingServiceApiFactory = function (
       return localVarFp.cancelSubscription(options).then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
+     * @summary ChangeBillingData changes the address and vatID for existing customer.
+     * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
+     * @param {string} [addressParamsCountry]
+     * @param {string} [addressParamsLine1]
+     * @param {string} [addressParamsLine2]
+     * @param {string} [addressParamsPostalCode]
+     * @param {string} [addressParamsState]
+     * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
+     * @param {string} [taxIDDataParamsValue]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    changeBillingData(
+      addressParamsCity?: string,
+      addressParamsCountry?: string,
+      addressParamsLine1?: string,
+      addressParamsLine2?: string,
+      addressParamsPostalCode?: string,
+      addressParamsState?: string,
+      taxIDDataParamsType?: string,
+      taxIDDataParamsValue?: string,
+      options?: any,
+    ): AxiosPromise<object> {
+      return localVarFp
+        .changeBillingData(
+          addressParamsCity,
+          addressParamsCountry,
+          addressParamsLine1,
+          addressParamsLine2,
+          addressParamsPostalCode,
+          addressParamsState,
+          taxIDDataParamsType,
+          taxIDDataParamsValue,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
      * @summary ChangePaymentMethod with a new payment details.
      * @param {*} [options] Override http request option.
@@ -11210,6 +11539,47 @@ export class BillingServiceApi extends BaseAPI {
   public cancelSubscription(options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
       .cancelSubscription(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
+   * @summary ChangeBillingData changes the address and vatID for existing customer.
+   * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
+   * @param {string} [addressParamsCountry]
+   * @param {string} [addressParamsLine1]
+   * @param {string} [addressParamsLine2]
+   * @param {string} [addressParamsPostalCode]
+   * @param {string} [addressParamsState]
+   * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
+   * @param {string} [taxIDDataParamsValue]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public changeBillingData(
+    addressParamsCity?: string,
+    addressParamsCountry?: string,
+    addressParamsLine1?: string,
+    addressParamsLine2?: string,
+    addressParamsPostalCode?: string,
+    addressParamsState?: string,
+    taxIDDataParamsType?: string,
+    taxIDDataParamsValue?: string,
+    options?: AxiosRequestConfig,
+  ) {
+    return BillingServiceApiFp(this.configuration)
+      .changeBillingData(
+        addressParamsCity,
+        addressParamsCountry,
+        addressParamsLine1,
+        addressParamsLine2,
+        addressParamsPostalCode,
+        addressParamsState,
+        taxIDDataParamsType,
+        taxIDDataParamsValue,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 

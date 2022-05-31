@@ -5331,6 +5331,120 @@
         ]
       }
     },
+    "/api/billing/v1/change-billing-data": {
+      "post": {
+        "summary": "ChangeBillingData changes the address and vatID for existing customer.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`ChangeBillingData`\n\t\tScope:\t\t\t``",
+        "operationId": "BillingService_ChangeBillingData",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "details": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "type": "string",
+                        "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+                      }
+                    },
+                    "additionalProperties": {},
+                    "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := ptypes.MarshalAny(foo)\n     ...\n     foo := &pb.Foo{}\n     if err := ptypes.UnmarshalAny(any, foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "addressParams.city",
+            "description": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.country",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.line1",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.line2",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.postalCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressParams.state",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "taxIDDataParams.type",
+            "description": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "taxIDDataParams.value",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
     "/api/billing/v1/change-payment-method": {
       "post": {
         "summary": "ChangePaymentMethod with a new payment details.",
@@ -5553,6 +5667,47 @@
                             "type": "string",
                             "format": "int64"
                           }
+                        }
+                      }
+                    }
+                  }
+                },
+                "billingData": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "city": {
+                          "type": "string",
+                          "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "line1": {
+                          "type": "string"
+                        },
+                        "line2": {
+                          "type": "string"
+                        },
+                        "postalCode": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "taxIDData": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+                        },
+                        "value": {
+                          "type": "string"
                         }
                       }
                     }
@@ -11823,6 +11978,71 @@
     "v1AccountRegisteredResponse": {
       "type": "object"
     },
+    "v1AddressParams": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+        },
+        "country": {
+          "type": "string"
+        },
+        "line1": {
+          "type": "string"
+        },
+        "line2": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BillingData": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string",
+              "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+            },
+            "country": {
+              "type": "string"
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          }
+        },
+        "taxIDData": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "v1CancelSubscriptionResponse": {
       "type": "object",
       "properties": {
@@ -11902,6 +12122,9 @@
         }
       }
     },
+    "v1ChangeBillingDataResponse": {
+      "type": "object"
+    },
     "v1ChangePaymentMethodResponse": {
       "type": "object",
       "properties": {
@@ -11917,6 +12140,18 @@
           "type": "string"
         },
         "clientSecret": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CustomerTaxIDDataParams": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+        },
+        "value": {
           "type": "string"
         }
       }
@@ -11983,6 +12218,47 @@
                     "type": "string",
                     "format": "int64"
                   }
+                }
+              }
+            }
+          }
+        },
+        "billingData": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "object",
+              "properties": {
+                "city": {
+                  "type": "string",
+                  "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "line1": {
+                  "type": "string"
+                },
+                "line2": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "taxIDData": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+                },
+                "value": {
+                  "type": "string"
                 }
               }
             }
