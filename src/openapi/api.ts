@@ -243,15 +243,77 @@ export interface ApiAuthV1UserUserUserIDUser {
 /**
  *
  * @export
+ * @interface ApiBillingV1ChangeBillingDataAddressParams
+ */
+export interface ApiBillingV1ChangeBillingDataAddressParams {
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   */
+  city?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   */
+  country?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   */
+  line1?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   */
+  line2?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   */
+  postalCode?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   */
+  state?: string;
+}
+/**
+ *
+ * @export
+ * @interface ApiBillingV1ChangeBillingDataTaxIDDataParams
+ */
+export interface ApiBillingV1ChangeBillingDataTaxIDDataParams {
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataTaxIDDataParams
+   */
+  type?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof ApiBillingV1ChangeBillingDataTaxIDDataParams
+   */
+  value?: string;
+}
+/**
+ *
+ * @export
  * @interface ContainsDataPoolTaskDataSpecifiedInByIDRequest
  */
 export interface ContainsDataPoolTaskDataSpecifiedInByIDRequest {
   /**
    *
-   * @type {InlineObject41}
+   * @type {InlineObject44}
    * @memberof ContainsDataPoolTaskDataSpecifiedInByIDRequest
    */
-  dataPool?: InlineObject41;
+  dataPool?: InlineObject44;
 }
 /**
  *
@@ -593,10 +655,10 @@ export interface DistrconfigAssignTagToUserRequest {
 export interface DistrconfigCreatePoolsRequest {
   /**
    *
-   * @type {Array<InlineObject41>}
+   * @type {Array<InlineObject44>}
    * @memberof DistrconfigCreatePoolsRequest
    */
-  dataPools?: Array<InlineObject41>;
+  dataPools?: Array<InlineObject44>;
 }
 /**
  *
@@ -799,10 +861,10 @@ export type DistrconfigGetPoolDistributionResponsePoolTypeEnum = typeof Distrcon
 export interface DistrconfigGetPoolResponse {
   /**
    *
-   * @type {InlineObject41}
+   * @type {InlineObject44}
    * @memberof DistrconfigGetPoolResponse
    */
-  dataPool?: InlineObject41;
+  dataPool?: InlineObject44;
 }
 /**
  *
@@ -1351,16 +1413,16 @@ export interface FunctionsFunction {
 export interface FunctionsGetFunctionResponse {
   /**
    *
-   * @type {InlineObject30}
+   * @type {InlineObject33}
    * @memberof FunctionsGetFunctionResponse
    */
-  function?: InlineObject30;
+  function?: InlineObject33;
   /**
    *
-   * @type {InlineObject30}
+   * @type {InlineObject33}
    * @memberof FunctionsGetFunctionResponse
    */
-  result?: InlineObject30;
+  result?: InlineObject33;
 }
 /**
  *
@@ -1370,10 +1432,10 @@ export interface FunctionsGetFunctionResponse {
 export interface FunctionsGetFunctionsResponse {
   /**
    *
-   * @type {Array<InlineObject30>}
+   * @type {Array<InlineObject33>}
    * @memberof FunctionsGetFunctionsResponse
    */
-  functions?: Array<InlineObject30>;
+  functions?: Array<InlineObject33>;
 }
 /**
  *
@@ -1893,40 +1955,16 @@ export interface InlineObject27 {
 export interface InlineObject28 {
   /**
    *
-   * @type {string}
+   * @type {ApiBillingV1ChangeBillingDataAddressParams}
    * @memberof InlineObject28
    */
-  id?: string;
+  addressParams?: ApiBillingV1ChangeBillingDataAddressParams;
   /**
    *
-   * @type {string}
+   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
    * @memberof InlineObject28
    */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject28
-   */
-  funcType?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject28
-   */
-  endpoint?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject28
-   */
-  region?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject28
-   */
-  config?: string;
+  taxIDDataParams?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
 }
 /**
  *
@@ -1939,31 +1977,13 @@ export interface InlineObject29 {
    * @type {string}
    * @memberof InlineObject29
    */
-  name?: string;
+  priceID?: string;
   /**
    *
    * @type {string}
    * @memberof InlineObject29
    */
-  funcType?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject29
-   */
-  endpoint?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject29
-   */
-  region?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject29
-   */
-  config?: string;
+  quantity?: string;
 }
 /**
  *
@@ -2007,37 +2027,13 @@ export interface InlineObject30 {
    * @type {string}
    * @memberof InlineObject30
    */
-  id?: string;
+  newPriceLookupKey?: string;
   /**
    *
    * @type {string}
    * @memberof InlineObject30
    */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject30
-   */
-  funcType?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject30
-   */
-  endpoint?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject30
-   */
-  region?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject30
-   */
-  config?: string;
+  quantity?: string;
 }
 /**
  *
@@ -2056,13 +2052,31 @@ export interface InlineObject31 {
    * @type {string}
    * @memberof InlineObject31
    */
-  bundleUrl?: string;
+  name?: string;
   /**
    *
-   * @type {boolean}
+   * @type {string}
    * @memberof InlineObject31
    */
-  active?: boolean;
+  funcType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject31
+   */
+  endpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject31
+   */
+  region?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject31
+   */
+  config?: string;
 }
 /**
  *
@@ -2075,13 +2089,31 @@ export interface InlineObject32 {
    * @type {string}
    * @memberof InlineObject32
    */
-  appID?: string;
+  name?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof InlineObject32
    */
-  poolIDs?: Array<string>;
+  funcType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject32
+   */
+  endpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject32
+   */
+  region?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject32
+   */
+  config?: string;
 }
 /**
  *
@@ -2094,13 +2126,37 @@ export interface InlineObject33 {
    * @type {string}
    * @memberof InlineObject33
    */
-  appID?: string;
+  id?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof InlineObject33
    */
-  poolIDs?: Array<string>;
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject33
+   */
+  funcType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject33
+   */
+  endpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject33
+   */
+  region?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject33
+   */
+  config?: string;
 }
 /**
  *
@@ -2113,13 +2169,19 @@ export interface InlineObject34 {
    * @type {string}
    * @memberof InlineObject34
    */
-  appID?: string;
+  id?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof InlineObject34
    */
-  userIDs?: Array<string>;
+  bundleUrl?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineObject34
+   */
+  active?: boolean;
 }
 /**
  *
@@ -2138,7 +2200,7 @@ export interface InlineObject35 {
    * @type {Array<string>}
    * @memberof InlineObject35
    */
-  userIDs?: Array<string>;
+  poolIDs?: Array<string>;
 }
 /**
  *
@@ -2151,7 +2213,13 @@ export interface InlineObject36 {
    * @type {string}
    * @memberof InlineObject36
    */
-  bundleUrl?: string;
+  appID?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineObject36
+   */
+  poolIDs?: Array<string>;
 }
 /**
  *
@@ -2164,54 +2232,14 @@ export interface InlineObject37 {
    * @type {string}
    * @memberof InlineObject37
    */
-  id?: string;
+  appID?: string;
   /**
    *
-   * @type {string}
+   * @type {Array<string>}
    * @memberof InlineObject37
    */
-  poolType?: InlineObject37PoolTypeEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject37
-   */
-  pkExtractExpression?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject37
-   */
-  tagExtractExpression?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineObject37
-   */
-  active?: boolean;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject37
-   */
-  schema?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject37
-   */
-  onUploadFunction?: string;
+  userIDs?: Array<string>;
 }
-
-export const InlineObject37PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineObject37PoolTypeEnum = typeof InlineObject37PoolTypeEnum[keyof typeof InlineObject37PoolTypeEnum];
-
 /**
  *
  * @export
@@ -2223,54 +2251,14 @@ export interface InlineObject38 {
    * @type {string}
    * @memberof InlineObject38
    */
-  id?: string;
+  appID?: string;
   /**
    *
-   * @type {string}
+   * @type {Array<string>}
    * @memberof InlineObject38
    */
-  poolType?: InlineObject38PoolTypeEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject38
-   */
-  pkExtractExpression?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject38
-   */
-  tagExtractExpression?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineObject38
-   */
-  active?: boolean;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject38
-   */
-  schema?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject38
-   */
-  onUploadFunction?: string;
+  userIDs?: Array<string>;
 }
-
-export const InlineObject38PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineObject38PoolTypeEnum = typeof InlineObject38PoolTypeEnum[keyof typeof InlineObject38PoolTypeEnum];
-
 /**
  *
  * @export
@@ -2282,7 +2270,7 @@ export interface InlineObject39 {
    * @type {string}
    * @memberof InlineObject39
    */
-  id?: string;
+  bundleUrl?: string;
 }
 /**
  *
@@ -2308,6 +2296,12 @@ export interface InlineObject40 {
    * @type {string}
    * @memberof InlineObject40
    */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject40
+   */
   poolType?: InlineObject40PoolTypeEnum;
   /**
    *
@@ -2323,6 +2317,12 @@ export interface InlineObject40 {
   tagExtractExpression?: string;
   /**
    *
+   * @type {boolean}
+   * @memberof InlineObject40
+   */
+  active?: boolean;
+  /**
+   *
    * @type {string}
    * @memberof InlineObject40
    */
@@ -2332,7 +2332,7 @@ export interface InlineObject40 {
    * @type {string}
    * @memberof InlineObject40
    */
-  data?: string;
+  onUploadFunction?: string;
 }
 
 export const InlineObject40PoolTypeEnum = {
@@ -2411,10 +2411,10 @@ export type InlineObject41PoolTypeEnum = typeof InlineObject41PoolTypeEnum[keyof
 export interface InlineObject42 {
   /**
    *
-   * @type {Array<InlineObject41>}
+   * @type {string}
    * @memberof InlineObject42
    */
-  dataPools?: Array<InlineObject41>;
+  id?: string;
 }
 /**
  *
@@ -2427,8 +2427,42 @@ export interface InlineObject43 {
    * @type {string}
    * @memberof InlineObject43
    */
-  id?: string;
+  poolType?: InlineObject43PoolTypeEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject43
+   */
+  pkExtractExpression?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject43
+   */
+  tagExtractExpression?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject43
+   */
+  schema?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject43
+   */
+  data?: string;
 }
+
+export const InlineObject43PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineObject43PoolTypeEnum = typeof InlineObject43PoolTypeEnum[keyof typeof InlineObject43PoolTypeEnum];
+
 /**
  *
  * @export
@@ -2440,20 +2474,54 @@ export interface InlineObject44 {
    * @type {string}
    * @memberof InlineObject44
    */
-  poolID?: string;
+  id?: string;
   /**
    *
    * @type {string}
    * @memberof InlineObject44
    */
-  userID?: string;
+  poolType?: InlineObject44PoolTypeEnum;
   /**
    *
    * @type {string}
    * @memberof InlineObject44
    */
-  tagValue?: string;
+  pkExtractExpression?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject44
+   */
+  tagExtractExpression?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineObject44
+   */
+  active?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject44
+   */
+  schema?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject44
+   */
+  onUploadFunction?: string;
 }
+
+export const InlineObject44PoolTypeEnum = {
+  Unknown: 'UNKNOWN',
+  Global: 'GLOBAL',
+  Filtered: 'FILTERED',
+  User: 'USER',
+} as const;
+
+export type InlineObject44PoolTypeEnum = typeof InlineObject44PoolTypeEnum[keyof typeof InlineObject44PoolTypeEnum];
+
 /**
  *
  * @export
@@ -2462,20 +2530,71 @@ export interface InlineObject44 {
 export interface InlineObject45 {
   /**
    *
-   * @type {string}
+   * @type {Array<InlineObject44>}
    * @memberof InlineObject45
+   */
+  dataPools?: Array<InlineObject44>;
+}
+/**
+ *
+ * @export
+ * @interface InlineObject46
+ */
+export interface InlineObject46 {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject46
+   */
+  id?: string;
+}
+/**
+ *
+ * @export
+ * @interface InlineObject47
+ */
+export interface InlineObject47 {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject47
    */
   poolID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineObject45
+   * @memberof InlineObject47
    */
   userID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineObject45
+   * @memberof InlineObject47
+   */
+  tagValue?: string;
+}
+/**
+ *
+ * @export
+ * @interface InlineObject48
+ */
+export interface InlineObject48 {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject48
+   */
+  poolID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject48
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject48
    */
   tagValue?: string;
 }
@@ -3459,78 +3578,16 @@ export interface InlineResponse20029 {
 export interface InlineResponse20029BillingData {
   /**
    *
-   * @type {InlineResponse20029BillingDataAddress}
+   * @type {ApiBillingV1ChangeBillingDataAddressParams}
    * @memberof InlineResponse20029BillingData
    */
-  address?: InlineResponse20029BillingDataAddress;
+  address?: ApiBillingV1ChangeBillingDataAddressParams;
   /**
    *
-   * @type {InlineResponse20029BillingDataTaxIDData}
+   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
    * @memberof InlineResponse20029BillingData
    */
-  taxIDData?: InlineResponse20029BillingDataTaxIDData;
-}
-/**
- *
- * @export
- * @interface InlineResponse20029BillingDataAddress
- */
-export interface InlineResponse20029BillingDataAddress {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataAddress
-   */
-  city?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataAddress
-   */
-  country?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataAddress
-   */
-  line1?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataAddress
-   */
-  line2?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataAddress
-   */
-  postalCode?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataAddress
-   */
-  state?: string;
-}
-/**
- *
- * @export
- * @interface InlineResponse20029BillingDataTaxIDData
- */
-export interface InlineResponse20029BillingDataTaxIDData {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataTaxIDData
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029BillingDataTaxIDData
-   */
-  value?: string;
+  taxIDData?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
 }
 /**
  *
@@ -3757,16 +3814,16 @@ export interface InlineResponse20031 {
 export interface InlineResponse20032 {
   /**
    *
-   * @type {InlineObject30}
+   * @type {InlineObject33}
    * @memberof InlineResponse20032
    */
-  function?: InlineObject30;
+  function?: InlineObject33;
   /**
    *
-   * @type {InlineObject30}
+   * @type {InlineObject33}
    * @memberof InlineResponse20032
    */
-  result?: InlineObject30;
+  result?: InlineObject33;
 }
 /**
  *
@@ -3776,10 +3833,10 @@ export interface InlineResponse20032 {
 export interface InlineResponse20033 {
   /**
    *
-   * @type {Array<InlineObject30>}
+   * @type {Array<InlineObject33>}
    * @memberof InlineResponse20033
    */
-  functions?: Array<InlineObject30>;
+  functions?: Array<InlineObject33>;
 }
 /**
  *
@@ -4815,16 +4872,16 @@ export interface V1AssumeAccountRequest {
 export interface V1BillingData {
   /**
    *
-   * @type {InlineResponse20029BillingDataAddress}
+   * @type {ApiBillingV1ChangeBillingDataAddressParams}
    * @memberof V1BillingData
    */
-  address?: InlineResponse20029BillingDataAddress;
+  address?: ApiBillingV1ChangeBillingDataAddressParams;
   /**
    *
-   * @type {InlineResponse20029BillingDataTaxIDData}
+   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
    * @memberof V1BillingData
    */
-  taxIDData?: InlineResponse20029BillingDataTaxIDData;
+  taxIDData?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
 }
 /**
  *
@@ -4838,6 +4895,25 @@ export interface V1CancelSubscriptionResponse {
    * @memberof V1CancelSubscriptionResponse
    */
   subscription?: InlineResponse20026Subscription;
+}
+/**
+ *
+ * @export
+ * @interface V1ChangeBillingDataRequest
+ */
+export interface V1ChangeBillingDataRequest {
+  /**
+   *
+   * @type {ApiBillingV1ChangeBillingDataAddressParams}
+   * @memberof V1ChangeBillingDataRequest
+   */
+  addressParams?: ApiBillingV1ChangeBillingDataAddressParams;
+  /**
+   *
+   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
+   * @memberof V1ChangeBillingDataRequest
+   */
+  taxIDDataParams?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
 }
 /**
  *
@@ -5280,6 +5356,25 @@ export interface V1CreateRoleResponse {
    * @memberof V1CreateRoleResponse
    */
   roleID?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateSubscriptionRequest
+ */
+export interface V1CreateSubscriptionRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateSubscriptionRequest
+   */
+  priceID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateSubscriptionRequest
+   */
+  quantity?: string;
 }
 /**
  *
@@ -6861,6 +6956,25 @@ export interface V1UpdateRoleRequest {
    * @memberof V1UpdateRoleRequest
    */
   role?: ApiAuthV1RoleRole;
+}
+/**
+ *
+ * @export
+ * @interface V1UpdateSubscriptionRequest
+ */
+export interface V1UpdateSubscriptionRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateSubscriptionRequest
+   */
+  newPriceLookupKey?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdateSubscriptionRequest
+   */
+  quantity?: string;
 }
 /**
  *
@@ -11048,10 +11162,13 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
      * @summary CancelSubscription cancels a subscription.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    cancelSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    cancelSubscription: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      assertParamExists('cancelSubscription', 'body', body);
       const localVarPath = `/api/billing/v1/cancel-subscription`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11064,9 +11181,12 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
 
       return {
         url: toPathString(localVarUrlObj),
@@ -11076,28 +11196,13 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
      * @summary ChangeBillingData changes the address and vatID for existing customer.
-     * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
-     * @param {string} [addressParamsCountry]
-     * @param {string} [addressParamsLine1]
-     * @param {string} [addressParamsLine2]
-     * @param {string} [addressParamsPostalCode]
-     * @param {string} [addressParamsState]
-     * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
-     * @param {string} [taxIDDataParamsValue]
+     * @param {InlineObject28} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeBillingData: async (
-      addressParamsCity?: string,
-      addressParamsCountry?: string,
-      addressParamsLine1?: string,
-      addressParamsLine2?: string,
-      addressParamsPostalCode?: string,
-      addressParamsState?: string,
-      taxIDDataParamsType?: string,
-      taxIDDataParamsValue?: string,
-      options: AxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
+    changeBillingData: async (body: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      assertParamExists('changeBillingData', 'body', body);
       const localVarPath = `/api/billing/v1/change-billing-data`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11110,41 +11215,12 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      if (addressParamsCity !== undefined) {
-        localVarQueryParameter['addressParams.city'] = addressParamsCity;
-      }
-
-      if (addressParamsCountry !== undefined) {
-        localVarQueryParameter['addressParams.country'] = addressParamsCountry;
-      }
-
-      if (addressParamsLine1 !== undefined) {
-        localVarQueryParameter['addressParams.line1'] = addressParamsLine1;
-      }
-
-      if (addressParamsLine2 !== undefined) {
-        localVarQueryParameter['addressParams.line2'] = addressParamsLine2;
-      }
-
-      if (addressParamsPostalCode !== undefined) {
-        localVarQueryParameter['addressParams.postalCode'] = addressParamsPostalCode;
-      }
-
-      if (addressParamsState !== undefined) {
-        localVarQueryParameter['addressParams.state'] = addressParamsState;
-      }
-
-      if (taxIDDataParamsType !== undefined) {
-        localVarQueryParameter['taxIDDataParams.type'] = taxIDDataParamsType;
-      }
-
-      if (taxIDDataParamsValue !== undefined) {
-        localVarQueryParameter['taxIDDataParams.value'] = taxIDDataParamsValue;
-      }
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
 
       return {
         url: toPathString(localVarUrlObj),
@@ -11154,10 +11230,13 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
      * @summary ChangePaymentMethod with a new payment details.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changePaymentMethod: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    changePaymentMethod: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      assertParamExists('changePaymentMethod', 'body', body);
       const localVarPath = `/api/billing/v1/change-payment-method`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11170,9 +11249,12 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
 
       return {
         url: toPathString(localVarUrlObj),
@@ -11182,16 +11264,13 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
-     * @param {string} [priceID]
-     * @param {string} [quantity]
+     * @param {InlineObject29} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createSubscription: async (
-      priceID?: string,
-      quantity?: string,
-      options: AxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
+    createSubscription: async (body: InlineObject29, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      assertParamExists('createSubscription', 'body', body);
       const localVarPath = `/api/billing/v1/create-subscription`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11204,17 +11283,12 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      if (priceID !== undefined) {
-        localVarQueryParameter['priceID'] = priceID;
-      }
-
-      if (quantity !== undefined) {
-        localVarQueryParameter['quantity'] = quantity;
-      }
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
 
       return {
         url: toPathString(localVarUrlObj),
@@ -11224,10 +11298,13 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
      * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getBillingStatus: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    getBillingStatus: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      assertParamExists('getBillingStatus', 'body', body);
       const localVarPath = `/api/billing/v1/get-status`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11240,9 +11317,12 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
 
       return {
         url: toPathString(localVarUrlObj),
@@ -11252,16 +11332,13 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
      * @summary UpdateSubscription with a new payment details.
-     * @param {string} [newPriceLookupKey]
-     * @param {string} [quantity]
+     * @param {InlineObject30} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateSubscription: async (
-      newPriceLookupKey?: string,
-      quantity?: string,
-      options: AxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
+    updateSubscription: async (body: InlineObject30, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      assertParamExists('updateSubscription', 'body', body);
       const localVarPath = `/api/billing/v1/update-subscription`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11274,17 +11351,12 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      if (newPriceLookupKey !== undefined) {
-        localVarQueryParameter['newPriceLookupKey'] = newPriceLookupKey;
-      }
-
-      if (quantity !== undefined) {
-        localVarQueryParameter['quantity'] = quantity;
-      }
+      localVarHeaderParameter['Content-Type'] = 'application/json';
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
 
       return {
         url: toPathString(localVarUrlObj),
@@ -11304,111 +11376,85 @@ export const BillingServiceApiFp = function (configuration?: Configuration) {
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
      * @summary CancelSubscription cancels a subscription.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async cancelSubscription(
+      body: object,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
      * @summary ChangeBillingData changes the address and vatID for existing customer.
-     * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
-     * @param {string} [addressParamsCountry]
-     * @param {string} [addressParamsLine1]
-     * @param {string} [addressParamsLine2]
-     * @param {string} [addressParamsPostalCode]
-     * @param {string} [addressParamsState]
-     * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
-     * @param {string} [taxIDDataParamsValue]
+     * @param {InlineObject28} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async changeBillingData(
-      addressParamsCity?: string,
-      addressParamsCountry?: string,
-      addressParamsLine1?: string,
-      addressParamsLine2?: string,
-      addressParamsPostalCode?: string,
-      addressParamsState?: string,
-      taxIDDataParamsType?: string,
-      taxIDDataParamsValue?: string,
+      body: InlineObject28,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.changeBillingData(
-        addressParamsCity,
-        addressParamsCountry,
-        addressParamsLine1,
-        addressParamsLine2,
-        addressParamsPostalCode,
-        addressParamsState,
-        taxIDDataParamsType,
-        taxIDDataParamsValue,
-        options,
-      );
+      const localVarAxiosArgs = await localVarAxiosParamCreator.changeBillingData(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
      * @summary ChangePaymentMethod with a new payment details.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async changePaymentMethod(
+      body: object,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.changePaymentMethod(options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.changePaymentMethod(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
-     * @param {string} [priceID]
-     * @param {string} [quantity]
+     * @param {InlineObject29} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createSubscription(
-      priceID?: string,
-      quantity?: string,
+      body: InlineObject29,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(priceID, quantity, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
      * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async getBillingStatus(
+      body: object,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.getBillingStatus(options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getBillingStatus(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
      * @summary UpdateSubscription with a new payment details.
-     * @param {string} [newPriceLookupKey]
-     * @param {string} [quantity]
+     * @param {InlineObject30} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateSubscription(
-      newPriceLookupKey?: string,
-      quantity?: string,
+      body: InlineObject30,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(
-        newPriceLookupKey,
-        quantity,
-        options,
-      );
+      const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
   };
@@ -11428,96 +11474,62 @@ export const BillingServiceApiFactory = function (
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
      * @summary CancelSubscription cancels a subscription.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    cancelSubscription(options?: any): AxiosPromise<InlineResponse20026> {
-      return localVarFp.cancelSubscription(options).then((request) => request(axios, basePath));
+    cancelSubscription(body: object, options?: any): AxiosPromise<InlineResponse20026> {
+      return localVarFp.cancelSubscription(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
      * @summary ChangeBillingData changes the address and vatID for existing customer.
-     * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
-     * @param {string} [addressParamsCountry]
-     * @param {string} [addressParamsLine1]
-     * @param {string} [addressParamsLine2]
-     * @param {string} [addressParamsPostalCode]
-     * @param {string} [addressParamsState]
-     * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
-     * @param {string} [taxIDDataParamsValue]
+     * @param {InlineObject28} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeBillingData(
-      addressParamsCity?: string,
-      addressParamsCountry?: string,
-      addressParamsLine1?: string,
-      addressParamsLine2?: string,
-      addressParamsPostalCode?: string,
-      addressParamsState?: string,
-      taxIDDataParamsType?: string,
-      taxIDDataParamsValue?: string,
-      options?: any,
-    ): AxiosPromise<object> {
-      return localVarFp
-        .changeBillingData(
-          addressParamsCity,
-          addressParamsCountry,
-          addressParamsLine1,
-          addressParamsLine2,
-          addressParamsPostalCode,
-          addressParamsState,
-          taxIDDataParamsType,
-          taxIDDataParamsValue,
-          options,
-        )
-        .then((request) => request(axios, basePath));
+    changeBillingData(body: InlineObject28, options?: any): AxiosPromise<object> {
+      return localVarFp.changeBillingData(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
      * @summary ChangePaymentMethod with a new payment details.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changePaymentMethod(options?: any): AxiosPromise<InlineResponse20027> {
-      return localVarFp.changePaymentMethod(options).then((request) => request(axios, basePath));
+    changePaymentMethod(body: object, options?: any): AxiosPromise<InlineResponse20027> {
+      return localVarFp.changePaymentMethod(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
-     * @param {string} [priceID]
-     * @param {string} [quantity]
+     * @param {InlineObject29} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createSubscription(priceID?: string, quantity?: string, options?: any): AxiosPromise<InlineResponse20028> {
-      return localVarFp.createSubscription(priceID, quantity, options).then((request) => request(axios, basePath));
+    createSubscription(body: InlineObject29, options?: any): AxiosPromise<InlineResponse20028> {
+      return localVarFp.createSubscription(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
      * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getBillingStatus(options?: any): AxiosPromise<InlineResponse20029> {
-      return localVarFp.getBillingStatus(options).then((request) => request(axios, basePath));
+    getBillingStatus(body: object, options?: any): AxiosPromise<InlineResponse20029> {
+      return localVarFp.getBillingStatus(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
      * @summary UpdateSubscription with a new payment details.
-     * @param {string} [newPriceLookupKey]
-     * @param {string} [quantity]
+     * @param {InlineObject30} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateSubscription(
-      newPriceLookupKey?: string,
-      quantity?: string,
-      options?: any,
-    ): AxiosPromise<InlineResponse20026> {
-      return localVarFp
-        .updateSubscription(newPriceLookupKey, quantity, options)
-        .then((request) => request(axios, basePath));
+    updateSubscription(body: InlineObject30, options?: any): AxiosPromise<InlineResponse20026> {
+      return localVarFp.updateSubscription(body, options).then((request) => request(axios, basePath));
     },
   };
 };
@@ -11532,110 +11544,84 @@ export class BillingServiceApi extends BaseAPI {
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
    * @summary CancelSubscription cancels a subscription.
+   * @param {object} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public cancelSubscription(options?: AxiosRequestConfig) {
+  public cancelSubscription(body: object, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .cancelSubscription(options)
+      .cancelSubscription(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
    * @summary ChangeBillingData changes the address and vatID for existing customer.
-   * @param {string} [addressParamsCity] City       *string &#x60;form:\&quot;city\&quot;&#x60; Country    *string &#x60;form:\&quot;country\&quot;&#x60; Line1      *string &#x60;form:\&quot;line1\&quot;&#x60; Line2      *string &#x60;form:\&quot;line2\&quot;&#x60; PostalCode *string &#x60;form:\&quot;postal_code\&quot;&#x60; State      *string &#x60;form:\&quot;state\&quot;&#x60;.
-   * @param {string} [addressParamsCountry]
-   * @param {string} [addressParamsLine1]
-   * @param {string} [addressParamsLine2]
-   * @param {string} [addressParamsPostalCode]
-   * @param {string} [addressParamsState]
-   * @param {string} [taxIDDataParamsType] // Type of the tax ID, one of &#x60;ae_trn&#x60;, &#x60;au_abn&#x60;, &#x60;au_arn&#x60;, &#x60;bg_uic&#x60;, &#x60;br_cnpj&#x60;, &#x60;br_cpf&#x60;, &#x60;ca_bn&#x60;, &#x60;ca_gst_hst&#x60;, &#x60;ca_pst_bc&#x60;, &#x60;ca_pst_mb&#x60;, &#x60;ca_pst_sk&#x60;, &#x60;ca_qst&#x60;, &#x60;ch_vat&#x60;, &#x60;cl_tin&#x60;, &#x60;es_cif&#x60;, &#x60;eu_vat&#x60;, &#x60;gb_vat&#x60;, &#x60;ge_vat&#x60;, &#x60;hk_br&#x60;, &#x60;hu_tin&#x60;, &#x60;id_npwp&#x60;, &#x60;il_vat&#x60;, &#x60;in_gst&#x60;, &#x60;is_vat&#x60;, &#x60;jp_cn&#x60;, &#x60;jp_rn&#x60;, &#x60;kr_brn&#x60;, &#x60;li_uid&#x60;, &#x60;mx_rfc&#x60;, &#x60;my_frp&#x60;, &#x60;my_itn&#x60;, &#x60;my_sst&#x60;, &#x60;no_vat&#x60;, &#x60;nz_gst&#x60;, &#x60;ru_inn&#x60;, &#x60;ru_kpp&#x60;, &#x60;sa_vat&#x60;, &#x60;sg_gst&#x60;, &#x60;sg_uen&#x60;, &#x60;si_tin&#x60;, &#x60;th_vat&#x60;, &#x60;tw_vat&#x60;, &#x60;ua_vat&#x60;, &#x60;us_ein&#x60;, or &#x60;za_vat&#x60; Type *string &#x60;form:\&quot;type\&quot;&#x60; // Value of the tax ID. Value *string &#x60;form:\&quot;value\&quot;&#x60;.
-   * @param {string} [taxIDDataParamsValue]
+   * @param {InlineObject28} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public changeBillingData(
-    addressParamsCity?: string,
-    addressParamsCountry?: string,
-    addressParamsLine1?: string,
-    addressParamsLine2?: string,
-    addressParamsPostalCode?: string,
-    addressParamsState?: string,
-    taxIDDataParamsType?: string,
-    taxIDDataParamsValue?: string,
-    options?: AxiosRequestConfig,
-  ) {
+  public changeBillingData(body: InlineObject28, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .changeBillingData(
-        addressParamsCity,
-        addressParamsCountry,
-        addressParamsLine1,
-        addressParamsLine2,
-        addressParamsPostalCode,
-        addressParamsState,
-        taxIDDataParamsType,
-        taxIDDataParamsValue,
-        options,
-      )
+      .changeBillingData(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
    * @summary ChangePaymentMethod with a new payment details.
+   * @param {object} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public changePaymentMethod(options?: AxiosRequestConfig) {
+  public changePaymentMethod(body: object, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .changePaymentMethod(options)
+      .changePaymentMethod(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
    * @summary CreateSubscription creates a new subscription for the logged in account.
-   * @param {string} [priceID]
-   * @param {string} [quantity]
+   * @param {InlineObject29} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public createSubscription(priceID?: string, quantity?: string, options?: AxiosRequestConfig) {
+  public createSubscription(body: InlineObject29, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .createSubscription(priceID, quantity, options)
+      .createSubscription(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
    * @summary GetBillingStatus returns the current billing status for logged in account.
+   * @param {object} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public getBillingStatus(options?: AxiosRequestConfig) {
+  public getBillingStatus(body: object, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .getBillingStatus(options)
+      .getBillingStatus(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
    * @summary UpdateSubscription with a new payment details.
-   * @param {string} [newPriceLookupKey]
-   * @param {string} [quantity]
+   * @param {InlineObject30} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public updateSubscription(newPriceLookupKey?: string, quantity?: string, options?: AxiosRequestConfig) {
+  public updateSubscription(body: InlineObject30, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .updateSubscription(newPriceLookupKey, quantity, options)
+      .updateSubscription(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 }
@@ -11649,11 +11635,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
-     * @param {InlineObject39} body
+     * @param {InlineObject42} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    activatePool: async (body: InlineObject39, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    activatePool: async (body: InlineObject42, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('activatePool', 'body', body);
       const localVarPath = `/api/distribution/v1/pool/activate`;
@@ -11683,11 +11669,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Assign mobile application to users
-     * @param {InlineObject34} body
+     * @param {InlineObject37} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppToUsers: async (body: InlineObject34, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    assignAppToUsers: async (body: InlineObject37, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('assignAppToUsers', 'body', body);
       const localVarPath = `/api/distribution/v1/app/users/assign`;
@@ -11717,11 +11703,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Assign data pools to mobile application
-     * @param {InlineObject32} body
+     * @param {InlineObject35} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignPoolsToApp: async (body: InlineObject32, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    assignPoolsToApp: async (body: InlineObject35, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('assignPoolsToApp', 'body', body);
       const localVarPath = `/api/distribution/v1/app/pools/assign`;
@@ -11751,11 +11737,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Assign filtering tag to user
-     * @param {InlineObject44} body
+     * @param {InlineObject47} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignTagToUser: async (body: InlineObject44, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    assignTagToUser: async (body: InlineObject47, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('assignTagToUser', 'body', body);
       const localVarPath = `/api/distribution/v1/user/tags/assign`;
@@ -11785,11 +11771,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Create mobile application
-     * @param {InlineObject31} body
+     * @param {InlineObject34} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApp: async (body: InlineObject31, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    createApp: async (body: InlineObject34, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createApp', 'body', body);
       const localVarPath = `/api/distribution/v1/app`;
@@ -11819,11 +11805,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Create a data pool that can be used to distribute data to mobile users.
-     * @param {InlineObject38} body
+     * @param {InlineObject41} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPool: async (body: InlineObject38, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    createPool: async (body: InlineObject41, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createPool', 'body', body);
       const localVarPath = `/api/distribution/v1/pool`;
@@ -11853,11 +11839,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Create several data pools, which can be used to distribute data to mobile users.
-     * @param {InlineObject42} body
+     * @param {InlineObject45} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPools: async (body: InlineObject42, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    createPools: async (body: InlineObject45, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createPools', 'body', body);
       const localVarPath = `/api/distribution/v1/pools`;
@@ -11887,11 +11873,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Registers user in distribution database
-     * @param {InlineObject43} body
+     * @param {InlineObject46} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUser: async (body: InlineObject43, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    createUser: async (body: InlineObject46, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createUser', 'body', body);
       const localVarPath = `/api/distribution/v1/user`;
@@ -12238,11 +12224,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      *
      * @summary Set the mobile application bundle
      * @param {string} id
-     * @param {InlineObject36} body
+     * @param {InlineObject39} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setAppBundle: async (id: string, body: InlineObject36, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    setAppBundle: async (id: string, body: InlineObject39, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
       assertParamExists('setAppBundle', 'id', id);
       // verify required parameter 'body' is not null or undefined
@@ -12274,11 +12260,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Unassign mobile application from users
-     * @param {InlineObject35} body
+     * @param {InlineObject38} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignAppFromUsers: async (body: InlineObject35, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    unassignAppFromUsers: async (body: InlineObject38, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('unassignAppFromUsers', 'body', body);
       const localVarPath = `/api/distribution/v1/app/users/unassign`;
@@ -12308,11 +12294,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Unassign data pool from mobile application
-     * @param {InlineObject33} body
+     * @param {InlineObject36} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignPoolsFromApp: async (body: InlineObject33, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    unassignPoolsFromApp: async (body: InlineObject36, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('unassignPoolsFromApp', 'body', body);
       const localVarPath = `/api/distribution/v1/app/pools/unassign`;
@@ -12342,11 +12328,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      *
      * @summary Unassign filtering tag from user
-     * @param {InlineObject45} body
+     * @param {InlineObject48} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignTagFromUser: async (body: InlineObject45, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    unassignTagFromUser: async (body: InlineObject48, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('unassignTagFromUser', 'body', body);
       const localVarPath = `/api/distribution/v1/user/tags/unassign`;
@@ -12376,11 +12362,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Update an already existing data pool.
-     * @param {InlineObject37} body
+     * @param {InlineObject40} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePool: async (body: InlineObject37, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    updatePool: async (body: InlineObject40, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('updatePool', 'body', body);
       const localVarPath = `/api/distribution/v1/pool`;
@@ -12411,13 +12397,13 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Update an already existing data pool.
      * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-     * @param {InlineObject41} body
+     * @param {InlineObject44} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     updatePool2: async (
       dataPoolId: string,
-      body: InlineObject41,
+      body: InlineObject44,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'dataPoolId' is not null or undefined
@@ -12454,11 +12440,11 @@ export const DistrConfigServiceApiAxiosParamCreator = function (configuration?: 
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Validate pool data against pool specification
-     * @param {InlineObject40} body
+     * @param {InlineObject43} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    validatePoolData: async (body: InlineObject40, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    validatePoolData: async (body: InlineObject43, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('validatePoolData', 'body', body);
       const localVarPath = `/api/distribution/v1/pool/validate`;
@@ -12498,12 +12484,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
-     * @param {InlineObject39} body
+     * @param {InlineObject42} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async activatePool(
-      body: InlineObject39,
+      body: InlineObject42,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.activatePool(body, options);
@@ -12512,12 +12498,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Assign mobile application to users
-     * @param {InlineObject34} body
+     * @param {InlineObject37} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async assignAppToUsers(
-      body: InlineObject34,
+      body: InlineObject37,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignAppToUsers(body, options);
@@ -12526,12 +12512,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Assign data pools to mobile application
-     * @param {InlineObject32} body
+     * @param {InlineObject35} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async assignPoolsToApp(
-      body: InlineObject32,
+      body: InlineObject35,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignPoolsToApp(body, options);
@@ -12540,12 +12526,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Assign filtering tag to user
-     * @param {InlineObject44} body
+     * @param {InlineObject47} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async assignTagToUser(
-      body: InlineObject44,
+      body: InlineObject47,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignTagToUser(body, options);
@@ -12554,12 +12540,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Create mobile application
-     * @param {InlineObject31} body
+     * @param {InlineObject34} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createApp(
-      body: InlineObject31,
+      body: InlineObject34,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createApp(body, options);
@@ -12568,12 +12554,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Create a data pool that can be used to distribute data to mobile users.
-     * @param {InlineObject38} body
+     * @param {InlineObject41} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createPool(
-      body: InlineObject38,
+      body: InlineObject41,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createPool(body, options);
@@ -12582,12 +12568,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Create several data pools, which can be used to distribute data to mobile users.
-     * @param {InlineObject42} body
+     * @param {InlineObject45} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createPools(
-      body: InlineObject42,
+      body: InlineObject45,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createPools(body, options);
@@ -12596,12 +12582,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Registers user in distribution database
-     * @param {InlineObject43} body
+     * @param {InlineObject46} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createUser(
-      body: InlineObject43,
+      body: InlineObject46,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createUser(body, options);
@@ -12749,13 +12735,13 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      *
      * @summary Set the mobile application bundle
      * @param {string} id
-     * @param {InlineObject36} body
+     * @param {InlineObject39} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async setAppBundle(
       id: string,
-      body: InlineObject36,
+      body: InlineObject39,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.setAppBundle(id, body, options);
@@ -12764,12 +12750,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Unassign mobile application from users
-     * @param {InlineObject35} body
+     * @param {InlineObject38} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async unassignAppFromUsers(
-      body: InlineObject35,
+      body: InlineObject38,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignAppFromUsers(body, options);
@@ -12778,12 +12764,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Unassign data pool from mobile application
-     * @param {InlineObject33} body
+     * @param {InlineObject36} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async unassignPoolsFromApp(
-      body: InlineObject33,
+      body: InlineObject36,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignPoolsFromApp(body, options);
@@ -12792,12 +12778,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      *
      * @summary Unassign filtering tag from user
-     * @param {InlineObject45} body
+     * @param {InlineObject48} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async unassignTagFromUser(
-      body: InlineObject45,
+      body: InlineObject48,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignTagFromUser(body, options);
@@ -12806,12 +12792,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Update an already existing data pool.
-     * @param {InlineObject37} body
+     * @param {InlineObject40} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updatePool(
-      body: InlineObject37,
+      body: InlineObject40,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updatePool(body, options);
@@ -12821,13 +12807,13 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Update an already existing data pool.
      * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-     * @param {InlineObject41} body
+     * @param {InlineObject44} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updatePool2(
       dataPoolId: string,
-      body: InlineObject41,
+      body: InlineObject44,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updatePool2(dataPoolId, body, options);
@@ -12836,12 +12822,12 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Validate pool data against pool specification
-     * @param {InlineObject40} body
+     * @param {InlineObject43} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async validatePoolData(
-      body: InlineObject40,
+      body: InlineObject43,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.validatePoolData(body, options);
@@ -12864,81 +12850,81 @@ export const DistrConfigServiceApiFactory = function (
     /**
      * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
-     * @param {InlineObject39} body
+     * @param {InlineObject42} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    activatePool(body: InlineObject39, options?: any): AxiosPromise<object> {
+    activatePool(body: InlineObject42, options?: any): AxiosPromise<object> {
       return localVarFp.activatePool(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Assign mobile application to users
-     * @param {InlineObject34} body
+     * @param {InlineObject37} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppToUsers(body: InlineObject34, options?: any): AxiosPromise<InlineResponse20035> {
+    assignAppToUsers(body: InlineObject37, options?: any): AxiosPromise<InlineResponse20035> {
       return localVarFp.assignAppToUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Assign data pools to mobile application
-     * @param {InlineObject32} body
+     * @param {InlineObject35} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignPoolsToApp(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20034> {
+    assignPoolsToApp(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20034> {
       return localVarFp.assignPoolsToApp(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Assign filtering tag to user
-     * @param {InlineObject44} body
+     * @param {InlineObject47} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignTagToUser(body: InlineObject44, options?: any): AxiosPromise<object> {
+    assignTagToUser(body: InlineObject47, options?: any): AxiosPromise<object> {
       return localVarFp.assignTagToUser(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Create mobile application
-     * @param {InlineObject31} body
+     * @param {InlineObject34} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApp(body: InlineObject31, options?: any): AxiosPromise<object> {
+    createApp(body: InlineObject34, options?: any): AxiosPromise<object> {
       return localVarFp.createApp(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Create a data pool that can be used to distribute data to mobile users.
-     * @param {InlineObject38} body
+     * @param {InlineObject41} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPool(body: InlineObject38, options?: any): AxiosPromise<object> {
+    createPool(body: InlineObject41, options?: any): AxiosPromise<object> {
       return localVarFp.createPool(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Create several data pools, which can be used to distribute data to mobile users.
-     * @param {InlineObject42} body
+     * @param {InlineObject45} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPools(body: InlineObject42, options?: any): AxiosPromise<object> {
+    createPools(body: InlineObject45, options?: any): AxiosPromise<object> {
       return localVarFp.createPools(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Registers user in distribution database
-     * @param {InlineObject43} body
+     * @param {InlineObject46} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUser(body: InlineObject43, options?: any): AxiosPromise<object> {
+    createUser(body: InlineObject46, options?: any): AxiosPromise<object> {
       return localVarFp.createUser(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13043,72 +13029,72 @@ export const DistrConfigServiceApiFactory = function (
      *
      * @summary Set the mobile application bundle
      * @param {string} id
-     * @param {InlineObject36} body
+     * @param {InlineObject39} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setAppBundle(id: string, body: InlineObject36, options?: any): AxiosPromise<object> {
+    setAppBundle(id: string, body: InlineObject39, options?: any): AxiosPromise<object> {
       return localVarFp.setAppBundle(id, body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Unassign mobile application from users
-     * @param {InlineObject35} body
+     * @param {InlineObject38} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignAppFromUsers(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20035> {
+    unassignAppFromUsers(body: InlineObject38, options?: any): AxiosPromise<InlineResponse20035> {
       return localVarFp.unassignAppFromUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Unassign data pool from mobile application
-     * @param {InlineObject33} body
+     * @param {InlineObject36} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignPoolsFromApp(body: InlineObject33, options?: any): AxiosPromise<InlineResponse20034> {
+    unassignPoolsFromApp(body: InlineObject36, options?: any): AxiosPromise<InlineResponse20034> {
       return localVarFp.unassignPoolsFromApp(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Unassign filtering tag from user
-     * @param {InlineObject45} body
+     * @param {InlineObject48} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignTagFromUser(body: InlineObject45, options?: any): AxiosPromise<object> {
+    unassignTagFromUser(body: InlineObject48, options?: any): AxiosPromise<object> {
       return localVarFp.unassignTagFromUser(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Update an already existing data pool.
-     * @param {InlineObject37} body
+     * @param {InlineObject40} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePool(body: InlineObject37, options?: any): AxiosPromise<object> {
+    updatePool(body: InlineObject40, options?: any): AxiosPromise<object> {
       return localVarFp.updatePool(body, options).then((request) => request(axios, basePath));
     },
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Update an already existing data pool.
      * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-     * @param {InlineObject41} body
+     * @param {InlineObject44} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePool2(dataPoolId: string, body: InlineObject41, options?: any): AxiosPromise<object> {
+    updatePool2(dataPoolId: string, body: InlineObject44, options?: any): AxiosPromise<object> {
       return localVarFp.updatePool2(dataPoolId, body, options).then((request) => request(axios, basePath));
     },
     /**
      * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
      * @summary Validate pool data against pool specification
-     * @param {InlineObject40} body
+     * @param {InlineObject43} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    validatePoolData(body: InlineObject40, options?: any): AxiosPromise<InlineResponse20039> {
+    validatePoolData(body: InlineObject43, options?: any): AxiosPromise<InlineResponse20039> {
       return localVarFp.validatePoolData(body, options).then((request) => request(axios, basePath));
     },
   };
@@ -13124,12 +13110,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    * Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
    * @summary Activate data pool, which will enable the distribution of its data to  mobile users.
-   * @param {InlineObject39} body
+   * @param {InlineObject42} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public activatePool(body: InlineObject39, options?: AxiosRequestConfig) {
+  public activatePool(body: InlineObject42, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .activatePool(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13138,12 +13124,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Assign mobile application to users
-   * @param {InlineObject34} body
+   * @param {InlineObject37} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignAppToUsers(body: InlineObject34, options?: AxiosRequestConfig) {
+  public assignAppToUsers(body: InlineObject37, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .assignAppToUsers(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13152,12 +13138,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Assign data pools to mobile application
-   * @param {InlineObject32} body
+   * @param {InlineObject35} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignPoolsToApp(body: InlineObject32, options?: AxiosRequestConfig) {
+  public assignPoolsToApp(body: InlineObject35, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .assignPoolsToApp(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13166,12 +13152,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Assign filtering tag to user
-   * @param {InlineObject44} body
+   * @param {InlineObject47} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public assignTagToUser(body: InlineObject44, options?: AxiosRequestConfig) {
+  public assignTagToUser(body: InlineObject47, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .assignTagToUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13180,12 +13166,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Create mobile application
-   * @param {InlineObject31} body
+   * @param {InlineObject34} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createApp(body: InlineObject31, options?: AxiosRequestConfig) {
+  public createApp(body: InlineObject34, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createApp(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13194,12 +13180,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
    * @summary Create a data pool that can be used to distribute data to mobile users.
-   * @param {InlineObject38} body
+   * @param {InlineObject41} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createPool(body: InlineObject38, options?: AxiosRequestConfig) {
+  public createPool(body: InlineObject41, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createPool(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13208,12 +13194,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    * Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
    * @summary Create several data pools, which can be used to distribute data to mobile users.
-   * @param {InlineObject42} body
+   * @param {InlineObject45} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createPools(body: InlineObject42, options?: AxiosRequestConfig) {
+  public createPools(body: InlineObject45, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createPools(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13222,12 +13208,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Registers user in distribution database
-   * @param {InlineObject43} body
+   * @param {InlineObject46} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public createUser(body: InlineObject43, options?: AxiosRequestConfig) {
+  public createUser(body: InlineObject46, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .createUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13375,12 +13361,12 @@ export class DistrConfigServiceApi extends BaseAPI {
    *
    * @summary Set the mobile application bundle
    * @param {string} id
-   * @param {InlineObject36} body
+   * @param {InlineObject39} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public setAppBundle(id: string, body: InlineObject36, options?: AxiosRequestConfig) {
+  public setAppBundle(id: string, body: InlineObject39, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .setAppBundle(id, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13389,12 +13375,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Unassign mobile application from users
-   * @param {InlineObject35} body
+   * @param {InlineObject38} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public unassignAppFromUsers(body: InlineObject35, options?: AxiosRequestConfig) {
+  public unassignAppFromUsers(body: InlineObject38, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .unassignAppFromUsers(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13403,12 +13389,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Unassign data pool from mobile application
-   * @param {InlineObject33} body
+   * @param {InlineObject36} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public unassignPoolsFromApp(body: InlineObject33, options?: AxiosRequestConfig) {
+  public unassignPoolsFromApp(body: InlineObject36, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .unassignPoolsFromApp(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13417,12 +13403,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    *
    * @summary Unassign filtering tag from user
-   * @param {InlineObject45} body
+   * @param {InlineObject48} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public unassignTagFromUser(body: InlineObject45, options?: AxiosRequestConfig) {
+  public unassignTagFromUser(body: InlineObject48, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .unassignTagFromUser(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13431,12 +13417,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
    * @summary Update an already existing data pool.
-   * @param {InlineObject37} body
+   * @param {InlineObject40} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public updatePool(body: InlineObject37, options?: AxiosRequestConfig) {
+  public updatePool(body: InlineObject40, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .updatePool(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13446,12 +13432,12 @@ export class DistrConfigServiceApi extends BaseAPI {
    * Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
    * @summary Update an already existing data pool.
    * @param {string} dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
-   * @param {InlineObject41} body
+   * @param {InlineObject44} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public updatePool2(dataPoolId: string, body: InlineObject41, options?: AxiosRequestConfig) {
+  public updatePool2(dataPoolId: string, body: InlineObject44, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .updatePool2(dataPoolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13460,12 +13446,12 @@ export class DistrConfigServiceApi extends BaseAPI {
   /**
    * Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
    * @summary Validate pool data against pool specification
-   * @param {InlineObject40} body
+   * @param {InlineObject43} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DistrConfigServiceApi
    */
-  public validatePoolData(body: InlineObject40, options?: AxiosRequestConfig) {
+  public validatePoolData(body: InlineObject43, options?: AxiosRequestConfig) {
     return DistrConfigServiceApiFp(this.configuration)
       .validatePoolData(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -13622,11 +13608,11 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
     /**
      *
      * @summary Create function
-     * @param {InlineObject29} body
+     * @param {InlineObject32} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFunction: async (body: InlineObject29, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    createFunction: async (body: InlineObject32, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createFunction', 'body', body);
       const localVarPath = `/api/func/v1/function`;
@@ -13746,11 +13732,11 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
     /**
      *
      * @summary Update function
-     * @param {InlineObject28} body
+     * @param {InlineObject31} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFunction: async (body: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    updateFunction: async (body: InlineObject31, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('updateFunction', 'body', body);
       const localVarPath = `/api/func/v1/function`;
@@ -13781,13 +13767,13 @@ export const FunctionsServiceApiAxiosParamCreator = function (configuration?: Co
      *
      * @summary Update function
      * @param {string} functionId
-     * @param {InlineObject30} body
+     * @param {InlineObject33} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     updateFunction2: async (
       functionId: string,
-      body: InlineObject30,
+      body: InlineObject33,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'functionId' is not null or undefined
@@ -13888,12 +13874,12 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     /**
      *
      * @summary Create function
-     * @param {InlineObject29} body
+     * @param {InlineObject32} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createFunction(
-      body: InlineObject29,
+      body: InlineObject32,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createFunction(body, options);
@@ -13942,12 +13928,12 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     /**
      *
      * @summary Update function
-     * @param {InlineObject28} body
+     * @param {InlineObject31} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateFunction(
-      body: InlineObject28,
+      body: InlineObject31,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateFunction(body, options);
@@ -13957,13 +13943,13 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Update function
      * @param {string} functionId
-     * @param {InlineObject30} body
+     * @param {InlineObject33} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateFunction2(
       functionId: string,
-      body: InlineObject30,
+      body: InlineObject33,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateFunction2(functionId, body, options);
@@ -14022,11 +14008,11 @@ export const FunctionsServiceApiFactory = function (
     /**
      *
      * @summary Create function
-     * @param {InlineObject29} body
+     * @param {InlineObject32} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFunction(body: InlineObject29, options?: any): AxiosPromise<InlineResponse20031> {
+    createFunction(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20031> {
       return localVarFp.createFunction(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14061,22 +14047,22 @@ export const FunctionsServiceApiFactory = function (
     /**
      *
      * @summary Update function
-     * @param {InlineObject28} body
+     * @param {InlineObject31} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFunction(body: InlineObject28, options?: any): AxiosPromise<object> {
+    updateFunction(body: InlineObject31, options?: any): AxiosPromise<object> {
       return localVarFp.updateFunction(body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Update function
      * @param {string} functionId
-     * @param {InlineObject30} body
+     * @param {InlineObject33} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFunction2(functionId: string, body: InlineObject30, options?: any): AxiosPromise<object> {
+    updateFunction2(functionId: string, body: InlineObject33, options?: any): AxiosPromise<object> {
       return localVarFp.updateFunction2(functionId, body, options).then((request) => request(axios, basePath));
     },
   };
@@ -14140,12 +14126,12 @@ export class FunctionsServiceApi extends BaseAPI {
   /**
    *
    * @summary Create function
-   * @param {InlineObject29} body
+   * @param {InlineObject32} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public createFunction(body: InlineObject29, options?: AxiosRequestConfig) {
+  public createFunction(body: InlineObject32, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .createFunction(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -14195,12 +14181,12 @@ export class FunctionsServiceApi extends BaseAPI {
   /**
    *
    * @summary Update function
-   * @param {InlineObject28} body
+   * @param {InlineObject31} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public updateFunction(body: InlineObject28, options?: AxiosRequestConfig) {
+  public updateFunction(body: InlineObject31, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .updateFunction(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -14210,12 +14196,12 @@ export class FunctionsServiceApi extends BaseAPI {
    *
    * @summary Update function
    * @param {string} functionId
-   * @param {InlineObject30} body
+   * @param {InlineObject33} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof FunctionsServiceApi
    */
-  public updateFunction2(functionId: string, body: InlineObject30, options?: AxiosRequestConfig) {
+  public updateFunction2(functionId: string, body: InlineObject33, options?: AxiosRequestConfig) {
     return FunctionsServiceApiFp(this.configuration)
       .updateFunction2(functionId, body, options)
       .then((request) => request(this.axios, this.basePath));

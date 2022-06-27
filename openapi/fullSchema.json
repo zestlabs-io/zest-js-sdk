@@ -5326,6 +5326,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
         "tags": [
           "BillingService"
         ]
@@ -5390,54 +5400,50 @@
         },
         "parameters": [
           {
-            "name": "addressParams.city",
-            "description": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "addressParams.country",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "addressParams.line1",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "addressParams.line2",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "addressParams.postalCode",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "addressParams.state",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "taxIDDataParams.type",
-            "description": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "taxIDDataParams.value",
-            "in": "query",
-            "required": false,
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressParams": {
+                  "type": "object",
+                  "properties": {
+                    "city": {
+                      "type": "string",
+                      "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "line1": {
+                      "type": "string"
+                    },
+                    "line2": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "taxIDDataParams": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         ],
         "tags": [
@@ -5507,6 +5513,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
         "tags": [
           "BillingService"
         ]
@@ -5579,17 +5595,21 @@
         },
         "parameters": [
           {
-            "name": "priceID",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "quantity",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "int64"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "priceID": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "string",
+                  "format": "int64"
+                }
+              }
+            }
           }
         ],
         "tags": [
@@ -5767,6 +5787,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
         "tags": [
           "BillingService"
         ]
@@ -5907,17 +5937,21 @@
         },
         "parameters": [
           {
-            "name": "newPriceLookupKey",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "quantity",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "int64"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "newPriceLookupKey": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "string",
+                  "format": "int64"
+                }
+              }
+            }
           }
         ],
         "tags": [
@@ -12043,6 +12077,9 @@
         }
       }
     },
+    "v1CancelSubscriptionRequest": {
+      "type": "object"
+    },
     "v1CancelSubscriptionResponse": {
       "type": "object",
       "properties": {
@@ -12122,7 +12159,51 @@
         }
       }
     },
+    "v1ChangeBillingDataRequest": {
+      "type": "object",
+      "properties": {
+        "addressParams": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string",
+              "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+            },
+            "country": {
+              "type": "string"
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          }
+        },
+        "taxIDDataParams": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "v1ChangeBillingDataResponse": {
+      "type": "object"
+    },
+    "v1ChangePaymentMethodRequest": {
       "type": "object"
     },
     "v1ChangePaymentMethodResponse": {
@@ -12130,6 +12211,18 @@
       "properties": {
         "clientSecret": {
           "type": "string"
+        }
+      }
+    },
+    "v1CreateSubscriptionRequest": {
+      "type": "object",
+      "properties": {
+        "priceID": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -12155,6 +12248,9 @@
           "type": "string"
         }
       }
+    },
+    "v1GetBillingStatusRequest": {
+      "type": "object"
     },
     "v1GetBillingStatusResponse": {
       "type": "object",
@@ -12487,6 +12583,18 @@
               }
             }
           }
+        }
+      }
+    },
+    "v1UpdateSubscriptionRequest": {
+      "type": "object",
+      "properties": {
+        "newPriceLookupKey": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
