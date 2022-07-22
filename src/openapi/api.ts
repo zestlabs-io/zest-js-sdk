@@ -37,14 +37,12 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
  * @enum {string}
  */
 
-export const AccountAccountStatus = {
-  Pending: 'PENDING',
-  Active: 'ACTIVE',
-  Disabled: 'DISABLED',
-  Deleted: 'DELETED',
-} as const;
-
-export type AccountAccountStatus = typeof AccountAccountStatus[keyof typeof AccountAccountStatus];
+export enum AccountAccountStatus {
+  Pending = 'PENDING',
+  Active = 'ACTIVE',
+  Disabled = 'DISABLED',
+  Deleted = 'DELETED',
+}
 
 /**
  *
@@ -116,14 +114,16 @@ export interface ApiAppscapeV1MetricsQueryAggregations {
   preserve?: boolean;
 }
 
-export const ApiAppscapeV1MetricsQueryAggregationsOpEnum = {
-  Sum: 'SUM',
-  Avg: 'AVG',
-  Min: 'MIN',
-  Max: 'MAX',
-} as const;
-
-export type ApiAppscapeV1MetricsQueryAggregationsOpEnum = typeof ApiAppscapeV1MetricsQueryAggregationsOpEnum[keyof typeof ApiAppscapeV1MetricsQueryAggregationsOpEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum ApiAppscapeV1MetricsQueryAggregationsOpEnum {
+  Sum = 'SUM',
+  Avg = 'AVG',
+  Min = 'MIN',
+  Max = 'MAX',
+}
 
 /**
  * The LabelFilter is used to filter metrics based on their labels. The filter  can be one of EQ (equals), NE (not-equals), RM (regex-match), and NM (not  matching regex).
@@ -151,14 +151,16 @@ export interface ApiAppscapeV1MetricsQueryFilters {
   op?: ApiAppscapeV1MetricsQueryFiltersOpEnum;
 }
 
-export const ApiAppscapeV1MetricsQueryFiltersOpEnum = {
-  Eq: 'EQ',
-  Ne: 'NE',
-  Rm: 'RM',
-  Nm: 'NM',
-} as const;
-
-export type ApiAppscapeV1MetricsQueryFiltersOpEnum = typeof ApiAppscapeV1MetricsQueryFiltersOpEnum[keyof typeof ApiAppscapeV1MetricsQueryFiltersOpEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum ApiAppscapeV1MetricsQueryFiltersOpEnum {
+  Eq = 'EQ',
+  Ne = 'NE',
+  Rm = 'RM',
+  Nm = 'NM',
+}
 
 /**
  *
@@ -243,64 +245,45 @@ export interface ApiAuthV1UserUserUserIDUser {
 /**
  *
  * @export
- * @interface ApiBillingV1ChangeBillingDataAddressParams
+ * @interface Billingv1Status
  */
-export interface ApiBillingV1ChangeBillingDataAddressParams {
+export interface Billingv1Status {
   /**
    *
    * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   * @memberof Billingv1Status
    */
-  city?: string;
+  customerID?: string;
   /**
    *
    * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   * @memberof Billingv1Status
    */
-  country?: string;
+  subscriptionID?: string;
   /**
    *
    * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   * @memberof Billingv1Status
    */
-  line1?: string;
+  productID?: string;
   /**
    *
    * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   * @memberof Billingv1Status
    */
-  line2?: string;
+  paymentMethodID?: string;
   /**
    *
    * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   * @memberof Billingv1Status
    */
-  postalCode?: string;
+  status?: string;
   /**
    *
    * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataAddressParams
+   * @memberof Billingv1Status
    */
-  state?: string;
-}
-/**
- *
- * @export
- * @interface ApiBillingV1ChangeBillingDataTaxIDDataParams
- */
-export interface ApiBillingV1ChangeBillingDataTaxIDDataParams {
-  /**
-   *
-   * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataTaxIDDataParams
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ApiBillingV1ChangeBillingDataTaxIDDataParams
-   */
-  value?: string;
+  clientSecret?: string;
 }
 /**
  *
@@ -360,14 +343,16 @@ export interface ContainsListOfAllDataPoolTasksDataPool {
   active?: boolean;
 }
 
-export const ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum = typeof ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum[keyof typeof ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum ContainsListOfAllDataPoolTasksDataPoolPoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -402,10 +387,10 @@ export interface ContainsListOfAllDataPoolTasksPoolSizes {
 export interface DataBulkCreateResponse {
   /**
    * Successful creation
-   * @type {Array<InlineResponse20043Result>}
+   * @type {Array<InlineResponse20045Result>}
    * @memberof DataBulkCreateResponse
    */
-  result?: Array<InlineResponse20043Result>;
+  result?: Array<InlineResponse20045Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -421,10 +406,10 @@ export interface DataBulkCreateResponse {
 export interface DataBulkDeleteResponse {
   /**
    * Successful deletion
-   * @type {Array<InlineResponse20043Result>}
+   * @type {Array<InlineResponse20045Result>}
    * @memberof DataBulkDeleteResponse
    */
-  result?: Array<InlineResponse20043Result>;
+  result?: Array<InlineResponse20045Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -440,10 +425,10 @@ export interface DataBulkDeleteResponse {
 export interface DataBulkUpdateResponse {
   /**
    * Successful creation
-   * @type {Array<InlineResponse20043Result>}
+   * @type {Array<InlineResponse20045Result>}
    * @memberof DataBulkUpdateResponse
    */
-  result?: Array<InlineResponse20043Result>;
+  result?: Array<InlineResponse20045Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
@@ -521,10 +506,10 @@ export interface DataListResponse {
   offset?: number;
   /**
    *
-   * @type {Array<InlineResponse20042Rows>}
+   * @type {Array<InlineResponse20044Rows>}
    * @memberof DataListResponse
    */
-  rows?: Array<InlineResponse20042Rows>;
+  rows?: Array<InlineResponse20044Rows>;
 }
 /**
  *
@@ -723,14 +708,16 @@ export interface DistrconfigDataPool {
   onUploadFunction?: string;
 }
 
-export const DistrconfigDataPoolPoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type DistrconfigDataPoolPoolTypeEnum = typeof DistrconfigDataPoolPoolTypeEnum[keyof typeof DistrconfigDataPoolPoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum DistrconfigDataPoolPoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -758,14 +745,16 @@ export interface DistrconfigDataPoolShort {
   active?: boolean;
 }
 
-export const DistrconfigDataPoolShortPoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type DistrconfigDataPoolShortPoolTypeEnum = typeof DistrconfigDataPoolShortPoolTypeEnum[keyof typeof DistrconfigDataPoolShortPoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum DistrconfigDataPoolShortPoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -787,10 +776,10 @@ export interface DistrconfigDistributionUser {
   activeAppID?: string;
   /**
    *
-   * @type {Array<InlineResponse20040UserTagAssignments>}
+   * @type {Array<InlineResponse20042UserTagAssignments>}
    * @memberof DistrconfigDistributionUser
    */
-  tagAssignments?: Array<InlineResponse20040UserTagAssignments>;
+  tagAssignments?: Array<InlineResponse20042UserTagAssignments>;
 }
 /**
  *
@@ -800,10 +789,10 @@ export interface DistrconfigDistributionUser {
 export interface DistrconfigGetAppResponse {
   /**
    *
-   * @type {InlineResponse20036App}
+   * @type {InlineResponse20038App}
    * @memberof DistrconfigGetAppResponse
    */
-  app?: InlineResponse20036App;
+  app?: InlineResponse20038App;
 }
 /**
  *
@@ -813,10 +802,10 @@ export interface DistrconfigGetAppResponse {
 export interface DistrconfigGetAppsResponse {
   /**
    *
-   * @type {Array<InlineResponse20036App>}
+   * @type {Array<InlineResponse20038App>}
    * @memberof DistrconfigGetAppsResponse
    */
-  apps?: Array<InlineResponse20036App>;
+  apps?: Array<InlineResponse20038App>;
 }
 /**
  *
@@ -844,14 +833,16 @@ export interface DistrconfigGetPoolDistributionResponse {
   tagPrefix?: string;
 }
 
-export const DistrconfigGetPoolDistributionResponsePoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type DistrconfigGetPoolDistributionResponsePoolTypeEnum = typeof DistrconfigGetPoolDistributionResponsePoolTypeEnum[keyof typeof DistrconfigGetPoolDistributionResponsePoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum DistrconfigGetPoolDistributionResponsePoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -893,10 +884,10 @@ export interface DistrconfigGetPoolsResponse {
 export interface DistrconfigGetUserResponse {
   /**
    *
-   * @type {InlineResponse20040User}
+   * @type {InlineResponse20042User}
    * @memberof DistrconfigGetUserResponse
    */
-  user?: InlineResponse20040User;
+  user?: InlineResponse20042User;
 }
 /**
  *
@@ -906,10 +897,10 @@ export interface DistrconfigGetUserResponse {
 export interface DistrconfigGetUsersResponse {
   /**
    *
-   * @type {Array<InlineResponse20040User>}
+   * @type {Array<InlineResponse20042User>}
    * @memberof DistrconfigGetUsersResponse
    */
-  users?: Array<InlineResponse20040User>;
+  users?: Array<InlineResponse20042User>;
 }
 /**
  *
@@ -998,14 +989,12 @@ export interface DistrconfigPoolSize {
  * @enum {string}
  */
 
-export const DistrconfigPoolType = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type DistrconfigPoolType = typeof DistrconfigPoolType[keyof typeof DistrconfigPoolType];
+export enum DistrconfigPoolType {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -1153,14 +1142,16 @@ export interface DistrconfigValidatePoolDataRequest {
   data?: string;
 }
 
-export const DistrconfigValidatePoolDataRequestPoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type DistrconfigValidatePoolDataRequestPoolTypeEnum = typeof DistrconfigValidatePoolDataRequestPoolTypeEnum[keyof typeof DistrconfigValidatePoolDataRequestPoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum DistrconfigValidatePoolDataRequestPoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -1470,6 +1461,31 @@ export interface GetLogLabelsResponseContainsAListOfAllPossibleLabelNameValuePai
   values?: Array<string>;
 }
 /**
+ *
+ * @export
+ * @interface GooglerpcStatus
+ */
+export interface GooglerpcStatus {
+  /**
+   *
+   * @type {number}
+   * @memberof GooglerpcStatus
+   */
+  code?: number;
+  /**
+   *
+   * @type {string}
+   * @memberof GooglerpcStatus
+   */
+  message?: string;
+  /**
+   *
+   * @type {Array<{ [key: string]: object; }>}
+   * @memberof GooglerpcStatus
+   */
+  details?: Array<{ [key: string]: object }>;
+}
+/**
  * The QueryLogsRequest contains all parameters for searching for log entries inside the appscape log store. Those parameters will filter the logs that will be retrieved to only provide entries that macht the values in the  request.
  * @export
  * @interface InlineObject
@@ -1662,11 +1678,13 @@ export interface InlineObject13 {
   oidcUseSecret?: boolean;
 }
 
-export const InlineObject13FedTypeEnum = {
-  Oidc: 'Oidc',
-} as const;
-
-export type InlineObject13FedTypeEnum = typeof InlineObject13FedTypeEnum[keyof typeof InlineObject13FedTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineObject13FedTypeEnum {
+  Oidc = 'Oidc',
+}
 
 /**
  *
@@ -1676,10 +1694,10 @@ export type InlineObject13FedTypeEnum = typeof InlineObject13FedTypeEnum[keyof t
 export interface InlineObject14 {
   /**
    *
-   * @type {InlineResponse20010Policies}
+   * @type {InlineResponse20011Policies}
    * @memberof InlineObject14
    */
-  policy?: InlineResponse20010Policies;
+  policy?: InlineResponse20011Policies;
 }
 /**
  *
@@ -1689,10 +1707,10 @@ export interface InlineObject14 {
 export interface InlineObject15 {
   /**
    *
-   * @type {InlineResponse20010Policies}
+   * @type {InlineResponse20011Policies}
    * @memberof InlineObject15
    */
-  policy?: InlineResponse20010Policies;
+  policy?: InlineResponse20011Policies;
 }
 /**
  *
@@ -1895,6 +1913,12 @@ export interface InlineObject24 {
    * @memberof InlineObject24
    */
   phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineObject24
+   */
+  language?: string;
 }
 /**
  *
@@ -1955,16 +1979,16 @@ export interface InlineObject27 {
 export interface InlineObject28 {
   /**
    *
-   * @type {ApiBillingV1ChangeBillingDataAddressParams}
+   * @type {InlineResponse20028Address}
    * @memberof InlineObject28
    */
-  addressParams?: ApiBillingV1ChangeBillingDataAddressParams;
+  address?: InlineResponse20028Address;
   /**
    *
-   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
+   * @type {InlineResponse20028TaxInfo}
    * @memberof InlineObject28
    */
-  taxIDDataParams?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
+  taxInfo?: InlineResponse20028TaxInfo;
 }
 /**
  *
@@ -1977,13 +2001,7 @@ export interface InlineObject29 {
    * @type {string}
    * @memberof InlineObject29
    */
-  priceID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject29
-   */
-  quantity?: string;
+  newPriceID?: string;
 }
 /**
  *
@@ -2027,13 +2045,7 @@ export interface InlineObject30 {
    * @type {string}
    * @memberof InlineObject30
    */
-  newPriceLookupKey?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject30
-   */
-  quantity?: string;
+  priceID?: string;
 }
 /**
  *
@@ -2335,14 +2347,16 @@ export interface InlineObject40 {
   onUploadFunction?: string;
 }
 
-export const InlineObject40PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineObject40PoolTypeEnum = typeof InlineObject40PoolTypeEnum[keyof typeof InlineObject40PoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineObject40PoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -2394,14 +2408,16 @@ export interface InlineObject41 {
   onUploadFunction?: string;
 }
 
-export const InlineObject41PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineObject41PoolTypeEnum = typeof InlineObject41PoolTypeEnum[keyof typeof InlineObject41PoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineObject41PoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -2454,14 +2470,16 @@ export interface InlineObject43 {
   data?: string;
 }
 
-export const InlineObject43PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineObject43PoolTypeEnum = typeof InlineObject43PoolTypeEnum[keyof typeof InlineObject43PoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineObject43PoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -2513,14 +2531,16 @@ export interface InlineObject44 {
   onUploadFunction?: string;
 }
 
-export const InlineObject44PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineObject44PoolTypeEnum = typeof InlineObject44PoolTypeEnum[keyof typeof InlineObject44PoolTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineObject44PoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
+}
 
 /**
  *
@@ -2751,79 +2771,10 @@ export interface InlineResponse2001 {
 export interface InlineResponse20010 {
   /**
    *
-   * @type {Array<InlineResponse20010Policies>}
+   * @type {string}
    * @memberof InlineResponse20010
    */
-  policies?: Array<InlineResponse20010Policies>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20010Actions
- */
-export interface InlineResponse20010Actions {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20010Actions
-   */
-  service?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20010Actions
-   */
-  call?: string;
-}
-/**
- *
- * @export
- * @interface InlineResponse20010Permissions
- */
-export interface InlineResponse20010Permissions {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20010Permissions
-   */
-  effect?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20010Actions>}
-   * @memberof InlineResponse20010Permissions
-   */
-  actions?: Array<InlineResponse20010Actions>;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20010Permissions
-   */
-  scope?: Array<string>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20010Policies
- */
-export interface InlineResponse20010Policies {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20010Policies
-   */
-  policyID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20010Policies
-   */
-  name?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20010Permissions>}
-   * @memberof InlineResponse20010Policies
-   */
-  permissions?: Array<InlineResponse20010Permissions>;
+  id?: string;
 }
 /**
  *
@@ -2833,67 +2784,80 @@ export interface InlineResponse20010Policies {
 export interface InlineResponse20011 {
   /**
    *
-   * @type {InlineResponse20011Config}
+   * @type {Array<InlineResponse20011Policies>}
    * @memberof InlineResponse20011
    */
-  config?: InlineResponse20011Config;
+  policies?: Array<InlineResponse20011Policies>;
 }
 /**
  *
  * @export
- * @interface InlineResponse20011Config
+ * @interface InlineResponse20011Actions
  */
-export interface InlineResponse20011Config {
+export interface InlineResponse20011Actions {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20011Config
+   * @memberof InlineResponse20011Actions
    */
-  fedID?: string;
+  service?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20011Config
+   * @memberof InlineResponse20011Actions
    */
-  fedType?: InlineResponse20011ConfigFedTypeEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20011Config
-   */
-  oidcEndpoint?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20011Config
-   */
-  oidcClientID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20011Config
-   */
-  oidcClientSecret?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20011Config
-   */
-  oidcScopes?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20011Config
-   */
-  oidcUseSecret?: boolean;
+  call?: string;
 }
-
-export const InlineResponse20011ConfigFedTypeEnum = {
-  Oidc: 'Oidc',
-} as const;
-
-export type InlineResponse20011ConfigFedTypeEnum = typeof InlineResponse20011ConfigFedTypeEnum[keyof typeof InlineResponse20011ConfigFedTypeEnum];
-
+/**
+ *
+ * @export
+ * @interface InlineResponse20011Permissions
+ */
+export interface InlineResponse20011Permissions {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20011Permissions
+   */
+  effect?: string;
+  /**
+   *
+   * @type {Array<InlineResponse20011Actions>}
+   * @memberof InlineResponse20011Permissions
+   */
+  actions?: Array<InlineResponse20011Actions>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineResponse20011Permissions
+   */
+  scope?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20011Policies
+ */
+export interface InlineResponse20011Policies {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20011Policies
+   */
+  policyID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20011Policies
+   */
+  name?: string;
+  /**
+   *
+   * @type {Array<InlineResponse20011Permissions>}
+   * @memberof InlineResponse20011Policies
+   */
+  permissions?: Array<InlineResponse20011Permissions>;
+}
 /**
  *
  * @export
@@ -2902,11 +2866,69 @@ export type InlineResponse20011ConfigFedTypeEnum = typeof InlineResponse20011Con
 export interface InlineResponse20012 {
   /**
    *
-   * @type {Array<AccountRoles>}
+   * @type {InlineResponse20012Config}
    * @memberof InlineResponse20012
    */
-  roles?: Array<AccountRoles>;
+  config?: InlineResponse20012Config;
 }
+/**
+ *
+ * @export
+ * @interface InlineResponse20012Config
+ */
+export interface InlineResponse20012Config {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20012Config
+   */
+  fedID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20012Config
+   */
+  fedType?: InlineResponse20012ConfigFedTypeEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20012Config
+   */
+  oidcEndpoint?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20012Config
+   */
+  oidcClientID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20012Config
+   */
+  oidcClientSecret?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20012Config
+   */
+  oidcScopes?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20012Config
+   */
+  oidcUseSecret?: boolean;
+}
+
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineResponse20012ConfigFedTypeEnum {
+  Oidc = 'Oidc',
+}
+
 /**
  *
  * @export
@@ -2915,47 +2937,10 @@ export interface InlineResponse20012 {
 export interface InlineResponse20013 {
   /**
    *
-   * @type {InlineResponse20013Policy}
+   * @type {Array<AccountRoles>}
    * @memberof InlineResponse20013
    */
-  policy?: InlineResponse20013Policy;
-}
-/**
- *
- * @export
- * @interface InlineResponse20013Policy
- */
-export interface InlineResponse20013Policy {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20013Policy
-   */
-  minLength?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20013Policy
-   */
-  useLowerLetters?: boolean;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20013Policy
-   */
-  useUpperLetters?: boolean;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20013Policy
-   */
-  useNumbers?: boolean;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20013Policy
-   */
-  useSpecialCharecters?: boolean;
+  roles?: Array<AccountRoles>;
 }
 /**
  *
@@ -2968,7 +2953,13 @@ export interface InlineResponse20014 {
    * @type {string}
    * @memberof InlineResponse20014
    */
-  policyID?: string;
+  totalCount?: string;
+  /**
+   *
+   * @type {Array<Invitations>}
+   * @memberof InlineResponse20014
+   */
+  invitation?: Array<Invitations>;
 }
 /**
  *
@@ -2978,10 +2969,47 @@ export interface InlineResponse20014 {
 export interface InlineResponse20015 {
   /**
    *
-   * @type {string}
+   * @type {InlineResponse20015Policy}
    * @memberof InlineResponse20015
    */
-  roleID?: string;
+  policy?: InlineResponse20015Policy;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20015Policy
+ */
+export interface InlineResponse20015Policy {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20015Policy
+   */
+  minLength?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20015Policy
+   */
+  useLowerLetters?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20015Policy
+   */
+  useUpperLetters?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20015Policy
+   */
+  useNumbers?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20015Policy
+   */
+  useSpecialCharecters?: boolean;
 }
 /**
  *
@@ -2991,10 +3019,10 @@ export interface InlineResponse20015 {
 export interface InlineResponse20016 {
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof InlineResponse20016
    */
-  failedPolicyIDs?: Array<string>;
+  policyID?: string;
 }
 /**
  *
@@ -3004,16 +3032,10 @@ export interface InlineResponse20016 {
 export interface InlineResponse20017 {
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof InlineResponse20017
    */
-  failedUserIDs?: Array<string>;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20017
-   */
-  errors?: Array<string>;
+  roleID?: string;
 }
 /**
  *
@@ -3026,7 +3048,7 @@ export interface InlineResponse20018 {
    * @type {Array<string>}
    * @memberof InlineResponse20018
    */
-  userIDs?: Array<string>;
+  failedPolicyIDs?: Array<string>;
 }
 /**
  *
@@ -3036,41 +3058,16 @@ export interface InlineResponse20018 {
 export interface InlineResponse20019 {
   /**
    *
-   * @type {InlineResponse20019Role}
+   * @type {Array<string>}
    * @memberof InlineResponse20019
    */
-  role?: InlineResponse20019Role;
-}
-/**
- *
- * @export
- * @interface InlineResponse20019Role
- */
-export interface InlineResponse20019Role {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20019Role
-   */
-  roleID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20019Role
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20019Role
-   */
-  description?: string;
+  failedUserIDs?: Array<string>;
   /**
    *
    * @type {Array<string>}
-   * @memberof InlineResponse20019Role
+   * @memberof InlineResponse20019
    */
-  policyIDs?: Array<string>;
+  errors?: Array<string>;
 }
 /**
  * MetricMeta contains a name of a metric and a short description, indicating what this metric is representing.
@@ -3118,10 +3115,10 @@ export interface InlineResponse2002 {
 export interface InlineResponse20020 {
   /**
    *
-   * @type {Array<InlineResponse20019Role>}
+   * @type {Array<string>}
    * @memberof InlineResponse20020
    */
-  roles?: Array<InlineResponse20019Role>;
+  userIDs?: Array<string>;
 }
 /**
  *
@@ -3131,10 +3128,41 @@ export interface InlineResponse20020 {
 export interface InlineResponse20021 {
   /**
    *
-   * @type {Array<InlineResponse2004Account>}
+   * @type {InlineResponse20021Role}
    * @memberof InlineResponse20021
    */
-  accounts?: Array<InlineResponse2004Account>;
+  role?: InlineResponse20021Role;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20021Role
+ */
+export interface InlineResponse20021Role {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20021Role
+   */
+  roleID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20021Role
+   */
+  name?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20021Role
+   */
+  description?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineResponse20021Role
+   */
+  policyIDs?: Array<string>;
 }
 /**
  *
@@ -3144,29 +3172,10 @@ export interface InlineResponse20021 {
 export interface InlineResponse20022 {
   /**
    *
-   * @type {Array<InlineResponse20022Keys>}
+   * @type {Array<InlineResponse20021Role>}
    * @memberof InlineResponse20022
    */
-  keys?: Array<InlineResponse20022Keys>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20022Keys
- */
-export interface InlineResponse20022Keys {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20022Keys
-   */
-  accessKeyID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20022Keys
-   */
-  lastUsedAt?: string;
+  roles?: Array<InlineResponse20021Role>;
 }
 /**
  *
@@ -3176,83 +3185,10 @@ export interface InlineResponse20022Keys {
 export interface InlineResponse20023 {
   /**
    *
-   * @type {InlineResponse20023User}
+   * @type {Array<InlineResponse2004Account>}
    * @memberof InlineResponse20023
    */
-  user?: InlineResponse20023User;
-}
-/**
- *
- * @export
- * @interface InlineResponse20023User
- */
-export interface InlineResponse20023User {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  userID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  username?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  email?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  phoneNumber?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  firstName?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  lastName?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  language?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  lastLogin?: string;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20023User
-   */
-  policyIDs?: Array<string>;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20023User
-   */
-  roleIDs?: Array<string>;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20023User
-   */
-  federationID?: string;
+  accounts?: Array<InlineResponse2004Account>;
 }
 /**
  *
@@ -3262,71 +3198,29 @@ export interface InlineResponse20023User {
 export interface InlineResponse20024 {
   /**
    *
-   * @type {InlineResponse20024UserInfo}
+   * @type {Array<InlineResponse20024Keys>}
    * @memberof InlineResponse20024
    */
-  userInfo?: InlineResponse20024UserInfo;
+  keys?: Array<InlineResponse20024Keys>;
 }
 /**
  *
  * @export
- * @interface InlineResponse20024UserInfo
+ * @interface InlineResponse20024Keys
  */
-export interface InlineResponse20024UserInfo {
+export interface InlineResponse20024Keys {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20024UserInfo
+   * @memberof InlineResponse20024Keys
    */
-  accountID?: string;
+  accessKeyID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20024UserInfo
+   * @memberof InlineResponse20024Keys
    */
-  userID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20024UserInfo
-   */
-  email?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20024UserInfo
-   */
-  name?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20010Policies>}
-   * @memberof InlineResponse20024UserInfo
-   */
-  policies?: Array<InlineResponse20010Policies>;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20024UserInfo
-   */
-  logoutUrl?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20024UserInfo
-   */
-  assumedAccountID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20024UserInfo
-   */
-  language?: string;
-  /**
-   *
-   * @type {Array<AccountRoles>}
-   * @memberof InlineResponse20024UserInfo
-   */
-  accountRoles?: Array<AccountRoles>;
+  lastUsedAt?: string;
 }
 /**
  *
@@ -3336,28 +3230,83 @@ export interface InlineResponse20024UserInfo {
 export interface InlineResponse20025 {
   /**
    *
-   * @type {string}
+   * @type {InlineResponse20025User}
    * @memberof InlineResponse20025
    */
-  totalRows?: string;
+  user?: InlineResponse20025User;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20025User
+ */
+export interface InlineResponse20025User {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20025
+   * @memberof InlineResponse20025User
    */
-  offset?: string;
+  userID?: string;
   /**
    *
-   * @type {number}
-   * @memberof InlineResponse20025
+   * @type {string}
+   * @memberof InlineResponse20025User
    */
-  limit?: number;
+  username?: string;
   /**
    *
-   * @type {Array<InlineResponse20023User>}
-   * @memberof InlineResponse20025
+   * @type {string}
+   * @memberof InlineResponse20025User
    */
-  users?: Array<InlineResponse20023User>;
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20025User
+   */
+  phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20025User
+   */
+  firstName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20025User
+   */
+  lastName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20025User
+   */
+  language?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20025User
+   */
+  lastLogin?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineResponse20025User
+   */
+  policyIDs?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineResponse20025User
+   */
+  roleIDs?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20025User
+   */
+  federationID?: string;
 }
 /**
  *
@@ -3367,145 +3316,71 @@ export interface InlineResponse20025 {
 export interface InlineResponse20026 {
   /**
    *
-   * @type {InlineResponse20026Subscription}
+   * @type {InlineResponse20026UserInfo}
    * @memberof InlineResponse20026
    */
-  subscription?: InlineResponse20026Subscription;
+  userInfo?: InlineResponse20026UserInfo;
 }
 /**
  *
  * @export
- * @interface InlineResponse20026Subscription
+ * @interface InlineResponse20026UserInfo
  */
-export interface InlineResponse20026Subscription {
+export interface InlineResponse20026UserInfo {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026Subscription
+   * @memberof InlineResponse20026UserInfo
    */
-  subscriptionID?: string;
+  accountID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026Subscription
+   * @memberof InlineResponse20026UserInfo
    */
-  status?: string;
+  userID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026Subscription
+   * @memberof InlineResponse20026UserInfo
    */
-  created?: string;
+  email?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026Subscription
+   * @memberof InlineResponse20026UserInfo
    */
-  startDate?: string;
+  name?: string;
+  /**
+   *
+   * @type {Array<InlineResponse20011Policies>}
+   * @memberof InlineResponse20026UserInfo
+   */
+  policies?: Array<InlineResponse20011Policies>;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026Subscription
+   * @memberof InlineResponse20026UserInfo
    */
-  currentPeriodStart?: string;
+  logoutUrl?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026Subscription
+   * @memberof InlineResponse20026UserInfo
    */
-  currentPeriodEnd?: string;
+  assumedAccountID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20026Subscription
+   * @memberof InlineResponse20026UserInfo
    */
-  canceledAt?: string;
+  language?: string;
   /**
    *
-   * @type {boolean}
-   * @memberof InlineResponse20026Subscription
+   * @type {Array<AccountRoles>}
+   * @memberof InlineResponse20026UserInfo
    */
-  cancelAtPeriodEnd?: boolean;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20026Subscription
-   */
-  clientSecret?: string;
-  /**
-   *
-   * @type {InlineResponse20026SubscriptionSubscriptionItem}
-   * @memberof InlineResponse20026Subscription
-   */
-  subscriptionItem?: InlineResponse20026SubscriptionSubscriptionItem;
-}
-/**
- *
- * @export
- * @interface InlineResponse20026SubscriptionSubscriptionItem
- */
-export interface InlineResponse20026SubscriptionSubscriptionItem {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItem
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItem
-   */
-  created?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItem
-   */
-  quantity?: number;
-  /**
-   *
-   * @type {InlineResponse20026SubscriptionSubscriptionItemPrice}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItem
-   */
-  price?: InlineResponse20026SubscriptionSubscriptionItemPrice;
-}
-/**
- *
- * @export
- * @interface InlineResponse20026SubscriptionSubscriptionItemPrice
- */
-export interface InlineResponse20026SubscriptionSubscriptionItemPrice {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
-   */
-  id?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
-   */
-  active?: boolean;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
-   */
-  billingScheme?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
-   */
-  created?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20026SubscriptionSubscriptionItemPrice
-   */
-  currency?: string;
+  accountRoles?: Array<AccountRoles>;
 }
 /**
  *
@@ -3518,7 +3393,25 @@ export interface InlineResponse20027 {
    * @type {string}
    * @memberof InlineResponse20027
    */
-  clientSecret?: string;
+  totalRows?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20027
+   */
+  offset?: string;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineResponse20027
+   */
+  limit?: number;
+  /**
+   *
+   * @type {Array<InlineResponse20025User>}
+   * @memberof InlineResponse20027
+   */
+  users?: Array<InlineResponse20025User>;
 }
 /**
  *
@@ -3528,16 +3421,78 @@ export interface InlineResponse20027 {
 export interface InlineResponse20028 {
   /**
    *
-   * @type {string}
+   * @type {InlineResponse20028Address}
    * @memberof InlineResponse20028
    */
-  subscriptionID?: string;
+  address?: InlineResponse20028Address;
+  /**
+   *
+   * @type {InlineResponse20028TaxInfo}
+   * @memberof InlineResponse20028
+   */
+  taxInfo?: InlineResponse20028TaxInfo;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20028Address
+ */
+export interface InlineResponse20028Address {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20028
+   * @memberof InlineResponse20028Address
    */
-  clientSecret?: string;
+  city?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028Address
+   */
+  country?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028Address
+   */
+  line1?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028Address
+   */
+  line2?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028Address
+   */
+  postalCode?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028Address
+   */
+  state?: string;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20028TaxInfo
+ */
+export interface InlineResponse20028TaxInfo {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028TaxInfo
+   */
+  type?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20028TaxInfo
+   */
+  value?: string;
 }
 /**
  *
@@ -3547,163 +3502,53 @@ export interface InlineResponse20028 {
 export interface InlineResponse20029 {
   /**
    *
-   * @type {InlineResponse20029SubscriptionStatus}
+   * @type {InlineResponse20029PaymentMethod}
    * @memberof InlineResponse20029
    */
-  subscriptionStatus?: InlineResponse20029SubscriptionStatus;
-  /**
-   *
-   * @type {InlineResponse20029BillingData}
-   * @memberof InlineResponse20029
-   */
-  billingData?: InlineResponse20029BillingData;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20029
-   */
-  hasSetupPayment?: boolean;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20029
-   */
-  hasSetupSubscription?: boolean;
+  paymentMethod?: InlineResponse20029PaymentMethod;
 }
 /**
  *
  * @export
- * @interface InlineResponse20029BillingData
+ * @interface InlineResponse20029PaymentMethod
  */
-export interface InlineResponse20029BillingData {
-  /**
-   *
-   * @type {ApiBillingV1ChangeBillingDataAddressParams}
-   * @memberof InlineResponse20029BillingData
-   */
-  address?: ApiBillingV1ChangeBillingDataAddressParams;
-  /**
-   *
-   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
-   * @memberof InlineResponse20029BillingData
-   */
-  taxIDData?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
-}
-/**
- *
- * @export
- * @interface InlineResponse20029SubscriptionStatus
- */
-export interface InlineResponse20029SubscriptionStatus {
+export interface InlineResponse20029PaymentMethod {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
+   * @memberof InlineResponse20029PaymentMethod
    */
-  subscriptionID?: string;
+  paymentMethodID?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
+   * @memberof InlineResponse20029PaymentMethod
    */
-  priceID?: string;
+  paymentType?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
-   */
-  quantity?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
-   */
-  productDescription?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
-   */
-  customerID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
+   * @memberof InlineResponse20029PaymentMethod
    */
   cardBrand?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
+   * @memberof InlineResponse20029PaymentMethod
    */
   cardLast4?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
+   * @memberof InlineResponse20029PaymentMethod
    */
-  nextAmmountDue?: string;
+  cardExpDate?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
+   * @memberof InlineResponse20029PaymentMethod
    */
-  nextPaymentDate?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
-   */
-  lastAmountPaid?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
-   */
-  lastInvoiceDescription?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatus
-   */
-  clientSecret?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20029SubscriptionStatusInvoiceItems>}
-   * @memberof InlineResponse20029SubscriptionStatus
-   */
-  invoiceItems?: Array<InlineResponse20029SubscriptionStatusInvoiceItems>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20029SubscriptionStatusInvoiceItems
- */
-export interface InlineResponse20029SubscriptionStatusInvoiceItems {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
-   */
-  amount?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
-   */
-  currency?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
-   */
-  description?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20029SubscriptionStatusInvoiceItems
-   */
-  quantity?: string;
+  sepaLast4?: string;
 }
 /**
  * A DataPoint represents a single data point in a metrics series and consists  of a timestamp and the value for the metric at the specific time.
@@ -3776,22 +3621,10 @@ export interface InlineResponse2003 {
 export interface InlineResponse20030 {
   /**
    *
-   * @type {boolean}
-   * @memberof InlineResponse20030
-   */
-  success?: boolean;
-  /**
-   *
    * @type {string}
    * @memberof InlineResponse20030
    */
-  err?: string;
-  /**
-   *
-   * @type {object}
-   * @memberof InlineResponse20030
-   */
-  body?: object;
+  clientSecret?: string;
 }
 /**
  *
@@ -3801,10 +3634,53 @@ export interface InlineResponse20030 {
 export interface InlineResponse20031 {
   /**
    *
-   * @type {string}
+   * @type {InlineResponse20031Status}
    * @memberof InlineResponse20031
    */
-  id?: string;
+  status?: InlineResponse20031Status;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20031Status
+ */
+export interface InlineResponse20031Status {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20031Status
+   */
+  customerID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20031Status
+   */
+  subscriptionID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20031Status
+   */
+  productID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20031Status
+   */
+  paymentMethodID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20031Status
+   */
+  status?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20031Status
+   */
+  clientSecret?: string;
 }
 /**
  *
@@ -3814,16 +3690,10 @@ export interface InlineResponse20031 {
 export interface InlineResponse20032 {
   /**
    *
-   * @type {InlineObject33}
+   * @type {string}
    * @memberof InlineResponse20032
    */
-  function?: InlineObject33;
-  /**
-   *
-   * @type {InlineObject33}
-   * @memberof InlineResponse20032
-   */
-  result?: InlineObject33;
+  subscriptionID?: string;
 }
 /**
  *
@@ -3833,10 +3703,22 @@ export interface InlineResponse20032 {
 export interface InlineResponse20033 {
   /**
    *
-   * @type {Array<InlineObject33>}
+   * @type {boolean}
    * @memberof InlineResponse20033
    */
-  functions?: Array<InlineObject33>;
+  success?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20033
+   */
+  err?: string;
+  /**
+   *
+   * @type {object}
+   * @memberof InlineResponse20033
+   */
+  body?: object;
 }
 /**
  *
@@ -3846,10 +3728,16 @@ export interface InlineResponse20033 {
 export interface InlineResponse20034 {
   /**
    *
-   * @type {Array<string>}
+   * @type {InlineObject33}
    * @memberof InlineResponse20034
    */
-  failedPoolIDs?: Array<string>;
+  function?: InlineObject33;
+  /**
+   *
+   * @type {InlineObject33}
+   * @memberof InlineResponse20034
+   */
+  result?: InlineObject33;
 }
 /**
  *
@@ -3859,10 +3747,10 @@ export interface InlineResponse20034 {
 export interface InlineResponse20035 {
   /**
    *
-   * @type {Array<string>}
+   * @type {Array<InlineObject33>}
    * @memberof InlineResponse20035
    */
-  failedUserIDs?: Array<string>;
+  functions?: Array<InlineObject33>;
 }
 /**
  *
@@ -3872,41 +3760,10 @@ export interface InlineResponse20035 {
 export interface InlineResponse20036 {
   /**
    *
-   * @type {InlineResponse20036App}
+   * @type {Array<string>}
    * @memberof InlineResponse20036
    */
-  app?: InlineResponse20036App;
-}
-/**
- *
- * @export
- * @interface InlineResponse20036App
- */
-export interface InlineResponse20036App {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20036App
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20036App
-   */
-  bundleUrl?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof InlineResponse20036App
-   */
-  active?: boolean;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20036App
-   */
-  assignedPools?: Array<string>;
+  failedPoolIDs?: Array<string>;
 }
 /**
  *
@@ -3916,10 +3773,10 @@ export interface InlineResponse20036App {
 export interface InlineResponse20037 {
   /**
    *
-   * @type {Array<InlineResponse20036App>}
+   * @type {Array<string>}
    * @memberof InlineResponse20037
    */
-  apps?: Array<InlineResponse20036App>;
+  failedUserIDs?: Array<string>;
 }
 /**
  *
@@ -3929,33 +3786,42 @@ export interface InlineResponse20037 {
 export interface InlineResponse20038 {
   /**
    *
-   * @type {string}
+   * @type {InlineResponse20038App}
    * @memberof InlineResponse20038
    */
-  dbUrl?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20038
-   */
-  poolType?: InlineResponse20038PoolTypeEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20038
-   */
-  tagPrefix?: string;
+  app?: InlineResponse20038App;
 }
-
-export const InlineResponse20038PoolTypeEnum = {
-  Unknown: 'UNKNOWN',
-  Global: 'GLOBAL',
-  Filtered: 'FILTERED',
-  User: 'USER',
-} as const;
-
-export type InlineResponse20038PoolTypeEnum = typeof InlineResponse20038PoolTypeEnum[keyof typeof InlineResponse20038PoolTypeEnum];
-
+/**
+ *
+ * @export
+ * @interface InlineResponse20038App
+ */
+export interface InlineResponse20038App {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20038App
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20038App
+   */
+  bundleUrl?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineResponse20038App
+   */
+  active?: boolean;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineResponse20038App
+   */
+  assignedPools?: Array<string>;
+}
 /**
  *
  * @export
@@ -3964,22 +3830,10 @@ export type InlineResponse20038PoolTypeEnum = typeof InlineResponse20038PoolType
 export interface InlineResponse20039 {
   /**
    *
-   * @type {string}
+   * @type {Array<InlineResponse20038App>}
    * @memberof InlineResponse20039
    */
-  derivedPk?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20039
-   */
-  derivedTag?: string;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineResponse20039
-   */
-  validationErrors?: Array<string>;
+  apps?: Array<InlineResponse20038App>;
 }
 /**
  *
@@ -4002,55 +3856,35 @@ export interface InlineResponse2004 {
 export interface InlineResponse20040 {
   /**
    *
-   * @type {InlineResponse20040User}
+   * @type {string}
    * @memberof InlineResponse20040
    */
-  user?: InlineResponse20040User;
+  dbUrl?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20040
+   */
+  poolType?: InlineResponse20040PoolTypeEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20040
+   */
+  tagPrefix?: string;
 }
+
 /**
- *
  * @export
- * @interface InlineResponse20040User
+ * @enum {string}
  */
-export interface InlineResponse20040User {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20040User
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20040User
-   */
-  activeAppID?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20040UserTagAssignments>}
-   * @memberof InlineResponse20040User
-   */
-  tagAssignments?: Array<InlineResponse20040UserTagAssignments>;
+export enum InlineResponse20040PoolTypeEnum {
+  Unknown = 'UNKNOWN',
+  Global = 'GLOBAL',
+  Filtered = 'FILTERED',
+  User = 'USER',
 }
-/**
- *
- * @export
- * @interface InlineResponse20040UserTagAssignments
- */
-export interface InlineResponse20040UserTagAssignments {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20040UserTagAssignments
-   */
-  poolID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20040UserTagAssignments
-   */
-  value?: string;
-}
+
 /**
  *
  * @export
@@ -4059,10 +3893,22 @@ export interface InlineResponse20040UserTagAssignments {
 export interface InlineResponse20041 {
   /**
    *
-   * @type {Array<InlineResponse20040User>}
+   * @type {string}
    * @memberof InlineResponse20041
    */
-  users?: Array<InlineResponse20040User>;
+  derivedPk?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20041
+   */
+  derivedTag?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof InlineResponse20041
+   */
+  validationErrors?: Array<string>;
 }
 /**
  *
@@ -4071,48 +3917,55 @@ export interface InlineResponse20041 {
  */
 export interface InlineResponse20042 {
   /**
-   * The number of rows in the database
-   * @type {number}
-   * @memberof InlineResponse20042
-   */
-  total_rows?: number;
-  /**
-   * Current offset
-   * @type {number}
-   * @memberof InlineResponse20042
-   */
-  offset?: number;
-  /**
    *
-   * @type {Array<InlineResponse20042Rows>}
+   * @type {InlineResponse20042User}
    * @memberof InlineResponse20042
    */
-  rows?: Array<InlineResponse20042Rows>;
+  user?: InlineResponse20042User;
 }
 /**
  *
  * @export
- * @interface InlineResponse20042Rows
+ * @interface InlineResponse20042User
  */
-export interface InlineResponse20042Rows {
+export interface InlineResponse20042User {
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20042Rows
+   * @memberof InlineResponse20042User
    */
-  _id: string;
+  id?: string;
   /**
    *
    * @type {string}
-   * @memberof InlineResponse20042Rows
+   * @memberof InlineResponse20042User
    */
-  _rev?: string;
+  activeAppID?: string;
   /**
-   * Optional field for USER and FILTERED pools.
-   * @type {Array<string>}
-   * @memberof InlineResponse20042Rows
+   *
+   * @type {Array<InlineResponse20042UserTagAssignments>}
+   * @memberof InlineResponse20042User
    */
-  tags?: Array<string>;
+  tagAssignments?: Array<InlineResponse20042UserTagAssignments>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20042UserTagAssignments
+ */
+export interface InlineResponse20042UserTagAssignments {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20042UserTagAssignments
+   */
+  poolID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20042UserTagAssignments
+   */
+  value?: string;
 }
 /**
  *
@@ -4121,36 +3974,11 @@ export interface InlineResponse20042Rows {
  */
 export interface InlineResponse20043 {
   /**
-   * Successful creation
-   * @type {Array<InlineResponse20043Result>}
+   *
+   * @type {Array<InlineResponse20042User>}
    * @memberof InlineResponse20043
    */
-  result?: Array<InlineResponse20043Result>;
-  /**
-   * List of errors if any occur
-   * @type {Array<string>}
-   * @memberof InlineResponse20043
-   */
-  errors?: Array<string>;
-}
-/**
- *
- * @export
- * @interface InlineResponse20043Result
- */
-export interface InlineResponse20043Result {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20043Result
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InlineResponse20043Result
-   */
-  rev?: string;
+  users?: Array<InlineResponse20042User>;
 }
 /**
  *
@@ -4159,15 +3987,103 @@ export interface InlineResponse20043Result {
  */
 export interface InlineResponse20044 {
   /**
-   * Successful deletion
-   * @type {Array<InlineResponse20043Result>}
+   * The number of rows in the database
+   * @type {number}
    * @memberof InlineResponse20044
    */
-  result?: Array<InlineResponse20043Result>;
+  total_rows?: number;
+  /**
+   * Current offset
+   * @type {number}
+   * @memberof InlineResponse20044
+   */
+  offset?: number;
+  /**
+   *
+   * @type {Array<InlineResponse20044Rows>}
+   * @memberof InlineResponse20044
+   */
+  rows?: Array<InlineResponse20044Rows>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20044Rows
+ */
+export interface InlineResponse20044Rows {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20044Rows
+   */
+  _id: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20044Rows
+   */
+  _rev?: string;
+  /**
+   * Optional field for USER and FILTERED pools.
+   * @type {Array<string>}
+   * @memberof InlineResponse20044Rows
+   */
+  tags?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20045
+ */
+export interface InlineResponse20045 {
+  /**
+   * Successful creation
+   * @type {Array<InlineResponse20045Result>}
+   * @memberof InlineResponse20045
+   */
+  result?: Array<InlineResponse20045Result>;
   /**
    * List of errors if any occur
    * @type {Array<string>}
-   * @memberof InlineResponse20044
+   * @memberof InlineResponse20045
+   */
+  errors?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20045Result
+ */
+export interface InlineResponse20045Result {
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20045Result
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof InlineResponse20045Result
+   */
+  rev?: string;
+}
+/**
+ *
+ * @export
+ * @interface InlineResponse20046
+ */
+export interface InlineResponse20046 {
+  /**
+   * Successful deletion
+   * @type {Array<InlineResponse20045Result>}
+   * @memberof InlineResponse20046
+   */
+  result?: Array<InlineResponse20045Result>;
+  /**
+   * List of errors if any occur
+   * @type {Array<string>}
+   * @memberof InlineResponse20046
    */
   errors?: Array<string>;
 }
@@ -4215,14 +4131,16 @@ export interface InlineResponse2004Account {
   contactDetails?: InlineResponse2004AccountContactDetails;
 }
 
-export const InlineResponse2004AccountStatusEnum = {
-  Pending: 'PENDING',
-  Active: 'ACTIVE',
-  Disabled: 'DISABLED',
-  Deleted: 'DELETED',
-} as const;
-
-export type InlineResponse2004AccountStatusEnum = typeof InlineResponse2004AccountStatusEnum[keyof typeof InlineResponse2004AccountStatusEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineResponse2004AccountStatusEnum {
+  Pending = 'PENDING',
+  Active = 'ACTIVE',
+  Disabled = 'DISABLED',
+  Deleted = 'DELETED',
+}
 
 /**
  *
@@ -4269,14 +4187,16 @@ export interface InlineResponse2004AccountPaymentDetails {
   info?: string;
 }
 
-export const InlineResponse2004AccountPaymentDetailsTypeEnum = {
-  CreditCard: 'CreditCard',
-  Paypal: 'Paypal',
-  DirectDebig: 'DirectDebig',
-  Invoice: 'Invoice',
-} as const;
-
-export type InlineResponse2004AccountPaymentDetailsTypeEnum = typeof InlineResponse2004AccountPaymentDetailsTypeEnum[keyof typeof InlineResponse2004AccountPaymentDetailsTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineResponse2004AccountPaymentDetailsTypeEnum {
+  CreditCard = 'CreditCard',
+  Paypal = 'Paypal',
+  DirectDebig = 'DirectDebig',
+  Invoice = 'Invoice',
+}
 
 /**
  *
@@ -4455,17 +4375,19 @@ export interface InlineResponse200Logs {
   fields?: Array<InlineResponse200Fields>;
 }
 
-export const InlineResponse200LogsSeverityEnum = {
-  Unknown: 'UNKNOWN',
-  Trace: 'TRACE',
-  Info: 'INFO',
-  Warning: 'WARNING',
-  Error: 'ERROR',
-  Audit: 'AUDIT',
-  All: 'ALL',
-} as const;
-
-export type InlineResponse200LogsSeverityEnum = typeof InlineResponse200LogsSeverityEnum[keyof typeof InlineResponse200LogsSeverityEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum InlineResponse200LogsSeverityEnum {
+  Unknown = 'UNKNOWN',
+  Trace = 'TRACE',
+  Info = 'INFO',
+  Warning = 'WARNING',
+  Error = 'ERROR',
+  Audit = 'AUDIT',
+  All = 'ALL',
+}
 
 /**
  *
@@ -4495,20 +4417,79 @@ export interface InlineResponseDefault {
 /**
  *
  * @export
+ * @interface Invitations
+ */
+export interface Invitations {
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  createdAt?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  validTill?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  processedAt?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  accountRole?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  accountID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  accountName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Invitations
+   */
+  rejectedAt?: string;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 
-export const LogEntrySeverity = {
-  Unknown: 'UNKNOWN',
-  Trace: 'TRACE',
-  Info: 'INFO',
-  Warning: 'WARNING',
-  Error: 'ERROR',
-  Audit: 'AUDIT',
-  All: 'ALL',
-} as const;
-
-export type LogEntrySeverity = typeof LogEntrySeverity[keyof typeof LogEntrySeverity];
+export enum LogEntrySeverity {
+  Unknown = 'UNKNOWN',
+  Trace = 'TRACE',
+  Info = 'INFO',
+  Warning = 'WARNING',
+  Error = 'ERROR',
+  Audit = 'AUDIT',
+  All = 'ALL',
+}
 
 /**
  *
@@ -4516,14 +4497,12 @@ export type LogEntrySeverity = typeof LogEntrySeverity[keyof typeof LogEntrySeve
  * @enum {string}
  */
 
-export const PaymentDetailsPaymentType = {
-  CreditCard: 'CreditCard',
-  Paypal: 'Paypal',
-  DirectDebig: 'DirectDebig',
-  Invoice: 'Invoice',
-} as const;
-
-export type PaymentDetailsPaymentType = typeof PaymentDetailsPaymentType[keyof typeof PaymentDetailsPaymentType];
+export enum PaymentDetailsPaymentType {
+  CreditCard = 'CreditCard',
+  Paypal = 'Paypal',
+  DirectDebig = 'DirectDebig',
+  Invoice = 'Invoice',
+}
 
 /**
  * `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.      Foo foo = ...;     Any any;     any.PackFrom(foo);     ...     if (any.UnpackTo(&foo)) {       ...     }  Example 2: Pack and unpack a message in Java.      Foo foo = ...;     Any any = Any.pack(foo);     ...     if (any.is(Foo.class)) {       foo = any.unpack(Foo.class);     }   Example 3: Pack and unpack a message in Python.      foo = Foo(...)     any = Any()     any.Pack(foo)     ...     if any.Is(Foo.DESCRIPTOR):       any.Unpack(foo)       ...   Example 4: Pack and unpack a message in Go       foo := &pb.Foo{...}      any, err := ptypes.MarshalAny(foo)      ...      foo := &pb.Foo{}      if err := ptypes.UnmarshalAny(any, foo); err != nil {        ...      }  The pack methods provided by protobuf library will by default use \'type.googleapis.com/full.type.name\' as the type URL and the unpack methods only use the fully qualified type name after the last \'/\' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:      package google.profile;     message Person {       string first_name = 1;       string last_name = 2;     }      {       \"@type\": \"type.googleapis.com/google.profile.Person\",       \"firstName\": <string>,       \"lastName\": <string>     }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):      {       \"@type\": \"type.googleapis.com/google.protobuf.Duration\",       \"value\": \"1.212s\"     }
@@ -4546,11 +4525,9 @@ export interface ProtobufAny {
  * @enum {string}
  */
 
-export const ProtobufNullValue = {
-  NullValue: 'NULL_VALUE',
-} as const;
-
-export type ProtobufNullValue = typeof ProtobufNullValue[keyof typeof ProtobufNullValue];
+export enum ProtobufNullValue {
+  NullValue = 'NULL_VALUE',
+}
 
 /**
  *
@@ -4640,15 +4617,30 @@ export interface V1Account {
   contactDetails?: InlineResponse2004AccountContactDetails;
 }
 
-export const V1AccountStatusEnum = {
-  Pending: 'PENDING',
-  Active: 'ACTIVE',
-  Disabled: 'DISABLED',
-  Deleted: 'DELETED',
-} as const;
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1AccountStatusEnum {
+  Pending = 'PENDING',
+  Active = 'ACTIVE',
+  Disabled = 'DISABLED',
+  Deleted = 'DELETED',
+}
 
-export type V1AccountStatusEnum = typeof V1AccountStatusEnum[keyof typeof V1AccountStatusEnum];
-
+/**
+ *
+ * @export
+ * @interface V1AccountRegisteredResponse
+ */
+export interface V1AccountRegisteredResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1AccountRegisteredResponse
+   */
+  customerID?: string;
+}
 /**
  *
  * @export
@@ -4811,49 +4803,6 @@ export interface V1AddUsersToRoleResponse {
 /**
  *
  * @export
- * @interface V1AddressParams
- */
-export interface V1AddressParams {
-  /**
-   *
-   * @type {string}
-   * @memberof V1AddressParams
-   */
-  city?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1AddressParams
-   */
-  country?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1AddressParams
-   */
-  line1?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1AddressParams
-   */
-  line2?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1AddressParams
-   */
-  postalCode?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1AddressParams
-   */
-  state?: string;
-}
-/**
- *
- * @export
  * @interface V1AssumeAccountRequest
  */
 export interface V1AssumeAccountRequest {
@@ -4867,66 +4816,45 @@ export interface V1AssumeAccountRequest {
 /**
  *
  * @export
- * @interface V1BillingData
+ * @interface V1BillingAddress
  */
-export interface V1BillingData {
-  /**
-   *
-   * @type {ApiBillingV1ChangeBillingDataAddressParams}
-   * @memberof V1BillingData
-   */
-  address?: ApiBillingV1ChangeBillingDataAddressParams;
-  /**
-   *
-   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
-   * @memberof V1BillingData
-   */
-  taxIDData?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
-}
-/**
- *
- * @export
- * @interface V1CancelSubscriptionResponse
- */
-export interface V1CancelSubscriptionResponse {
-  /**
-   *
-   * @type {InlineResponse20026Subscription}
-   * @memberof V1CancelSubscriptionResponse
-   */
-  subscription?: InlineResponse20026Subscription;
-}
-/**
- *
- * @export
- * @interface V1ChangeBillingDataRequest
- */
-export interface V1ChangeBillingDataRequest {
-  /**
-   *
-   * @type {ApiBillingV1ChangeBillingDataAddressParams}
-   * @memberof V1ChangeBillingDataRequest
-   */
-  addressParams?: ApiBillingV1ChangeBillingDataAddressParams;
-  /**
-   *
-   * @type {ApiBillingV1ChangeBillingDataTaxIDDataParams}
-   * @memberof V1ChangeBillingDataRequest
-   */
-  taxIDDataParams?: ApiBillingV1ChangeBillingDataTaxIDDataParams;
-}
-/**
- *
- * @export
- * @interface V1ChangePaymentMethodResponse
- */
-export interface V1ChangePaymentMethodResponse {
+export interface V1BillingAddress {
   /**
    *
    * @type {string}
-   * @memberof V1ChangePaymentMethodResponse
+   * @memberof V1BillingAddress
    */
-  clientSecret?: string;
+  city?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1BillingAddress
+   */
+  country?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1BillingAddress
+   */
+  line1?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1BillingAddress
+   */
+  line2?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1BillingAddress
+   */
+  postalCode?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1BillingAddress
+   */
+  state?: string;
 }
 /**
  *
@@ -4995,6 +4923,25 @@ export interface V1CheckHMACAuthResponse {
    * @memberof V1CheckHMACAuthResponse
    */
   error?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1CheckInvitationResponse
+ */
+export interface V1CheckInvitationResponse {
+  /**
+   *
+   * @type {number}
+   * @memberof V1CheckInvitationResponse
+   */
+  statusCode?: number;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CheckInvitationResponse
+   */
+  errorMessage?: string;
 }
 /**
  *
@@ -5236,11 +5183,13 @@ export interface V1CreateFederationConfigRequest {
   oidcUseSecret?: boolean;
 }
 
-export const V1CreateFederationConfigRequestFedTypeEnum = {
-  Oidc: 'Oidc',
-} as const;
-
-export type V1CreateFederationConfigRequestFedTypeEnum = typeof V1CreateFederationConfigRequestFedTypeEnum[keyof typeof V1CreateFederationConfigRequestFedTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1CreateFederationConfigRequestFedTypeEnum {
+  Oidc = 'Oidc',
+}
 
 /**
  *
@@ -5250,10 +5199,23 @@ export type V1CreateFederationConfigRequestFedTypeEnum = typeof V1CreateFederati
 export interface V1CreateFederationConfigResponse {
   /**
    *
-   * @type {InlineResponse20011Config}
+   * @type {InlineResponse20012Config}
    * @memberof V1CreateFederationConfigResponse
    */
-  config?: InlineResponse20011Config;
+  config?: InlineResponse20012Config;
+}
+/**
+ *
+ * @export
+ * @interface V1CreateInvitationResponse
+ */
+export interface V1CreateInvitationResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateInvitationResponse
+   */
+  id?: string;
 }
 /**
  *
@@ -5307,10 +5269,10 @@ export interface V1CreateNewAccountResponse {
 export interface V1CreatePolicyRequest {
   /**
    *
-   * @type {InlineResponse20010Policies}
+   * @type {InlineResponse20011Policies}
    * @memberof V1CreatePolicyRequest
    */
-  policy?: InlineResponse20010Policies;
+  policy?: InlineResponse20011Policies;
 }
 /**
  *
@@ -5369,12 +5331,6 @@ export interface V1CreateSubscriptionRequest {
    * @memberof V1CreateSubscriptionRequest
    */
   priceID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CreateSubscriptionRequest
-   */
-  quantity?: string;
 }
 /**
  *
@@ -5388,12 +5344,6 @@ export interface V1CreateSubscriptionResponse {
    * @memberof V1CreateSubscriptionResponse
    */
   subscriptionID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CreateSubscriptionResponse
-   */
-  clientSecret?: string;
 }
 /**
  *
@@ -5437,6 +5387,12 @@ export interface V1CreateUserRequest {
    * @memberof V1CreateUserRequest
    */
   phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CreateUserRequest
+   */
+  language?: string;
 }
 /**
  *
@@ -5450,25 +5406,6 @@ export interface V1CreateUserResponse {
    * @memberof V1CreateUserResponse
    */
   userID?: string;
-}
-/**
- *
- * @export
- * @interface V1CustomerTaxIDDataParams
- */
-export interface V1CustomerTaxIDDataParams {
-  /**
-   *
-   * @type {string}
-   * @memberof V1CustomerTaxIDDataParams
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CustomerTaxIDDataParams
-   */
-  value?: string;
 }
 /**
  * A DataPoint represents a single data point in a metrics series and consists  of a timestamp and the value for the metric at the specific time.
@@ -5552,11 +5489,13 @@ export interface V1FederationConfig {
   oidcUseSecret?: boolean;
 }
 
-export const V1FederationConfigFedTypeEnum = {
-  Oidc: 'Oidc',
-} as const;
-
-export type V1FederationConfigFedTypeEnum = typeof V1FederationConfigFedTypeEnum[keyof typeof V1FederationConfigFedTypeEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1FederationConfigFedTypeEnum {
+  Oidc = 'Oidc',
+}
 
 /**
  *
@@ -5564,11 +5503,9 @@ export type V1FederationConfigFedTypeEnum = typeof V1FederationConfigFedTypeEnum
  * @enum {string}
  */
 
-export const V1FederationType = {
-  Oidc: 'Oidc',
-} as const;
-
-export type V1FederationType = typeof V1FederationType[keyof typeof V1FederationType];
+export enum V1FederationType {
+  Oidc = 'Oidc',
+}
 
 /**
  *
@@ -5586,33 +5523,21 @@ export interface V1GetAccountResponse {
 /**
  *
  * @export
- * @interface V1GetBillingStatusResponse
+ * @interface V1GetBillingInfoResponse
  */
-export interface V1GetBillingStatusResponse {
+export interface V1GetBillingInfoResponse {
   /**
    *
-   * @type {InlineResponse20029SubscriptionStatus}
-   * @memberof V1GetBillingStatusResponse
+   * @type {InlineResponse20028Address}
+   * @memberof V1GetBillingInfoResponse
    */
-  subscriptionStatus?: InlineResponse20029SubscriptionStatus;
+  address?: InlineResponse20028Address;
   /**
    *
-   * @type {InlineResponse20029BillingData}
-   * @memberof V1GetBillingStatusResponse
+   * @type {InlineResponse20028TaxInfo}
+   * @memberof V1GetBillingInfoResponse
    */
-  billingData?: InlineResponse20029BillingData;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1GetBillingStatusResponse
-   */
-  hasSetupPayment?: boolean;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1GetBillingStatusResponse
-   */
-  hasSetupSubscription?: boolean;
+  taxInfo?: InlineResponse20028TaxInfo;
 }
 /**
  *
@@ -5648,10 +5573,10 @@ export interface V1GetClientsResponse {
 export interface V1GetDefaultPoliciesResponse {
   /**
    *
-   * @type {Array<InlineResponse20010Policies>}
+   * @type {Array<InlineResponse20011Policies>}
    * @memberof V1GetDefaultPoliciesResponse
    */
-  policies?: Array<InlineResponse20010Policies>;
+  policies?: Array<InlineResponse20011Policies>;
 }
 /**
  *
@@ -5661,10 +5586,78 @@ export interface V1GetDefaultPoliciesResponse {
 export interface V1GetFederationConfigResponse {
   /**
    *
-   * @type {InlineResponse20011Config}
+   * @type {InlineResponse20012Config}
    * @memberof V1GetFederationConfigResponse
    */
-  config?: InlineResponse20011Config;
+  config?: InlineResponse20012Config;
+}
+/**
+ *
+ * @export
+ * @interface V1GetInternalUserResponse
+ */
+export interface V1GetInternalUserResponse {
+  /**
+   *
+   * @type {V1GetInternalUserResponseUser}
+   * @memberof V1GetInternalUserResponse
+   */
+  user?: V1GetInternalUserResponseUser;
+}
+/**
+ *
+ * @export
+ * @interface V1GetInternalUserResponseUser
+ */
+export interface V1GetInternalUserResponseUser {
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  userID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  accountID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  username?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  firstName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  lastName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GetInternalUserResponseUser
+   */
+  language?: string;
 }
 /**
  *
@@ -5700,10 +5693,23 @@ export interface V1GetMetricsMetaResponse {
 export interface V1GetPasswordPolicyResponse {
   /**
    *
-   * @type {InlineResponse20013Policy}
+   * @type {InlineResponse20015Policy}
    * @memberof V1GetPasswordPolicyResponse
    */
-  policy?: InlineResponse20013Policy;
+  policy?: InlineResponse20015Policy;
+}
+/**
+ *
+ * @export
+ * @interface V1GetPaymentMethodResponse
+ */
+export interface V1GetPaymentMethodResponse {
+  /**
+   *
+   * @type {InlineResponse20029PaymentMethod}
+   * @memberof V1GetPaymentMethodResponse
+   */
+  paymentMethod?: InlineResponse20029PaymentMethod;
 }
 /**
  *
@@ -5713,10 +5719,10 @@ export interface V1GetPasswordPolicyResponse {
 export interface V1GetPoliciesResponse {
   /**
    *
-   * @type {Array<InlineResponse20010Policies>}
+   * @type {Array<InlineResponse20011Policies>}
    * @memberof V1GetPoliciesResponse
    */
-  policies?: Array<InlineResponse20010Policies>;
+  policies?: Array<InlineResponse20011Policies>;
 }
 /**
  *
@@ -5726,10 +5732,10 @@ export interface V1GetPoliciesResponse {
 export interface V1GetPolicyResponse {
   /**
    *
-   * @type {InlineResponse20010Policies}
+   * @type {InlineResponse20011Policies}
    * @memberof V1GetPolicyResponse
    */
-  policy?: InlineResponse20010Policies;
+  policy?: InlineResponse20011Policies;
 }
 /**
  *
@@ -5739,10 +5745,10 @@ export interface V1GetPolicyResponse {
 export interface V1GetRoleResponse {
   /**
    *
-   * @type {InlineResponse20019Role}
+   * @type {InlineResponse20021Role}
    * @memberof V1GetRoleResponse
    */
-  role?: InlineResponse20019Role;
+  role?: InlineResponse20021Role;
 }
 /**
  *
@@ -5752,10 +5758,36 @@ export interface V1GetRoleResponse {
 export interface V1GetRolesResponse {
   /**
    *
-   * @type {Array<InlineResponse20019Role>}
+   * @type {Array<InlineResponse20021Role>}
    * @memberof V1GetRolesResponse
    */
-  roles?: Array<InlineResponse20019Role>;
+  roles?: Array<InlineResponse20021Role>;
+}
+/**
+ *
+ * @export
+ * @interface V1GetStatusInternalResponse
+ */
+export interface V1GetStatusInternalResponse {
+  /**
+   *
+   * @type {InlineResponse20031Status}
+   * @memberof V1GetStatusInternalResponse
+   */
+  status?: InlineResponse20031Status;
+}
+/**
+ *
+ * @export
+ * @interface V1GetStatusResponse
+ */
+export interface V1GetStatusResponse {
+  /**
+   *
+   * @type {InlineResponse20031Status}
+   * @memberof V1GetStatusResponse
+   */
+  status?: InlineResponse20031Status;
 }
 /**
  *
@@ -5778,10 +5810,10 @@ export interface V1GetSubaccountsResponse {
 export interface V1GetUserAccessKeysResponse {
   /**
    *
-   * @type {Array<InlineResponse20022Keys>}
+   * @type {Array<InlineResponse20024Keys>}
    * @memberof V1GetUserAccessKeysResponse
    */
-  keys?: Array<InlineResponse20022Keys>;
+  keys?: Array<InlineResponse20024Keys>;
 }
 /**
  *
@@ -5830,10 +5862,10 @@ export interface V1GetUserIDByEmailResponse {
 export interface V1GetUserInfoResponse {
   /**
    *
-   * @type {InlineResponse20024UserInfo}
+   * @type {InlineResponse20026UserInfo}
    * @memberof V1GetUserInfoResponse
    */
-  userInfo?: InlineResponse20024UserInfo;
+  userInfo?: InlineResponse20026UserInfo;
 }
 /**
  *
@@ -5843,10 +5875,10 @@ export interface V1GetUserInfoResponse {
 export interface V1GetUserResponse {
   /**
    *
-   * @type {InlineResponse20023User}
+   * @type {InlineResponse20025User}
    * @memberof V1GetUserResponse
    */
-  user?: InlineResponse20023User;
+  user?: InlineResponse20025User;
 }
 /**
  *
@@ -5887,41 +5919,126 @@ export interface V1GetUsersResponse {
   limit?: number;
   /**
    *
-   * @type {Array<InlineResponse20023User>}
+   * @type {Array<InlineResponse20025User>}
    * @memberof V1GetUsersResponse
    */
-  users?: Array<InlineResponse20023User>;
+  users?: Array<InlineResponse20025User>;
 }
 /**
  *
  * @export
- * @interface V1InvoiceItem
+ * @interface V1InternalUser
  */
-export interface V1InvoiceItem {
+export interface V1InternalUser {
   /**
    *
    * @type {string}
-   * @memberof V1InvoiceItem
+   * @memberof V1InternalUser
    */
-  amount?: string;
+  userID?: string;
   /**
    *
    * @type {string}
-   * @memberof V1InvoiceItem
+   * @memberof V1InternalUser
    */
-  currency?: string;
+  accountID?: string;
   /**
    *
    * @type {string}
-   * @memberof V1InvoiceItem
+   * @memberof V1InternalUser
    */
-  description?: string;
+  username?: string;
   /**
    *
    * @type {string}
-   * @memberof V1InvoiceItem
+   * @memberof V1InternalUser
    */
-  quantity?: string;
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1InternalUser
+   */
+  phoneNumber?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1InternalUser
+   */
+  firstName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1InternalUser
+   */
+  lastName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1InternalUser
+   */
+  language?: string;
+}
+/**
+ *
+ * @export
+ * @interface V1Invitation
+ */
+export interface V1Invitation {
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  email?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  createdAt?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  validTill?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  processedAt?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  accountRole?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  accountID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  accountName?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Invitation
+   */
+  rejectedAt?: string;
 }
 /**
  * Labels are name-value pairs that are used to annotate metrics or log entries.
@@ -5968,14 +6085,16 @@ export interface V1LabelFilter {
   op?: V1LabelFilterOpEnum;
 }
 
-export const V1LabelFilterOpEnum = {
-  Eq: 'EQ',
-  Ne: 'NE',
-  Rm: 'RM',
-  Nm: 'NM',
-} as const;
-
-export type V1LabelFilterOpEnum = typeof V1LabelFilterOpEnum[keyof typeof V1LabelFilterOpEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1LabelFilterOpEnum {
+  Eq = 'EQ',
+  Ne = 'NE',
+  Rm = 'RM',
+  Nm = 'NM',
+}
 
 /**
  *
@@ -5983,14 +6102,12 @@ export type V1LabelFilterOpEnum = typeof V1LabelFilterOpEnum[keyof typeof V1Labe
  * @enum {string}
  */
 
-export const V1LabelFilterOperator = {
-  Eq: 'EQ',
-  Ne: 'NE',
-  Rm: 'RM',
-  Nm: 'NM',
-} as const;
-
-export type V1LabelFilterOperator = typeof V1LabelFilterOperator[keyof typeof V1LabelFilterOperator];
+export enum V1LabelFilterOperator {
+  Eq = 'EQ',
+  Ne = 'NE',
+  Rm = 'RM',
+  Nm = 'NM',
+}
 
 /**
  * LabelValues contain a list of all possible values per label name.
@@ -6023,6 +6140,44 @@ export interface V1ListAccountRolesResponse {
    * @memberof V1ListAccountRolesResponse
    */
   roles?: Array<AccountRoles>;
+}
+/**
+ *
+ * @export
+ * @interface V1ListInvitationsResponse
+ */
+export interface V1ListInvitationsResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1ListInvitationsResponse
+   */
+  totalCount?: string;
+  /**
+   *
+   * @type {Array<Invitations>}
+   * @memberof V1ListInvitationsResponse
+   */
+  invitation?: Array<Invitations>;
+}
+/**
+ *
+ * @export
+ * @interface V1ListOwnInvitationsResponse
+ */
+export interface V1ListOwnInvitationsResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1ListOwnInvitationsResponse
+   */
+  totalCount?: string;
+  /**
+   *
+   * @type {Array<Invitations>}
+   * @memberof V1ListOwnInvitationsResponse
+   */
+  invitation?: Array<Invitations>;
 }
 /**
  * LogEntry is a single log messsage which consists of a set of fields or  attributes, some of which are available to all messages, and others are  specific to the event that created the message.
@@ -6074,17 +6229,19 @@ export interface V1LogEntry {
   fields?: Array<InlineResponse200Fields>;
 }
 
-export const V1LogEntrySeverityEnum = {
-  Unknown: 'UNKNOWN',
-  Trace: 'TRACE',
-  Info: 'INFO',
-  Warning: 'WARNING',
-  Error: 'ERROR',
-  Audit: 'AUDIT',
-  All: 'ALL',
-} as const;
-
-export type V1LogEntrySeverityEnum = typeof V1LogEntrySeverityEnum[keyof typeof V1LogEntrySeverityEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1LogEntrySeverityEnum {
+  Unknown = 'UNKNOWN',
+  Trace = 'TRACE',
+  Info = 'INFO',
+  Warning = 'WARNING',
+  Error = 'ERROR',
+  Audit = 'AUDIT',
+  All = 'ALL',
+}
 
 /**
  * A log entry field represents one single attribute of the log entry, which consists of a name and value pair and is not part of the default structure of log messages.
@@ -6131,14 +6288,16 @@ export interface V1MetricAggregation {
   preserve?: boolean;
 }
 
-export const V1MetricAggregationOpEnum = {
-  Sum: 'SUM',
-  Avg: 'AVG',
-  Min: 'MIN',
-  Max: 'MAX',
-} as const;
-
-export type V1MetricAggregationOpEnum = typeof V1MetricAggregationOpEnum[keyof typeof V1MetricAggregationOpEnum];
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1MetricAggregationOpEnum {
+  Sum = 'SUM',
+  Avg = 'AVG',
+  Min = 'MIN',
+  Max = 'MAX',
+}
 
 /**
  *
@@ -6146,14 +6305,12 @@ export type V1MetricAggregationOpEnum = typeof V1MetricAggregationOpEnum[keyof t
  * @enum {string}
  */
 
-export const V1MetricAggregationOperator = {
-  Sum: 'SUM',
-  Avg: 'AVG',
-  Min: 'MIN',
-  Max: 'MAX',
-} as const;
-
-export type V1MetricAggregationOperator = typeof V1MetricAggregationOperator[keyof typeof V1MetricAggregationOperator];
+export enum V1MetricAggregationOperator {
+  Sum = 'SUM',
+  Avg = 'AVG',
+  Min = 'MIN',
+  Max = 'MAX',
+}
 
 /**
  * MetricMeta contains a name of a metric and a short description, indicating what this metric is representing.
@@ -6299,15 +6456,60 @@ export interface V1PaymentDetails {
   info?: string;
 }
 
-export const V1PaymentDetailsTypeEnum = {
-  CreditCard: 'CreditCard',
-  Paypal: 'Paypal',
-  DirectDebig: 'DirectDebig',
-  Invoice: 'Invoice',
-} as const;
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1PaymentDetailsTypeEnum {
+  CreditCard = 'CreditCard',
+  Paypal = 'Paypal',
+  DirectDebig = 'DirectDebig',
+  Invoice = 'Invoice',
+}
 
-export type V1PaymentDetailsTypeEnum = typeof V1PaymentDetailsTypeEnum[keyof typeof V1PaymentDetailsTypeEnum];
-
+/**
+ *
+ * @export
+ * @interface V1PaymentMethod
+ */
+export interface V1PaymentMethod {
+  /**
+   *
+   * @type {string}
+   * @memberof V1PaymentMethod
+   */
+  paymentMethodID?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1PaymentMethod
+   */
+  paymentType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1PaymentMethod
+   */
+  cardBrand?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1PaymentMethod
+   */
+  cardLast4?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1PaymentMethod
+   */
+  cardExpDate?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1PaymentMethod
+   */
+  sepaLast4?: string;
+}
 /**
  *
  * @export
@@ -6322,10 +6524,10 @@ export interface V1Permission {
   effect?: string;
   /**
    *
-   * @type {Array<InlineResponse20010Actions>}
+   * @type {Array<InlineResponse20011Actions>}
    * @memberof V1Permission
    */
-  actions?: Array<InlineResponse20010Actions>;
+  actions?: Array<InlineResponse20011Actions>;
   /**
    *
    * @type {Array<string>}
@@ -6353,47 +6555,35 @@ export interface V1Policy {
   name?: string;
   /**
    *
-   * @type {Array<InlineResponse20010Permissions>}
+   * @type {Array<InlineResponse20011Permissions>}
    * @memberof V1Policy
    */
-  permissions?: Array<InlineResponse20010Permissions>;
+  permissions?: Array<InlineResponse20011Permissions>;
 }
 /**
  *
  * @export
- * @interface V1Price
+ * @interface V1ProcessInvitationResponse
  */
-export interface V1Price {
+export interface V1ProcessInvitationResponse {
   /**
    *
    * @type {string}
-   * @memberof V1Price
+   * @memberof V1ProcessInvitationResponse
    */
-  id?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1Price
-   */
-  active?: boolean;
+  accountID?: string;
   /**
    *
    * @type {string}
-   * @memberof V1Price
+   * @memberof V1ProcessInvitationResponse
    */
-  billingScheme?: string;
+  userID?: string;
   /**
    *
    * @type {string}
-   * @memberof V1Price
+   * @memberof V1ProcessInvitationResponse
    */
-  created?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Price
-   */
-  currency?: string;
+  email?: string;
 }
 /**
  *
@@ -6725,185 +6915,21 @@ export interface V1SetPasswordRequest {
 /**
  *
  * @export
- * @interface V1Subscription
+ * @interface V1TaxInfo
  */
-export interface V1Subscription {
+export interface V1TaxInfo {
   /**
    *
    * @type {string}
-   * @memberof V1Subscription
+   * @memberof V1TaxInfo
    */
-  subscriptionID?: string;
+  type?: string;
   /**
    *
    * @type {string}
-   * @memberof V1Subscription
+   * @memberof V1TaxInfo
    */
-  status?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Subscription
-   */
-  created?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Subscription
-   */
-  startDate?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Subscription
-   */
-  currentPeriodStart?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Subscription
-   */
-  currentPeriodEnd?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Subscription
-   */
-  canceledAt?: string;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1Subscription
-   */
-  cancelAtPeriodEnd?: boolean;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Subscription
-   */
-  clientSecret?: string;
-  /**
-   *
-   * @type {InlineResponse20026SubscriptionSubscriptionItem}
-   * @memberof V1Subscription
-   */
-  subscriptionItem?: InlineResponse20026SubscriptionSubscriptionItem;
-}
-/**
- *
- * @export
- * @interface V1SubscriptionItem
- */
-export interface V1SubscriptionItem {
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionItem
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionItem
-   */
-  created?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof V1SubscriptionItem
-   */
-  quantity?: number;
-  /**
-   *
-   * @type {InlineResponse20026SubscriptionSubscriptionItemPrice}
-   * @memberof V1SubscriptionItem
-   */
-  price?: InlineResponse20026SubscriptionSubscriptionItemPrice;
-}
-/**
- *
- * @export
- * @interface V1SubscriptionStatus
- */
-export interface V1SubscriptionStatus {
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  subscriptionID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  priceID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  quantity?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  productDescription?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  customerID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  cardBrand?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  cardLast4?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  nextAmmountDue?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  nextPaymentDate?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  lastAmountPaid?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  lastInvoiceDescription?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1SubscriptionStatus
-   */
-  clientSecret?: string;
-  /**
-   *
-   * @type {Array<InlineResponse20029SubscriptionStatusInvoiceItems>}
-   * @memberof V1SubscriptionStatus
-   */
-  invoiceItems?: Array<InlineResponse20029SubscriptionStatusInvoiceItems>;
+  value?: string;
 }
 /**
  *
@@ -6921,6 +6947,25 @@ export interface V1UpdateAccountRequest {
 /**
  *
  * @export
+ * @interface V1UpdateBillingInfoRequest
+ */
+export interface V1UpdateBillingInfoRequest {
+  /**
+   *
+   * @type {InlineResponse20028Address}
+   * @memberof V1UpdateBillingInfoRequest
+   */
+  address?: InlineResponse20028Address;
+  /**
+   *
+   * @type {InlineResponse20028TaxInfo}
+   * @memberof V1UpdateBillingInfoRequest
+   */
+  taxInfo?: InlineResponse20028TaxInfo;
+}
+/**
+ *
+ * @export
  * @interface V1UpdateClientResponse
  */
 export interface V1UpdateClientResponse {
@@ -6934,15 +6979,28 @@ export interface V1UpdateClientResponse {
 /**
  *
  * @export
+ * @interface V1UpdatePaymentMethodResponse
+ */
+export interface V1UpdatePaymentMethodResponse {
+  /**
+   *
+   * @type {string}
+   * @memberof V1UpdatePaymentMethodResponse
+   */
+  clientSecret?: string;
+}
+/**
+ *
+ * @export
  * @interface V1UpdatePolicyRequest
  */
 export interface V1UpdatePolicyRequest {
   /**
    *
-   * @type {InlineResponse20010Policies}
+   * @type {InlineResponse20011Policies}
    * @memberof V1UpdatePolicyRequest
    */
-  policy?: InlineResponse20010Policies;
+  policy?: InlineResponse20011Policies;
 }
 /**
  *
@@ -6968,26 +7026,7 @@ export interface V1UpdateSubscriptionRequest {
    * @type {string}
    * @memberof V1UpdateSubscriptionRequest
    */
-  newPriceLookupKey?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1UpdateSubscriptionRequest
-   */
-  quantity?: string;
-}
-/**
- *
- * @export
- * @interface V1UpdateSubscriptionResponse
- */
-export interface V1UpdateSubscriptionResponse {
-  /**
-   *
-   * @type {InlineResponse20026Subscription}
-   * @memberof V1UpdateSubscriptionResponse
-   */
-  subscription?: InlineResponse20026Subscription;
+  newPriceID?: string;
 }
 /**
  *
@@ -7107,10 +7146,10 @@ export interface V1UserInfo {
   name?: string;
   /**
    *
-   * @type {Array<InlineResponse20010Policies>}
+   * @type {Array<InlineResponse20011Policies>}
    * @memberof V1UserInfo
    */
-  policies?: Array<InlineResponse20010Policies>;
+  policies?: Array<InlineResponse20011Policies>;
   /**
    *
    * @type {string}
@@ -7824,6 +7863,39 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ConfirmInvitation`   Scope:   ``
+     * @summary ConfirmInvitation set the processed_at date time, add the account role to user  and make is disapper from ListOwnInvitations.
+     * @param {string} [code]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    confirmInvitation: async (code?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/confirm-invitation`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (code !== undefined) {
+        localVarQueryParameter['code'] = code;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
      * @summary CreateAccessKey creates a new access key for user
      * @param {InlineObject2} body
@@ -7919,6 +7991,54 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
       localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateInvitation`   Scope:   ``
+     * @summary CreateInvitation creates an invitation for the current account.
+     * @param {string} [email]
+     * @param {string} [language]
+     * @param {string} [accountRole]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createInvitation: async (
+      email?: string,
+      language?: string,
+      accountRole?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/create-invitation`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (email !== undefined) {
+        localVarQueryParameter['email'] = email;
+      }
+
+      if (language !== undefined) {
+        localVarQueryParameter['language'] = language;
+      }
+
+      if (accountRole !== undefined) {
+        localVarQueryParameter['accountRole'] = accountRole;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
       return {
         url: toPathString(localVarUrlObj),
@@ -8147,6 +8267,48 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteInvitation`   Scope:   ``
+     * @summary DeleteInvitation deletes an invitation for the current account.
+     * @param {string} [id]
+     * @param {boolean} [useIdAsCode]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInvitation: async (
+      id?: string,
+      useIdAsCode?: boolean,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/delete-invitation`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (id !== undefined) {
+        localVarQueryParameter['id'] = id;
+      }
+
+      if (useIdAsCode !== undefined) {
+        localVarQueryParameter['useIdAsCode'] = useIdAsCode;
+      }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8819,6 +8981,123 @@ export const AuthServiceApiAxiosParamCreator = function (configuration?: Configu
       };
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ListInvitations`   Scope:   ``
+     * @summary ListInvitations fetches all invitations made by the account
+     * @param {number} [limit]
+     * @param {string} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listInvitations: async (
+      limit?: number,
+      offset?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/list-invitations`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (limit !== undefined) {
+        localVarQueryParameter['limit'] = limit;
+      }
+
+      if (offset !== undefined) {
+        localVarQueryParameter['offset'] = offset;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ListOwnInvitations`   Scope:   ``
+     * @summary ListOwnInvitations fetches all invitations made for current user, which are not processed yet
+     * @param {number} [limit]
+     * @param {string} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listOwnInvitations: async (
+      limit?: number,
+      offset?: string,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/list-own-invitations`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (limit !== undefined) {
+        localVarQueryParameter['limit'] = limit;
+      }
+
+      if (offset !== undefined) {
+        localVarQueryParameter['offset'] = offset;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `RejectInvitation`   Scope:   ``
+     * @summary RejectInvitation set the processed_at and rejected_at date time, and make is disapper from ListOwnInvitations.
+     * @param {string} [code]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rejectInvitation: async (code?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/auth/v1/reject-invitation`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      if (code !== undefined) {
+        localVarQueryParameter['code'] = code;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      *
      * @param {InlineObject20} body
      * @param {*} [options] Override http request option.
@@ -9272,7 +9551,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async addPoliciesToRole(
       body: InlineObject19,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20018>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.addPoliciesToRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9285,7 +9564,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async addPoliciesToUser(
       body: InlineObject25,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20018>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.addPoliciesToUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9298,7 +9577,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async addUsersToRole(
       body: InlineObject21,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20019>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.addUsersToRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9373,6 +9652,20 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ConfirmInvitation`   Scope:   ``
+     * @summary ConfirmInvitation set the processed_at date time, add the account role to user  and make is disapper from ListOwnInvitations.
+     * @param {string} [code]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async confirmInvitation(
+      code?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.confirmInvitation(code, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
      * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
      * @summary CreateAccessKey creates a new access key for user
      * @param {InlineObject2} body
@@ -9410,8 +9703,26 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async createFederationConfig(
       body: InlineObject13,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createFederationConfig(body, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateInvitation`   Scope:   ``
+     * @summary CreateInvitation creates an invitation for the current account.
+     * @param {string} [email]
+     * @param {string} [language]
+     * @param {string} [accountRole]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createInvitation(
+      email?: string,
+      language?: string,
+      accountRole?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.createInvitation(email, language, accountRole, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -9437,7 +9748,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async createPolicy(
       body: InlineObject15,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20014>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createPolicy(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9450,7 +9761,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async createRole(
       body: InlineObject18,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9507,6 +9818,22 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.deleteClient(id, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteInvitation`   Scope:   ``
+     * @summary DeleteInvitation deletes an invitation for the current account.
+     * @param {string} [id]
+     * @param {boolean} [useIdAsCode]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteInvitation(
+      id?: string,
+      useIdAsCode?: boolean,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.deleteInvitation(id, useIdAsCode, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -9585,7 +9912,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       offset?: string,
       limit?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultPolicies(offset, limit, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9607,7 +9934,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getPasswordPolicy(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordPolicy(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9618,7 +9945,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getPolicies(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPolicies(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9645,7 +9972,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async getRole(
       roleID: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20019>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(roleID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9656,7 +9983,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getRoles(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20020>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getRoles(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9667,7 +9994,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getSubaccounts(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getSubaccounts(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9680,7 +10007,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async getUser(
       userID: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9694,7 +10021,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async getUserAccessKeys(
       userID: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUserAccessKeys(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9706,7 +10033,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getUserAccountRoles(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUserAccountRoles(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9731,7 +10058,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async getUserInfo(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUserInfo(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9746,7 +10073,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       offset?: string,
       limit?: number,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(offset, limit, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9763,7 +10090,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
       offset?: string,
       limit?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20018>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20020>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForRole(roleID, offset, limit, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9775,8 +10102,54 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
      */
     async listAccountRoles(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountRoles(options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ListInvitations`   Scope:   ``
+     * @summary ListInvitations fetches all invitations made by the account
+     * @param {number} [limit]
+     * @param {string} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async listInvitations(
+      limit?: number,
+      offset?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20014>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.listInvitations(limit, offset, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ListOwnInvitations`   Scope:   ``
+     * @summary ListOwnInvitations fetches all invitations made for current user, which are not processed yet
+     * @param {number} [limit]
+     * @param {string} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async listOwnInvitations(
+      limit?: number,
+      offset?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20014>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.listOwnInvitations(limit, offset, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `RejectInvitation`   Scope:   ``
+     * @summary RejectInvitation set the processed_at and rejected_at date time, and make is disapper from ListOwnInvitations.
+     * @param {string} [code]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async rejectInvitation(
+      code?: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.rejectInvitation(code, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -9788,7 +10161,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async removePoliciesFromRole(
       body: InlineObject20,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20018>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.removePoliciesFromRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9801,7 +10174,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async removePoliciesFromUser(
       body: InlineObject26,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20018>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.removePoliciesFromUser(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9814,7 +10187,7 @@ export const AuthServiceApiFp = function (configuration?: Configuration) {
     async removeUsersFromRole(
       body: InlineObject22,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20019>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.removeUsersFromRole(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -9974,7 +10347,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPoliciesToRole(body: InlineObject19, options?: any): AxiosPromise<InlineResponse20016> {
+    addPoliciesToRole(body: InlineObject19, options?: any): AxiosPromise<InlineResponse20018> {
       return localVarFp.addPoliciesToRole(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -9983,7 +10356,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPoliciesToUser(body: InlineObject25, options?: any): AxiosPromise<InlineResponse20016> {
+    addPoliciesToUser(body: InlineObject25, options?: any): AxiosPromise<InlineResponse20018> {
       return localVarFp.addPoliciesToUser(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -9992,7 +10365,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addUsersToRole(body: InlineObject21, options?: any): AxiosPromise<InlineResponse20017> {
+    addUsersToRole(body: InlineObject21, options?: any): AxiosPromise<InlineResponse20019> {
       return localVarFp.addUsersToRole(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10045,6 +10418,16 @@ export const AuthServiceApiFactory = function (
       return localVarFp.checkUsernameExists(body, options).then((request) => request(axios, basePath));
     },
     /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ConfirmInvitation`   Scope:   ``
+     * @summary ConfirmInvitation set the processed_at date time, add the account role to user  and make is disapper from ListOwnInvitations.
+     * @param {string} [code]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    confirmInvitation(code?: string, options?: any): AxiosPromise<object> {
+      return localVarFp.confirmInvitation(code, options).then((request) => request(axios, basePath));
+    },
+    /**
      * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
      * @summary CreateAccessKey creates a new access key for user
      * @param {InlineObject2} body
@@ -10071,8 +10454,27 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFederationConfig(body: InlineObject13, options?: any): AxiosPromise<InlineResponse20011> {
+    createFederationConfig(body: InlineObject13, options?: any): AxiosPromise<InlineResponse20012> {
       return localVarFp.createFederationConfig(body, options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `CreateInvitation`   Scope:   ``
+     * @summary CreateInvitation creates an invitation for the current account.
+     * @param {string} [email]
+     * @param {string} [language]
+     * @param {string} [accountRole]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createInvitation(
+      email?: string,
+      language?: string,
+      accountRole?: string,
+      options?: any,
+    ): AxiosPromise<InlineResponse20010> {
+      return localVarFp
+        .createInvitation(email, language, accountRole, options)
+        .then((request) => request(axios, basePath));
     },
     /**
      *
@@ -10090,7 +10492,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPolicy(body: InlineObject15, options?: any): AxiosPromise<InlineResponse20014> {
+    createPolicy(body: InlineObject15, options?: any): AxiosPromise<InlineResponse20016> {
       return localVarFp.createPolicy(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10099,7 +10501,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createRole(body: InlineObject18, options?: any): AxiosPromise<InlineResponse20015> {
+    createRole(body: InlineObject18, options?: any): AxiosPromise<InlineResponse20017> {
       return localVarFp.createRole(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10140,6 +10542,17 @@ export const AuthServiceApiFactory = function (
      */
     deleteClient(id: string, options?: any): AxiosPromise<object> {
       return localVarFp.deleteClient(id, options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `DeleteInvitation`   Scope:   ``
+     * @summary DeleteInvitation deletes an invitation for the current account.
+     * @param {string} [id]
+     * @param {boolean} [useIdAsCode]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInvitation(id?: string, useIdAsCode?: boolean, options?: any): AxiosPromise<object> {
+      return localVarFp.deleteInvitation(id, useIdAsCode, options).then((request) => request(axios, basePath));
     },
     /**
      *
@@ -10194,7 +10607,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDefaultPolicies(offset?: string, limit?: string, options?: any): AxiosPromise<InlineResponse20010> {
+    getDefaultPolicies(offset?: string, limit?: string, options?: any): AxiosPromise<InlineResponse20011> {
       return localVarFp.getDefaultPolicies(offset, limit, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10210,7 +10623,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPasswordPolicy(options?: any): AxiosPromise<InlineResponse20013> {
+    getPasswordPolicy(options?: any): AxiosPromise<InlineResponse20015> {
       return localVarFp.getPasswordPolicy(options).then((request) => request(axios, basePath));
     },
     /**
@@ -10218,7 +10631,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPolicies(options?: any): AxiosPromise<InlineResponse20010> {
+    getPolicies(options?: any): AxiosPromise<InlineResponse20011> {
       return localVarFp.getPolicies(options).then((request) => request(axios, basePath));
     },
     /**
@@ -10237,7 +10650,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRole(roleID: string, options?: any): AxiosPromise<InlineResponse20019> {
+    getRole(roleID: string, options?: any): AxiosPromise<InlineResponse20021> {
       return localVarFp.getRole(roleID, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10245,7 +10658,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRoles(options?: any): AxiosPromise<InlineResponse20020> {
+    getRoles(options?: any): AxiosPromise<InlineResponse20022> {
       return localVarFp.getRoles(options).then((request) => request(axios, basePath));
     },
     /**
@@ -10253,7 +10666,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubaccounts(options?: any): AxiosPromise<InlineResponse20021> {
+    getSubaccounts(options?: any): AxiosPromise<InlineResponse20023> {
       return localVarFp.getSubaccounts(options).then((request) => request(axios, basePath));
     },
     /**
@@ -10262,7 +10675,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20023> {
+    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20025> {
       return localVarFp.getUser(userID, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10272,7 +10685,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAccessKeys(userID: string, options?: any): AxiosPromise<InlineResponse20022> {
+    getUserAccessKeys(userID: string, options?: any): AxiosPromise<InlineResponse20024> {
       return localVarFp.getUserAccessKeys(userID, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10281,7 +10694,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAccountRoles(options?: any): AxiosPromise<InlineResponse20012> {
+    getUserAccountRoles(options?: any): AxiosPromise<InlineResponse20013> {
       return localVarFp.getUserAccountRoles(options).then((request) => request(axios, basePath));
     },
     /**
@@ -10299,7 +10712,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserInfo(options?: any): AxiosPromise<InlineResponse20024> {
+    getUserInfo(options?: any): AxiosPromise<InlineResponse20026> {
       return localVarFp.getUserInfo(options).then((request) => request(axios, basePath));
     },
     /**
@@ -10309,7 +10722,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsers(offset?: string, limit?: number, options?: any): AxiosPromise<InlineResponse20025> {
+    getUsers(offset?: string, limit?: number, options?: any): AxiosPromise<InlineResponse20027> {
       return localVarFp.getUsers(offset, limit, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10320,7 +10733,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersForRole(roleID: string, offset?: string, limit?: string, options?: any): AxiosPromise<InlineResponse20018> {
+    getUsersForRole(roleID: string, offset?: string, limit?: string, options?: any): AxiosPromise<InlineResponse20020> {
       return localVarFp.getUsersForRole(roleID, offset, limit, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10329,8 +10742,40 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAccountRoles(options?: any): AxiosPromise<InlineResponse20012> {
+    listAccountRoles(options?: any): AxiosPromise<InlineResponse20013> {
       return localVarFp.listAccountRoles(options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ListInvitations`   Scope:   ``
+     * @summary ListInvitations fetches all invitations made by the account
+     * @param {number} [limit]
+     * @param {string} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listInvitations(limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20014> {
+      return localVarFp.listInvitations(limit, offset, options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `ListOwnInvitations`   Scope:   ``
+     * @summary ListOwnInvitations fetches all invitations made for current user, which are not processed yet
+     * @param {number} [limit]
+     * @param {string} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listOwnInvitations(limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20014> {
+      return localVarFp.listOwnInvitations(limit, offset, options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `auth`   Call:    `RejectInvitation`   Scope:   ``
+     * @summary RejectInvitation set the processed_at and rejected_at date time, and make is disapper from ListOwnInvitations.
+     * @param {string} [code]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rejectInvitation(code?: string, options?: any): AxiosPromise<object> {
+      return localVarFp.rejectInvitation(code, options).then((request) => request(axios, basePath));
     },
     /**
      *
@@ -10338,7 +10783,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePoliciesFromRole(body: InlineObject20, options?: any): AxiosPromise<InlineResponse20016> {
+    removePoliciesFromRole(body: InlineObject20, options?: any): AxiosPromise<InlineResponse20018> {
       return localVarFp.removePoliciesFromRole(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10347,7 +10792,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePoliciesFromUser(body: InlineObject26, options?: any): AxiosPromise<InlineResponse20016> {
+    removePoliciesFromUser(body: InlineObject26, options?: any): AxiosPromise<InlineResponse20018> {
       return localVarFp.removePoliciesFromUser(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10356,7 +10801,7 @@ export const AuthServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeUsersFromRole(body: InlineObject22, options?: any): AxiosPromise<InlineResponse20017> {
+    removeUsersFromRole(body: InlineObject22, options?: any): AxiosPromise<InlineResponse20019> {
       return localVarFp.removeUsersFromRole(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -10579,6 +11024,20 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `ConfirmInvitation`   Scope:   ``
+   * @summary ConfirmInvitation set the processed_at date time, add the account role to user  and make is disapper from ListOwnInvitations.
+   * @param {string} [code]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public confirmInvitation(code?: string, options?: AxiosRequestConfig) {
+    return AuthServiceApiFp(this.configuration)
+      .confirmInvitation(code, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    * Authorisation requirements:   Service:  `auth`   Call:    `CreateAccessKey`   Scope:   user ID
    * @summary CreateAccessKey creates a new access key for user
    * @param {InlineObject2} body
@@ -10617,6 +11076,22 @@ export class AuthServiceApi extends BaseAPI {
   public createFederationConfig(body: InlineObject13, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .createFederationConfig(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `CreateInvitation`   Scope:   ``
+   * @summary CreateInvitation creates an invitation for the current account.
+   * @param {string} [email]
+   * @param {string} [language]
+   * @param {string} [accountRole]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public createInvitation(email?: string, language?: string, accountRole?: string, options?: AxiosRequestConfig) {
+    return AuthServiceApiFp(this.configuration)
+      .createInvitation(email, language, accountRole, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -10712,6 +11187,21 @@ export class AuthServiceApi extends BaseAPI {
   public deleteClient(id: string, options?: AxiosRequestConfig) {
     return AuthServiceApiFp(this.configuration)
       .deleteClient(id, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `DeleteInvitation`   Scope:   ``
+   * @summary DeleteInvitation deletes an invitation for the current account.
+   * @param {string} [id]
+   * @param {boolean} [useIdAsCode]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public deleteInvitation(id?: string, useIdAsCode?: boolean, options?: AxiosRequestConfig) {
+    return AuthServiceApiFp(this.configuration)
+      .deleteInvitation(id, useIdAsCode, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -10991,6 +11481,50 @@ export class AuthServiceApi extends BaseAPI {
   }
 
   /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `ListInvitations`   Scope:   ``
+   * @summary ListInvitations fetches all invitations made by the account
+   * @param {number} [limit]
+   * @param {string} [offset]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public listInvitations(limit?: number, offset?: string, options?: AxiosRequestConfig) {
+    return AuthServiceApiFp(this.configuration)
+      .listInvitations(limit, offset, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `ListOwnInvitations`   Scope:   ``
+   * @summary ListOwnInvitations fetches all invitations made for current user, which are not processed yet
+   * @param {number} [limit]
+   * @param {string} [offset]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public listOwnInvitations(limit?: number, offset?: string, options?: AxiosRequestConfig) {
+    return AuthServiceApiFp(this.configuration)
+      .listOwnInvitations(limit, offset, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Authorisation requirements:   Service:  `auth`   Call:    `RejectInvitation`   Scope:   ``
+   * @summary RejectInvitation set the processed_at and rejected_at date time, and make is disapper from ListOwnInvitations.
+   * @param {string} [code]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthServiceApi
+   */
+  public rejectInvitation(code?: string, options?: AxiosRequestConfig) {
+    return AuthServiceApiFp(this.configuration)
+      .rejectInvitation(code, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    *
    * @param {InlineObject20} body
    * @param {*} [options] Override http request option.
@@ -11162,14 +11696,17 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
      * @summary CancelSubscription cancels a subscription.
-     * @param {object} body
+     * @param {string} subscriptionID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    cancelSubscription: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-      // verify required parameter 'body' is not null or undefined
-      assertParamExists('cancelSubscription', 'body', body);
-      const localVarPath = `/api/billing/v1/cancel-subscription`;
+    cancelSubscription: async (subscriptionID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'subscriptionID' is not null or undefined
+      assertParamExists('cancelSubscription', 'subscriptionID', subscriptionID);
+      const localVarPath = `/api/billing/v1/subscription/{subscriptionID}`.replace(
+        `{${'subscriptionID'}}`,
+        encodeURIComponent(String(subscriptionID)),
+      );
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -11177,84 +11714,13 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
         baseOptions = configuration.baseOptions;
       }
 
-      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      localVarHeaderParameter['Content-Type'] = 'application/json';
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
       localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
-     * @summary ChangeBillingData changes the address and vatID for existing customer.
-     * @param {InlineObject28} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    changeBillingData: async (body: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-      // verify required parameter 'body' is not null or undefined
-      assertParamExists('changeBillingData', 'body', body);
-      const localVarPath = `/api/billing/v1/change-billing-data`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      localVarHeaderParameter['Content-Type'] = 'application/json';
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
-     * @summary ChangePaymentMethod with a new payment details.
-     * @param {object} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    changePaymentMethod: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-      // verify required parameter 'body' is not null or undefined
-      assertParamExists('changePaymentMethod', 'body', body);
-      const localVarPath = `/api/billing/v1/change-payment-method`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      localVarHeaderParameter['Content-Type'] = 'application/json';
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
 
       return {
         url: toPathString(localVarUrlObj),
@@ -11264,14 +11730,14 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
-     * @param {InlineObject29} body
+     * @param {InlineObject30} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createSubscription: async (body: InlineObject29, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    createSubscription: async (body: InlineObject30, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('createSubscription', 'body', body);
-      const localVarPath = `/api/billing/v1/create-subscription`;
+      const localVarPath = `/api/billing/v1/subscription`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -11296,16 +11762,130 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
       };
     },
     /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getBillingInfo: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/billing-info`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPaymentMethod: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/payment-method`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
      * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStatus: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/billing/v1/status`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @param {InlineObject28} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateBillingInfo: async (body: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'body' is not null or undefined
+      assertParamExists('updateBillingInfo', 'body', body);
+      const localVarPath = `/api/billing/v1/billing-info`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter['Content-Type'] = 'application/json';
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration);
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getBillingStatus: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    updatePaymentMethod: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
-      assertParamExists('getBillingStatus', 'body', body);
-      const localVarPath = `/api/billing/v1/get-status`;
+      assertParamExists('updatePaymentMethod', 'body', body);
+      const localVarPath = `/api/billing/v1/payment-method`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -11332,14 +11912,14 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
      * @summary UpdateSubscription with a new payment details.
-     * @param {InlineObject30} body
+     * @param {InlineObject29} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateSubscription: async (body: InlineObject30, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    updateSubscription: async (body: InlineObject29, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'body' is not null or undefined
       assertParamExists('updateSubscription', 'body', body);
-      const localVarPath = `/api/billing/v1/update-subscription`;
+      const localVarPath = `/api/billing/v1/subscription`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -11347,7 +11927,7 @@ export const BillingServiceApiAxiosParamCreator = function (configuration?: Conf
         baseOptions = configuration.baseOptions;
       }
 
-      const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+      const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
@@ -11376,84 +11956,102 @@ export const BillingServiceApiFp = function (configuration?: Configuration) {
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
      * @summary CancelSubscription cancels a subscription.
-     * @param {object} body
+     * @param {string} subscriptionID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async cancelSubscription(
-      body: object,
-      options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(body, options);
-      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
-     * @summary ChangeBillingData changes the address and vatID for existing customer.
-     * @param {InlineObject28} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async changeBillingData(
-      body: InlineObject28,
+      subscriptionID: string,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.changeBillingData(body, options);
-      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
-     * @summary ChangePaymentMethod with a new payment details.
-     * @param {object} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async changePaymentMethod(
-      body: object,
-      options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.changePaymentMethod(body, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(subscriptionID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
-     * @param {InlineObject29} body
+     * @param {InlineObject30} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createSubscription(
-      body: InlineObject29,
+      body: InlineObject30,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(body, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getBillingInfo(
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(body, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getBillingInfo(options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPaymentMethod(
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getPaymentMethod(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
      * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getStatus(
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getStatus(options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     *
+     * @param {InlineObject28} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async updateBillingInfo(
+      body: InlineObject28,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.updateBillingInfo(body, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     *
      * @param {object} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async getBillingStatus(
+    async updatePaymentMethod(
       body: object,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.getBillingStatus(body, options);
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.updatePaymentMethod(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
      * @summary UpdateSubscription with a new payment details.
-     * @param {InlineObject30} body
+     * @param {InlineObject29} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateSubscription(
-      body: InlineObject30,
+      body: InlineObject29,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -11474,61 +12072,74 @@ export const BillingServiceApiFactory = function (
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
      * @summary CancelSubscription cancels a subscription.
-     * @param {object} body
+     * @param {string} subscriptionID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    cancelSubscription(body: object, options?: any): AxiosPromise<InlineResponse20026> {
-      return localVarFp.cancelSubscription(body, options).then((request) => request(axios, basePath));
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
-     * @summary ChangeBillingData changes the address and vatID for existing customer.
-     * @param {InlineObject28} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    changeBillingData(body: InlineObject28, options?: any): AxiosPromise<object> {
-      return localVarFp.changeBillingData(body, options).then((request) => request(axios, basePath));
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
-     * @summary ChangePaymentMethod with a new payment details.
-     * @param {object} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    changePaymentMethod(body: object, options?: any): AxiosPromise<InlineResponse20027> {
-      return localVarFp.changePaymentMethod(body, options).then((request) => request(axios, basePath));
+    cancelSubscription(subscriptionID: string, options?: any): AxiosPromise<object> {
+      return localVarFp.cancelSubscription(subscriptionID, options).then((request) => request(axios, basePath));
     },
     /**
      * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
      * @summary CreateSubscription creates a new subscription for the logged in account.
-     * @param {InlineObject29} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createSubscription(body: InlineObject29, options?: any): AxiosPromise<InlineResponse20028> {
-      return localVarFp.createSubscription(body, options).then((request) => request(axios, basePath));
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
-     * @summary GetBillingStatus returns the current billing status for logged in account.
-     * @param {object} body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getBillingStatus(body: object, options?: any): AxiosPromise<InlineResponse20029> {
-      return localVarFp.getBillingStatus(body, options).then((request) => request(axios, basePath));
-    },
-    /**
-     * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
-     * @summary UpdateSubscription with a new payment details.
      * @param {InlineObject30} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateSubscription(body: InlineObject30, options?: any): AxiosPromise<InlineResponse20026> {
+    createSubscription(body: InlineObject30, options?: any): AxiosPromise<InlineResponse20032> {
+      return localVarFp.createSubscription(body, options).then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getBillingInfo(options?: any): AxiosPromise<InlineResponse20028> {
+      return localVarFp.getBillingInfo(options).then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPaymentMethod(options?: any): AxiosPromise<InlineResponse20029> {
+      return localVarFp.getPaymentMethod(options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
+     * @summary GetBillingStatus returns the current billing status for logged in account.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStatus(options?: any): AxiosPromise<InlineResponse20031> {
+      return localVarFp.getStatus(options).then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {InlineObject28} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateBillingInfo(body: InlineObject28, options?: any): AxiosPromise<object> {
+      return localVarFp.updateBillingInfo(body, options).then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePaymentMethod(body: object, options?: any): AxiosPromise<InlineResponse20030> {
+      return localVarFp.updatePaymentMethod(body, options).then((request) => request(axios, basePath));
+    },
+    /**
+     * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
+     * @summary UpdateSubscription with a new payment details.
+     * @param {InlineObject29} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateSubscription(body: InlineObject29, options?: any): AxiosPromise<object> {
       return localVarFp.updateSubscription(body, options).then((request) => request(axios, basePath));
     },
   };
@@ -11544,82 +12155,103 @@ export class BillingServiceApi extends BaseAPI {
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `CancelSubscription`   Scope:   ``
    * @summary CancelSubscription cancels a subscription.
-   * @param {object} body
+   * @param {string} subscriptionID
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public cancelSubscription(body: object, options?: AxiosRequestConfig) {
+  public cancelSubscription(subscriptionID: string, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .cancelSubscription(body, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Authorisation requirements:   Service:  `billing`   Call:    `ChangeBillingData`   Scope:   ``
-   * @summary ChangeBillingData changes the address and vatID for existing customer.
-   * @param {InlineObject28} body
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof BillingServiceApi
-   */
-  public changeBillingData(body: InlineObject28, options?: AxiosRequestConfig) {
-    return BillingServiceApiFp(this.configuration)
-      .changeBillingData(body, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Authorisation requirements:   Service:  `billing`   Call:    `ChangePaymentMethod`   Scope:   ``
-   * @summary ChangePaymentMethod with a new payment details.
-   * @param {object} body
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof BillingServiceApi
-   */
-  public changePaymentMethod(body: object, options?: AxiosRequestConfig) {
-    return BillingServiceApiFp(this.configuration)
-      .changePaymentMethod(body, options)
+      .cancelSubscription(subscriptionID, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `CreateSubscription`   Scope:   ``
    * @summary CreateSubscription creates a new subscription for the logged in account.
-   * @param {InlineObject29} body
+   * @param {InlineObject30} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public createSubscription(body: InlineObject29, options?: AxiosRequestConfig) {
+  public createSubscription(body: InlineObject30, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
       .createSubscription(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public getBillingInfo(options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .getBillingInfo(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public getPaymentMethod(options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .getPaymentMethod(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    * Authorisation requirements:   Service:  `billing`   Call:    `GetBillingStatus`   Scope:   ``
    * @summary GetBillingStatus returns the current billing status for logged in account.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public getStatus(options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .getStatus(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @param {InlineObject28} body
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof BillingServiceApi
+   */
+  public updateBillingInfo(body: InlineObject28, options?: AxiosRequestConfig) {
+    return BillingServiceApiFp(this.configuration)
+      .updateBillingInfo(body, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @param {object} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public getBillingStatus(body: object, options?: AxiosRequestConfig) {
+  public updatePaymentMethod(body: object, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
-      .getBillingStatus(body, options)
+      .updatePaymentMethod(body, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
    * Authorisation requirements:   Service:  `billing`   Call:    `UpdateSubscription`   Scope:   ``
    * @summary UpdateSubscription with a new payment details.
-   * @param {InlineObject30} body
+   * @param {InlineObject29} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BillingServiceApi
    */
-  public updateSubscription(body: InlineObject30, options?: AxiosRequestConfig) {
+  public updateSubscription(body: InlineObject29, options?: AxiosRequestConfig) {
     return BillingServiceApiFp(this.configuration)
       .updateSubscription(body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -12505,7 +13137,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async assignAppToUsers(
       body: InlineObject37,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignAppToUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12519,7 +13151,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async assignPoolsToApp(
       body: InlineObject35,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.assignPoolsToApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12645,7 +13277,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async getApp(
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApp(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12657,7 +13289,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getApps(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getApps(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12689,7 +13321,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
       id: string,
       userId?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getPoolDistribution(id, userId, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12715,7 +13347,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async getUser(
       userID: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userID, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12727,7 +13359,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
      */
     async getUsers(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12757,7 +13389,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async unassignAppFromUsers(
       body: InlineObject38,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignAppFromUsers(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12771,7 +13403,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async unassignPoolsFromApp(
       body: InlineObject36,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.unassignPoolsFromApp(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12829,7 +13461,7 @@ export const DistrConfigServiceApiFp = function (configuration?: Configuration) 
     async validatePoolData(
       body: InlineObject43,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.validatePoolData(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -12864,7 +13496,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignAppToUsers(body: InlineObject37, options?: any): AxiosPromise<InlineResponse20035> {
+    assignAppToUsers(body: InlineObject37, options?: any): AxiosPromise<InlineResponse20037> {
       return localVarFp.assignAppToUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12874,7 +13506,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignPoolsToApp(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20034> {
+    assignPoolsToApp(body: InlineObject35, options?: any): AxiosPromise<InlineResponse20036> {
       return localVarFp.assignPoolsToApp(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12964,7 +13596,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApp(id: string, options?: any): AxiosPromise<InlineResponse20036> {
+    getApp(id: string, options?: any): AxiosPromise<InlineResponse20038> {
       return localVarFp.getApp(id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -12973,7 +13605,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getApps(options?: any): AxiosPromise<InlineResponse20037> {
+    getApps(options?: any): AxiosPromise<InlineResponse20039> {
       return localVarFp.getApps(options).then((request) => request(axios, basePath));
     },
     /**
@@ -12994,7 +13626,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPoolDistribution(id: string, userId?: string, options?: any): AxiosPromise<InlineResponse20038> {
+    getPoolDistribution(id: string, userId?: string, options?: any): AxiosPromise<InlineResponse20040> {
       return localVarFp.getPoolDistribution(id, userId, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13013,7 +13645,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20040> {
+    getUser(userID: string, options?: any): AxiosPromise<InlineResponse20042> {
       return localVarFp.getUser(userID, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13022,7 +13654,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsers(options?: any): AxiosPromise<InlineResponse20041> {
+    getUsers(options?: any): AxiosPromise<InlineResponse20043> {
       return localVarFp.getUsers(options).then((request) => request(axios, basePath));
     },
     /**
@@ -13043,7 +13675,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignAppFromUsers(body: InlineObject38, options?: any): AxiosPromise<InlineResponse20035> {
+    unassignAppFromUsers(body: InlineObject38, options?: any): AxiosPromise<InlineResponse20037> {
       return localVarFp.unassignAppFromUsers(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13053,7 +13685,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unassignPoolsFromApp(body: InlineObject36, options?: any): AxiosPromise<InlineResponse20034> {
+    unassignPoolsFromApp(body: InlineObject36, options?: any): AxiosPromise<InlineResponse20036> {
       return localVarFp.unassignPoolsFromApp(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -13094,7 +13726,7 @@ export const DistrConfigServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    validatePoolData(body: InlineObject43, options?: any): AxiosPromise<InlineResponse20039> {
+    validatePoolData(body: InlineObject43, options?: any): AxiosPromise<InlineResponse20041> {
       return localVarFp.validatePoolData(body, options).then((request) => request(axios, basePath));
     },
   };
@@ -13849,7 +14481,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
       body: object,
       payloadJSON?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callSyncFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13867,7 +14499,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
       body: object,
       payloadJSON?: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.callTestFunction(id, body, payloadJSON, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13881,7 +14513,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async createFunction(
       body: InlineObject32,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createFunction(body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13909,7 +14541,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
     async getFunction(
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunction(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13921,7 +14553,7 @@ export const FunctionsServiceApiFp = function (configuration?: Configuration) {
      */
     async getFunctions(
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.getFunctions(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -13990,7 +14622,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callSyncFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20030> {
+    callSyncFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20033> {
       return localVarFp.callSyncFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14002,7 +14634,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    callTestFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20030> {
+    callTestFunction(id: string, body: object, payloadJSON?: string, options?: any): AxiosPromise<InlineResponse20033> {
       return localVarFp.callTestFunction(id, body, payloadJSON, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14012,7 +14644,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFunction(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20031> {
+    createFunction(body: InlineObject32, options?: any): AxiosPromise<InlineResponse20010> {
       return localVarFp.createFunction(body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14032,7 +14664,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunction(id: string, options?: any): AxiosPromise<InlineResponse20032> {
+    getFunction(id: string, options?: any): AxiosPromise<InlineResponse20034> {
       return localVarFp.getFunction(id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14041,7 +14673,7 @@ export const FunctionsServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFunctions(options?: any): AxiosPromise<InlineResponse20033> {
+    getFunctions(options?: any): AxiosPromise<InlineResponse20035> {
       return localVarFp.getFunctions(options).then((request) => request(axios, basePath));
     },
     /**
@@ -14218,13 +14850,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkCreate: async (
       poolId: string,
-      body: Array<InlineResponse20042Rows>,
+      body: Array<InlineResponse20044Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -14259,13 +14891,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkDelete: async (
       poolId: string,
-      body: Array<InlineResponse20042Rows>,
+      body: Array<InlineResponse20044Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -14300,13 +14932,13 @@ export const PoolDataServiceApiAxiosParamCreator = function (configuration?: Con
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     bulkUpdate: async (
       poolId: string,
-      body: Array<InlineResponse20042Rows>,
+      body: Array<InlineResponse20044Rows>,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'poolId' is not null or undefined
@@ -14584,15 +15216,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkCreate(
       poolId: string,
-      body: Array<InlineResponse20042Rows>,
+      body: Array<InlineResponse20044Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkCreate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14600,15 +15232,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkDelete(
       poolId: string,
-      body: Array<InlineResponse20042Rows>,
+      body: Array<InlineResponse20044Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDelete(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14616,15 +15248,15 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async bulkUpdate(
       poolId: string,
-      body: Array<InlineResponse20042Rows>,
+      body: Array<InlineResponse20044Rows>,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.bulkUpdate(poolId, body, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14658,7 +15290,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       poolId: string,
       id: string,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042Rows>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044Rows>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.get(poolId, id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14694,7 +15326,7 @@ export const PoolDataServiceApiFp = function (configuration?: Configuration) {
       limit: number,
       skip: number,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.list(poolId, limit, skip, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
@@ -14736,33 +15368,33 @@ export const PoolDataServiceApiFactory = function (
      *
      * @summary Bulk create mobile data records in a pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkCreate(poolId: string, body: Array<InlineResponse20042Rows>, options?: any): AxiosPromise<InlineResponse20043> {
+    bulkCreate(poolId: string, body: Array<InlineResponse20044Rows>, options?: any): AxiosPromise<InlineResponse20045> {
       return localVarFp.bulkCreate(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Bulk delete records from mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkDelete(poolId: string, body: Array<InlineResponse20042Rows>, options?: any): AxiosPromise<InlineResponse20044> {
+    bulkDelete(poolId: string, body: Array<InlineResponse20044Rows>, options?: any): AxiosPromise<InlineResponse20046> {
       return localVarFp.bulkDelete(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
      *
      * @summary Bulk update records in mobile data pool
      * @param {string} poolId Pool ID (e.g. orders)
-     * @param {Array<InlineResponse20042Rows>} body
+     * @param {Array<InlineResponse20044Rows>} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkUpdate(poolId: string, body: Array<InlineResponse20042Rows>, options?: any): AxiosPromise<InlineResponse20043> {
+    bulkUpdate(poolId: string, body: Array<InlineResponse20044Rows>, options?: any): AxiosPromise<InlineResponse20045> {
       return localVarFp.bulkUpdate(poolId, body, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14785,7 +15417,7 @@ export const PoolDataServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    get(poolId: string, id: string, options?: any): AxiosPromise<InlineResponse20042Rows> {
+    get(poolId: string, id: string, options?: any): AxiosPromise<InlineResponse20044Rows> {
       return localVarFp.get(poolId, id, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14809,7 +15441,7 @@ export const PoolDataServiceApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<InlineResponse20042> {
+    list(poolId: string, limit: number, skip: number, options?: any): AxiosPromise<InlineResponse20044> {
       return localVarFp.list(poolId, limit, skip, options).then((request) => request(axios, basePath));
     },
     /**
@@ -14841,12 +15473,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk create mobile data records in a pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20042Rows>} body
+   * @param {Array<InlineResponse20044Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkCreate(poolId: string, body: Array<InlineResponse20042Rows>, options?: AxiosRequestConfig) {
+  public bulkCreate(poolId: string, body: Array<InlineResponse20044Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkCreate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -14856,12 +15488,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk delete records from mobile data pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20042Rows>} body
+   * @param {Array<InlineResponse20044Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkDelete(poolId: string, body: Array<InlineResponse20042Rows>, options?: AxiosRequestConfig) {
+  public bulkDelete(poolId: string, body: Array<InlineResponse20044Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkDelete(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));
@@ -14871,12 +15503,12 @@ export class PoolDataServiceApi extends BaseAPI {
    *
    * @summary Bulk update records in mobile data pool
    * @param {string} poolId Pool ID (e.g. orders)
-   * @param {Array<InlineResponse20042Rows>} body
+   * @param {Array<InlineResponse20044Rows>} body
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PoolDataServiceApi
    */
-  public bulkUpdate(poolId: string, body: Array<InlineResponse20042Rows>, options?: AxiosRequestConfig) {
+  public bulkUpdate(poolId: string, body: Array<InlineResponse20044Rows>, options?: AxiosRequestConfig) {
     return PoolDataServiceApiFp(this.configuration)
       .bulkUpdate(poolId, body, options)
       .then((request) => request(this.axios, this.basePath));

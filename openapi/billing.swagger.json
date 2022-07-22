@@ -25,16 +25,148 @@
     "application/json"
   ],
   "paths": {
-    "/api/billing/v1/cancel-subscription": {
+    "/api/billing/v1/billing-info": {
+      "get": {
+        "operationId": "BillingService_GetBillingInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetBillingInfoResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "BillingService"
+        ]
+      },
       "post": {
-        "summary": "CancelSubscription cancels a subscription.",
-        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`CancelSubscription`\n\t\tScope:\t\t\t``",
-        "operationId": "BillingService_CancelSubscription",
+        "operationId": "BillingService_UpdateBillingInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateBillingInfoResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateBillingInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
+    "/api/billing/v1/payment-method": {
+      "get": {
+        "operationId": "BillingService_GetPaymentMethod",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetPaymentMethodResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "BillingService"
+        ]
+      },
+      "post": {
+        "operationId": "BillingService_UpdatePaymentMethod",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdatePaymentMethodResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdatePaymentMethodRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
+    "/api/billing/v1/status": {
+      "get": {
+        "summary": "GetBillingStatus returns the current billing status for logged in account.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`GetBillingStatus`\n\t\tScope:\t\t\t``",
+        "operationId": "BillingService_GetStatus",
         "responses": {
           "200": {
             "description": "Returned when the call is successful.",
             "schema": {
-              "$ref": "#/definitions/v1CancelSubscriptionResponse"
+              "$ref": "#/definitions/v1GetStatusResponse"
             }
           },
           "403": {
@@ -55,124 +187,16 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1CancelSubscriptionRequest"
-            }
-          }
-        ],
         "tags": [
           "BillingService"
         ]
       }
     },
-    "/api/billing/v1/change-billing-data": {
-      "post": {
-        "summary": "ChangeBillingData changes the address and vatID for existing customer.",
-        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`ChangeBillingData`\n\t\tScope:\t\t\t``",
-        "operationId": "BillingService_ChangeBillingData",
-        "responses": {
-          "200": {
-            "description": "Returned when the call is successful.",
-            "schema": {
-              "$ref": "#/definitions/v1ChangeBillingDataResponse"
-            }
-          },
-          "403": {
-            "description": "Returned when the caller is not allowed to perform this call.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "500": {
-            "description": "Returned whenever an internall error occurs.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ChangeBillingDataRequest"
-            }
-          }
-        ],
-        "tags": [
-          "BillingService"
-        ]
-      }
-    },
-    "/api/billing/v1/change-payment-method": {
-      "post": {
-        "summary": "ChangePaymentMethod with a new payment details.",
-        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`ChangePaymentMethod`\n\t\tScope:\t\t\t``",
-        "operationId": "BillingService_ChangePaymentMethod",
-        "responses": {
-          "200": {
-            "description": "Returned when the call is successful.",
-            "schema": {
-              "$ref": "#/definitions/v1ChangePaymentMethodResponse"
-            }
-          },
-          "403": {
-            "description": "Returned when the caller is not allowed to perform this call.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "500": {
-            "description": "Returned whenever an internall error occurs.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ChangePaymentMethodRequest"
-            }
-          }
-        ],
-        "tags": [
-          "BillingService"
-        ]
-      }
-    },
-    "/api/billing/v1/create-subscription": {
+    "/api/billing/v1/subscription": {
       "post": {
         "summary": "CreateSubscription creates a new subscription for the logged in account.",
         "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`CreateSubscription`\n\t\tScope:\t\t\t``",
@@ -202,7 +226,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -219,59 +243,8 @@
         "tags": [
           "BillingService"
         ]
-      }
-    },
-    "/api/billing/v1/get-status": {
-      "post": {
-        "summary": "GetBillingStatus returns the current billing status for logged in account.",
-        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`GetBillingStatus`\n\t\tScope:\t\t\t``",
-        "operationId": "BillingService_GetBillingStatus",
-        "responses": {
-          "200": {
-            "description": "Returned when the call is successful.",
-            "schema": {
-              "$ref": "#/definitions/v1GetBillingStatusResponse"
-            }
-          },
-          "403": {
-            "description": "Returned when the caller is not allowed to perform this call.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          "500": {
-            "description": "Returned whenever an internall error occurs.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1GetBillingStatusRequest"
-            }
-          }
-        ],
-        "tags": [
-          "BillingService"
-        ]
-      }
-    },
-    "/api/billing/v1/update-subscription": {
-      "post": {
+      },
+      "put": {
         "summary": "UpdateSubscription with a new payment details.",
         "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`UpdateSubscription`\n\t\tScope:\t\t\t``",
         "operationId": "BillingService_UpdateSubscription",
@@ -300,7 +273,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -318,21 +291,72 @@
           "BillingService"
         ]
       }
+    },
+    "/api/billing/v1/subscription/{subscriptionID}": {
+      "delete": {
+        "summary": "CancelSubscription cancels a subscription.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`billing`\n\t\tCall:\t\t\t\t`CancelSubscription`\n\t\tScope:\t\t\t``",
+        "operationId": "BillingService_CancelSubscription",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CancelSubscriptionResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "subscriptionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BillingService"
+        ]
+      }
     }
   },
   "definitions": {
-    "protobufAny": {
+    "billingv1Status": {
       "type": "object",
       "properties": {
-        "@type": {
-          "type": "string",
-          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        "customerID": {
+          "type": "string"
+        },
+        "subscriptionID": {
+          "type": "string"
+        },
+        "productID": {
+          "type": "string"
+        },
+        "paymentMethodID": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
         }
-      },
-      "additionalProperties": {},
-      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := ptypes.MarshalAny(foo)\n     ...\n     foo := \u0026pb.Foo{}\n     if err := ptypes.UnmarshalAny(any, foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+      }
     },
-    "rpcStatus": {
+    "googlerpcStatus": {
       "type": "object",
       "properties": {
         "code": {
@@ -350,15 +374,30 @@
         }
       }
     },
-    "v1AccountRegisteredResponse": {
-      "type": "object"
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := ptypes.MarshalAny(foo)\n     ...\n     foo := \u0026pb.Foo{}\n     if err := ptypes.UnmarshalAny(any, foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
     },
-    "v1AddressParams": {
+    "v1AccountRegisteredResponse": {
+      "type": "object",
+      "properties": {
+        "customerID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BillingAddress": {
       "type": "object",
       "properties": {
         "city": {
-          "type": "string",
-          "title": "City       *string `form:\"city\"`\nCountry    *string `form:\"country\"`\nLine1      *string `form:\"line1\"`\nLine2      *string `form:\"line2\"`\nPostalCode *string `form:\"postal_code\"`\nState      *string `form:\"state\"`"
+          "type": "string"
         },
         "country": {
           "type": "string"
@@ -377,62 +416,14 @@
         }
       }
     },
-    "v1BillingData": {
-      "type": "object",
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/v1AddressParams"
-        },
-        "taxIDData": {
-          "$ref": "#/definitions/v1CustomerTaxIDDataParams"
-        }
-      }
-    },
-    "v1CancelSubscriptionRequest": {
-      "type": "object"
-    },
     "v1CancelSubscriptionResponse": {
-      "type": "object",
-      "properties": {
-        "subscription": {
-          "$ref": "#/definitions/v1Subscription"
-        }
-      }
-    },
-    "v1ChangeBillingDataRequest": {
-      "type": "object",
-      "properties": {
-        "addressParams": {
-          "$ref": "#/definitions/v1AddressParams"
-        },
-        "taxIDDataParams": {
-          "$ref": "#/definitions/v1CustomerTaxIDDataParams"
-        }
-      }
-    },
-    "v1ChangeBillingDataResponse": {
       "type": "object"
-    },
-    "v1ChangePaymentMethodRequest": {
-      "type": "object"
-    },
-    "v1ChangePaymentMethodResponse": {
-      "type": "object",
-      "properties": {
-        "clientSecret": {
-          "type": "string"
-        }
-      }
     },
     "v1CreateSubscriptionRequest": {
       "type": "object",
       "properties": {
         "priceID": {
           "type": "string"
-        },
-        "quantity": {
-          "type": "string",
-          "format": "int64"
         }
       }
     },
@@ -441,163 +432,51 @@
       "properties": {
         "subscriptionID": {
           "type": "string"
-        },
-        "clientSecret": {
-          "type": "string"
         }
       }
     },
-    "v1CustomerTaxIDDataParams": {
+    "v1GetBillingInfoResponse": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "title": "// Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`\nType *string `form:\"type\"`\n// Value of the tax ID.\nValue *string `form:\"value\"`"
+        "address": {
+          "$ref": "#/definitions/v1BillingAddress"
         },
-        "value": {
-          "type": "string"
+        "taxInfo": {
+          "$ref": "#/definitions/v1TaxInfo"
         }
       }
     },
-    "v1GetBillingStatusRequest": {
-      "type": "object"
-    },
-    "v1GetBillingStatusResponse": {
+    "v1GetPaymentMethodResponse": {
       "type": "object",
       "properties": {
-        "subscriptionStatus": {
-          "$ref": "#/definitions/v1SubscriptionStatus"
-        },
-        "billingData": {
-          "$ref": "#/definitions/v1BillingData"
-        },
-        "hasSetupPayment": {
-          "type": "boolean"
-        },
-        "hasSetupSubscription": {
-          "type": "boolean"
+        "paymentMethod": {
+          "$ref": "#/definitions/v1PaymentMethod"
         }
       }
     },
-    "v1InvoiceItem": {
+    "v1GetStatusInternalResponse": {
       "type": "object",
       "properties": {
-        "amount": {
-          "type": "string",
-          "format": "int64"
-        },
-        "currency": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "quantity": {
-          "type": "string",
-          "format": "int64"
-        }
-      }
-    },
-    "v1Price": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "active": {
-          "type": "boolean"
-        },
-        "billingScheme": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string",
-          "format": "int64"
-        },
-        "currency": {
-          "type": "string"
-        }
-      }
-    },
-    "v1ReportUsageResponse": {
-      "type": "object"
-    },
-    "v1Subscription": {
-      "type": "object",
-      "properties": {
-        "subscriptionID": {
-          "type": "string"
-        },
         "status": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string",
-          "format": "int64"
-        },
-        "startDate": {
-          "type": "string",
-          "format": "int64"
-        },
-        "currentPeriodStart": {
-          "type": "string",
-          "format": "int64"
-        },
-        "currentPeriodEnd": {
-          "type": "string",
-          "format": "int64"
-        },
-        "canceledAt": {
-          "type": "string",
-          "format": "int64"
-        },
-        "cancelAtPeriodEnd": {
-          "type": "boolean"
-        },
-        "clientSecret": {
-          "type": "string"
-        },
-        "subscriptionItem": {
-          "$ref": "#/definitions/v1SubscriptionItem"
+          "$ref": "#/definitions/billingv1Status"
         }
       }
     },
-    "v1SubscriptionItem": {
+    "v1GetStatusResponse": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string",
-          "format": "int64"
-        },
-        "quantity": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "price": {
-          "$ref": "#/definitions/v1Price"
+        "status": {
+          "$ref": "#/definitions/billingv1Status"
         }
       }
     },
-    "v1SubscriptionStatus": {
+    "v1PaymentMethod": {
       "type": "object",
       "properties": {
-        "subscriptionID": {
+        "paymentMethodID": {
           "type": "string"
         },
-        "priceID": {
-          "type": "string"
-        },
-        "quantity": {
-          "type": "string",
-          "format": "int64"
-        },
-        "productDescription": {
-          "type": "string"
-        },
-        "customerID": {
+        "paymentType": {
           "type": "string"
         },
         "cardBrand": {
@@ -606,48 +485,63 @@
         "cardLast4": {
           "type": "string"
         },
-        "nextAmmountDue": {
+        "cardExpDate": {
           "type": "string"
         },
-        "nextPaymentDate": {
+        "sepaLast4": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ReportUsageResponse": {
+      "type": "object"
+    },
+    "v1TaxInfo": {
+      "type": "object",
+      "properties": {
+        "type": {
           "type": "string"
         },
-        "lastAmountPaid": {
+        "value": {
           "type": "string"
+        }
+      }
+    },
+    "v1UpdateBillingInfoRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/v1BillingAddress"
         },
-        "lastInvoiceDescription": {
-          "type": "string"
-        },
+        "taxInfo": {
+          "$ref": "#/definitions/v1TaxInfo"
+        }
+      }
+    },
+    "v1UpdateBillingInfoResponse": {
+      "type": "object"
+    },
+    "v1UpdatePaymentMethodRequest": {
+      "type": "object"
+    },
+    "v1UpdatePaymentMethodResponse": {
+      "type": "object",
+      "properties": {
         "clientSecret": {
           "type": "string"
-        },
-        "invoiceItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1InvoiceItem"
-          }
         }
       }
     },
     "v1UpdateSubscriptionRequest": {
       "type": "object",
       "properties": {
-        "newPriceLookupKey": {
+        "newPriceID": {
           "type": "string"
-        },
-        "quantity": {
-          "type": "string",
-          "format": "int64"
         }
       }
     },
     "v1UpdateSubscriptionResponse": {
-      "type": "object",
-      "properties": {
-        "subscription": {
-          "$ref": "#/definitions/v1Subscription"
-        }
-      }
+      "type": "object"
     }
   }
 }

@@ -15,7 +15,8 @@
     }
   ],
   "schemes": [
-    "https"
+    "https",
+    "http"
   ],
   "consumes": [
     "application/json"
@@ -744,6 +745,112 @@
         ]
       }
     },
+    "/api/auth/v1/confirm-invitation": {
+      "post": {
+        "summary": "ConfirmInvitation set the processed_at date time, add the account role to user \nand make is disapper from ListOwnInvitations.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`ConfirmInvitation`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_ConfirmInvitation",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1ConfirmInvitationResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/create-invitation": {
+      "post": {
+        "summary": "CreateInvitation creates an invitation for the current account.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`CreateInvitation`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_CreateInvitation",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateInvitationResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountRole",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/api/auth/v1/deactivate-account": {
       "post": {
         "summary": "DeactivateAccount is dedicated for site admins and automated account management\nfrom other services, that create can active/deactivate accounts",
@@ -821,6 +928,59 @@
             "required": false,
             "type": "string",
             "format": "int64"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/delete-invitation": {
+      "post": {
+        "summary": "DeleteInvitation deletes an invitation for the current account.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`DeleteInvitation`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_DeleteInvitation",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteInvitationResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "useIdAsCode",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -959,6 +1119,116 @@
             }
           }
         },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/list-invitations": {
+      "get": {
+        "summary": "ListInvitations fetches all invitations made by the account",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`ListInvitations`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_ListInvitations",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1ListInvitationsResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/list-own-invitations": {
+      "get": {
+        "summary": "ListOwnInvitations fetches all invitations made for current user, which are not processed yet",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`ListOwnInvitations`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_ListOwnInvitations",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1ListOwnInvitationsResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
         "tags": [
           "AuthService"
         ]
@@ -1163,6 +1433,53 @@
             "name": "policyID",
             "in": "path",
             "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/api/auth/v1/reject-invitation": {
+      "post": {
+        "summary": "RejectInvitation set the processed_at and rejected_at date time, and make is disapper from ListOwnInvitations.",
+        "description": "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\t\t\t`RejectInvitation`\n\t\tScope:\t\t\t``",
+        "operationId": "AuthService_RejectInvitation",
+        "responses": {
+          "200": {
+            "description": "Returned when the call is successful.",
+            "schema": {
+              "$ref": "#/definitions/v1RejectInvitationResponse"
+            }
+          },
+          "403": {
+            "description": "Returned when the caller is not allowed to perform this call.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "500": {
+            "description": "Returned whenever an internall error occurs.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
             "type": "string"
           }
         ],
@@ -2403,6 +2720,18 @@
         }
       }
     },
+    "v1CheckInvitationResponse": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      }
+    },
     "v1CheckRegistrationResponse": {
       "type": "object",
       "properties": {
@@ -2460,6 +2789,9 @@
           "type": "boolean"
         }
       }
+    },
+    "v1ConfirmInvitationResponse": {
+      "type": "object"
     },
     "v1ContactDetails": {
       "type": "object",
@@ -2551,6 +2883,14 @@
         }
       }
     },
+    "v1CreateInvitationResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
     "v1CreateNewAccountRequest": {
       "type": "object",
       "properties": {
@@ -2636,6 +2976,9 @@
         },
         "phoneNumber": {
           "type": "string"
+        },
+        "language": {
+          "type": "string"
         }
       }
     },
@@ -2663,6 +3006,9 @@
       "type": "object"
     },
     "v1DeleteClientResponse": {
+      "type": "object"
+    },
+    "v1DeleteInvitationResponse": {
       "type": "object"
     },
     "v1DeletePolicyResponse": {
@@ -2752,6 +3098,14 @@
       "properties": {
         "config": {
           "$ref": "#/definitions/v1FederationConfig"
+        }
+      }
+    },
+    "v1GetInternalUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1InternalUser"
         }
       }
     },
@@ -2904,6 +3258,74 @@
         }
       }
     },
+    "v1InternalUser": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string"
+        },
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        }
+      }
+    },
+    "v1Invitation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "validTill": {
+          "type": "string",
+          "format": "int64"
+        },
+        "processedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "accountRole": {
+          "type": "string"
+        },
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "accountName": {
+          "type": "string"
+        },
+        "rejectedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "-- Invitations"
+    },
     "v1ListAccountRolesResponse": {
       "type": "object",
       "properties": {
@@ -2911,6 +3333,36 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1AccountRole"
+          }
+        }
+      }
+    },
+    "v1ListInvitationsResponse": {
+      "type": "object",
+      "properties": {
+        "totalCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "invitation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Invitation"
+          }
+        }
+      }
+    },
+    "v1ListOwnInvitationsResponse": {
+      "type": "object",
+      "properties": {
+        "totalCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "invitation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Invitation"
           }
         }
       }
@@ -3004,6 +3456,21 @@
         }
       }
     },
+    "v1ProcessInvitationResponse": {
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
     "v1ProcessRegistrationResponse": {
       "type": "object",
       "properties": {
@@ -3018,6 +3485,9 @@
           "type": "string"
         }
       }
+    },
+    "v1RejectInvitationResponse": {
+      "type": "object"
     },
     "v1RemoveAccountRoleResponse": {
       "type": "object"
